@@ -5,7 +5,7 @@ require 'mina/rbenv'
 
 set :user, 'deployer'
 set :domain, ENV['on'] == 'prod' ? '112.124.35.188' : '112.124.17.207'
-set :deploy_to, '/var/www/m'
+set :deploy_to, '/var/www/m/current'
 set :repository, 'git@github.com:GaaraLi/avalon_mall.git'
 set :term_mode, nil
 set :shared_paths, ['log', 'pids', 'config/database.yml', 'public/uploads']

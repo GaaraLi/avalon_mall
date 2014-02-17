@@ -1,0 +1,23 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: avalon_dev
+  pool: 5
+  username: root
+  password: realwol
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: avalon_test
+  pool: 5
+  username: root
+  password:
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: avalon_dev
+  pool: 5
+  username: root
+  password:

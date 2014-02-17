@@ -3,10 +3,10 @@ UNICORN_LOG_DIR = "#{APP_PATH}/shared/log"
 PID_DIR = "#{APP_PATH}/shared/pids"
 
 worker_processes 4
-working_directory  "#{APP_PATH}/current"
+working_directory  "#{APP_PATH}"
 
-listen "/tmp/unicorn.avalon.sock", :backlog => 64
-listen 8080, :tcp_nopush => true
+listen "/tmp/unicorn.avalon_mall.sock", :backlog => 64
+listen 8081, :tcp_nopush => true
 
 timeout 30
 

@@ -52,7 +52,7 @@ task :deploy, [:branch] => :environment do |t, args|
     invoke :'rails:assets_precompile'
     invoke :'setup_config'
   end
-  invoke :'rake[kindeditor:assets]'
+  #invoke :'rake[kindeditor:assets]'
 end
 
 %w{start stop}.each do |command|

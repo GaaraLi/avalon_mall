@@ -6,7 +6,7 @@ worker_processes 4
 working_directory  "#{APP_PATH}/current"
 
 listen "/tmp/unicorn.avalon_mall.sock", :backlog => 64
-listen 8080, :tcp_nopush => true
+listen 8081, :tcp_nopush => true
 
 timeout 30
 

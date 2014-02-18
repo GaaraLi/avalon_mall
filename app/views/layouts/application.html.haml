@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+  %title Mall
+  = stylesheet_link_tag    "application"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+
+
+  %body
+    =render "home/partial/top"
+    =render "home/partial/header"
+    =render "home/partial/nav"
+    =yield
+    =render "home/partial/footer"
+    =render "home/partial/return_top"

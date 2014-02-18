@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'unicorn'
 gem 'execjs'
 gem 'therubyracer'
+gem 'haml'
 
 group :doc do
   gem 'sdoc', require: false

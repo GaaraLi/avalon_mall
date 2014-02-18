@@ -1,0 +1,224 @@
+/*	fontfaimliy:	Microsoft Yahei*/
+body{
+	text-align:center;
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	HEIGHT: 100%;
+	COLOR: #2b2b2b;
+	FONT-SIZE: 12px;
+	PADDING-TOP: 0px;
+}
+select {
+	margin-right: 3px;
+	margin-left: 3px;
+}
+FIELDSET {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+span {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+td {
+	font-size: 12px;
+}
+
+UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+OL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+LI {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H1 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H2 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H3 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H4 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H5 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H6 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+P {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL {
+	LIST-STYLE-TYPE: none
+}
+OL {
+	LIST-STYLE-TYPE: none
+}
+H1 {
+	FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+H2 {
+	FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+H3 {
+	FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+H4 {
+	FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+H5 {
+	FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+H6 {
+	FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+em{
+	font-style:normal
+}
+IMG {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+/*超级链接样式*/
+A {
+	TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #666666
+}
+A:visited {
+	COLOR: #666666
+}
+A:hover {
+	COLOR: #FF4102; 
+	text-decoration: none;
+}
+A:active {
+	COLOR: #666666
+}
+/*灰色链接*/
+.Ink {
+	color:#d2d2d2
+}
+A.Ink:link {
+	COLOR: #d2d2d2
+}
+A.Ink:hover {
+	COLOR: #fd4401;
+}
+A.Ink:visited {
+	COLOR: #d2d2d2
+}
+/*红色链接*/
+.Red {
+	color:#FF4102
+}
+A.Red:link {
+	COLOR: #FF4102
+}
+A.Red:hover {
+	COLOR: #333333;
+}
+A.Red:visited {
+	COLOR: #AB011C
+}
+/*蓝色链接*/
+.Bule {
+	color:#5eafe4
+}
+A.Bule:link {
+	COLOR: #5eafe4
+}
+A.Bule:hover {
+	COLOR: #333333;
+}
+A.Bule:visited {
+	COLOR: #5eafe4
+}
+/*白色链接*/
+.Bai {
+	color:#ffffff
+}
+A.Bai:link {
+	COLOR: #ffffff
+}
+A.Bai:visited {
+	COLOR: #ffffff
+}
+/*橙色链接*/
+.Gold {
+	color:#E9AB00
+}
+A.Gold:link {
+	COLOR: #E9AB00
+}
+A.Gold:visited {
+	COLOR: #E9AB00
+}
+/*黑色链接*/
+.Black {
+	color:#000000
+}
+A.Black:link {
+	COLOR: #000000
+}
+A.Black:visited {
+	COLOR: #000000
+}
+/*橙色链接*/
+.Orange {
+	color:#FF7B3A
+}
+A.Orange:link {
+	COLOR: #FF7B3A
+}
+A.Orange:visited {
+	COLOR: #FF7B3A
+}
+/*返回顶部*/
+#tbox{
+	width:54px;
+	float:right;
+	position:fixed;
+	bottom:15px;
+	_position:absolute;
+	_bottom:auto;
+	_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+	_margin-bottom:15px;
+	right: 100px;
+}
+#pinglun,#xiangguan,#gotop{ 
+	width:54px; 
+	height:56px; 
+	background:url(/assets/test/icon.gif) no-repeat; 
+	display:block;
+}
+#pinglun{ 
+	background-position:0 0;
+}
+#xiangguan{ 
+	background-position:0 -59px;
+}
+#gotop{ 
+	background-position:0 -118px;
+} 

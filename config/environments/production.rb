@@ -77,5 +77,5 @@ IxcMall::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  ActionController::CgiRequest::DEFAULT_SESSION_OPTIONS.update(:session_domain => ".ixiangche.com")
+  config.action_controller.session :session_domain => '.ixiangche.com'
 end

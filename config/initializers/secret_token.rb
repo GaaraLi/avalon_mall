@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-IxcMall::Application.config.secret_key_base = '7c00b2e188b9a3c6335e24058d669b7ebf3a856234defddf3bd4b4b19073b0727263576ce2e7242527d96a4881a8a07b89e16be275c0833a1aa4d3e2c565625e'
+IxcMall::Application.config.secret_key_base = '6c947815958dca959244991f15b9defa275e2dcfc3381d4ea229a98f53e439a6470dca7c8ee64b35d7bdfe19f14ab33603b2349dd374f1e842d62df44860bdf2'

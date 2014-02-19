@@ -12,7 +12,7 @@ gem 'unicorn'
 gem 'execjs'
 gem 'therubyracer'
 gem 'haml'
-gem 'devise', '~>3.0.3'
+gem 'devise', '3.0.3'
 
 group :doc do
   gem 'sdoc', require: false

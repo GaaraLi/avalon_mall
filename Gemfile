@@ -12,6 +12,7 @@ gem 'unicorn'
 gem 'execjs'
 gem 'therubyracer'
 gem 'haml'
+gem 'devise'
 
 group :doc do
   gem 'sdoc', require: false

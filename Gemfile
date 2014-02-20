@@ -14,7 +14,3 @@ gem 'therubyracer'
 gem 'haml'
 gem 'devise', '3.0.3'
 
-group :doc do
-  gem 'sdoc', require: false
-end
-

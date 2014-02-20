@@ -10,7 +10,7 @@ set :repository, 'git@github.com:GaaraLi/avalon_mall.git'
 set :term_mode, nil
 set :shared_paths, ['log', 'pids', 'config/database.yml', 'public/uploads']
 set :term_mode, nil
-set :ruby_version, '2.0.0-p247'
+set :ruby_version, '2.0.0-p353'
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 set :JAVA_HOME, "/usr/local/java/jdk1.7.0_51" 
 #set :default_environment, 'JAVA_HOME' => "/usr/lib/jvm/java-6-openjdk-amd64"
@@ -29,7 +29,7 @@ task :provision do
   queue  "#{ruby_exists} || RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/bin rbenv install #{ruby_version}"
 
   #install bundle
-  queue  "#{ruby_exists} || rbenv local 2.0.0-p247"
+  queue  "#{ruby_exists} || rbenv local 2.0.0-p353"
   queue  "#{exists('gem')} || gem install bundle --no-ri --no-rdoc"
 
   #set up deploy to

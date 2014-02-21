@@ -1,0 +1,533 @@
+.banner
+  .banner_box.m
+    .banner_img.left
+      %a
+        %img{:src=> asset_path('test/img-07.jpg'), :width=>"220", :height=>"220", :border=>"0" }
+    .brand_info.Bai.left
+      %table{ :width=>"100%", :border=>"0", :cellspacing=>"0", :cellpadding=>"0" }
+        %tr
+          %td{:height=>"45"}
+            %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+              %tr
+                %td(width="120" height="40" align="right" valign="bottom" style="font-size:15px;") 车行名称：
+                %td(  valign="bottom" style="font-size:15px; color:#00FF00") 车之翼汽车服务有限公司
+                %td( width="50" align="center" valign="bottom") 等级：
+                %td( width="70" valign="bottom" style="color:#00FF00") ★★★★★
+        %tr
+          %td
+            %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+              %tr
+                %td( width="120" height="35" align="right" style="font-size:15px;") 城区：
+                %td( style="font-size:15px;") 陕西省西安市碑林区
+        %tr
+          %td
+            %table(  width="100%" border="0" cellspacing="0" cellpadding="0")
+              %tr
+                %td( width="120" height="35" align="right" style="font-size:15px;") 地址：
+                %td( style="font-size:15px;") 陕西省西安市碑林区某某街道多少号
+        %tr
+          %td
+            %table(  width="100%" border="0" cellspacing="0" cellpadding="0")
+              %tr
+                %td( width="120" height="35" align="right" style="font-size:15px;") 服务时间：
+                %td( style="font-size:15px;") 早8.00~晚9.00
+        %tr
+          %td
+            %table(  width="100%" border="0" cellspacing="0" cellpadding="0")
+              %tr
+                %td( width="120" height="35" align="right" style="font-size:15px;") 服务项目：
+                %td( style="font-size:15px;") 洗车、打蜡、常规保养
+    .brand_map.right 地图
+    .clear
+
+.wrap
+  #div
+    .module_filter
+      %ul.module_filter_nav
+        %li.module_now
+          %a.Red
+            %b 美容装潢
+        %li
+          %a
+            %b 维修保养
+        %li
+          %a
+            %b 轮胎、轮毂
+        %li
+          %a
+            %b 维修、改装
+      .both
+      .contain_list( ecvalue="brand")
+        %ul.ul_brand
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+          %li
+            %a.BlueP
+              装饰品
+              %b.Bule (25)
+  .part_03
+    .Proclass.left
+      .Dfilter
+        %h3
+          %b.Red 车行认证信息
+        .Dfilter
+          %img{ :src=>asset_path("test/Renzheng.jpg"), :width=>"191", :height=>"167", :border=>"0"}
+      .hot_product
+        %h3.B 热销产品
+        .hot_productLi
+          .p_img
+            %a
+              %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
+          .p_title
+            %a 米其林 205/55R16【自营】北上广等多省市包快
+          .p_price
+            %span ￥
+            %b 699
+            %span .00
+        .hot_productLi
+          .p_img
+            %a
+              %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
+          .p_title
+            %a 米其林 205/55R16【自营】北上广等多省市包快
+          .p_price
+            %span ￥
+            %b 699
+            %span .00
+        .hot_productLi
+          .p_img
+            %a
+              %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
+          .p_title
+            %a 米其林 205/55R16【自营】北上广等多省市包快
+          .p_price
+            %span ￥
+            %b 699
+            %span .00
+      .hot_ad01(style="padding-top:10px")
+        %img{ :src=>asset_path("test/img-11.jpg"), :width=>"255", :height=>"255"}
+      .hot_ad02(style="padding-top:10px")
+        %img{ :src=>asset_path("test/img-12.jpg"), :width=>"255", :height=>"255"}
+    .filter.right
+      %h3.Befilter.panl_Red
+        %strong
+          找到相关产品
+          %b.Bule 115821
+          结果
+      .sift
+        .Hlu.left 筛选搜索结果：
+        .sift-li.left
+          %a
+            %span 维修保养
+      .clear
+      .filter_line
+      .good_dertips.panl_th
+        %a.left 全选
+        %span.left |
+        %a.left 反选
+        %input.s3.left(  type="submit" name="Submit3" value="批量购买"  onmouseover="this.className='s3On'" onmouseout="this.className='s3'")
+        %a#good_enquiry.left{:style=>"display:none"}
+          %s 发送询价
+        %a#good_basket.left{:style=>"display:none"}
+          %s 发送询价
+        %a#good_basket.left{:style=>"display:none"}
+          %s 发送询价
+      .good_filter.panl_th
+        .show_model.left
+          %a.img_list 按销量进行排行
+        .show_collate.left
+          %span.Numline.left |
+          .order_menu.left
+            %a 默认排序
+            .Omenu{:style=>"display:none;"}
+              %a 销量
+              %a 信用度
+              %a 价格从高到低
+              %a 价格从低到高
+              %a 浏览量
+              %a 上架时间
+        .top_page.right
+          .page1
+            %span.former_no01
+            %a.prev
+            %a.next
+            %a.former_no02
+
+      .item_notfound( style="display:none;")
+        %h3
+          %img{:src=> asset_path("test/global_notfoundBG.jpg"), :width=>"714", :height=>"85" }
+        .query.path01
+          %p.query_hd
+            %b 建议：
+          %p.query_Li
+            检查输入的关键词有无文字错误；
+          %p.query_Li
+            尽量使用简洁的核心关键字查询。如直接查询“刘越”比查询“演员赵薇”效果更好；
+          %p.query_Li
+            使用空格键将多个关键字分开，扩大搜索面。如要查询刘德华的歌曲，请输入“刘德华歌曲”；
+          %p.query_Li
+            使用其它语义相同或者相近的词组
+          .query_Link.path02
+            %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+              %tr
+                %td( width="13" height="32") &nbsp;
+                %td( align="top")
+                  %table( width="580" border="0" cellpadding="0" cellspacing="1" bgcolor="#ECECEC")
+                    %tr
+                      %td( height="30" bgcolor="#F7F7F7")
+                        %table( width="580" border="0" cellpadding="0" cellspacing="0")
+                          %tr
+                            %td( width="100" height="30" align="center")
+                              %b 您是不是想找：
+                            %a.Bule 空压机
+                            %a.Bule 制冷压缩机
+                            %a.Bule 单螺杆压缩机
+      .item_list_table( style="padding-top:20px;")
+        %ul#itemList
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+          %li.path
+            .img_check.left
+              %input( type="checkbox" name="checkbox" value="checkbox" )
+            .img_effect.left
+              .photo
+                .baspoint
+                  %b 该产品已加入到购物车
+                  %a#close( title="关闭此提示")
+                %a
+                  %img{ :src=> asset_path("test/img-08.jpg"), :width=>"199", :height=>"200"}
+                %a#attentionmenu{:title=>"关注此商品"}
+                .attention
+              %h3.proname(style="font-size:14px")
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .item_Menu.path01
+                %a#enquiry_Menu{ :title=>"立即购买"}
+                  %s 立即购买
+                %a#joinenq_Menu{ :title=>"加入到购物车"}
+                  %s 加入到购物车
+        .clear
+        .pagebar
+          .page-bottom.right
+            %span.page_start
+            %a.page_curOn 1
+            %a.page_cur 2
+            %a.page_cur 3
+            %a.page_cur 4
+            %a.page_cur 5
+            %span.page_omit ...
+            %a.next 下一页
+          .page-bottom.right
+            %a.back 上一页
+            %span.page_omit ...
+            %a.page_cur 96
+            %a.page_cur 97
+            %a.page_cur 98
+            %a.page_cur 99
+            %a.page_cur 100
+            %span.page_startR
+          .page_txt.right
+            本次搜索结果共
+            %b.Bule 100
+            页
+        .clear
+      .clear
+    .h_ad(style="padding-top:10px;")
+      %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0" }
+

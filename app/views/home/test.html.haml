@@ -1,3 +1,10 @@
+current_user
+-if current_user
+  =current_user.name
+
+hello world
 
 =@test.email
-=current_user
+-@vendors= Vendor.all
+-@vendors.each do |v|
+  %a{:href => vendor_path(v)}= v.name

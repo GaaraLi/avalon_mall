@@ -1,10 +1,11 @@
-current_user
--if current_user
-  =current_user.name
 
 hello world
-
-=@test.email
--@vendors= Vendor.all
+= current_customer.email
+= link_to " log in",new_customer_session_path
+%br
 -@vendors.each do |v|
-  %a{:href => vendor_path(v)}= v.name
+  =link_to v.name,vendor_path(v)
+
+%br
+-@goods.each do |g|
+  =link_to g.title, good_path(g)

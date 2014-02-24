@@ -3,8 +3,10 @@ IxcMall::Application.routes.draw do
   get "vendors/show"
   root "home#index"
   get 'test' => 'home#test'
+  devise_for :customers
 
     resources :vendors
+    resources :goods
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,6 +1,6 @@
 /*商城样式 !important*/
 body {
-	background-color: #FFFFFF;
+	background-color: #f8f8f8;
 	font-family: "Microsoft Yahei","Tahoma","SimSun";
     font-size: 14px;
 }
@@ -212,550 +212,265 @@ a#shop_car s {
 }
 /*第一部分*/
 .banner {
-	height: 280px;
-	background-image: url(../images/BrandHBG.jpg);
-	background-repeat: repeat-x;
+	height: 350px;
+	background-image: url(../images/brandBannerBG.jpg);
+	background-repeat: repeat;
 	background-position: 0px 0px;
 }
 .banner .banner_box {
-	width: 920px;
+	width: 960px;
 	text-align: left;
-	height: 250px;
+	height: 350px;
 	background-image: url(../images/banner.jpg);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
-	padding-top: 30px;
-	padding-right: 30px;
+}
+.banner_box .banner_companyinformation {
+	width: 190px;
+	height: 350px;
+}
+.banner_information_box {
+	background-image: url(../images/brand.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 288px;
+	width: 160px;
+	padding: 15px;
+}
+.information_title {
+	background-color: #121420;
+	height: 32px;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 32px;
 	padding-left: 10px;
 }
-.banner_box .banner_img {
-	width: 220px;
-	height: 220px;
-	padding-right: 20px;
-}
-.banner_box .brand_info {
-	background:rgba(0, 0, 0, 0.7) none repeat scroll 0 0 !important;
-	filter:Alpha(opacity=40); 
-	background:#333333;
-	width: 450px;
-	height: 230px;
-}
-.banner_box .brand_map {
-	width: 200px;
-	height: 200px;
-	background-color: #FFFFFF;
-}
-/*border-radius: 3px; 圆角样式*/
-
 /*第二部分*/
-.module_filter {
-	padding-bottom:10px;
-	border-top-width: 1px;
+.main_box .main_info {
+	width: 172px;
+	background-color: #FFFFFF;
 	border-right-width: 1px;
-	border-bottom-width: 3px;
+	border-bottom-width: 1px;
 	border-left-width: 1px;
-	border-top-style: solid;
 	border-right-style: solid;
 	border-bottom-style: solid;
 	border-left-style: solid;
-	border-top-color: #FF0000;
-	border-right-color: #E6E6E6;
-	border-bottom-color: #E6E6E6;
-	border-left-color: #E6E6E6;
+	border-right-color: #e5e5e5;
+	border-bottom-color: #e5e5e5;
+	border-left-color: #e5e5e5;
+	padding: 8px;
+	overflow: hidden;
 }
-.module_filter_nav {
-	height: 29px;
+.main_info .main_info_ico {
+	height: 125px;
+}
+.main_info_ico .main_infoico01 {
+	background-image: url(../images/brandBodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -257px -320px;
 	display: block;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: repeat-x;
-	background-position: left -182px;
+	height: 55px;
+	width: 54px;
+	margin: 0px;
+	padding: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
 }
-.module_filter_nav li {
+.main_info_ico .main_infoico02 {
+	background-image: url(../images/brandBodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -316px -320px;
 	display: block;
-	float: left;
-	height: 29px;
-	line-height: 28px;
-	padding-right: 15px;
-	padding-left: 15px;
-	border-right-width: 1px;
-	border-right-style: solid;
-	border-right-color: #E6E6E6;
+	height: 55px;
+	width: 54px;
+	padding: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 3px;
 }
-.module_filter_nav li.module_now {
-	background-color: #FFFFFF;
-}
-.contain_list ul.ul_brand {
+.main_info_ico .main_infoico03 {
+	background-image: url(../images/brandBodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -375px -320px;
 	display: block;
-	padding-top: 15px;
-	padding-bottom: 10px;
-	font-size:12px;
+	height: 55px;
+	width: 54px;
+	padding: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 3px;
 }
-.contain_list ul.ul_attr {
-	width: 670px;
+.main_info_ico .main_infoico04 {
+	background-image: url(../images/brandBodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -434px -320px;
 	display: block;
-	padding-top: 15px;
-	padding-bottom: 10px;
-	padding-left: 15px;
-	float: left;
+	height: 55px;
+	width: 54px;
+	padding: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-top: 3px;
 }
-.ul_attr li {
-	float: left;
-	width: 670px;
-	display: block;
-	padding-bottom: 5px;
+.main_info_map .map_content {
+	padding-bottom: 15px;
+}
+.main_info .main_hot_pro {
 	border-bottom-width: 1px;
 	border-bottom-style: dashed;
-	border-bottom-color: #D8D8D8;
-	padding-top: 5px;
+	border-bottom-color: #CCCCCC;
 }
-.ul_attr li .ul_attrtxt {
-	padding-bottom: 6px;
-	padding-right: 15px;
-	height: 100%;
-}
-.ul_attr li .ul_attrLi {
-	line-height: 19px;
-}
-.ul_attrLi a {
-	padding-right: 10px;
-}
-
-.ul_brand li {
+.main_info_map h3 {
+	line-height: 25px;
 	display: block;
-	float: left;
-	height: 20px;
-	margin-left: 15px;
-}
-.contain_list {
-	overflow: auto;
-}
-.Befilter strong {
-	background-image: url(../images/golbal_ico.gif);
-	background-repeat: no-repeat;
-	background-position: -234px -256px;
-	padding-left: 18px;
-}
-/*第三部分*/
-.part_03 {
-	padding-top: 6px;
-	padding-bottom:25px;
-}
-.Proclass {
-	width: 235px;
-}
-.filter {
-	width: 715px;
-	overflow: hidden;
-	font-size:12px
-}
-.filter h3.Befilter {
-	height: 20px;
-	display: block;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-left: 5px;
-	position: relative;
-}
-.filter .sift {
-	width: 100%;
-	position: relative;
-	padding-top: 15px;
-}
-.filter_line {
-	height: 14px;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #e6e6e6;
-}
-.sift .Hlu {
-	height: 20px;
-	padding-left: 22px;
-	padding-right: 5px;
-}
-.sift-li {
-	width: 580px;
-	overflow: hidden;
-}
-.sift-li a {
-	display: block;
-	float: left;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -634px;
-	padding-left: 6px;
-	line-height: 20px;
-	text-decoration: none;
-	margin-right: 3px;
-	margin-bottom: 5px;
-}
-.sift-li a span {
-	display: block;
-	padding-right: 22px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -634px;
-	height: 20px;
-	cursor:pointer;
-	float: left;
-}
-.sift-li a:hover {
-	display: block;
-	float: left;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -609px;
-	padding-left: 6px;
-	line-height: 20px;
-	text-decoration: none;
-	margin-right: 3px;
-	margin-bottom: 5px;
-}
-.sift-li a:hover span {
-	display: block;
-	padding-right: 22px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -609px;
-	height: 20px;
-	cursor:pointer;
-	float: left;
-}
-.Proclass {
-	width: 235px;
-}
-.good_dertips {
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: repeat-x;
-	background-position: left -100px;
-	height: 29px;
-	padding-top: 6px;
-	padding-right: 15px;
-	padding-left: 15px;
-}
-.good_dertips a {
-	display: block;
-	line-height: 22px;
-	height: 22px;
-	padding-right: 5px;
-	padding-left: 5px;
-}
-.good_dertips #good_enquiry {
-	margin-left: 10px;
-	display: block;
-	height: 22px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -25px;
-	float: left;
-	padding-left: 10px;
-	padding-right: 0px;
-	text-decoration: none;
-}
-.good_dertips #good_enquiry s {
-	text-decoration: none;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -25px;
-	display: block;
-	float: left;
-	height: 22px;
-	padding-right: 10px;
-	cursor: pointer;
-}
-.good_dertips #good_basket {
-	margin-left: 5px;
-	display: block;
-	height: 22px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -25px;
-	float: left;
-	padding-left: 10px;
-	padding-right: 0px;
-	text-decoration: none;
-}
-.good_dertips #good_basket s {
-	text-decoration: none;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -25px;
-	display: block;
-	float: left;
-	height: 22px;
-	padding-right: 10px;
-	cursor: pointer;
-}
-.good_dertips span {
-	line-height: 20px;
-	color: #c4c4c4;
-}
-.good_filter {
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: repeat-x;
-	background-position: left -140px;
-	height: 28px;
-	padding-top: 9px;
-	padding-right: 15px;
-	padding-left: 15px;
-}
-.show_model {
-	height: 15px;
-}
-.show_model a {
-	margin-right: 5px;
-	margin-left: 5px;
-}
-.show_model span.img_list {
-	background-image: url(../images/golbal_ico.gif);
-	background-repeat: no-repeat;
-	background-position: left -894px;
-	height: 15px;
-	font-weight: bold;
-	margin-right: 5px;
-	margin-left: 5px;
-}
-.show_model a.sort_list {
-	background-image: url(../images/golbal_ico.gif);
-	background-repeat: no-repeat;
-	background-position: left -924px;
-	padding-left: 20px;
-	height: 15px;
-}
-.show_model a.img_list {
-	height: 20px;
-	
-}
-.show_model span.sort_list {
-	background-image: url(../images/golbal_ico.gif);
-	background-repeat: no-repeat;
-	background-position: left -944px;
-	padding-left: 20px;
-	height: 15px;
-	font-weight: bold;
-	margin-right: 5px;
-	margin-left: 5px;
-}
-.good_filter .show_collate {
-	padding-left: 35px;
-}
-.show_collate span.Numline {
-	color: #dfdfdf;
-	font-size: 14px;
-	padding-right: 10px;
-}
-.good_filter .location {
-	padding-left: 10px;
-}
-.location span.Numline {
-	color: #dfdfdf;
-	font-size: 14px;
-	padding-right: 5px;
-	display:block;
-}
-.order_menu {
-	height: 20px;
-	width: 98px;
-	position: relative;
-	z-index: 6;
-}
-.order_menu a#lmenu {
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: -128px -659px;
-	display: block;
-	height: 20px;
-	width: 92px;
-	line-height: 20px;
-	padding-left: 6px;
-	color: #786060;
-	text-decoration: none;
-}
-.order_menu a#lmenu:hover {
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: -227px -659px;
-	display: block;
-	height: 20px;
-	width: 92px;
-	line-height: 20px;
-	padding-left: 6px;
-	color: #786060;
-	text-decoration: none;
-}
-.order_menu .Omenu {
-	background-color: #FFFFFF;
-	height: 138px;
-	width: 96px;
-	border: 1px solid #c3c3c3;
-	position: absolute;
-	z-index: 998;
-	top: 19px;;
-}
-.order_menu .Omenu a {
-	display: block;
-	height: 23px;
-	padding-left: 10px;
-	line-height: 23px;
-	color: #785F5A;
-	text-decoration: none;
-}
-.order_menu .Omenu a:hover {
-	display: block;
-	height: 23px;
-	padding-left: 10px;
-	line-height: 23px;
-	color: #332828;
-	background-color: #ECEED9;
-}
-.location_menu {
-	height: 20px;
-	width: 63px;
-	position: relative;
-	z-index: 2;
-}
-.location_menu a#lmenu {
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -659px;
-	display: block;
-	height: 20px;
-	width: 57px;
-	line-height: 20px;
-	padding-left: 6px;
-	color: #786060;
-	text-decoration: none;
-}
-.location_menu a#lmenu:hover {
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: -64px -659px;
-	display: block;
-	height: 20px;
-	width: 57px;
-	line-height: 20px;
-	padding-left: 6px;
-	color: #786060;
-	text-decoration: none;
-}
-.location_menu .Lmenu {
-	height: 360px;
-	width: 250px;
-	border: 1px solid #DDD9D6;
-	position: absolute;
-	background-color: #FFFFFF;
-	top: 19px;
-}
-ul.Lmenu-Li li{
 	height: 25px;
-	width: 60px;
-	display: block;
-	position: relative;
 }
-.Lmenu-Li li.one{
-	z-index: 20;
+.main_box .main_product {
+	width: 761px;
 }
-.Lmenu-Li li.two{
-	z-index: 19;
-}
-.Lmenu-Li li.three{
-	z-index: 18;
-}
-.Lmenu-Li li.four{
-	z-index: 17;
-}
-.Lmenu-Li li.five{
-	z-index: 16;
-}
-.Lmenu-Li li.six{
-	z-index: 15;
-}
-.Lmenu-Li li.seven{
-	z-index: 14;
-}
-.Lmenu-Li li.eight{
-	z-index: 13;
-}
-.Lmenu-Li li.nine{
-	z-index: 12;
-}
-.Lmenu-Li li.ten{
-	z-index: 11;
-}
-.Lmenu-Li li.eleven{
-	z-index: 10;
-}
-.Lmenu-Li li.twelve{
-	z-index: 9;
-}
-.Lmenu-Li li.thirteen{
-	z-index: 8;
-}
-.Lmenu-Li li.fourteen{
-	z-index: 7;
-}
-ul.Lmenu-Li li a{
-	padding-left: 5px;
-	padding-top: 3px;
-	height: 22px;
-	width: 60px;
-	display: block;
-	position: absolute;
-	z-index: 25;
-}
-.Lmenu-Li li .upDiv {
-	height: 18px;
-	width: 65px;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -684px;
-	z-index: 24;
-}
-.Lmenu-Li li .downDiv {
-	height: 27px;
-	width: 190px;
-	position: absolute;
-	left: 0px;
-	top: 18px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -702px;
-	z-index: 30;
-	padding-top: 8px;
-	padding-left: 9px;
-}
-.downDiv select {
-	width: 180px;
-	height: 20px;
-}
-.sele {
-	line-height: 20px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -743px;
-	height: 20px;
-	width: 175px;
-	padding-left: 5px;
-}
-.sele span {
-	display: block;
-	cursor: pointer;
-}
-.dcont {
-	overflow: auto;
+.main_product .news_tui {
+	height: 275px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #e6e6e6;
+	border-left-color: #e6e6e6;
+	border-bottom-color: #e6e6e6;
 	background-color: #FFFFFF;
-	height: 150px;
-	width: 178px;
-	border: 1px solid #B9C7D0;
-	position: absolute;
-	z-index: 999;
-	top: 27px;
 }
-p.dcont_On {
-	background-color: #F3F8FA;
+.news_tui .part03line {
+	background-image: url(../images/LineBG.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px -4px;
+	margin: 0px;
+	padding: 0px;
+	height: 2px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
 }
+.main_product .cars_tui {
+	height: 305px;
+	margin-top: 6px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #e6e6e6;
+	border-left-color: #e6e6e6;
+	border-bottom-color: #e6e6e6;
+	background-color: #FFFFFF;
+}
+.cars_tui .part03line {
+	background-image: url(../images/LineBG.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px -8px;
+	margin: 0px;
+	padding: 0px;
+	height: 2px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+.cars_tui .part_carli {
+	height: 235px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+}
+.part_carli li {
+	display: block;
+	float: left;
+	height: 110px;
+	width: 275px;
+	background-color: #EBEBEB;
+	border: 1px solid #E1E1E1;
+	margin-right: 25px;
+	margin-bottom: 10px;
+}
+.part_carli .carli_l {
+	padding: 10px;
+	width: 145px;
+}
+.carli_l h3 {
+	font-size: 14px;
+	height:1.5em;
+}
+.carli_l h4 {
+	font-size: 16px;
+}
+.carli_l h5 {
+	display: block;
+	padding-top: 10px;
+}
+.main_product h3.part_03hd {
+	line-height: 45px;
+	height: 45px;
+	padding-left: 15px;
+	display: block;
+	font-size: 20px;
+}
+.part_03list {
+	height: 200px;
+	width: 736px;
+	padding-top: 15px;
+	padding-left: 25px;
+}
+.part_03list .part_list li {
+	height: 200px;
+	width: 175px;
+	display: block;
+	float:left;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.part_list .p_img {
+	height: 135px;
+	width: 175px;
+	overflow: hidden;
+}
+.part_list .p_title {
+	height: 3em;
+	font-size:12px;
+	margin-bottom: 2px;
+	padding-right: 10px;
+}
+.part_list .p_price {
+    color: #E4393C;
+    font-family: Verdana;
+    font-size: 15px;
+}
+.part_list .p_price span {
+    font-size: 12px;
+}
+/*border-radius: 3px; 圆角样式*/
+
+
+/*第三部分*/
 .dcont .menu_li {
 	width: 161px;
 	height: 150px;
@@ -846,354 +561,6 @@ p.dcont_On {
 	padding-left: 14px;
 	height: 18px;
 	vertical-align: middle;
-}
-.good_tab {
-	background-color: #F8F8F8;
-	height: 27px;
-}
-.good_tab p {
-	line-height: 27px;
-}
-.good_tab .good_tab01 {
-	width: 135px;
-	padding-left: 15px;
-	border-right-width: 1px;
-	border-right-style: solid;
-	border-right-color: #e6e6e6;
-}
-.good_tab .good_tab02 {
-	width: 285px;
-	padding-left: 15px;
-	border-right-width: 1px;
-	border-right-style: solid;
-	border-right-color: #e6e6e6;
-}
-.good_tab .good_tab03 {
-	width: 125px;
-	padding-left: 15px;
-	border-right-width: 1px;
-	border-right-style: solid;
-	border-right-color: #e6e6e6;
-}
-.good_tab .good_tab04 {
-	padding-left: 15px;
-}
-.item_list_table {
-	clear: both;
-	margin-bottom: 10px;
-}
-#itemList li {
-	padding-top: 0;
-	padding-right: 5px;
-	padding-bottom: 0;
-	padding-left: 5px;
-	position: relative;
-	float: left;
-	z-index: 1;
-}
-#itemList li .img_check {
-	width: 22px;
-	height: 50px;
-}
-
-#itemList li .img_effect {
-	height: 320px;
-	width: 203px;
-}
-.img_effect .photo {
-	height: 202px;
-	margin-top: 3px;
-	position: relative;
-}
-.photo .baspoint {
-	position: absolute;
-	right: 3px;
-	top: 0px;
-	height: 26px;
-	width: 149px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -221px;
-	padding-top: 4px;
-}
-.baspoint b {
-	font-weight: normal;
-	color: #478EAE;
-	padding-left: 8px;
-}
-.baspoint a#close {
-	-moz-box-align: center;
-    -moz-box-pack: center;
-	vertical-align: top;
-	height: 12px;
-	width: 6px;
-	position: relative;
-	background-image: url(../images/golbal_ico.gif);
-	background-repeat: no-repeat;
-	background-position: -248px -720px;
-	display: inline-block;
-	margin-left: 3px;
-}
-.photo a#attentionmenu {
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -266px;
-	height: 12px;
-	width: 12px;
-	position: absolute;
-	right: 3px;
-	bottom: 1px;
-}
-.photo .attention {
-	position: absolute;
-	right: -30px;
-	bottom: 12px;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -221px;
-	height: 25px;
-	width: 69px;
-}
-.photo img {
-	height: 198px;
-	width: 197px;
-	border: 2px solid #c1c1c1;
-}
-.img_effect h3.proname {
-	height: 40px;
-	padding-top: 10px;
-	line-height: 16px;
-}
-.img_effect .Iminfo {
-	height: 18px;
-}
-.Iminfo a#IMqq {
-	display: inline-block;
-	height: 18px;
-	width: 20px;
-	background-image: url(../images/IMico.gif);
-	background-repeat: no-repeat;
-	background-position: left 0px;
-}
-.Iminfo a#IMww {
-	display: inline-block;
-	height: 18px;
-	width: 20px;
-	background-image: url(../images/IMico.gif);
-	background-repeat: no-repeat;
-	background-position: left -18px;
-}
-.Iminfo a#IMsk {
-	display: inline-block;
-	height: 18px;
-	width: 20px;
-	background-image: url(../images/IMico.gif);
-	background-repeat: no-repeat;
-	background-position: left -39px;
-}
-.shop_name a#IMqq {
-	display: inline-block;
-	height: 18px;
-	width: 20px;
-	background-image: url(../images/IMico.gif);
-	background-repeat: no-repeat;
-	background-position: left 0px;
-}
-.shop_name a#IMww {
-	display: inline-block;
-	height: 18px;
-	width: 20px;
-	background-image: url(../images/IMico.gif);
-	background-repeat: no-repeat;
-	background-position: left -18px;
-}
-.shop_name a#IMsk {
-	display: inline-block;
-	height: 18px;
-	width: 20px;
-	background-image: url(../images/IMico.gif);
-	background-repeat: no-repeat;
-	background-position: left -39px;
-}
-.img_effect .item_Menu {
-	height: 20px;
-}
-.item_Menu a {
-	display: block;
-	float: left;
-	height: 20px;
-}
-.item_Menu #enquiry_Menu {
-	display: block;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left 0;
-	float: left;
-	padding-left: 10px;
-	padding-right: 0px;
-	text-decoration: none;
-	line-height: 19px;
-}
-.item_Menu #enquiry_Menu s {
-	text-decoration: none;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -52px;
-	display: block;
-	float: left;
-	padding-right: 10px;
-	cursor: pointer;
-}
-.item_Menu #joinenq_Menu {
-	margin-left: 5px;
-	display: block;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -283px;
-	float: left;
-	padding-left: 10px;
-	padding-right: 0px;
-	text-decoration: none;
-	line-height: 19px;
-}
-.item_Menu #joinenq_Menu s {
-	text-decoration: none;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -283px;
-	display: block;
-	float: left;
-	padding-right: 10px;
-	cursor: pointer;
-}
-#item_List li {
-	padding-top: 15;
-	padding-bottom: 15;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #efefef;
-	height: 120px;
-}
-#item_List li.end_li {
-	height: 62px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-}
-
-#item_List .photo_li {
-	height: 110px;
-	width: 110px;
-	padding-left: 5px;
-	position: relative;
-	z-index: 5;
-}
-.Bigphoto_li img {
-	height: 194px;
-	width: 193px;
-	margin-top: 4px;
-	margin-left: 12px;
-	z-index: 2;
-}
-#item_List .detailed {
-	width: 555px;
-}
-.photo_li a img {
-	height: 104px;
-	width: 104px;
-	border: 3px solid #e6e6e6;
-	z-index: 1;
-}
-.photo_li a:hover img {
-	height: 104px;
-	width: 104px;
-	border: 3px solid #dc2320;
-}
-.photo_li a#attentionmenu {
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -266px;
-	height: 12px;
-	width: 12px;
-	position: absolute;
-	right: 0px;
-	bottom: 1px;
-}
-.attribute_nav {
-	height: 55px;
-}
-.attribute_nav h3#protitle {
-	line-height: 18px;
-	width: 280px;
-	padding-right: 15px;
-}
-.attribute_nav h3#proprice {
-	width: 130px;
-	padding-right: 10px;
-	padding-left: 10px;
-}
-.attribute_nav h3#protime {
-	width: 100px;
-	padding-left: 5px;
-}
-.shop_name {
-	height: 25px;
-}
-.shop_name img {
-	margin-right: 5px;
-	margin-left: 5px;
-}
-.shop_menu {
-	height: 20px;
-}
-.shop_menu a {
-	display: block;
-	float: left;
-	height: 20px;
-}
-.shop_menu #enquiry_Menu {
-	display: block;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left 0;
-	float: left;
-	padding-left: 10px;
-	padding-right: 0px;
-	text-decoration: none;
-	line-height: 19px;
-}
-.shop_menu #enquiry_Menu s {
-	text-decoration: none;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -52px;
-	display: block;
-	float: left;
-	padding-right: 10px;
-	cursor: pointer;
-}
-.shop_menu #joinenq_Menu {
-	margin-left: 5px;
-	display: block;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: left -283px;
-	float: left;
-	padding-left: 10px;
-	padding-right: 0px;
-	text-decoration: none;
-	line-height: 19px;
-}
-.shop_menu #joinenq_Menu s {
-	text-decoration: none;
-	background-image: url(../images/golbal_classBG.gif);
-	background-repeat: no-repeat;
-	background-position: right -283px;
-	display: block;
-	float: left;
-	padding-right: 10px;
-	cursor: pointer;
 }
 .pagebar {
 	height: 20px;
@@ -1360,7 +727,6 @@ p.dcont_On {
 	height: 20px;
 	display: block;
 }
-
 .hot_product h3 {
 	background-color: #F8F8F8;
 	height: 30px;
@@ -1374,7 +740,20 @@ p.dcont_On {
 .hot_product .hot_productLi {
 	padding: 15px;
 }
-
+.part_list .p_title {
+	height: 3em;
+	font-size:12px;
+	margin-bottom: 2px;
+	padding-right: 10px;
+}
+.part_list .p_price {
+    color: #E4393C;
+    font-family: Verdana;
+    font-size: 15px;
+}
+.part_list .p_price span {
+    font-size: 12px;
+}
 
 .panl{
 	border: 1px solid #e5e5e5;

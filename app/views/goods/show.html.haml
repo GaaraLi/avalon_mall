@@ -1,0 +1,180 @@
+=render "home/partial/nav"
+.header_position{:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+  .postiton_txt.m
+    %a 首页
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a 导航商品
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a 电子狗
+.wrap
+  .main_goods_box
+    .main_goods_img.left
+      .main_goods_photo
+        .label
+          %img{:src=>asset_path("test/img-16.jpg"), :width=>"340", :height=>"260", :border=>"0"}
+        %h3
+          %a.left
+            %img{:src=>asset_path("test/img-16.jpg"), :width=>"53", :height=>"53", :border=>"0" }
+          %a.left
+            %img{:src=>asset_path("test/img-16.jpg"), :width=>"53", :height=>"53", :border=>"0" }
+          %a.left
+            %img{:src=>asset_path("test/img-16.jpg"), :width=>"53", :height=>"53", :border=>"0" }
+          %a.left
+            %img{:src=>asset_path("test/img-16.jpg"), :width=>"53", :height=>"53", :border=>"0" }
+          %a.left
+            %img{:src=>asset_path("test/img-16.jpg"), :width=>"53", :height=>"53", :border=>"0" }
+      %h4
+        .main_info_ico
+          %p.main_infoico01.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+          %p.main_infoico02.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+          %p.main_infoico03.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+          %p.main_infoico05.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+    .main_goods_operation.left
+      %h1 征途电子狗跃途ZT325(固定流动测速一体机、红色)
+      %h2 (迎五一大酬宾，现推出8折活动)
+      %h3
+        原价：
+        %i ￥220
+        %span {价格说明}
+      %h4
+        享车特价：
+        %b ￥180
+        %span {价格说明}
+      %h4
+        VIP价格：
+        %strong ￥160
+        %span {价格说明}
+      %h5
+        %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+          %tr
+            %td(  width="80" height="33") 数量选择：
+            %td(  width="105")
+              %input( type="text" name="textfield2")
+            %td
+              库存仅剩
+              %b.Red 54
+              件
+      %h6
+        %a#goods_buycart{ :title=>"加入购物车", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+        %a#goods_buymenu{ :title=>"立即购买", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+      %h7 服务说明：文字介绍
+      %h5 分享功能调用
+    .main_goods_garage.right
+      %table(  width="172" border="0" cellspacing="0" cellpadding="0")
+        %tr
+          %td( height="35")
+            %b 车行地理位置
+        %tr
+          %td
+            %img{:src=>asset_path("test/img-17.jpg"),  :width=>"172", :height=>"196" }
+        %tr
+          %td( height="20") &nbsp;
+        %tr
+          %td(height="35" align="center")
+            %a#enter_the_shop{ :title=>"进入店铺",:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+        %tr
+          %td( height="20") &nbsp;
+        %tr
+          %td( height="40") 车之翼汽车服务有限公司
+        %tr
+          %td( height="40" valign="top") 地址：陕西省碑林区某某接到
+        %tr
+          %td( height="30")
+            %a
+              %img{:src=>asset_path("test/goods_kefu.jpg"), :width=>"81", :height=>"23"}
+  .main_box
+    .main_goods_L.left
+      .main_goods_class
+        %h3
+          维修保养
+          %span.goods_class_reduction{:style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+        .main_goods_classcon
+          %a 机油保养
+          %a 防冻液保养
+        %h3
+          轮胎\轮毂
+          %span.goods_class_plus{:style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+          .main_goods_classcon{:style=>"display:none"} 11111
+        %h3
+          维修\改装
+          %span.goods_class_plus{:style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+          .main_goods_classcon{:style=>"display:none"} 11111
+      .main_goods_hotshop
+        %h3
+          %b 热销产品
+        .main_goods_pro
+          %ul.part_list
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+    .main_goods_R.right
+      .main_goods_tab
+        %a.on 商品详情
+      .main_goods_details
+        .main_goods_txt
+          %h3.main_goods_title.Red 规格
+          %p 商品规格文字介绍。征途电子狗跃途ZT325(固定流动测速一体机、红色)
+        .main_goods_txt
+          %img{ :src=>asset_path("test/img-18.jpg"), :width=>"661", :height=>"1255"}
+    .clear
+  .clear
+  .h_ad{:style=>"padding-top:10px;"}
+    %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}
+

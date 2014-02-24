@@ -4,5 +4,7 @@ class HomeController < ApplicationController
 
   def test
   	@test= Customer.find(1)
+  	@vendors= Vendor.all
+  	@goods= MallGood.all
   end
 end

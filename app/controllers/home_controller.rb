@@ -7,4 +7,8 @@ class HomeController < ApplicationController
   	@vendors= Vendor.all
   	@goods= MallGood.all
   end
+
+  def search
+
+  end
 end

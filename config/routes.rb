@@ -1,8 +1,15 @@
 IxcMall::Application.routes.draw do
   get "vendors/index"
   get "vendors/show"
+
   get "home/search"
   root "home#index"
+
+  get "customers/shopping_car"
+  get "customers/order_page"
+  get "customers/success_page"
+  get "customers/center"
+
   get 'test' => 'home#test'
   devise_for :customers
 

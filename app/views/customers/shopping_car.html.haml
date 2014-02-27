@@ -1,0 +1,138 @@
+=render "home/partial/nav"
+.header
+  .header_Box.m
+    %p.logo.left{ :style=>"	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+    .shopcar_one.right{ :style=>"	background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
+    .shopcar_two.right{:style=>"display:none;background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
+    .shopcar_three.right{:style=>"display:none;background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
+
+.wrap
+  .main_box
+    .main_box_shopcar 我的购物车
+    .main_shopcarbyket
+      %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+        %tr
+          %td( height="30")
+            %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+              %tr
+                %td( width="40" height="30" align="center" bgcolor="#eeeeee")
+                  %input( type="checkbox" name="checkbox" value="checkbox" )
+                %td( align="center" bgcolor="#eeeeee") 商品
+                %td( width="75" align="center" bgcolor="#eeeeee") 单价
+                %td( width="150" align="center" bgcolor="#eeeeee") 数量
+                %td( width="75" align="center" bgcolor="#eeeeee") 折扣
+                %td( width="75" align="center" bgcolor="#eeeeee") 金额
+                %td( width="75" align="center" bgcolor="#eeeeee") 优惠
+                %td( width="100" align="center" bgcolor="#eeeeee") 操作
+        %tr
+          %td
+            %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+              %tr
+                %td( width="40" height="80" align="center")
+                  %input( type="checkbox" name="checkbox2" value="checkbox")
+                %td( align="left")
+                  %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+                    %tr
+                      %td( width="65" height="70")
+                      %a
+                        %img{ :src=>asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC;"}
+                      %td
+                        %a.Red 欧式新古典 8头吊灯 树脂雕花镶钻
+                %td( width="75" align="center") 115.00
+                %td( width="150" align="center")
+                  %input( name="textfield" type="text" size="5")
+                %td( width="75" align="center") ￥10.00
+                %td( width="75" align="center") ￥105.00
+                %td( width="75" align="center")
+                %td( width="100" align="center")
+                  %a.Red
+                    %b 删除
+                  %a.Red
+                    %b 移入收藏夹
+              %tr
+                %td( height="80" align="center")
+                  %input( type="checkbox" name="checkbox2" value="checkbox")
+                %td( align="left")
+                  %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+                    %tr
+                      %td( width="65" height="70")
+                      %a
+                        %img{ :src=>asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC;"}
+                      %td
+                        %a.Red 欧式新古典 8头吊灯 树脂雕花镶钻
+                %td( width="75" align="center") 115.00
+                %td( width="150" align="center")
+                  %input( name="textfield" type="text" size="5")
+                %td( width="75" align="center") ￥10.00
+                %td( width="75" align="center") ￥105.00
+                %td( width="75" align="center")
+                %td( width="100" align="center")
+                  %a.Red
+                    %b 删除
+                  %a.Red
+                    %b 移入收藏夹
+              %tr
+                %td( height="80" align="center")
+                  %input( type="checkbox" name="checkbox2" value="checkbox")
+                %td( align="left")
+                  %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+                    %tr
+                      %td( width="65" height="70")
+                      %a
+                        %img{ :src=>asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC;"}
+                      %td
+                        %a.Red 欧式新古典 8头吊灯 树脂雕花镶钻
+                %td( width="75" align="center") 115.00
+                %td( width="150" align="center")
+                  %input( name="textfield" type="text" size="5")
+                %td( width="75" align="center") ￥10.00
+                %td( width="75" align="center") ￥105.00
+                %td( width="75" align="center")
+                %td( width="100" align="center")
+                  %a.Red
+                    %b 删除
+                  %a.Red
+                    %b 移入收藏夹
+              %tr
+                %td( height="80" align="center")
+                  %input( type="checkbox" name="checkbox2" value="checkbox")
+                %td( align="left")
+                  %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+                    %tr
+                      %td( width="65" height="70")
+                      %a
+                        %img{ :src=>asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC;"}
+                      %td
+                        %a.Red 欧式新古典 8头吊灯 树脂雕花镶钻
+                %td( width="75" align="center") 115.00
+                %td( width="150" align="center")
+                  %input( name="textfield" type="text" size="5")
+                %td( width="75" align="center") ￥10.00
+                %td( width="75" align="center") ￥105.00
+                %td( width="75" align="center")
+                %td( width="100" align="center")
+                  %a.Red
+                    %b 删除
+                  %a.Red
+                    %b 移入收藏夹
+        %tr
+          %td( height="50")
+            %table( width="862" border="0" align="center" cellpadding="0" cellspacing="0")
+              %tr
+                %td( height="30")
+                  %a
+                    %img{:src=>asset_path("test/shopcar_menu.jpg"), :width=>"111", :height=>"22", :border=>"0" }
+                %td( width="300" align="right")
+                  %b 商品总价(不含运费)：
+                  %strong.Red ¥1156
+        %tr
+          %td( height="80")
+            %table( width="90%" border="0" align="center" cellpadding="0" cellspacing="0")
+              %tr
+                %td( height="50") &nbsp;
+                %td( width="170")
+                  %a#continue_shopping{ :href=>root_path, :title=>"继续购物", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
+                %td( width="170")
+                  %a#continue_shopcar{ :href=> customers_order_page_path ,:title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
+    .clear
+

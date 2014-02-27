@@ -1,0 +1,10 @@
+=render "home/partial/nav"
+.wrap
+  .main_buy_success.path01
+    %p 感谢你的惠顾，谢谢光临！购物成功。
+    %h3(style="line-height:40px;")
+      %a.Red{:href=> root_path}
+        %b 返回首页
+  .clear
+  .h_ad(style="padding-top:10px;")
+    %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}

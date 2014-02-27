@@ -16,6 +16,13 @@ body {
 .clear {
 	clear:both
 }
+.path {
+	margin-top:5px;
+}
+.path01 {
+	margin-top:10px;
+}
+
 .wrap {
 	height: auto;
 	width: 960px;
@@ -112,6 +119,7 @@ body {
 	background-color: #64B1DC;
 }
 .search .search_into {
+	background-image: url(../images/Index_BodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -36px;
 	height: 35px;
@@ -1372,6 +1380,7 @@ a#qukankan:hover {
 	padding-bottom: 15px;
 }
 .main_product .main_company_products .main_products_li {
+	background-image: url(../images/brandBodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: -257px 0px;
 	height: 290px;
@@ -1421,6 +1430,7 @@ a#p_price_menu:hover {
 	background-color: #FFFFFF;
 }
 .header_position {
+	background-image: url(../images/goods_bodyBG.gif);
 	background-repeat: repeat-x;
 	background-position: 0px 0px;
 	height: 31px;
@@ -1570,6 +1580,7 @@ a#p_price_menu:hover {
 }
 
 a#goods_buycart {
+	background-image: url(../images/goods_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -36px;
 	height: 42px;
@@ -1579,6 +1590,7 @@ a#goods_buycart {
 	margin-right: 10px;
 }
 a#goods_buymenu {
+	background-image: url(../images/goods_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: right -36px;
 	height: 42px;
@@ -1611,6 +1623,7 @@ a#goods_buymenu {
 	padding-left: 10px;
 }
 a#enter_the_shop {
+	background-image: url(../images/goods_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -83px;
 	display: block;
@@ -1647,6 +1660,7 @@ a#enter_the_shop:hover {
 	cursor: pointer;
 }
 .main_goods_class span.goods_class_plus {
+	background-image: url(../images/goods_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: right -139px;
 	display: block;
@@ -1658,6 +1672,7 @@ a#enter_the_shop:hover {
 	top: 8px;
 }
 .main_goods_class span.goods_class_reduction {
+	background-image: url(../images/goods_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: -252px -139px;
 	display: block;
@@ -1812,8 +1827,6 @@ a#p_pricemenu:hover {
 	width: 200px;
 	overflow: hidden;
 }
-
-
 
 /*2014-2-23新加样式 category 模版样式*/
 .category_shop_class {
@@ -2249,6 +2262,7 @@ a#categroy_menu:hover {
 	padding-right: 10px;
 }
 .category_product .main_products_li {
+	background-image: url(../images/brandBodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: -257px 0px;
 	height: 290px;
@@ -2264,4 +2278,100 @@ a#categroy_menu:hover {
 .category_product .p_title {
 	line-height: 20px;
 	padding-bottom: 10px;
+}
+
+
+/*我的订单*/
+.main_goods_tab a {
+	display: block;
+	float: left;
+	height: 40px;
+	padding-right: 15px;
+	padding-left: 15px;
+	color: #585858;
+	background-color:#f3f3f3;
+	font-weight: bold;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #E3E3E3;
+}.main_orderform_box {
+	padding: 15px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #9FC788;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #2E99C7;
+}
+.main_orderform_box h3 {
+	font-size: 16px;
+	display: block;
+	line-height: 25px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.main_orderform_box p {
+	line-height: 18px;
+	display: block;
+	font-family: "宋体";
+	font-size: 12px;
+	text-indent: 24px;
+	padding-bottom: 10px;
+	color: #7D7C7B;
+}
+.header_Box .shopcar_one {
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 45px;
+	width: 514px;
+}
+.header_Box .shopcar_two {
+	background-repeat: no-repeat;
+	background-position: 0px -50px;
+	height: 45px;
+	width: 514px;
+}
+.header_Box .shopcar_three {
+	background-repeat: no-repeat;
+	background-position: 0px -100px;
+	height: 45px;
+	width: 514px;
+}
+.main_box_shopcar {
+	line-height: 45px;
+	font-size: 20px;
+	padding-left: 15px;
+	padding-top: 10px;
+	font-weight: bold;
+}
+.main_box .main_shopcarbyket {
+	background-color: #FFFFFF;
+	border: 1px solid #E5E5E5;
+}
+.main_buy_success {
+	background-color: #FFFFFF;
+	border: 1px solid #E9E9E9;
+	height: 60px;
+	line-height: 20px;
+	text-align: center;
+	font-size: 18px;
+	padding-top: 40px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+
+a#continue_shopping {
+	background-repeat: no-repeat;
+	background-position: 0px -150px;
+	display: block;
+	height: 41px;
+	width: 155px;
+}
+a#continue_shopcar {
+	background-repeat: no-repeat;
+	background-position: -160px -150px;
+	display: block;
+	height: 41px;
+	width: 155px;
 }

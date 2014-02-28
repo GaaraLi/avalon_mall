@@ -17,5 +17,4 @@ class Vendor < ActiveRecord::Base
   has_many :attachments, :dependent => :destroy
   has_many :extra_consumption_records
   has_many :third_party_consumptions
-
 end

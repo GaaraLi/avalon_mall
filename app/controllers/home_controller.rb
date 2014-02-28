@@ -11,4 +11,7 @@ class HomeController < ApplicationController
   def search
 
   end
+  def test1
+
+  end
 end

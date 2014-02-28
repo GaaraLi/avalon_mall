@@ -3,9 +3,11 @@
   .postiton_txt.m
     %a 首页
     %span &nbsp;&nbsp;>&nbsp;&nbsp;
-    %a 导航商品
+    %a
+      = MallCategory.find( @good.mall_category.parent_code).name
     %span &nbsp;&nbsp;>&nbsp;&nbsp;
-    %a 电子狗
+    %a
+      = @good.mall_category.name
 .wrap
   .main_goods_box
     .main_goods_img.left
@@ -30,19 +32,25 @@
           %p.main_infoico03.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
           %p.main_infoico05.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
     .main_goods_operation.left
-      %h1 征途电子狗跃途ZT325(固定流动测速一体机、红色)
-      %h2 (迎五一大酬宾，现推出8折活动)
+      %h1=@good.title
+      %h2=@good.subhead
       %h3
         原价：
-        %i ￥220
+        %i
+          ￥
+          =@good.mall_skus.first.show_price
         %span {价格说明}
       %h4
         享车特价：
-        %b ￥180
+        %b
+          ￥
+          =@good.mall_skus.first.price
         %span {价格说明}
       %h4
         VIP价格：
-        %strong ￥160
+        %strong
+          ￥
+          =@good.mall_skus.first.customer_price
         %span {价格说明}
       %h5
         %table( width="100%" border="0" cellspacing="0" cellpadding="0")
@@ -56,12 +64,14 @@
               %button( width="20" height="20") +
             %td
               库存仅剩
-              %b.Red 54
+              %b.Red=@good.mall_skus.first.mall_inventory.inventory_qty
               件
       %h6
         %a#goods_buycart{ :title=>"加入购物车", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
         %a#goods_buymenu{ :title=>"立即购买", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
-      %h7 服务说明：文字介绍
+      %h7
+        服务说明：
+        =@good.service_info
       %h5 分享功能调用
     .main_goods_garage.right
       %table(  width="172" border="0" cellspacing="0" cellpadding="0")
@@ -79,9 +89,11 @@
         %tr
           %td( height="20") &nbsp;
         %tr
-          %td( height="40") 车之翼汽车服务有限公司
+          %td( height="40")
+            =@good.vendor.name
         %tr
-          %td( height="40" valign="top") 地址：陕西省碑林区某某接到
+          %td( height="40" valign="top")
+            =@good.vendor.address.street
         %tr
           %td( height="30")
             %a
@@ -173,10 +185,17 @@
         %a.on 商品详情
       .main_goods_details
         .main_goods_txt
-          %h3.main_goods_title.Red 规格
-          %p 商品规格文字介绍。征途电子狗跃途ZT325(固定流动测速一体机、红色)
+          %h3.main_goods_title.Red
+            规格
+          .properties
+            -@good.mall_goods_properties.each do |p|
+              =p.name+":"
+              =p.content
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          %hr
+
         .main_goods_txt
-          %img{ :src=>asset_path("test/img-18.jpg"), :width=>"661", :height=>"1255"}
+          %p=@good.desc.html_safe
     .clear
   .clear
   .h_ad{:style=>"padding-top:10px;"}

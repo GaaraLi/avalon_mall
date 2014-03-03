@@ -74,7 +74,7 @@ task :setup_config do
 
   queue! "#{file_exists('/etc/nginx/nginx.conf')} || sudo ln -nfs #{deploy_to}/current/config/nginx.conf /etc/nginx/nginx.conf"
 
-  queue! "#{file_exists('/etc/init.d/unicorn_avalon.sh')} || sudo ln -nfs #{deploy_to}/current/scripts/unicorn.sh /etc/init.d/unicorn_avalon.sh"
+  queue! "#{file_exists('/etc/init.d/unicorn_avalon_mall.sh')} || sudo ln -nfs #{deploy_to}/current/scripts/unicorn.sh /etc/init.d/unicorn_avalon.sh"
 end
 
 desc "Setup shared staff"

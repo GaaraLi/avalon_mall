@@ -1,22 +1,21 @@
 
 /= current_customer.email
-= link_to " log in",new_customer_session_path
-%br
+%h1{:style=>'font-size:30px;text-align:left;'} 车行列表示例
+%hr
 -@vendors.each do |v|
   =link_to v.name,vendor_path(v)
 
 %br
 %hr
-%h1 商品列表
+%h1{:style=>'font-size:30px;text-align:left;'} 商品列表
+%hr
 -@goods.each do |g|
   =link_to g.title, good_path(g)
 
 %hr
 %br
-= link_to 'search', home_search_path
+= link_to '商品查询', home_search_path
 
 %br
-= link_to 'log out', destroy_customer_session_path, :method=>'delete'
-%br
-=link_to 'shopping car', customers_shopping_car_path
+=link_to '购物车', customers_shopping_car_path
 

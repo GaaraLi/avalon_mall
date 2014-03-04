@@ -11,7 +11,7 @@ IxcMall::Application.routes.draw do
   get "customers/center"
 
   get 'test' => 'home#test'
-  get 'test' => 'home#test1'
+  get 'test1' => 'home#test1'
   devise_for :customers
 
     resources :vendors

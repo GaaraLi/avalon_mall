@@ -2,19 +2,18 @@
   .nav_box.m
     %h3.nav_class.left
       %b
-        %a.Bai 全部分类
+        %a.Bai{:href=> '#'} 全部分类
     .nav_menu.left
       %ul
         %li.nav_down
-          %b
-            =link_to "首页", root_path
+          %a.Bai{:href=> root_path} 首页
         %li
-          %a.Bai 车行
+          %a.Bai{:href=> '#'} 车行
         %li
           %a.Bai{:href=> home_card_path} 汽车养护卡
         %li
-          %a.Bai 车管家
+          %a.Bai{:href=> '#'} 车管家
         %li
-          %a.Bai 服务地图
+          %a.Bai{:href=> '#'} 服务地图
         %li
-          %a.Bai 会员权益
+          %a.Bai{:href=> '#'} 会员权益

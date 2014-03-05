@@ -1,6 +1,7 @@
 IxcMall::Application.routes.draw do
   get "vendors/index"
   get "vendors/show"
+  get "vendors/map"
 
   get "home/search"
   get "home/card"

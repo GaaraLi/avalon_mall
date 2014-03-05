@@ -1,7 +1,7 @@
 =render "home/partial/nav"
 .wrap
   .part_01
-    .shop_class.left
+    .shop_class.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
       .shop_classbox
         %h3.shop_stornav
           .shop_stor
@@ -95,13 +95,13 @@
           %li
             %a
               %img{:src=> asset_path('test/2.jpg') ,:alt=>'pic'}
-        %a.prev{:href=>"javascript:void(0)"}
-        %a.next{:href=>"javascript:void(0)"}
+        %a.prev{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
+        %a.next{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
         .num
           %ul
     .shop_tuijian
       .shop_activities
-        %h3
+        %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %h4
           %img{ :src=> asset_path('test/img-01.jpg'), :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
         %h5
@@ -113,7 +113,7 @@
               ·&nbsp;
               %a 恋恋情人节 买书送鲜花
       .shop_news
-        %h3
+        %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %h4
           %img{ :src=> asset_path('test/img-01.jpg'), :width=>"202", :height=>"88", :border=>"0" ,:alt=>'pic' }
     .clear
@@ -123,7 +123,7 @@
   .part_02
     .division
       #swap_pic
-        #prev.scroll
+        #prev.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         .box
           %ul#pics.pics( style=" left:0px;")
             %li
@@ -146,11 +146,11 @@
               %p
                 %a
                   %img{ :src=> asset_path('test/img-02.jpg') ,:alt=>'pic'}
-        #next.scroll
+        #next.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
 
   .part_03
     .hot_tui
-      .part03line
+      .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"');"}
         %h3.part_03hd.Bule
           %b 热门商品推荐
         .part_03list
@@ -344,7 +344,7 @@
     %img{ :src=>asset_path('test/img-06.jpg'), :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
   .store_info{:style=>"margin-top:10px;"}
     .stor_infofirst.left
-      %h3.stor_01.left &nbsp;
+      %h3.stor_01.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"} &nbsp;
       .left
         %h4
           %b 关于享车网
@@ -353,7 +353,7 @@
         %p
           %a 联系我们
     .stor_infofirst.left
-      %h3.stor_01.left &nbsp;
+      %h3.stor_01.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"} &nbsp;
       .left
         %h4
           %b 关于享车网
@@ -362,7 +362,7 @@
         %p
           %a 联系我们
     .stor_infofirst.left
-      %h3.stor_01.left &nbsp;
+      %h3.stor_01.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"} &nbsp;
       .left
         %h4
           %b 关于享车网
@@ -371,7 +371,7 @@
         %p
           %a 联系我们
     .stor_infofirst.left
-      %h3.stor_01.left &nbsp;
+      %h3.stor_01.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"} &nbsp;
       .left
         %h4
           %b 关于享车网

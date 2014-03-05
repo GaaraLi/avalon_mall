@@ -37,7 +37,7 @@ body {
 .top {
 	font-size: 12px;
 	height: 31px;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');
 	background-repeat: repeat-x;
 	background-position: 0px 0px;
 	color:#666666;
@@ -59,7 +59,7 @@ body {
 	padding-right: 15px;
 }
 .T_r .qq_login {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');
 	background-repeat: no-repeat;
 	background-position: -439px -125px;
 	padding-left: 23px;
@@ -2320,18 +2320,21 @@ a#categroy_menu:hover {
 	color: #7D7C7B;
 }
 .header_Box .shopcar_one {
+	background-image: url(../images/shopcar_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 45px;
 	width: 514px;
 }
 .header_Box .shopcar_two {
+	background-image: url(../images/shopcar_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -50px;
 	height: 45px;
 	width: 514px;
 }
 .header_Box .shopcar_three {
+	background-image: url(../images/shopcar_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -100px;
 	height: 45px;
@@ -2362,6 +2365,7 @@ a#categroy_menu:hover {
 }
 
 a#continue_shopping {
+	background-image: url(../images/shopcar_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -150px;
 	display: block;
@@ -2369,9 +2373,359 @@ a#continue_shopping {
 	width: 155px;
 }
 a#continue_shopcar {
+	background-image: url(../images/shopcar_bodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: -160px -150px;
 	display: block;
 	height: 41px;
 	width: 155px;
+}
+.main_orderform_box h4 {
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 25px;
+	height: 40px;
+	padding-left: 120px;
+	font-size:14px;
+}
+.main_orderform_box h5 {
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 25px;
+	height: 40px;
+	padding-left: 25px;
+	font-size:14px;
+}
+a#continue_pay {
+	background-color: #E9AB00;
+	height: 40px;
+	display: block;
+	line-height: 40px;
+	width: 100px;
+	text-align: center;
+	float: left;
+	margin-right: 10px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+a#continue_paynum {
+	background-color: #96C493;
+	height: 40px;
+	display: block;
+	line-height: 40px;
+	width: 130px;
+	text-align: center;
+	float: left;
+	margin-right: 10px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+a#continue_password {
+	background-color: #2E99C7;
+	height: 40px;
+	display: block;
+	line-height: 40px;
+	width: 110px;
+	text-align: center;
+	float: left;
+	margin-right: 10px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+/*2014-3-3新加样式 用户中心 模版样式*/
+.main_box .main_userbox_L {
+	width: 165px;
+}
+.main_userbox_L .userbox_center {
+	height: 70px;
+	padding: 12px;
+	border-top-width: 2px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #999999;
+	border-right-color: #dddddd;
+	border-left-color: #dddddd;
+}
+.userbox_center h3 {
+	display: block;
+	height: 22px;
+}
+.user_admin h3.user_admin_hd {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 32px;
+	display: block;
+	line-height: 32px;
+	padding-left: 45px;
+	cursor: pointer;
+}
+.user_admin h3.user_admin_hdOn {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -167px 0px;
+	height: 32px;
+	display: block;
+	line-height: 32px;
+	padding-left: 45px;
+	cursor: pointer;
+}
+.user_admin ul {
+	display: block;
+	font-size: 12px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DDDDDD;
+	border-left-color: #DDDDDD;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 18px;
+}
+.user_admin ul li {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -352px -4px;
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 12px;
+}
+.user_consumption h3.user_admin_hd {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -34px;
+	height: 32px;
+	display: block;
+	line-height: 32px;
+	padding-left: 45px;
+	cursor: pointer;
+}
+.user_consumption h3.user_admin_hdOn {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -167px -34px;
+	height: 32px;
+	display: block;
+	line-height: 32px;
+	padding-left: 45px;
+	cursor: pointer;
+}
+.user_consumption ul {
+	display: block;
+	font-size: 12px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DDDDDD;
+	border-left-color: #DDDDDD;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 18px;
+}
+.user_consumption ul li {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -352px -4px;
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 12px;
+}
+.user_help h3.user_admin_hd {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -68px;
+	height: 32px;
+	display: block;
+	line-height: 32px;
+	padding-left: 45px;
+	cursor: pointer;
+}
+.user_help h3.user_admin_hdOn {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -167px -68px;
+	height: 32px;
+	display: block;
+	line-height: 32px;
+	padding-left: 45px;
+	cursor: pointer;
+}
+.user_help ul {
+	display: block;
+	font-size: 12px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DDDDDD;
+	border-left-color: #DDDDDD;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 18px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #DDDDDD;
+}
+.user_help ul li {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: no-repeat;
+	background-position: -352px -4px;
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 12px;
+}
+.main_box .main_userbox_R {
+	width: 785px;
+}
+.main_userbox_R h3.userbox_hd {
+	background-image: url(../images/user_bodyBG.gif);
+	background-repeat: repeat-x;
+	background-position: 0px -110px;
+	height: 33px;
+	overflow: hidden;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.userbox_hd li {
+	display: block;
+	float: left;
+	height: 33px;
+	font-size: 14px;
+	line-height: 33px;
+	padding-right: 20px;
+	padding-left: 20px;
+	cursor: pointer;
+}
+.userbox_hd li.user_On {
+	background-color: #FFFFFF;
+	font-weight: bold;
+	height: 31px;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #2E99C7;
+	line-height: 31px;
+}
+.main_userbox_R .userbox_con {
+	padding-top: 35px;
+	padding-right: 35px;
+	padding-bottom: 20px;
+	padding-left: 35px;
+}
+.userbox_con p {
+	display: block;
+	height: 30px;
+}
+.userbox_con span {
+	display: block;
+	height: 22px;
+	font-size:12px;
+}
+.userbox_con h4 {
+	display: block;
+	height: 50px;
+	padding-top: 25px;
+	padding-left: 20px;
+}
+
+/*2014年3月4日*/
+a#user_menu {
+	font-size: 14px;
+	background-color: #DF8E00;
+	border: 1px solid #C98301;
+	color: #FFFFFF;
+	height: 30px;
+	display: block;
+	width: 120px;
+	line-height: 30px;
+	text-align: center;
+	float: left;
+	margin-right: 15px;
+}
+a#user_menu:hover {
+	background-color: #FB9D00;
+	border: 1px solid #C98301;
+}
+a#user_menuma {
+	font-size: 14px;
+	background-color: #f66f75;
+	border: 1px solid #f2aa6f;
+	color: #FFFFFF;
+	height: 30px;
+	display: block;
+	width: 130px;
+	line-height: 30px;
+	text-align: center;
+	float: left;
+	margin-right: 15px;
+}
+a#user_menuma:hover {
+	background-color: #f98a8f;
+	border: 1px solid #C98301;
+}
+.userbox_con h5 {
+	font-size: 14px;
+	display: block;
+	padding-top: 20px;
+	padding-left: 10px;
+}
+.userbox_con h6 {
+	line-height: 16px;
+	display: block;
+	padding-left: 10px;
+	padding-top: 15px;
+}
+
+/*汽车养护卡页面-2014-3-4-*/
+#card_wrap {
+	height: 3100px;
+	width: 960px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	font-size: 14px;
+	background-color: #FFFFFF;
+}
+#card_pic {
+	height: 267px;
+	width: 960px;
+	float: left;
+}
+#card_pic_left {
+	height: 950px;
+	width: 345px;
+	float: left;
+}
+#card_button{
+	height: 76px;
+	width: 203px;
+	float: left;
+	margin-top: 168px;
+	margin-left: 221px;
+	display: inline;
+}
+#card_pic_right{
+	float: left;
+	height: 949px;
+	width: 606px;
+}
+#card_table_top{
+	float: left;
+	height: 158px;
+	width: 606px;
+}
+#card_table {
+	font-size: 14px;
+	font-weight: normal;
+	width: 606px;
+	float: left;
+	height: 780px;
 }

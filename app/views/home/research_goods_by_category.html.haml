@@ -219,7 +219,7 @@
               .main_class_nav.left
                 -@second_class.each do |s|
                   -if s.parent_code == f.code
-                    =link_to s.name,{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>s.id }, :class=>"second_class_link"
+                    =link_to s.name, :action=>"research_goods_by_category", :remote=>true, :goods=>@goods, :id=>f.code
       .class_rule_number
         .class_rule_icoX.left
           %h4
@@ -236,11 +236,7 @@
   .h_ad{:style=>" padding-top:10px;"}
     %img{:src=>asset_path("test/img-06.jpg"),:width=>"960", :height=>"100", :border=>"0"}
 
-    :javascript
-      $(".second_class_link").click(function(){
-        $(".second_class_link").css("background-color","white");
-        $(this).css("background-color","red");
-      });
+
 
 
 

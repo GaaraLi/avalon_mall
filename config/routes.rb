@@ -5,6 +5,7 @@ IxcMall::Application.routes.draw do
 
   get "home/search"
   get "home/card"
+  get "home/research_goods_by_category"
   root "home#index"
 
   get "customers/shopping_car"

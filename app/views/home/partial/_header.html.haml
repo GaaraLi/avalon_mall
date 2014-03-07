@@ -5,8 +5,8 @@
         %h3
           %span.s_down 搜服务
         .search_into{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
-          .search_l.left
-            %input.w1( name="textfield" type="text" placeholder="请输入您所想搜索的内容" )
           %form{:action=>"/home/search"}
+            .search_l.left
+              %input.w1( name="search_key" type="text" placeholder="请输入您所想搜索的内容" )
             .search_r.left
               %input.s1{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');", :name=>"submit", :type=>"submit",:value=>""}

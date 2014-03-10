@@ -1,0 +1,32 @@
+.order_line
+  %tr
+    %td(width="60")
+      %a
+        %img{:src=> asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC"}
+    %td(valign="top")
+      =@good_sku.mall_good.title
+    %td(width=""  bgcolor="#FFFFFF")
+      %b
+        =current_customer.email
+    %td(width=""  bgcolor="#FFFFFF")
+      %b.Red
+        ￥
+        =@good_sku.show_price.to_i
+      %br
+      在线支付
+    %td(width=""  bgcolor="#FFFFFF")
+      %span.SInk
+        =@good_quantity
+    %td(width=""  bgcolor="#FFFFFF")
+      %b.Red
+        ￥
+        =@good_quantity*@good_sku.show_price.to_i
+    %td(width=""  bgcolor="#FFFFFF")
+      %span.SInk
+        =(Time.now).strftime("%Y-%m-%d %H:%M:%S")
+    %td(width=""  bgcolor="#FFFFFF")
+      %span.Ink 已完成
+    %td(width=""  bgcolor="#FFFFFF")
+      %a.Red 功能1
+      %br
+      %a.Red 功能2

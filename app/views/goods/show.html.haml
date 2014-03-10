@@ -57,22 +57,24 @@
           %tr
             %td(  width="80" height="33") 数量选择：
             %td
-              %button( width="20" height="20") -
+              %button#button_decrease( width="20" height="20") -
             %td(  width="105")
-              %input( type="text" name="textfield2")
+              %input#quantity_input( type="text" name="quantity_textfield" value="0")
             %td
-              %button( width="20" height="20") +
+              %button#button_increase( width="20" height="20") +
             %td
               库存仅剩
               %b.Red=@good.mall_skus.first.mall_inventory.inventory_qty
               件
-      %h6
-        %a#goods_buycart{ :title=>"加入购物车", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
-        %a#goods_buymenu{ :title=>"立即购买", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+        %h6
+          %a#goods_buycart{ :title=>"加入购物车", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+          =form_tag('/customers/buy', method: :GET) do
+            %input#input_hidden{:style=>"display:none;",:name=>"input_hidden_name"}
+            %input#input_hidden{:style=>"display:none;",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
+            =submit_tag "立即购买",:id=>"goods_buymenu",:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"
       %h7
         服务说明：
         =@good.service_info
-      %h5 分享功能调用
     .main_goods_garage.right
       %table(  width="172" border="0" cellspacing="0" cellpadding="0")
         %tr
@@ -200,4 +202,23 @@
   .clear
   .h_ad{:style=>"padding-top:10px;"}
     %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}
+
+
+  :javascript
+    $("#button_increase").click(function(){
+      var value= $("#quantity_input").attr("value");
+      value=parseInt(value)+1;
+      $("#quantity_input").attr("value",value);
+      $("#input_hidden").attr("value",value);
+    });
+
+    $("#button_decrease").click(function(){
+      var value= $("#quantity_input").attr("value");
+      value=parseInt(value)-1;
+      if(value<=0){
+        value=0;
+      }
+      $("#quantity_input").attr("value",value);
+      $("#input_hidden").attr("value",value);
+    });
 

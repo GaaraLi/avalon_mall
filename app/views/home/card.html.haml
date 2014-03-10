@@ -4,7 +4,7 @@
     #card_button
       %form{ :method=>"GET", :target=>"_blank"}
         %a.botton{:href=>"javascript:;",:style=>"background-image: url('"+asset_path("test/button1.jpg")+"');"}
-          %input{:type=>"submit",:value=>""}
+          %img{:src=>asset_path("test/button1.jpg")}
   #card_pic
     %img{:src=>asset_path("test/pic_r3_c4_s1.jpg"),:width=>"960", :height=>"267"}
   #card_pic

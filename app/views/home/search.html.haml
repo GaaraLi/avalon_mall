@@ -216,7 +216,7 @@
             .main_class_list
               %label.left
                 =f.name
-              .main_class_nav.left
+              .main_class_nav
                 -@second_class.each do |s|
                   -if s.parent_code == f.code
                     =link_to s.name,{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>s.id }, :class=>"second_class_link"
@@ -239,7 +239,10 @@
     :javascript
       $(".second_class_link").click(function(){
         $(".second_class_link").css("background-color","white");
-        $(this).css("background-color","red");
+        $(".second_class_link").css("color","black");
+        $(this).css("background-color","#2e99c7");
+        $(this).css("color","white");
+        $(this).css("font","bold");
       });
 
 

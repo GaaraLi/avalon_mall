@@ -15,3 +15,6 @@ gem 'haml'
 gem 'devise', '3.0.3'
 gem 'kaminari'
 
+gem 'activemerchant'
+gem 'activemerchant_patch_for_china'
+gem 'ruby-hmac'

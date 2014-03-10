@@ -9,19 +9,19 @@
       = paginate @key_goods
   .category_product
     - @key_goods.each do |g|
-      .main_products_li.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
-        .p_img
-          %a
-            %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
-        .p_title
-          %a
-            =g.title
-          %br
-          %a
-            =g.mall_category.name
-        .p_price
-          %span ￥
-          %b 699
-          %span .00
-        .p_price
-          %a#p_price_menu 立即购买
+      %a
+        .main_products_li.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+          .p_img
+            %a{:href=>good_path(g)}
+              %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
+          .p_title
+            %a
+              =g.title
+            %br
+            %a
+              =g.mall_category.name
+          .p_price
+            %span ￥
+            %b 699
+            %span .00
+

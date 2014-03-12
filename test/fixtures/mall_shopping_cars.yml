@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1.5
+  original_price: 1.5
+  quantity: 1
+  mall_sku_id: 1
+  vendor_id: 1
+  customer_id: 1
+
+two:
+  price: 1.5
+  original_price: 1.5
+  quantity: 1
+  mall_sku_id: 1
+  vendor_id: 1
+  customer_id: 1

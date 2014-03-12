@@ -1,0 +1,58 @@
+.div1
+  .div2    
+    .main_goods_R.right
+      .main_orderform_box
+        %h3
+          %b 我的购物车
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          %a [客服中心]
+          %p
+            购物车中物品我们将在您付款或者删除之前永久保存，不过在付款或者删除之后不可恢复，请慎重操作。
+      .main_goods_details
+        %table(width="100%" border="0" cellspacing="0" cellpadding="0")
+          %tr
+            %td(height="30" align="center" bgcolor="#FAFED3") 选&nbsp&nbsp择
+            %td(height="30" align="center" bgcolor="#FAFED3") 订单图片
+            %td(height="30" align="center" bgcolor="#FAFED3") 订单信息
+            %td(height="30" align="center" bgcolor="#FAFED3") 收货人
+            %td(height="30" align="center" bgcolor="#FAFED3") 商品单价
+            %td(height="30" align="center" bgcolor="#FAFED3") 数量
+            %td(height="30" align="center" bgcolor="#FAFED3") 订单金额
+            %td(height="30" align="center" bgcolor="#FAFED3") 下单时间
+            %td(height="30" align="center" bgcolor="#FAFED3") 状态
+            %td(height="30" align="center" bgcolor="#FAFED3") 操作
+          -@cart_list.each do |l|
+            %tr
+              %td(height="60" align="left" bgcolor="#FFFFFF")
+                &nbsp&nbsp&nbsp&nbsp
+                %input{:type=>"radio"}
+                &nbsp&nbsp&nbsp&nbsp
+              %td(height="60" align="left" bgcolor="#FFFFFF")
+                %a
+                  %img{:src=>asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC"}
+              %td(width="80" align="center" bgcolor="#FFFFFF")
+                %a
+                  =l.mall_sku.mall_good.title
+              %td(width="80" align="center" bgcolor="#FFFFFF")
+                %b
+                  =current_customer.email
+              %td(width="80" align="center" bgcolor="#FFFFFF")
+                %b
+                  =l.mall_sku.customer_price
+              %td(width="80" align="center" bgcolor="#FFFFFF")
+                %b
+                  =l.quantity
+              %td(width="80" align="center" bgcolor="#FFFFFF")
+                %b.Red
+                  =l.price
+                %br
+                在线支付
+              %td(width="100" align="center" bgcolor="#FFFFFF")
+                %span.SInk
+                  =l.created_at.strftime("%Y-%m-%d %H:%M:%S")
+              %td(width="100" align="center" bgcolor="#FFFFFF")
+                %span.Ink 已完成
+              %td(width="100" align="center" bgcolor="#FFFFFF")
+                %a.Red 查看订单
+                %br
+                %a.Red 申请退货

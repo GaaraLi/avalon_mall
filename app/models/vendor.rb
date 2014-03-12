@@ -9,6 +9,7 @@ class Vendor < ActiveRecord::Base
 
 
   has_one :address, :dependent => :destroy
+  has_one :mall_area
   has_many :staffs
   has_many :vendor_binding_records
   has_many :cards, through: :vendor_binding_records
@@ -17,4 +18,5 @@ class Vendor < ActiveRecord::Base
   has_many :attachments, :dependent => :destroy
   has_many :extra_consumption_records
   has_many :third_party_consumptions
+  has_many :mall_goods
 end

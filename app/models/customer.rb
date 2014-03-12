@@ -9,5 +9,6 @@ class Customer <ActiveRecord::Base
   has_one :withdraw_cash
   has_one :third_party_customer
   has_many :transactions
+  has_many :mall_shopping_cars
   has_many :extra_consumption_records
 end

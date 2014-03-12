@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
   before_filter :authenticate_customer!
 
   def shopping_car
+    @cart_list= current_customer.mall_shopping_cars
   end
 
   def order_page
@@ -24,12 +25,34 @@ class CustomersController < ApplicationController
   end
 
   def center
+    @cart_list= current_customer.mall_shopping_cars
   end
 
   def buy
     @good_quantity=params[:input_hidden_name].to_i
     @good_sku= params[:good_sku]
     @good_sku= MallSku.find(@good_sku)
+  end
+
+  def add_in_shopping_car
+    @quantity= params[:quantity]
+    @mall_sku_id= params[:mall_sku_id]
+
+    add_into_cart( @quantity, @mall_sku_id)
+
+    render :json=>1
+  end
+
+  def add_into_cart( q, s)
+    @price= order_line_price( @quantity, @mall_sku_id)
+    @vendor_id= MallSku.find( s).mall_good.vendor.id
+
+    @new_cart_line= MallShoppingCar.create(:price=> @price,
+                                           :original_price=> @price,
+                                           :quantity=> q,
+                                           :mall_sku_id=> s,
+                                           :customer_id=> current_customer.id,
+                                           :vendor_id=> @vendor_id)
   end
 
   def order_confirm
@@ -68,7 +91,7 @@ class CustomersController < ApplicationController
   end
 
   def order_line_price( q, s)
-    @price= MallSku.find(s).show_price*q.to_i
+    @price= MallSku.find(s).customer_price*q.to_i
   end
 
   def new_order_number

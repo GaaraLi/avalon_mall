@@ -1,14 +1,14 @@
-#ajax_category_product
+#ajax_vendor_search
   .class_rule_retrieval
     %h3.left
       检索出
       %b.Red
-        =@goods.count
+        =@vendor_goods.count
       个符合您需求的商品
     %h3.right{:style=>"margin-right:10px;"}
-      = paginate @key_goods
+      = paginate @key_vendor_goods
   .category_product
-    -@key_goods.each do |g|
+    -@key_vendor_goods.each do |g|
       %a
         .main_products_li.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
           .p_img
@@ -24,3 +24,5 @@
             %span ￥
             %b 699
             %span .00
+
+

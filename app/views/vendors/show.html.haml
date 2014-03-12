@@ -7,7 +7,8 @@
             %td{ :height=>"35", :valign=>"top"}
               %b.Bai{ :style=>"font-size:16px"} 车行信息
           %tr
-            %td.Bai{:height=>"25"} 车之翼汽车服务有限公司
+            %td.Bai{:height=>"25"}
+              =@vendor.name
           %tr
             %td{:height=>"5"}
           %tr
@@ -21,19 +22,25 @@
               %table( width="100%" border="0" cellspacing="0" cellpadding="0")
                 %tr
                   %td.Bai( width="40" height="30") 地区:
-                  %td.Bai 陕西省碑林区
+                  %td.Bai
+                    /=@vendor.mall_area.name
           %tr
             %td( height="25")
               %table( width="100%" border="0" cellspacing="0" cellpadding="0")
                 %tr
                   %td.Bai( width="40" height="45" valign="top") 地址:
-                  %td.Bai(  valign="top") 陕西省碑林区某某街道35号
+                  %td.Bai(  valign="top")
+                    =@vendor.address.street
           %tr
             %td.Bai( height="25") 服务时间：
           %tr
-            %td.Bai( height="20") 周一到周五：8：00~21：00
+            %td.Bai( height="20")
+              周一到周五：
+              =@vendor.opening_hours
           %tr
-            %td.Bai( height="20") 周六到周日：8：00~21：00
+            %td.Bai( height="20")
+              周六到周日：
+              =@vendor.opening_hours
           %tr
             %td.Bai( height="25") 服务项目：
           %tr
@@ -153,43 +160,16 @@
                 %span ￥
                 %b 699
                 %span .00
-      .main_class
-        .main_class_list
-          %label.left 全部分类
-          .main_class_nav
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-        .main_class_list
-          %label.left 全部分类
-          .main_class_nav
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-        .main_class_list
-          %label.left 全部分类
-          .main_class_nav
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-        .main_class_list
-          %label.left 全部分类
-          .main_class_nav
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
+      .category_class
+        .main_class
+          -@first_class.each do |f|
+            .main_class_list
+              %label.left
+                =f.name
+              .main_class_nav.left
+                -@second_class.each do |s|
+                  -if s.parent_code == f.code
+                    =link_to s.name, :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>s.id
       .main_num
         .main_num_nav.left
           %a 销量
@@ -199,108 +179,12 @@
           %a 收藏
           %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
           %a 价格
-        .main_num_pag.right
-          .top_page
-            .page1
-              %a.prev 上一页
-              %a.next 下一页
-      .main_company_products
-        .main_products_li.left
-          .p_img
-            %a
-              %img{:src=>asset_path("test/img-04.jpg"),:border=>"0"}
-          .p_title
-            %a 米其林 205/55R16【自营】北上广等多省市包快
-          .p_price
-            %span ￥
-            %b 699
-            %span .00
-          .p_price
-            %a#p_price_menu 立即购买
-        .main_products_li.left
-          .p_img
-            %a
-              %img{:src=>asset_path("test/img-04.jpg"),:border=>"0"}
-          .p_title
-            %a 米其林 205/55R16【自营】北上广等多省市包快
-          .p_price
-            %span ￥
-            %b 699
-            %span .00
-          .p_price
-            %a#p_price_menu 立即购买
-        .main_products_li.left
-          .p_img
-            %a
-              %img{:src=>asset_path("test/img-04.jpg"),:border=>"0"}
-          .p_title
-            %a 米其林 205/55R16【自营】北上广等多省市包快
-          .p_price
-            %span ￥
-            %b 699
-            %span .00
-          .p_price
-            %a#p_price_menu 立即购买
-        .main_products_li.left
-          .p_img
-            %a
-              %img{:src=>asset_path("test/img-04.jpg"),:border=>"0"}
-          .p_title
-            %a 米其林 205/55R16【自营】北上广等多省市包快
-          .p_price
-            %span ￥
-            %b 699
-            %span .00
-          .p_price
-            %a#p_price_menu 立即购买
-        .main_products_li.left
-          .p_img
-            %a
-              %img{:src=>asset_path("test/img-04.jpg"),:border=>"0"}
-          .p_title
-            %a 米其林 205/55R16【自营】北上广等多省市包快
-          .p_price
-            %span ￥
-            %b 699
-            %span .00
-          .p_price
-            %a#p_price_menu 立即购买
-        .main_products_li.left
-          .p_img
-            %a
-              %img{:src=>asset_path("test/img-04.jpg"),:border=>"0"}
-          .p_title
-            %a 米其林 205/55R16【自营】北上广等多省市包快
-          .p_price
-            %span ￥
-            %b 699
-            %span .00
-          .p_price
-            %a#p_price_menu 立即购买
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          =link_to "全部", :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>0
+    .category_right.right{:style=>"width:79.3%;"}
+      #ajax_vendor_search
+        =render 'vendors/partial/vendor_search'
         .clear
-        .pagebar
-          .page-bottom.right
-            %span.page_start
-            %a.page_curOn 1
-            %a.page_cur 2
-            %a.page_cur 3
-            %a.page_cur 4
-            %a.page_cur 5
-            %span.page_omit ...
-            %a.next 下一页
-          .page-bottom.right{:style=>" display:none;"}
-            %a.back 上一页
-            %span.page_omit ...
-            %a.page_cur 96
-            %a.page_cur 97
-            %a.page_cur 98
-            %a.page_cur 99
-            %a.page_curOn 100
-            %span.page_startR
-          .page_txt.right
-            本次搜索结果共
-            %b.Bule 100
-            页
     .clear
   .clear
   .h_ad{:style=>"padding-top:10px;"}

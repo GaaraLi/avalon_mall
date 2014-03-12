@@ -2729,3 +2729,64 @@ a#user_menuma:hover {
 	float: left;
 	height: 780px;
 }
+/*2014-3-7新加样式 商城合作车行列表*/
+
+.garage_img {
+	background-color: #EFFAFE;
+	width: 230px;
+	height: 165px;
+	display:block;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding-top: 5px;
+}
+.garage_list {
+	float: left;
+	height: 320px;
+	width: 238px;
+	border: 1px solid #CCCCCC;
+	box-shadow: 2px 2px 2px #E9E9E9;
+	margin-left: 6px;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	margin-right: 0px;
+	display:inline;
+}
+.garage_name{
+	height:35px;
+	width:224px;
+	float:left;
+	background-position: left;
+	text-indent: 10px;
+	line-height: 33px;
+	background-color: #E1F7FD;
+	padding-right: 2px;
+	padding-left: 5px;
+	display:inline;
+	}
+.garage_detail{
+	float: left;
+	width: 230px;
+	list-style-position: inside;
+	height: 120px;
+	display:inline;
+}
+.garage_detail li{
+	float: left;
+	width: 220px;
+	height: auto;
+	font-size: 12px;
+	line-height: 25px;
+	list-style-position: inside;
+	margin-left: 7px;
+	display:inline;
+}
+.area{
+	float: right;
+	width: 280px;
+	height: 35px;
+	line-height: 30px;
+	text-align: right;
+	margin-right: 10px;
+}

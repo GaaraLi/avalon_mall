@@ -3,11 +3,7 @@
   .postiton_txt.m
     %a 首页
     %span &nbsp;&nbsp;>&nbsp;&nbsp;
-    %a
-      = MallCategory.find( @good.mall_category.parent_code).name
-    %span &nbsp;&nbsp;>&nbsp;&nbsp;
-    %a
-      = @good.mall_category.name
+    %a 车行列表
 .wrap
   .main_goods_box
     .main_goods_img.left
@@ -70,7 +66,7 @@
           %a#goods_buycart{ :title=>"加入购物车", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
           =form_tag('/customers/buy', method: :GET) do
             %input#input_hidden{:style=>"display:none;",:name=>"input_hidden_name"}
-            %input#input_hidden{:style=>"display:none;",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
+            %input#input_hidden_sku{:style=>"display:none;",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
             =submit_tag "立即购买",:id=>"goods_buymenu",:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"
       %h7
         服务说明：
@@ -222,3 +218,23 @@
       $("#input_hidden").attr("value",value);
     });
 
+    $("#goods_buycart").click(function(){
+      var quantity= $("#quantity_input").attr('value');
+      var mall_sku_id=$("#input_hidden_sku").attr('value');
+      var RequestUrl= "/customers/add_in_shopping_car";
+      $.ajax({
+        url: RequestUrl,
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+        data:"quantity="+quantity+"&mall_sku_id="+mall_sku_id,
+        success: function(json){
+          if(1==json){
+            alert("成功保存到购物车！");
+            return;
+          }
+        },
+        error: function(){
+          alert("保存到购物车失败，请刷新后重新操作。");
+        }
+      });
+    });

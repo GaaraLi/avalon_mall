@@ -1,10 +1,32 @@
 class VendorsController < ApplicationController
 	layout 'vendor'
   def index
+    @vendors=Vendor.all
+    @page_vendors= @vendors.page(params[:page])
   end
 
   def show
     @vendor = Vendor.find(params[:id])
+    @first_class= MallCategory.where(:level=>1)
+    @second_class= MallCategory.where(:level=>2)
+    @category_id= params[:id]
+    @vendor_goods= Vendor.find(params[:id]).mall_goods
+    @key_vendor_goods= @vendor_goods.page(params[:page])
+  end
+
+  def research_vendor_goods_by_category
+    @vendor = Vendor.find(params[:id])
+    @category_id= params[:key_id]
+    if 0!=@category_id.to_i
+      @vendor_goods = MallGood.find_by_sql("select * from mall_goods g, mall_categories c,vendors v
+                                          where g.mall_category_id = #{@category_id} and v.id= #{params[:id]} and g.vendor_id= v.id").uniq
+    else
+      @vendor_goods= @vendor.mall_goods
+    end
+    @first_class= MallCategory.where(:level=>1)
+    @second_class= MallCategory.where(:level=>2)
+
+    @key_vendor_goods=  Kaminari.paginate_array(@vendor_goods).page(params[:page])
   end
 
   def map
@@ -21,6 +43,35 @@ class VendorsController < ApplicationController
       vendor.address.latitude.nil?
     }
     @vendors = @vendors.to_json(:include => [:address], :methods => :main_photo)
+  end
+
+  def vendor_search
+    flag= params[:id]
+    case flag.to_i
+    when 0
+      @vendors=Vendor.where("id>0")
+      @page_vendors= @vendors.page(params[:page])
+    when 1
+      @vendors=Vendor.where("mall_area_id=1")
+      @page_vendors= @vendors.page(params[:page])
+    when 2
+      @vendors=Vendor.where("mall_area_id=2")
+      @page_vendors= @vendors.page(params[:page])
+    when 3
+      @vendors=Vendor.where("mall_area_id=3")
+      @page_vendors= @vendors.page(params[:page])
+    when 4
+      @vendors=Vendor.where("mall_area_id=4")
+      @page_vendors= @vendors.page(params[:page])
+    when 5
+      @vendors=Vendor.where("mall_area_id=5")
+      @page_vendors= @vendors.page(params[:page])
+    when 6
+      @vendors=Vendor.where("mall_area_id=6")
+      @page_vendors= @vendors.page(params[:page])
+    else
+    end
+    
   end
 
 end

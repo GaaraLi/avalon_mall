@@ -1,7 +1,8 @@
 IxcMall::Application.routes.draw do
   get "vendors/index"
-  get "vendors/show"
   get "vendors/map"
+  get "vendors/vendor_search"
+  get "vendors/research_vendor_goods_by_category"
 
   get "home/search"
   get "home/card"
@@ -14,6 +15,7 @@ IxcMall::Application.routes.draw do
   get "customers/error_page"
   get "customers/center"
   get "customers/buy"
+  get "customers/add_in_shopping_car"
   get "customers/order_confirm"
 
   get 'test' => 'home#test'

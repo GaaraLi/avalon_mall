@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218165356) do
+ActiveRecord::Schema.define(version: 20140311075514) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -192,6 +192,99 @@ ActiveRecord::Schema.define(version: 20140218165356) do
     t.string   "file_type"
     t.integer  "owner_id"
     t.string   "asset_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_areas", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_categories", force: true do |t|
+    t.string   "code",          limit: 10
+    t.string   "name",          limit: 100
+    t.integer  "level"
+    t.string   "parent_code",   limit: 10
+    t.string   "complete_code", limit: 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_goods", force: true do |t|
+    t.string   "title"
+    t.text     "desc"
+    t.string   "logo_url1"
+    t.string   "logo_url2"
+    t.string   "logo_url3"
+    t.string   "logo_url4"
+    t.integer  "status"
+    t.integer  "vendor_id"
+    t.integer  "mall_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "subhead",          limit: 100
+    t.string   "service_info"
+  end
+
+  create_table "mall_goods_properties", force: true do |t|
+    t.string   "name"
+    t.string   "content"
+    t.integer  "mall_good_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_inventories", force: true do |t|
+    t.integer  "inventory_qty"
+    t.integer  "mall_sku_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_order_lines", force: true do |t|
+    t.decimal  "price",          precision: 10, scale: 2
+    t.decimal  "original_price", precision: 10, scale: 2
+    t.integer  "quantity"
+    t.integer  "mall_order_id"
+    t.integer  "mall_sku_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "vendor_id"
+    t.integer  "customer_id"
+  end
+
+  create_table "mall_orders", force: true do |t|
+    t.string   "order_no"
+    t.decimal  "price",          precision: 10, scale: 2
+    t.decimal  "original_price", precision: 10, scale: 2
+    t.integer  "quantity"
+    t.integer  "status"
+    t.integer  "customer_id"
+    t.datetime "finish_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_shopping_cars", force: true do |t|
+    t.decimal  "price",          precision: 10, scale: 2
+    t.decimal  "original_price", precision: 10, scale: 2
+    t.integer  "quantity"
+    t.integer  "mall_sku_id"
+    t.integer  "vendor_id"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_skus", force: true do |t|
+    t.string   "code",           limit: 100
+    t.string   "desc",           limit: 100
+    t.decimal  "show_price",                 precision: 10, scale: 2
+    t.decimal  "customer_price",             precision: 10, scale: 2
+    t.decimal  "price",                      precision: 10, scale: 2
+    t.integer  "mall_good_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -430,6 +523,14 @@ ActiveRecord::Schema.define(version: 20140218165356) do
     t.string   "last_sign_in_ip"
     t.string   "shortname"
     t.text     "announcement"
+    t.integer  "xiangche_certification", limit: 1
+    t.integer  "product_certification",  limit: 1
+    t.integer  "vip_certification",      limit: 1
+    t.integer  "butler_certification",   limit: 1
+    t.string   "service_info"
+    t.string   "banner_url"
+    t.integer  "is_mall",                limit: 1
+    t.integer  "mall_area_id"
   end
 
   add_index "vendors", ["reset_password_token"], name: "index_vendors_on_reset_password_token", unique: true, using: :btree

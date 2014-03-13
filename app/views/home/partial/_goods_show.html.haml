@@ -15,12 +15,16 @@
             %a{:href=>good_path(g)}
               %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
           .p_title
-            %a
+            %a{:href=>good_path(g)}
               =g.title
             %br
             %a
               =g.mall_category.name
           .p_price
             %span ￥
-            %b 699
-            %span .00
+            %b
+              =g.mall_skus.first.price
+            .right_price.right
+              %span 原价：￥
+              %i{:style=>"text-decoration:line-through;"}
+                =g.mall_skus.first.show_price

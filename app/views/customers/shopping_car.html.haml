@@ -30,7 +30,7 @@
               %a.Red
                 =l.mall_sku.mall_good.title
             %td( width="75" align="center")
-              =l.mall_sku.customer_price
+              =current_customer.get_price( l.mall_sku)
             %td( width="150" align="center")
               =l.quantity
             %td.good_price( width="75" align="center")

@@ -42,12 +42,12 @@ module AlipayHelper
 
   end
 
-  def to_alipay_good
-    redirect_to_alipay_gateway(:subject => "享车卡",
-                               :body => "<卡片介绍>",
+  def to_alipay_good( o)
+    redirect_to_alipay_gateway(:subject => "享车网订单",
+                               :body => "享车网订单",
                                #:amount => card.service_combo.price.to_s,
                                :amount => "0.01",
-                               :out_trade_no => "111000",
+                               :out_trade_no => o.order_no,
                                :notify_url => customers_success_page_url,
                                :return_url => customers_success_page_url,
                                :extra_common_param => "676767",

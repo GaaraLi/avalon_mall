@@ -125,7 +125,9 @@
         %tr
           %td(width="170" colspan="9" align="right" )
             %hr
-            %a#continue_shopcar{:href=> customers_cart_confirm_path ,:style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:title=>"去购物结算"}
+            =form_tag('/customers/cart_confirm', method: :GET ) do
+              %input#selected_ids{:type=>"hidden",:name=>"selected_ids",:value=>"#{@cart_ids}"}
+              =submit_tag '去结算', {:title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:id=>"continue_shopcar"}
     .clear
 
 

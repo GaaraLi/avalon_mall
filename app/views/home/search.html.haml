@@ -210,16 +210,17 @@
                 %a 马牌轮胎205/55R16
               %s ￥495.00
               %a#categroy_menu 加入购物车
-      .category_class
-        .main_class
-          -@first_class.each do |f|
-            .main_class_list
-              %label.left
-                =f.name
-              .main_class_nav
-                -@second_class.each do |s|
-                  -if s.parent_code == f.code
-                    =link_to s.name,{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>s.id }, :class=>"second_class_link"
+      -if 1==@flag
+        .category_class
+          .main_class
+            -@first_class.each do |f|
+              .main_class_list
+                %label.left
+                  =f.name
+                .main_class_nav
+                  -@second_class.each do |s|
+                    -if s.parent_code == f.code
+                      =link_to s.name,{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>s.id }, :class=>"second_class_link"
       .class_rule_number
         .class_rule_icoX.left
           %h4
@@ -231,7 +232,10 @@
           %h4.left 价格↑
           %h4.left 价格↓
       #ajax_category_product
-        =render 'home/partial/goods_show'
+        -if 1==@flag
+          =render 'home/partial/goods_show'
+        -elsif 2==@flag
+          =render 'home/partial/vendors_show'
   .clear
   .h_ad{:style=>" padding-top:10px;"}
     %img{:src=>asset_path("test/img-06.jpg"),:width=>"960", :height=>"100", :border=>"0"}

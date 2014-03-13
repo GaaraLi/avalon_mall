@@ -35,19 +35,19 @@
         %i
           ￥
           =@good.mall_skus.first.show_price
-        %span {价格说明}
+        %span{:style=>"color:#94999A;"} (本商品原价)
       %h4
-        享车特价：
+        商城价：
         %b
           ￥
-          =@good.mall_skus.first.price
-        %span {价格说明}
+          =@good.mall_skus.first.customer_price
+        %span{:style=>"color:#94999A;"} (仅注册会员价格)
       %h4
-        VIP价格：
+        会员价：
         %strong
           ￥
-          =@good.mall_skus.first.customer_price
-        %span {价格说明}
+          =@good.mall_skus.first.price
+        %span{:style=>"color:#94999A;"} (已激活会员价格)
       %h5
         %table( width="100%" border="0" cellspacing="0" cellpadding="0")
           %tr
@@ -55,7 +55,7 @@
             %td
               %button#button_decrease( width="20" height="20") -
             %td(  width="105")
-              %input#quantity_input( type="text" name="quantity_textfield" value="0")
+              %input#quantity_input( type="text" name="quantity_textfield" value="1")
             %td
               %button#button_increase( width="20" height="20") +
             %td
@@ -65,7 +65,7 @@
         %h6
           %a#goods_buycart{ :title=>"加入购物车", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
           =form_tag('/customers/buy', method: :GET) do
-            %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name"}
+            %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
             %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
             =submit_tag "立即购买",:id=>"goods_buymenu",:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"
       %h7
@@ -211,8 +211,8 @@
     $("#button_decrease").click(function(){
       var value= $("#quantity_input").attr("value");
       value=parseInt(value)-1;
-      if(value<=0){
-        value=0;
+      if(value<=1){
+        value=1;
       }
       $("#quantity_input").attr("value",value);
       $("#input_hidden").attr("value",value);

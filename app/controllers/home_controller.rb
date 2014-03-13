@@ -18,15 +18,20 @@ class HomeController < ApplicationController
     @second_class= MallCategory.where(:level=>2)
 
     @key= params[:search_key]
-    @flag=1
+    @flag= params[:search_type].to_i
     if @flag==1
       @goods= search_service(@key)
       @key_goods= @goods.page(params[:page])
     elsif @flag==2
+      @vendors= search_vendor(@key)
+      @page_vendors = @vendors.page(params[:page])
     end
 
   end
 
+  def search_vendor( key)
+    Vendor.where("name like '%#{key}%'")
+  end
 
   def search_service( key)
     MallGood.where("title like '%#{key}%'")

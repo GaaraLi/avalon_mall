@@ -11,7 +11,7 @@
     %td(width=""  bgcolor="#FFFFFF")
       %b.Red
         ￥
-        =@good_sku.show_price.to_i
+        =current_customer.get_price( @good_sku)
       %br
       在线支付
     %td(width=""  bgcolor="#FFFFFF")
@@ -20,7 +20,7 @@
     %td(width=""  bgcolor="#FFFFFF")
       %b.Red
         ￥
-        =@good_quantity*@good_sku.show_price.to_i
+        =@good_quantity*current_customer.get_price( @good_sku)
     %td(width=""  bgcolor="#FFFFFF")
       %span.SInk
         =(Time.now).strftime("%Y-%m-%d %H:%M:%S")

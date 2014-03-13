@@ -12,6 +12,23 @@ class CustomersController < ApplicationController
     @cart_orders= MallShoppingCar.find( @cart_ids )
   end
 
+  def cart_confirm
+    @cart_ids= params[:selected_ids]
+
+    @order_number= new_order_number
+    @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,:customer_id=>current_customer.id)
+    @mall_order_id= @order_order.id
+    @cart_ids= @cart_ids.delete("[").delete("]").split(",")
+    @cart_ids.each do |id|
+      @shopping_car_line= MallShoppingCar.find( id.to_i)
+      new_order_line( @shopping_car_line.quantity, @shopping_car_line.mall_sku_id, @mall_order_id)
+    end
+    @mall_order=MallOrder.find( @mall_order_id)
+
+    redirect_to "#{to_alipay_good(@mall_order)}"
+  end
+
+
   def success_page
     if payment_succeed?
       flash[:notice] = '恭喜，您已续费成功'
@@ -61,12 +78,8 @@ class CustomersController < ApplicationController
     @good_quantity=params[:good_quantity].to_i
     @good_sku= params[:good_sku]
     @mall_order=new_order( @good_quantity, @good_sku)
-    redirect_to "#{to_alipay_good}"
-
-  end
-
-  def cart_confirm
-    redirect_to "#{to_alipay_good}"
+    @mall_order=MallOrder.find( @mall_order.id)
+    redirect_to "#{to_alipay_good( @mall_order)}"
   end
 
   def new_order( quantity, sku)
@@ -74,7 +87,7 @@ class CustomersController < ApplicationController
     @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,:customer_id=>current_customer.id)
     @mall_order_id= @order_order.id
     new_order_line( quantity, sku, @mall_order_id)
-    return @order_order
+    @order_order
   end
 
   def new_order_line( q, s, o)

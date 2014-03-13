@@ -9,7 +9,7 @@ class Vendor < ActiveRecord::Base
 
 
   has_one :address, :dependent => :destroy
-  has_one :mall_area
+  belongs_to :mall_area
   has_many :staffs
   has_many :vendor_binding_records
   has_many :cards, through: :vendor_binding_records

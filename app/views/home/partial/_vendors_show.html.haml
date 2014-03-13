@@ -11,7 +11,7 @@
     -@page_vendors.each do |v|
       .garage_list
         .garage_img
-          %aa{:href=> vendor_path(v.id) }
+          %a{:href=> vendor_path(v.id) }
             %img{:src=>asset_path("test/garage_r1_c1.png"),:width=>"230", :height=>"165", :border=>"0"}
         .garage_name
           %span(style="font-size: 12px;")

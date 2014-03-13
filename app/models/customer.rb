@@ -11,4 +11,13 @@ class Customer <ActiveRecord::Base
   has_many :transactions
   has_many :mall_shopping_cars
   has_many :extra_consumption_records
+
+  def get_price( g)
+    if self.card.status=="actived" ||self.card.status=="paid"
+      g.price.to_i
+    else
+      g.customer_price.to_i
+    end
+  end
+
 end

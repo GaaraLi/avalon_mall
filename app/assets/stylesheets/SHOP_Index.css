@@ -2790,3 +2790,123 @@ a#user_menuma:hover {
 	text-align: right;
 	margin-right: 10px;
 }
+
+
+/*2014-3-12新加样式关于我们*/
+.aboutus_wrap{
+	width:960px;
+	height: 750px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-image: url(../images/pic_r2_c4_s1_s1.jpg);
+	background-repeat: repeat-x;
+	background-color: #F8F8F8;
+}
+.aboutus_left{
+	width:215px;
+	height: 600px;
+	float: left;
+}
+.aboutus_right{
+	width:735px;
+	height: 700px;
+	float: right;
+	margin-left: auto;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+}
+.aboutus_pic{
+	width:198px;
+	height: 86px;
+	float: left;
+}
+.aboutus_menu{
+	width:194px;
+	height: 410px;
+	float: left;
+	border-top-width: 5px;
+	border-right-width: 1px;
+	border-bottom-width: 5px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #2E99C7;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #2E99C7;
+	border-left-color: #CCCCCC;
+	margin-top: 15px;
+	box-shadow: 2px 2px 2px #E9E9E9;
+	display:inline;
+	background-color: #FFFFFF;
+	list-style-position: inside;
+	list-style-image: none;
+	list-style-type: none;
+}
+.aboutus_menu ul{
+	list-style: none;
+	float: left;
+	width: 98%;
+	height: auto;
+	padding-left: 10px;
+}
+.aboutus_menu ul li{
+	font-size: 14px;
+	height: 50px;
+	width: 99%;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #DFDFDF;
+	float: left;
+	line-height: 50px;
+	text-align: left;
+	display: inline;
+	list-style-position: inside;
+	list-style-image: none;
+	list-style-type: none;
+}
+.aboutus_title{
+	margin-top:30px;
+	padding-top:10px;
+	width:700px;
+	height: 40px;
+	float: left;
+	background-color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 25px;
+	text-align: left;
+	color: #2E99C7;
+	padding-left: 10px;
+	display: inline;
+	list-style-position: inside;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #DFDFDF;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #DFDFDF;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #DFDFDF;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #DFDFDF;
+}
+.aboutus_words {
+	line-height: 30px;
+	font-size: 14px;
+	color: #333333;
+	height: 500px;
+	width: 700px;
+	text-align: left;
+	display: inline;
+	list-style-position: inside;
+	float: left;
+	padding-top: 10px;
+	padding-left: 10px;
+}

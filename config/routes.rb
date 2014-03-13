@@ -6,6 +6,7 @@ IxcMall::Application.routes.draw do
 
   get "home/search"
   get "home/card"
+  get "home/about_us"
   get "home/research_goods_by_category"
   root "home#index"
 
@@ -17,10 +18,12 @@ IxcMall::Application.routes.draw do
   get "customers/buy"
   get "customers/add_in_shopping_car"
   get "customers/order_confirm"
+  get "customers/cart_confirm"
 
   get 'test' => 'home#test'
   get 'test1' => 'home#test1'
-  devise_for :customers
+  devise_for :customers,
+             :controllers => { :sessions => "devise_hack/sessions", :registrations=> "devise_hack/registrations"}
 
     resources :vendors
     resources :goods

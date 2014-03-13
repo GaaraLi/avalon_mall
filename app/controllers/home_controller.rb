@@ -2,6 +2,10 @@ class HomeController < ApplicationController
   def index
   end
 
+  def about_us
+    
+  end
+
   def test
   	@test= Customer.find(1)
   	@vendors= Vendor.all

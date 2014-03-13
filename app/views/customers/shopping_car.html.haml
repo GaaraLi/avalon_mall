@@ -58,10 +58,13 @@
           %td( width="170" colspan="5" align="right")
             %a#continue_shopping{ :href=>root_path, :title=>"继续购物", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
           %td( width="170" colspan="2" align="right")
-            %a#continue_shopcar{ :href=> customers_order_page_path ,:title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
+            =form_tag('/customers/order_page', method: :GET ) do
+              %input#selected_ids{:type=>"hidden",:name=>"selected_ids"}
+              =submit_tag '去结算', {:title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:id=>"continue_shopcar" }
     .clear
 
   :javascript
+
     function get_total_price(){
       var total_price=0;
       $(".good_price").each(function(){
@@ -87,14 +90,29 @@
       var selected_total_price=0;
     }
 
+    function check_checked_box(){
+      var ids=[];
+      $(".good_check_box").each(function(){
+        if( $(this).prop('checked')){
+          ids.push( parseInt($(this).next("#hidden_in_checkbox").val()) );
+        }
+      });
+      $("#selected_ids").val(ids);
+    }
+
     $(".good_check_box").click(function(){
       var price= parseInt($(this).attr("value"));
       if( $(this).prop('checked')) {
         $("#selected_total_price").text( parseInt($("#selected_total_price").text())+price);
         var ids= $("#hidden_for_ids").val();
-        ids= ids+$(this).prev("#hidden_in_checkbox").val();
+        check_checked_box();
       }else{
-        $("#selected_total_price").text( parseInt($("#selected_total_price").text())-price);
+        var price_tmp= parseInt($("#selected_total_price").text())-price;
+        if( price_tmp<0){
+          price_tmp=0;
+        }
+        $("#selected_total_price").text( price_tmp);
+        check_checked_box();
       }
     });
 

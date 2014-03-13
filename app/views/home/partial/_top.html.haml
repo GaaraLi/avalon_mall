@@ -1,26 +1,30 @@
 .top{:style=>"background-image: url('"+ asset_path('test/Index_BodyBG.gif') +"');"}
   .topBox.m
     .T_l.left
-      欢迎来到爱享车商城,&nbsp&nbsp
+      欢迎来到爱享车商城！&nbsp&nbsp
     .T_r.right
       .login_OR_reg.left
         .login{:class=>"display:none;"}
-          %a.Red 登录
+          %a.Red{:href=>"http://test.ixiangche.com/customers/login"}
+            登录
           &nbsp
           %span.Ink |
           &nbsp
-          %a.Red 新用户请注册
+          %a.Red{:href=>"http://test.ixiangche.com/customers/sign_up"}
+            注册
+          &nbsp
+          %a.Red{:href=>"http://test.ixiangche.com/customers/logout"}
+            安全退出
           &nbsp
         .login_down
           亲爱的用户
           %span.Red JASON
           &nbsp;&nbsp;&nbsp
           %a.Bule{} 安全退出
-      .qq_login.left{:style=>"padding-right:10px;background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
-        %a QQ登录
       .userCenter.left
         &nbsp;&nbsp;
-        %a 我的享车网
+        %a{:href=>"http://test.ixiangche.com"} 我的享车网
       .aboutXiche.left
         &nbsp;&nbsp;&nbsp;
-        %a 关于享车网
+        %a{:href=> home_about_us_path}
+          关于享车网

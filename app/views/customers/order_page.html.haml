@@ -6,6 +6,7 @@
     .shopcar_two.right{:style=>"display:none;background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
     .shopcar_three.right{:style=>"display:none;background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
 .wrap
+.wrap
   .main_box
     .main_box_shopcar 填写并核对订单信息
     .main_shopcarbyket
@@ -18,34 +19,45 @@
                 %td( align="center" bgcolor="#FFFDDD") &nbsp;
               %tr
                 %td( height="35" align="right" bgcolor="#FFFFFF")
-                  %p 姓名：
-                %td( align="left" bgcolor="#FFFFFF") 徐哲
+                  %p 登录账户：
+                %td( align="left" bgcolor="#FFFFFF")
+                  =current_customer.email
                 %td( align="center" bgcolor="#FFFFFF") &nbsp;
               %tr
                 %td( height="35" align="right" bgcolor="#FFFDDD")
                   %p 联系电话：
-                %td( align="left" bgcolor="#FFFDDD") 13891893254
+                %td( align="left" bgcolor="#FFFDDD")
+                  =current_customer.phone if !current_customer.phone.nil?
+                  ="暂无信息" if current_customer.phone.nil?
                 %td( align="center" bgcolor="#FFFDDD") &nbsp;
               %tr
                 %td( height="35" align="right" bgcolor="#FFFFFF")
                   %p 地址：
                 %td( colspan="2" align="left" bgcolor="#FFFFFF")
-                  %p XXXXXXXXXXXXXXXXXXXX
+                  %p
+                  =current_customer.address if !current_customer.address.nil?
+                  ="暂无信息" if current_customer.address.nil?
               %tr
                 %td(  height="35" align="right" bgcolor="#FFFDDD")
                   %p 车辆信息：
-                %td( align="left" bgcolor="#FFFDDD") （此信息无法修改）
+                %td( align="left" bgcolor="#FFFDDD")
+                  =current_customer.car.car_model.car_set.car_brand if !current_customer.car.nil?
+                  ="暂无信息" if current_customer.car.nil?
                 %td( align="center" bgcolor="#FFFDDD") &nbsp;
               %tr
                 %td(  height="35" align="right" bgcolor="#FFFFFF") 车型：
-                %td( colspan="2" align="left" bgcolor="#FFFFFF") 车辆信息
+                %td( colspan="2" align="left" bgcolor="#FFFFFF")
+                  =current_customer.car.car_model.car_set.car_brand+current_customer.car.car_model.car_set+current_customer.car.car_model if !current_customer.car.nil?
+                  ="暂无信息" if current_customer.car.nil?
               %tr
                 %td(  height="35" align="right" bgcolor="#FFFDDD")
                   %p 购车日期：
-                %td( align="left" bgcolor="#FFFDDD") 2013年12月3日
+                %td( align="left" bgcolor="#FFFDDD")
+                  =current_customer.car.bought_since if !current_customer.car.nil?
+                  ="暂无信息" if current_customer.car.nil?
                 %td( align="center" bgcolor="#FFFDDD") &nbsp;
     .main_shopcarbyket
-      %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+      %table( width="100%" border="0" cellspacing="0" cellpadding="5")
         %tr
           %td(height="30")
             %table(width="100%" border="0" cellspacing="0" cellpadding="0")
@@ -68,110 +80,52 @@
     .main_shopcarbyket
       %table(width="100%" border="0" cellspacing="0" cellpadding="0")
         %tr
-          %td
-            .main_shopcarbyket
-              %table(width="100%" border="0" cellspacing="0" cellpadding="0")
-                %tr
-                  %td(height="30")
-                    %table(width="100%" border="0" cellspacing="0" cellpadding="0")
-                      %tr
-                        %td(width="120" height="40" align="left" bgcolor="#FFFFFF")
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          %strong 购买后如何使用：
-                      %tr
-                        %td(height="60" valign="top" bgcolor="#FFFFFF")
-                          %p(style="padding-left:20px; line-height:18px;")  成功购买后，即可直接到所购买车行前台处，报出手机号，进行消费。无需预约！（注意：个别产品需预约，请在购买前阅读产品说明！）
-                %tr
-                  %td &nbsp;
-                %tr
-                  %td(height="80")
-                    %table(width="90%" border="0" align="center" cellpadding="0" cellspacing="0")
-                      %tr
-                        %td
-                          %table(width="100%" border="0" cellspacing="0" cellpadding="0")
-                            %tr
-                              %td(height="40" align="left" bgcolor="#FAFED3")
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                %b(style="font-size:14px") 商品清单
-                              %td(width="80" align="center" bgcolor="#FAFED3")
-                              %td(width="80" align="center" bgcolor="#FAFED3")
-                              %td(width="100" align="center" bgcolor="#FAFED3")
-                              %td(width="100" align="center" bgcolor="#FAFED3")
-                              %td(width="100" align="center" bgcolor="#FAFED3")
-                      %tr
-                        %td
-                          %table(width="100%" border="0" cellspacing="0" cellpadding="0")
-                            %tr
-                              %td(height="30" align="center" bgcolor="#FAFED3") 订单信息
-                              %td(height="30" align="center" bgcolor="#FAFED3") 收货人
-                              %td(height="30" align="center" bgcolor="#FAFED3") 订单金额
-                              %td(height="30" align="center" bgcolor="#FAFED3") 下单时间
-                              %td(height="30" align="center" bgcolor="#FAFED3") 状态
-                              %td(height="30" align="center" bgcolor="#FAFED3") 操作
-                      %tr
-                        %td
-                          %table(width="100%" border="0" cellspacing="0" cellpadding="0")
-                            %tr
-                              %td(height="25" bgcolor="#e9e9e9")
-                                &nbsp;&nbsp;&nbsp;订单编号：
-                                %a#idUrl1003294699 1003294699
-                            %tr
-                              %td(height="70")
-                                %table(width="100%" border="0" cellspacing="0" cellpadding="0")
-                                  %tr
-                                    %td(height="60" align="left" bgcolor="#FFFFFF")
-                                      %table(width="80%" border="0" cellspacing="0" cellpadding="0")
-                                        %tr
-                                          %td(width="60")
-                                            %a
-                                              %img{:src=> asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC"}
-                                          %td(valign="top") 卧室 大客客房
-                                    %td(width="80" align="center" bgcolor="#FFFFFF")
-                                      %b 邹捷
-                                    %td(width="80" align="center" bgcolor="#FFFFFF")
-                                      %b.Red ￥119.00
-                                      %br
-                                      在线支付
-                                    %td(width="100" align="center" bgcolor="#FFFFFF")
-                                      %span.SInk 2014-01-20
-                                    %td(width="100" align="center" bgcolor="#FFFFFF")
-                                      %span.Ink 已完成
-                                    %td(width="100" align="center" bgcolor="#FFFFFF")
-                                      %a.Red 查看订单
-                                      %br
-                                      %a.Red 申请退货
-                            %tr
-                              %td(height="70")
-                                %table(width="100%" border="0" cellspacing="0" cellpadding="0")
-                                  %tr
-                                    %td(height="60" align="left" bgcolor="#FFFFFF")
-                                      %table(width="80%" border="0" cellspacing="0" cellpadding="0")
-                                        %tr
-                                          %td(width="60")
-                                            %a
-                                              %img{:src=> asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC"}
-                                          %td(valign="top") 卧室 大客客房
-                                    %td(width="80" align="center" bgcolor="#FFFFFF")
-                                      %b 邹捷
-                                    %td(width="80" align="center" bgcolor="#FFFFFF")
-                                      %b.Red ￥119.00
-                                      %br
-                                      在线支付
-                                    %td(width="100" align="center" bgcolor="#FFFFFF")
-                                      %span.SInk 2014-01-20
-                                    %td(width="100" align="center" bgcolor="#FFFFFF")
-                                      %span.Ink 已完成
-                                    %td(width="100" align="center" bgcolor="#FFFFFF")
-                                      %a.Red 查看订单
-                                      %br
-                                      %a.Red 申请退货
+          %td(height="40" align="left" bgcolor="#FAFED3" colspan="9")
+            %b(style="font-size:14px") 商品清单
         %tr
-          %td(height="80")
-            %table(width="90%" border="0" align="center" cellpadding="0" cellspacing="0")
-              %tr
-                %td(height="50") &nbsp;
-                %td(width="170")
-                  %a#continue_shopcar{:href=> customers_success_page_path ,:style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:title=>"去购物结算"}
+          %td(height="30" align="center" bgcolor="#FAFED3" colspan="2") 订单信息
+          %td(height="30" align="center" bgcolor="#FAFED3") 收货人
+          %td(height="30" align="center" bgcolor="#FAFED3") 单价
+          %td(height="30" align="center" bgcolor="#FAFED3") 数量
+          %td(height="30" align="center" bgcolor="#FAFED3") 订单金额
+          %td(height="30" align="center" bgcolor="#FAFED3") 下单时间
+          %td(height="30" align="center" bgcolor="#FAFED3") 状态
+          %td(height="30" align="center" bgcolor="#FAFED3") 操作
+        -@cart_orders.each do |o|
+          %tr
+            %td(width="60")
+              %a
+                %img{:src=> asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC"}
+            %td(valign="top")
+              =o.mall_sku.mall_good.title
+            %td(align="center" bgcolor="#FFFFFF")
+              %b
+                =o.customer.email
+            %td(align="center" bgcolor="#FFFFFF")
+              %b.Red
+                =o.mall_sku.customer_price
+              %br
+            %td(align="center" bgcolor="#FFFFFF")
+              %b
+                =o.quantity
+            %td( align="center" bgcolor="#FFFFFF")
+              %b.Red
+                =o.price
+              %br
+                在线支付
+            %td( align="center" bgcolor="#FFFFFF")
+              %span.SInk
+                =(o.created_at).strftime("%Y-%m-%d %H:%M:%S")
+            %td( align="center" bgcolor="#FFFFFF")
+              %span.Ink 已完成
+            %td( align="center" bgcolor="#FFFFFF")
+              %a.Red 查看订单
+              %br
+              %a.Red 申请退货
+        %tr
+          %td(width="170" colspan="9" align="right" )
+            %hr
+            %a#continue_shopcar{:href=> customers_cart_confirm_path ,:style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:title=>"去购物结算"}
     .clear
 
 

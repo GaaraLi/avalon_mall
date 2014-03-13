@@ -65,8 +65,8 @@
         %h6
           %a#goods_buycart{ :title=>"加入购物车", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
           =form_tag('/customers/buy', method: :GET) do
-            %input#input_hidden{:style=>"display:none;",:name=>"input_hidden_name"}
-            %input#input_hidden_sku{:style=>"display:none;",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
+            %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name"}
+            %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
             =submit_tag "立即购买",:id=>"goods_buymenu",:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"
       %h7
         服务说明：

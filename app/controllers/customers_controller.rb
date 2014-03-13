@@ -1,13 +1,15 @@
 class CustomersController < ApplicationController
   include ApplicationHelper
   include AlipayHelper
-  before_filter :authenticate_customer!
-
+  before_filter :authenticate_customer!, :except=>[:index,:show]
   def shopping_car
     @cart_list= current_customer.mall_shopping_cars
   end
 
   def order_page
+    @cart_ids= params[:selected_ids]
+    @cart_ids=@cart_ids.split(",").map{|i| i.to_i}
+    @cart_orders= MallShoppingCar.find( @cart_ids )
   end
 
   def success_page
@@ -61,6 +63,10 @@ class CustomersController < ApplicationController
     @mall_order=new_order( @good_quantity, @good_sku)
     redirect_to "#{to_alipay_good}"
 
+  end
+
+  def cart_confirm
+    redirect_to "#{to_alipay_good}"
   end
 
   def new_order( quantity, sku)

@@ -50,7 +50,7 @@ module AlipayHelper
                                :out_trade_no => o.order_no,
                                :notify_url => customers_success_page_url,
                                :return_url => customers_success_page_url,
-                               :extra_common_param => "676767",
+                               :extra_common_param => o.order_no,
                                :_input_charset => 'utf-8')
   end
 

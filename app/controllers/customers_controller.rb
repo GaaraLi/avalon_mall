@@ -33,9 +33,10 @@ class CustomersController < ApplicationController
     if payment_succeed?
       flash[:notice] = '恭喜，您已续费成功'
       redirect_to customers_center_path
+
     else
       flash[:error] = '支付失败！请检查您的支付操作是否成功'
-      render customers_error_path
+      render customers_error_page_path
     end
   end
 

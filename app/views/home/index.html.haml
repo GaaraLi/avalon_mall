@@ -89,7 +89,7 @@
           -@homepage_sliders.each do |slider|
             %li
               %a{:href=>"#{slider.text2}"}
-                %img{:src=> "#{slider.img_url}" ,:alt=>'pic',:style=>"width:295px; height:100px; "}
+                %img{:src=> "#{slider.img_url}" ,:alt=>'pic'}
         %a.prev{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
         %a.next{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
         .num
@@ -126,7 +126,7 @@
               -@homepage_recommends.each do |rec|
                 %p
                   %a{:href=>"#{rec.text2}"}
-                    %img{ :src=> "#{rec.img_url}" ,:alt=>'pic'}
+                    %img{ :src=> "#{rec.img_url}" ,:alt=>'pic',:style=>"width:295px; height:100px; "}
         #next.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
 
   .part_03

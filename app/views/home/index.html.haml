@@ -98,19 +98,20 @@
       .shop_activities
         %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %h4
-          %img{ :src=> asset_path('test/img-01.jpg'), :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
+          %a{:href=>"#{@homepage_slider_right[0].text2}"}
+            %img{ :src=> "#{@homepage_slider_right[0].img_url}", :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
         %h5
           %ul
-            %li
-              ·&nbsp;
-              %a 品牌狂潮闹元宵
-            %li
-              ·&nbsp;
-              %a 恋恋情人节 买书送鲜花
+            -@homepage_slider_right_links.each do |link|
+              %li
+                ·&nbsp;
+                %a{:href=>"#{link.text2}"}
+                  =link.title
       .shop_news
         %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %h4
-          %img{ :src=> asset_path('test/img-01.jpg'), :width=>"202", :height=>"88", :border=>"0" ,:alt=>'pic' }
+          %a{:href=>"#{@homepage_slider_right[1].text2}"}
+            %img{ :src=> "#{@homepage_slider_right[1].img_url}", :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
     .clear
   .clear
 
@@ -122,25 +123,10 @@
         .box
           %ul#pics.pics( style=" left:0px;")
             %li
-              %p
-                %a
-                  %img{ :src=> asset_path('test/img-02.jpg') ,:alt=>'pic'}
-              %p
-                %a
-                  %img{ :src=> asset_path('test/img-03.jpg') ,:alt=>'pic'}
-              %p
-                %a
-                  %img{ :src=> asset_path('test/img-02.jpg') ,:alt=>'pic'}
-            %li
-              %p
-                %a
-                  %img{ :src=> asset_path('test/img-02.jpg') ,:alt=>'pic'}
-              %p
-                %a
-                  %img{ :src=> asset_path('test/img-03.jpg') ,:alt=>'pic'}
-              %p
-                %a
-                  %img{ :src=> asset_path('test/img-02.jpg') ,:alt=>'pic'}
+              -@homepage_recommends.each do |rec|
+                %p
+                  %a{:href=>"#{rec.text2}"}
+                    %img{ :src=> "#{rec.img_url}" ,:alt=>'pic'}
         #next.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
 
   .part_03

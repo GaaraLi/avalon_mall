@@ -23,8 +23,7 @@
           .p_price
             %span ￥
             %b
-              -@sku=MallGood.find(g.id).mall_skus.first
-              =current_customer.get_price(@sku)
+              =MallGood.find(g.id).mall_skus.first.customer_price
             %span .00
 
 

@@ -40,8 +40,18 @@ class CustomersController < ApplicationController
     end
   end
 
+  def notify_page
+    @order= MallOrder.find(params[:extra_common_param])
+
+    if @order.paid( params, request.raw_post)
+      render :text=>'success'
+    else
+      render :text=>'failure'
+    end
+  end
+
   def error_page
-    
+
   end
 
   def center

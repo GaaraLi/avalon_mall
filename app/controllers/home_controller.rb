@@ -19,12 +19,16 @@ class HomeController < ApplicationController
 
     @key= params[:search_key]
     @flag= params[:search_type].to_i
+
     if @flag==1
       @goods= search_service(@key)
       @key_goods= @goods.page(params[:page])
     elsif @flag==2
       @vendors= search_vendor(@key)
       @page_vendors = @vendors.page(params[:page])
+    elsif @flag==0
+      @goods=MallGood.all
+      @key_goods= @goods.page(params[:page])
     end
 
   end

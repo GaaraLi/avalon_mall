@@ -15,14 +15,16 @@
             %a{:href=>good_path(g.id)}
               %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
           .p_title
-            %a
+            %a{:href=>good_path(g.id)}
               =g.title
             %br
             %a
               =g.mall_category.name
           .p_price
             %span ￥
-            %b 699
+            %b
+              -@sku=MallGood.find(g.id).mall_skus.first
+              =current_customer.get_price(@sku)
             %span .00
 
 

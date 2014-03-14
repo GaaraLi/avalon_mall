@@ -48,9 +48,9 @@ module AlipayHelper
                                #:amount => card.service_combo.price.to_s,
                                :amount => "0.01",
                                :out_trade_no => o.order_no,
-                               :notify_url => customers_success_page_url,
+                               :notify_url => customers_notify_page_url,
                                :return_url => customers_success_page_url,
-                               :extra_common_param => o.order_no,
+                               :extra_common_param => o.id,
                                :_input_charset => 'utf-8')
   end
 

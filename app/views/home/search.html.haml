@@ -232,7 +232,7 @@
           %h4.left 价格↑
           %h4.left 价格↓
       #ajax_category_product
-        -if 1==@flag
+        -if 2!=@flag
           =render 'home/partial/goods_show'
         -elsif 2==@flag
           =render 'home/partial/vendors_show'

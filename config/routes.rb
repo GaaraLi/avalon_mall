@@ -13,6 +13,7 @@ IxcMall::Application.routes.draw do
   get "customers/shopping_car"
   get "customers/order_page"
   get "customers/success_page"
+  get "customers/notify_page"
   get "customers/error_page"
   get "customers/center"
   get "customers/buy"

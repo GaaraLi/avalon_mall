@@ -89,7 +89,7 @@
           -@homepage_sliders.each do |slider|
             %li
               %a{:href=>"#{slider.text2}"}
-                %img{:src=> "#{img_url}" ,:alt=>'pic'}
+                %img{:src=> "#{slider.img_url}" ,:alt=>'pic'}
         %a.prev{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
         %a.next{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
         .num

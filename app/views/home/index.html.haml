@@ -121,12 +121,27 @@
       #swap_pic
         #prev.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         .box
-          %ul#pics.pics( style=" left:0px;")
+          %ul#pics.pics( style=" left:5px;")
             %li
-              -@homepage_recommends.each do |rec|
-                %p
-                  %a{:href=>"#{rec.text2}"}
-                    %img{ :src=> "#{rec.img_url}" ,:alt=>'pic',:style=>"width:295px; height:100px; "}
+              %p
+                %a{:href=>"#{@homepage_recommends[0].text2}"}
+                  %img{:src=>"#{@homepage_recommends[0].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
+              %p
+                %a{:href=>"#{@homepage_recommends[1].text2}"}
+                  %img{:src=>"#{@homepage_recommends[1].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
+              %p
+                %a{:href=>"#{@homepage_recommends[2].text2}"}
+                  %img{:src=>"#{@homepage_recommends[2].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
+            %li
+              %p
+                %a{:href=>"#{@homepage_recommends[3].text2}"}
+                  %img{:src=>"#{@homepage_recommends[3].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
+              %p
+                %a{:href=>"#{@homepage_recommends[4].text2}"}
+                  %img{:src=>"#{@homepage_recommends[4].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
+              %p
+                %a{:href=>"#{@homepage_recommends[5].text2}"}
+                  %img{:src=>"#{@homepage_recommends[5].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
         #next.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
 
   .part_03

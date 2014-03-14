@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @homepage_sliders= MallBlock.where("mall_block_type_id=1")
   end
 
   def about_us

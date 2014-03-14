@@ -30,7 +30,9 @@ class CustomersController < ApplicationController
 
 
   def success_page
+    puts '========in success page========='
     if payment_succeed?
+    puts '========success========='
       flash[:notice] = '恭喜，您已续费成功'
       redirect_to customers_center_path
 
@@ -42,7 +44,7 @@ class CustomersController < ApplicationController
 
   def notify_page
     @order= MallOrder.find(params[:extra_common_param])
-
+    puts '========in notify page========='
     if @order.paid( params, request.raw_post)
       render :text=>'success'
     else

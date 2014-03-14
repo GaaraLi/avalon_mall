@@ -86,15 +86,10 @@
     .shop_ad
       .shop_adbox
         %ul.shop_adpic
-          %li
-            %a
-              %img{:src=> asset_path('test/0.jpg') ,:alt=>'pic'}
-          %li
-            %a
-              %img{:src=> asset_path('test/1.jpg') ,:alt=>'pic'}
-          %li
-            %a
-              %img{:src=> asset_path('test/2.jpg') ,:alt=>'pic'}
+          -@homepage_sliders.each do |slider|
+            %li
+              %a{:href=>"#{slider.text2}"}
+                %img{:src=> asset_path('#{img_url}') ,:alt=>'pic'}
         %a.prev{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
         %a.next{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
         .num

@@ -8,7 +8,7 @@ class MallOrder < ActiveRecord::Base
       return false unless from_alipay?(params[:notify_id])
     end
     if status == 0
-      update_attributes(status: 2)
+      update_attributes(status: 2, :finish_time: Time.now.strftime("%Y-%m-%d") )
 
       # new exchange code
       @mall_order_lines= mall_order_lines if mall_order_lines!= nil
@@ -132,15 +132,15 @@ class MallOrder < ActiveRecord::Base
   end
 
   private
-    def from_alipay?(notify_id)
+  def from_alipay?(notify_id)
     uri = "https://mapi.alipay.com/gateway.do?service=notify_verify&partner=#{ActiveMerchant::Billing::Integrations::Alipay::ACCOUNT}&notify_id=#{notify_id}"
 
-    #html_response = nil
-    #open(uri) do |http|
-      #html_response = http.read
-    #end
-    #html_response == 'true'
-    html_response= 'true'
+    html_response = nil
+    open(uri) do |http|
+      html_response = http.read
+    end
+    html_response == 'true'
+    #html_response= 'true'
   end
 
   def create_exchange_code

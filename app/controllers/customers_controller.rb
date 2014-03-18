@@ -39,7 +39,7 @@ class CustomersController < ApplicationController
     puts @order.paid( params, request.raw_post)
     if payment_succeed? && @order.paid( params, request.raw_post)
       flash[:notice] = '恭喜，您已续费成功'
-      redirect_to customers_center_path
+      redirect_to "https://m.ixiangche.com/customers/center"
 
     else
       flash[:error] = '支付失败！请检查您的支付操作是否成功'

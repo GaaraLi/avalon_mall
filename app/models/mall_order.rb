@@ -9,7 +9,7 @@ class MallOrder < ActiveRecord::Base
       return false unless from_alipay?(params[:notify_id])
     end
     if status == 0
-      update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d") )
+      update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
 
       # new exchange code
       @mall_order_lines= mall_order_lines if mall_order_lines!= nil

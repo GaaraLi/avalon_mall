@@ -43,14 +43,11 @@ module AlipayHelper
   end
 
   def to_alipay_good( o)
-    puts '==========to alipay good'
-    puts customers_notify_page_url
-    puts customers_success_page_url
     redirect_to_alipay_gateway(:subject => "享车网订单",
                                :body => "享车网订单",
                                #:amount => card.service_combo.price.to_s,
-                               :amount => (o.price+0.01).to_s,
-                               #:amount => "0.01",
+                               #:amount => o.price.to_s,
+                               :amount => "0.01",
                                :out_trade_no => o.order_no,
                                :notify_url => customers_notify_page_url,
                                :return_url => customers_success_page_url,

@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   include ApplicationHelper
   include AlipayHelper
+  skip_before_filter :verify_authenticity_token
   before_filter :authenticate_customer!, :except=>[:index,:show]
 
   def shopping_car

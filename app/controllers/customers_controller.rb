@@ -2,7 +2,6 @@ class CustomersController < ApplicationController
   include ApplicationHelper
   include AlipayHelper
   before_filter :authenticate_customer!, :except=>[:index,:show]
-  before_filter :load_order
 
   def shopping_car
     @cart_list= current_customer.mall_shopping_cars
@@ -33,6 +32,7 @@ class CustomersController < ApplicationController
 
 
   def success_page
+    @order = MallOrder.find( params[:extra_common_param])
     if payment_succeed? && @order.paid( params, request.raw_post)
       flash[:notice] = '恭喜，您已续费成功'
       redirect_to customers_center_path
@@ -44,6 +44,7 @@ class CustomersController < ApplicationController
   end
 
   def notify_page
+    @order = MallOrder.find( params[:extra_common_param])
     @order= MallOrder.find(params[:extra_common_param])
     if @order.paid( params, request.raw_post)
       render :text=>'success'

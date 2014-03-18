@@ -18,8 +18,8 @@ class MallOrder < ActiveRecord::Base
       #repaid
       @current_customer= Customer.find(customer_id)
       do_order_repaid if @current_customer.card
-
     end
+    return true
   end
 
   def new_exchange_code_line( lines)
@@ -32,6 +32,7 @@ class MallOrder < ActiveRecord::Base
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
       l.mall_sku.mall_inventory.update_attributes(:inventory_qty=> @q)
     end
+    return true
   end
 
   def do_order_repaid

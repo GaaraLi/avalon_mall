@@ -21,4 +21,3 @@ gem 'ruby-hmac'
 
 gem 'nokogiri'
 gem 'i18n'
-gem 'open-uri'

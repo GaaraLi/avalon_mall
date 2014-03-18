@@ -2,6 +2,8 @@ class CustomersController < ApplicationController
   include ApplicationHelper
   include AlipayHelper
   before_filter :authenticate_customer!, :except=>[:index,:show]
+  before_filter :load_order
+
   def shopping_car
     @cart_list= current_customer.mall_shopping_cars
   end
@@ -138,6 +140,14 @@ class CustomersController < ApplicationController
 
   def payment_succeed?
     ActiveMerchant::Billing::Integrations::Alipay::Return.new(request.query_string).success?
+  end
+
+  def load_order
+    @order = MallOrder.find( params[:extra_common_param])
+    if @order.nil?
+      flash[:error] = "找不到订单 #{params[:extra_common_param]}，请联系客服"
+      redirect_to customer_center_path
+    end
   end
 
 end

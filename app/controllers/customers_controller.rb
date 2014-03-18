@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   include ApplicationHelper
   include AlipayHelper
   skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_customer!, :except=>[:index,:show]
+  before_filter :authenticate_customer!, :except=>[:index,:show,:notify_page,:success_page]
 
   def shopping_car
     @cart_list= current_customer.mall_shopping_cars

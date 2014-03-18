@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exchange_code_number: MyString
+  status: 1
+  mall_order_line_id: 1
+
+two:
+  exchange_code_number: MyString
+  status: 1
+  mall_order_line_id: 1

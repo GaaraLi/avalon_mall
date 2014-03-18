@@ -22,6 +22,7 @@ class CustomersController < ApplicationController
     @cart_ids.each do |id|
       @shopping_car_line= MallShoppingCar.find( id.to_i)
       new_order_line( @shopping_car_line.quantity, @shopping_car_line.mall_sku_id, @mall_order_id)
+      MallShoppingCar.destroy(id.to_i)
     end
     @mall_order=MallOrder.find( @mall_order_id)
 
@@ -30,9 +31,7 @@ class CustomersController < ApplicationController
 
 
   def success_page
-    puts '========in success page========='
-    if payment_succeed?
-    puts '========success========='
+    if payment_succeed? && @order.paid( params, request.raw_post)
       flash[:notice] = '恭喜，您已续费成功'
       redirect_to customers_center_path
 
@@ -44,7 +43,6 @@ class CustomersController < ApplicationController
 
   def notify_page
     @order= MallOrder.find(params[:extra_common_param])
-    puts '========in notify page========='
     if @order.paid( params, request.raw_post)
       render :text=>'success'
     else

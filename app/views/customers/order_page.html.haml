@@ -41,13 +41,13 @@
                 %td(  height="35" align="right" bgcolor="#FFFDDD")
                   %p 车辆信息：
                 %td( align="left" bgcolor="#FFFDDD")
-                  =current_customer.car.car_model.car_set.car_brand if !current_customer.car.nil?
+                  =current_customer.car.car_model.car_set.car_brand.name if !current_customer.car.nil?
                   ="暂无信息" if current_customer.car.nil?
                 %td( align="center" bgcolor="#FFFDDD") &nbsp;
               %tr
                 %td(  height="35" align="right" bgcolor="#FFFFFF") 车型：
                 %td( colspan="2" align="left" bgcolor="#FFFFFF")
-                  =current_customer.car.car_model.car_set.car_brand+current_customer.car.car_model.car_set+current_customer.car.car_model if !current_customer.car.nil?
+                  =current_customer.car.car_model.car_set.car_brand.name+current_customer.car.car_model.car_set.name+current_customer.car.car_model.name if !current_customer.car.nil?
                   ="暂无信息" if current_customer.car.nil?
               %tr
                 %td(  height="35" align="right" bgcolor="#FFFDDD")
@@ -127,7 +127,7 @@
             %hr
             =form_tag('/customers/cart_confirm', method: :GET ) do
               %input#selected_ids{:type=>"hidden",:name=>"selected_ids",:value=>"#{@cart_ids}"}
-              =submit_tag '去结算', {:title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:id=>"continue_shopcar"},:target=>"_blank"
+              =submit_tag '去结算', :title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:id=>"continue_shopcar"
     .clear
 
 

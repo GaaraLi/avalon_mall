@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311075514) do
+ActiveRecord::Schema.define(version: 20140317030908) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -202,12 +202,41 @@ ActiveRecord::Schema.define(version: 20140311075514) do
     t.datetime "updated_at"
   end
 
+  create_table "mall_block_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_blocks", force: true do |t|
+    t.string   "title",              limit: 100
+    t.integer  "mall_block_type_id"
+    t.string   "text1"
+    t.string   "text2"
+    t.string   "text3"
+    t.string   "text4"
+    t.string   "text5"
+    t.string   "img_url"
+    t.text     "text_area"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mall_categories", force: true do |t|
-    t.string   "code",          limit: 10
-    t.string   "name",          limit: 100
+    t.string   "code"
+    t.string   "name",           limit: 100
     t.integer  "level"
-    t.string   "parent_code",   limit: 10
-    t.string   "complete_code", limit: 40
+    t.string   "parent_code",    limit: 10
+    t.string   "complete_code",  limit: 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_order"
+  end
+
+  create_table "mall_exchanges", force: true do |t|
+    t.string   "exchange_code_number"
+    t.integer  "status",               default: 0
+    t.integer  "mall_order_line_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -239,6 +268,14 @@ ActiveRecord::Schema.define(version: 20140311075514) do
   create_table "mall_inventories", force: true do |t|
     t.integer  "inventory_qty"
     t.integer  "mall_sku_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mall_inventory_records", force: true do |t|
+    t.integer  "mall_inventory_id"
+    t.integer  "inventory_type",    limit: 1
+    t.integer  "inventory_qty"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -531,6 +568,7 @@ ActiveRecord::Schema.define(version: 20140311075514) do
     t.string   "banner_url"
     t.integer  "is_mall",                limit: 1
     t.integer  "mall_area_id"
+    t.text     "advertisement"
   end
 
   add_index "vendors", ["reset_password_token"], name: "index_vendors_on_reset_password_token", unique: true, using: :btree

@@ -154,10 +154,12 @@ DEPENDENCIES
   devise (= 3.0.3)
   execjs
   haml
+  i18n
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
   mysql2
+  nokogiri
   rails (= 4.0.2)
   ruby-hmac
   sass-rails (~> 4.0.0)

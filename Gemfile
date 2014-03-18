@@ -18,3 +18,6 @@ gem 'kaminari'
 gem 'activemerchant'
 gem 'activemerchant_patch_for_china'
 gem 'ruby-hmac'
+
+gem 'nokogiri'
+gem 'i18n'

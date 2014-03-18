@@ -39,8 +39,12 @@ class MallOrder < ActiveRecord::Base
     if @current_customer.card.repaid_time >= @current_customer.card.repaid_tactic_customer.times
       return true
     end
-
-    @price= get_binding_vendor_price
+    
+    if @current_customer.card.vendor_binding_record
+      @price= get_binding_vendor_price
+    else
+      @price= 0
+    end
     if ( @price>= @current_customer.card.repaid_tactic_customer.consumption_amount )
        repaid= get_repaid( @price)
        return true if !repaid

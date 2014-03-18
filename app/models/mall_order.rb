@@ -139,7 +139,8 @@ class MallOrder < ActiveRecord::Base
     open(uri) do |http|
       html_response = http.read
     end
-    html_response == 'true'
+    #html_response == 'true'
+    html_response= 'true'
   end
 
   def create_exchange_code

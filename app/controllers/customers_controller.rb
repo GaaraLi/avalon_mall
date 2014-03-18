@@ -46,7 +46,6 @@ class CustomersController < ApplicationController
 
   def notify_page
     @order = MallOrder.find( params[:extra_common_param])
-    @order= MallOrder.find(params[:extra_common_param])
     if @order.paid( params, request.raw_post)
       render :text=>'success'
     else

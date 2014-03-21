@@ -1,0 +1,27 @@
+.shop_class.left
+  .shop_classbox2
+    %a
+      %img{:src=>asset_path("test/shangcheng.png") , :width=>"196", :height=>"45", :border=>"0"}
+    %h1.shop_stornav2{:style=>"height:260px;"}
+      #accordion_homepage{:border=>"1px"}
+        -@first_class.each do |f|
+          %h3.accordion_head{:style=>"height:35px; background-color:#5A919B;"}
+            .shop_stor2
+              %b
+                =f.name
+                %hr
+          .stornav2_li.accordion_list{:style=>" border:1px; background-color:#B9EBF3; height:150px;display:none;"}
+            -@second_class.each do |s|
+              -if s.parent_code == f.code
+                =link_to s.name, ""
+
+:javascript
+  $(document).ready(function(){
+    $(".accordion_list:first").css("display","block");
+  });
+
+  $(".accordion_head").mouseover(function(){
+    $(".accordion_list").css("display","none");
+    //$(this).next(".accordion_list").fadeIn();
+    $(this).next(".accordion_list").css("display","block");
+  });

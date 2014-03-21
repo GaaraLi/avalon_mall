@@ -1,0 +1,13 @@
+.main_goods_R.right
+  .main_goods_tab
+    %a.on 商品详情
+  .main_goods_details
+    .main_goods_txt
+      %h3.main_goods_title 产品参数：
+      %ul.detail-list
+        -@good.mall_goods_properties.each do |p|
+          %li
+            =p.name+":"
+            =p.content
+    .main_goods_txt2
+      %p=@good.desc.html_safe

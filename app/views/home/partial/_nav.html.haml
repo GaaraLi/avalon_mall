@@ -2,18 +2,22 @@
   .nav_box.m
     %h3.nav_class.left
       %b
-        %a.Bai{:href=> home_search_path} 全部分类
+        %a.Bai.nav_tag{:href=> home_search_path} 全部分类
     .nav_menu.left
       %ul
-        %li.nav_down
-          %a.Bai{:href=> root_path} 首页
         %li
-          %a.Bai{:href=> vendors_path} 车行
+          %a.Bai.nav_tag{:href=> root_path} 首页
         %li
-          %a.Bai{:href=> home_card_path} 汽车养护卡
+          %a.Bai.nav_tag{:href=> vendors_path} 车行
         %li
-          %a.Bai{:href=> '#'} 车管家
+          %a.Bai.nav_tag{:href=> home_card_path} 享车卡
         %li
-          %a.Bai{:href=> '#'} 服务地图
+          %a.Bai.nav_tag{:href=> '#'} 服务地图
         %li
-          %a.Bai{:href=> '#'} 会员权益
+          %a.Bai.nav_tag{:href=> '#'} 会员权益
+
+:javascript
+  $(".nav_tag").click(function(){
+    $(".nav_tag").removeClass("nav_down");
+    $(this).addClass("nav_down");
+  });

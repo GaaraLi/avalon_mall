@@ -20,6 +20,7 @@ IxcMall::Application.routes.draw do
   get "customers/add_in_shopping_car"
   get "customers/order_confirm"
   get "customers/cart_confirm"
+  get "customers/check_inventory"
 
   get 'test' => 'home#test'
   get 'test1' => 'home#test1'

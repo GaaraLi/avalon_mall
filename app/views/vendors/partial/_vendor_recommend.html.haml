@@ -1,0 +1,19 @@
+
+.main_category_hotshop
+  %h3
+    %b 活动推荐
+  .main_category_pro
+    %ul.part_list
+      -3.times do
+        %li
+          .p_img
+            %a
+            %img{:src=>asset_path("test/img-13.jpg"), :width=>"158", :height=>"158",  :border=>"0"}
+          .p_title
+            %a 米其林 205/55R16【自营】北上广等多省市包快
+          .p_price
+            %span ￥
+            %b 699
+            %span .00
+          .p_pricemenu
+            %a#p_pricemenu 立即选购

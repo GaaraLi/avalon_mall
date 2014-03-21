@@ -3,6 +3,8 @@ class VendorsController < ApplicationController
   def index
     @vendors=Vendor.all
     @page_vendors= @vendors.page(params[:page])
+    @page_title="车行列表"
+    @bread_crumbs=['车行列表', vendors_path]
   end
 
   def show
@@ -10,8 +12,10 @@ class VendorsController < ApplicationController
     @first_class= MallCategory.where(:level=>1)
     @second_class= MallCategory.where(:level=>2)
     @category_id= params[:id]
-    @vendor_goods= Vendor.find(params[:id]).mall_goods
+    @vendor_goods= Vendor.find(params[:id]).mall_goods.onsale
     @key_vendor_goods= @vendor_goods.page(params[:page])
+
+    @page_title="#{@vendor.name}"
   end
 
   def research_vendor_goods_by_category
@@ -71,7 +75,6 @@ class VendorsController < ApplicationController
       @page_vendors= @vendors.page(params[:page])
     else
     end
-    
-  end
 
+  end
 end

@@ -1,88 +1,7 @@
 =render "home/partial/nav"
 .wrap
   .part_01
-    .shop_class.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
-      .shop_classbox
-        %h3.shop_stornav
-          .shop_stor
-            %b 美容装潢
-          .stornav_li
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-        .shop_coursestor{:style=>" display:none;"}
-          %ul
-            %li
-              %a 洗车打蜡
-              %a 镀膜
-              %a 钣金喷漆
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-      .shop_classbox
-        %h3.shop_stornav
-          .shop_stor
-            %b 保养维修
-          .stornav_li
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-        .shop_coursestor{:style=>" display:none;"}
-          %ul
-            %li
-              %a 洗车打蜡
-              %a 镀膜
-              %a 钣金喷漆
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-      .shop_classbox
-        %h3.shop_stornav
-          .shop_stor
-            %b 轮胎轮毂
-          .stornav_li
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-        .shop_coursestor{:style=>" display:none;"}
-          %ul
-            %li
-              %a 洗车打蜡
-              %a 镀膜
-              %a 钣金喷漆
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-      .shop_classbox
-        %h3.shop_stornav
-          .shop_stor
-            %b 美容装潢
-          .stornav_li
-            %a 装饰品
-            %a 车身装饰条
-            %a 车衣
-        .shop_coursestor{:style=>" display:none;"}
-          %ul
-            %li
-              %a 洗车打蜡
-              %a 镀膜
-              %a 钣金喷漆
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-              %a 洗车打蜡
-
+    =render "home/partial/categories"
     .shop_ad
       .shop_adbox
         %ul.shop_adpic
@@ -98,8 +17,9 @@
       .shop_activities
         %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %h4
-          %a{:href=>"#{@homepage_slider_right[0].text2}"}
-            %img{ :src=> "#{@homepage_slider_right[0].img_url}", :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
+          - @slider=@homepage_slider_right[0] if @homepage_slider_right[0]
+          %a{:href=>"#{@slider.text2} "}
+            %img{ :src=> "#{@slider.img_url}", :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
         %h5
           %ul
             -@homepage_slider_right_links.each do |link|
@@ -110,8 +30,9 @@
       .shop_news
         %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %h4
-          %a{:href=>"#{@homepage_slider_right[1].text2}"}
-            %img{ :src=> "#{@homepage_slider_right[1].img_url}", :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
+          - @slider=@homepage_slider_right[1] if @homepage_slider_right[1]
+          %a{:href=>"#{@slider.text2}"}
+            %img{ :src=> "#{@slider.img_url}", :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
     .clear
   .clear
 

@@ -5,22 +5,22 @@
     .T_r.right
       .login_OR_reg.left
         .login{:class=>"display:none;"}
-          %a.Red{:href=>"http://test.ixiangche.com/customers/login"}
-            登录
-          &nbsp
-          %span.Ink |
-          &nbsp
-          %a.Red{:href=>"http://test.ixiangche.com/customers/sign_up"}
-            注册
-          &nbsp
-          %a.Red{:href=>"http://test.ixiangche.com/customers/logout"}
-            安全退出
-          &nbsp
-        .login_down
-          亲爱的用户
-          %span.Red JASON
-          &nbsp;&nbsp;&nbsp
-          %a.Bule{} 安全退出
+          -if current_customer
+            %a{:href=> customers_center_path}
+              =current_customer.email
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            %a.Red{:href=>"http://test.ixiangche.com/customers/logout"}
+              安全退出
+            &nbsp
+          -else
+            %a.Red{:href=>"http://test.ixiangche.com/customers/login"}
+              登录
+            &nbsp
+            %span.Ink |
+            &nbsp
+            %a.Red{:href=>"http://test.ixiangche.com/customers/sign_up"}
+              注册
+            &nbsp
       .userCenter.left
         &nbsp;&nbsp;
         %a{:href=>"http://test.ixiangche.com"} 我的享车网

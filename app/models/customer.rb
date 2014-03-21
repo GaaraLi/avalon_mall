@@ -14,9 +14,9 @@ class Customer <ActiveRecord::Base
 
   def get_price( g)
     if self.card.status=="actived" ||self.card.status=="paid"
-      g.price.to_i
-    else
       g.customer_price.to_i
+    else
+      g.price.to_i
     end
   end
 

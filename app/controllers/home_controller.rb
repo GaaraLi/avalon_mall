@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     @homepage_slider_right= MallBlock.where("mall_block_type_id=2")
     @homepage_slider_right_links= MallBlock.where("mall_block_type_id=11")
     @homepage_recommends= MallBlock.where("mall_block_type_id=4")
+    @first_class= MallCategory.where(:level=>1)
+    @second_class= MallCategory.where(:level=>2)
   end
 
   def about_us
@@ -25,14 +27,17 @@ class HomeController < ApplicationController
     @flag= params[:search_type].to_i
 
     if @flag==1
+      @page_title="产品搜索"
       @goods= search_service(@key)
       @key_goods= @goods.page(params[:page])
     elsif @flag==2
+      @page_title="车行搜索"
       @vendors= search_vendor(@key)
       @page_vendors = @vendors.page(params[:page])
     elsif @flag==0
-      @goods=MallGood.all
+      @goods=MallGood.all.onsale
       @key_goods= @goods.page(params[:page])
+      @page_title="全部商品"
     end
 
   end
@@ -59,5 +64,6 @@ class HomeController < ApplicationController
   end
 
   def card
+      @page_title="享车卡"
   end
 end

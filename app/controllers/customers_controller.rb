@@ -14,6 +14,18 @@ class CustomersController < ApplicationController
     @cart_orders= MallShoppingCar.find( @cart_ids )
   end
 
+  def check_inventory
+    @ids= params[:ids]
+    @ids= @ids.delete("[").delete("]").split(",")
+    @ids.each do |id|
+      if (MallShoppingCar.find(id.to_i).mall_sku.mall_inventory.inventory_qty<=0)
+        render :json=>0
+        return
+      end
+    end
+    render :json=>1
+  end
+
   def cart_confirm
     @cart_ids= params[:selected_ids]
 

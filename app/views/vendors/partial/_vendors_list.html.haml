@@ -17,7 +17,8 @@
           %span(style="font-size: 12px;")
             %em(style="float:right")
               %a(style="color:#137eac")
-                =v.mall_area.name
+                -if !v.mall_area
+                  =v.mall_area.name
           %span(style="font-size: 16px; color:#137EAC; font-weight: bold;")
             %a{:href=> vendor_path(v.id) }
               =v.name
@@ -35,4 +36,12 @@
               %strong
                 营业时间：
               =v.opening_hours
+  .class_rule_retrieval.left{:style=>"width:97%;"}
+    %h3
+      检索出
+      %b.Red
+        =@vendors.count
+      个符合您需求的车行
+    %h3.right{:style=>"margin-right:10px;margin-top:-30px;"}
+      = paginate @page_vendors
 

@@ -26,3 +26,13 @@
       $("#search_service").addClass("s_down");
       $("#search_type").val("1");
     });
+
+    $(document).ready(function(){
+      if(#{@flag}==2){
+        $("#search_service").removeClass("s_down");
+        $("#search_vendor").addClass("s_down");
+      }else{
+        $("#search_service").addClass("s_down");
+      }
+      $(".w1").val("#{@key}");
+    })

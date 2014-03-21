@@ -5,6 +5,7 @@ class VendorsController < ApplicationController
     @page_vendors= @vendors.page(params[:page])
     @page_title="车行列表"
     @bread_crumbs=['车行列表', vendors_path]
+    @nav_label_check= 2
   end
 
   def show

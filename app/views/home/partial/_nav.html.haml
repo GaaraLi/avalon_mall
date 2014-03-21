@@ -1,23 +1,29 @@
 .nav
   .nav_box.m
-    %h3.nav_class.left
-      %b
-        %a.Bai.nav_tag{:href=> home_search_path} 全部分类
     .nav_menu.left
       %ul
+        %li{:style=>"width:200px;"}
+          .nav_class
+            %b{:style=>"text-align:center;"}
+              .Bai.nav_tag{:href=> home_search_path} 全部分类
         %li
-          %a.Bai.nav_tag{:href=> root_path} 首页
+          %a.Bai.nav_tag{:href=> root_path,:value=>1} 首页
         %li
-          %a.Bai.nav_tag{:href=> vendors_path} 车行
+          %a.Bai.nav_tag{:href=> vendors_path,:value=>2} 车行
         %li
-          %a.Bai.nav_tag{:href=> home_card_path} 享车卡
+          %a.Bai.nav_tag{:href=> home_card_path,:value=>3} 享车卡
         %li
-          %a.Bai.nav_tag{:href=> '#'} 服务地图
+          %a.Bai.nav_tag{:href=> '#',:value=>4} 服务地图
         %li
-          %a.Bai.nav_tag{:href=> '#'} 会员权益
-
+          %a.Bai.nav_tag{:href=> '#',:value=>5} 会员权益
+  %input#hidden_for_label{:type=>"hidden"}
 :javascript
+
+  $(document).ready(function(){
+    var flag= parseInt($("#hidden_for_label").val());
+    $("li").eq(#{@nav_label_check.to_i}).addClass("nav_down");
+  })
+
   $(".nav_tag").click(function(){
-    $(".nav_tag").removeClass("nav_down");
-    $(this).addClass("nav_down");
+    $("#hidden_for_label").val( $(this).attr("value") );
   });

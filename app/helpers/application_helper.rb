@@ -7,7 +7,7 @@ module ApplicationHelper
 
 	def drop_bread_crumb
 		@bread_crumbs_html=""
-		@bread_crumbs_html << "<a href= root_path >首页 </a>"
+		@bread_crumbs_html << "<a href= #{root_path} >首页 </a>"
 		@bread_crumbs.each_slice(2).each do |b|
 			if b[0]
 				@bread_crumbs_html << "&nbsp&nbsp>&nbsp&nbsp"

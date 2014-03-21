@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     @homepage_recommends= MallBlock.where("mall_block_type_id=4")
     @first_class= MallCategory.where(:level=>1)
     @second_class= MallCategory.where(:level=>2)
+    @nav_label_check= 1
   end
 
   def about_us
@@ -65,5 +66,6 @@ class HomeController < ApplicationController
 
   def card
       @page_title="享车卡"
+      @nav_label_check= 3
   end
 end

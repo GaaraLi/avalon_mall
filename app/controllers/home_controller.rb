@@ -48,7 +48,7 @@ class HomeController < ApplicationController
   end
 
   def search_service( key)
-    MallGood.where("title like '%#{key}%'")
+    MallGood.where("title like '%#{key}%'").onsale
   end
 
   def research_goods_by_category
@@ -68,4 +68,5 @@ class HomeController < ApplicationController
       @page_title="享车卡"
       @nav_label_check= 3
   end
+
 end

@@ -28,31 +28,27 @@
       %h2=@good.subhead
       %h3
         原价：
-        %i
+        %i.mall_good_show_price
           ￥
           =@good.mall_skus.first.show_price
         %span{:style=>"color:#94999A;"} (本商品原价)
       %h4
         商城价：
-        %b
+        %b.mall_good_customer_price
           ￥
           =@good.mall_skus.first.price
         %span{:style=>"color:#94999A;"} (仅注册会员价格)
       %h4
         会员价：
-        %strong
+        %strong.mall_good_price
           ￥
           =@good.mall_skus.first.customer_price
         %span{:style=>"color:#94999A;"} (已激活会员价格)
 
-      %h4
-        .main_goods_type1 A-G123A-G123
-        .main_goods_type2 A-G123A-G123
-        .main_goods_type2 A-G123A-G123
-      %h4
-        .main_goods_type2 A-G123A-G123
-        .main_goods_type2 A-G123A-G123
-
+      -@good_sku.each do |s|
+        %h4
+          .main_goods_type2{:value=> s.id}
+            =s.desc if s
       %h4
         %table( width="600" border="0" cellspacing="5" cellpadding="0" align="center")
           %tr
@@ -65,19 +61,14 @@
               %button#button_increase( width="20" height="20") +
             %td
               库存仅剩
-              %b.Red=@good.mall_skus.first.mall_inventory.inventory_qty
+              %b.Red.mall_inventory=@good.mall_skus.first.mall_inventory.inventory_qty
               件
-            %td
-              %h4
-                商品总价：
-                %b
-                  ￥180
       %h6
         =form_tag('/customers/buy', method: :GET) do
           %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
           %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
-          =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px;", :title=>"立即购买",:id=>"goods_buymenu"
-        %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px;"}
+          =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; cursor:pointer;", :title=>"立即购买",:id=>"goods_buymenu"
+        %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:200px; margin-top:-37px;"}
       %h7
         服务说明：
         =@good.service_info
@@ -86,8 +77,9 @@
       .main_goods_garage_map
         .main_goods_garage_title
           =@good.vendor.name
-        .main_goods_garage_map_pic
-          %img{:src=> asset_path("test/goods_map.png"),:width=>"220", :height=>"245"}
+        .main_goods_garage_map_pic.map_content
+          =render 'vendors/partial/vendor_map',locales:{:@vendor=>@good.vendor}
+
         %a#enter_the_shop{ :href=>"", :target=>"_blank", :title=>"进入店铺",:style=>" background-image: url('"+asset_path("test/good_shop1.png")+"');"}
         %li
           %strong 车行地址：
@@ -172,4 +164,40 @@
 
     if(#{@good.mall_skus.first.mall_inventory.inventory_qty}<=0){
       $("#goods_buymenu").attr("disabled","disabled");
+    }
+
+    $(document).ready(function(){
+      $(".main_goods_type2:first").addClass("main_goods_type1").removeClass("main_goods_type2");
+    })
+
+    $(".main_goods_type2").click(function(){
+      $(".main_goods_type1").removeClass("main_goods_type1").addClass("main_goods_type2");
+      $(this).removeClass("main_goods_type2").addClass("main_goods_type1");
+      $("#input_hidden_sku").val( $(this).attr("value"));
+
+      var requestUrl= "/goods/set_sku_info";
+      var sku_id= $(".main_goods_type1").attr("value");
+
+      $.ajax({
+        url: requestUrl,
+        data: "sku_id="+sku_id,
+        contentType: "application/json; charset= utf-8;",
+        dataType: "json",
+        success: function( sku){
+        var show_price= "￥"+sku.show_price.toString();
+        $(".mall_good_show_price").text( show_price);
+
+        var customer_price= "￥"+sku.price.toString();
+        $(".mall_good_customer_price").text( customer_price);
+
+        var price= "￥"+sku.customer_price.toString();
+        $(".mall_good_price").text( price);
+
+        }
+      })
+
+    })
+
+    function set_total_price(){
+
     }

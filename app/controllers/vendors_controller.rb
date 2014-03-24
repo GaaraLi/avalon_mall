@@ -10,6 +10,7 @@ class VendorsController < ApplicationController
 
   def show
     @vendor = Vendor.find(params[:id])
+    @vendor_map= @vendor.to_json(:include => [:address], :methods => :main_photo)
     @first_class= MallCategory.where(:level=>1)
     @second_class= MallCategory.where(:level=>2)
     @category_id= params[:id]
@@ -35,8 +36,9 @@ class VendorsController < ApplicationController
   end
 
   def map
-    @type = params[:type];
-    if @type.present?
+    #@type = params[:type];
+    @type= nil
+    if @type
       @vendors = Vendor.find(:all,:conditions=>["id in (5,21,22,6,23,11,16,24)"]);
     else
       @vendors = Vendor.find(:all,:conditions=>["id != 13 and id !=25"])

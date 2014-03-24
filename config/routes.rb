@@ -22,6 +22,8 @@ IxcMall::Application.routes.draw do
   get "customers/cart_confirm"
   get "customers/check_inventory"
 
+  get "goods/set_sku_info"
+
   get 'test' => 'home#test'
   get 'test1' => 'home#test1'
   devise_for :customers,

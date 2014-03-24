@@ -1,5 +1,5 @@
 .banner{ :style=>" background-image: url('"+asset_path("test/brandBannerBG.jpg") +"')"}
-  .banner_box.m{:style=>" background-image: url('"+asset_path("test/banner.jpg")+"');"}
+  .banner_box.m{:style=>" background-image: url('"+asset_path(@vendor.banner_url)+"');"}
     .banner_companyinformation
       .banner_information_box{:style=>" background-image: url('"+ asset_path("test/brand.png")+"');"}
         %table{ :width=>"100%", :border=>"0", :cellspacing=>"0", :cellpadding=>"0"}

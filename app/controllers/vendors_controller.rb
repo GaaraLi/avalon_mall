@@ -6,6 +6,8 @@ class VendorsController < ApplicationController
     @page_title="车行列表"
     @bread_crumbs=['车行列表', vendors_path]
     @nav_label_check= 2
+    @good_hot_rec= MallBlock.where("mall_block_type_id=15")
+    @good_hot_rec1= MallBlock.where("mall_block_type_id=14")
   end
 
   def show

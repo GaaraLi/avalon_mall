@@ -84,60 +84,7 @@
                 %a 洗车打蜡
                 %a 镀膜
                 %a 钣金喷漆
-      .main_category_hotshop
-        %h3
-          %b 活动推荐
-        .main_category_pro
-          %ul.part_list
-            %li
-              .p_img
-                %a
-                %img{:src=>asset_path("test/img-13.jpg"), :width=>"158", :height=>"158",  :border=>"0"}
-              .p_title
-                %a 米其林 205/55R16【自营】北上广等多省市包快
-              .p_price
-                %span ￥
-                %b 699
-                %span .00
-              .p_pricemenu
-                %a#p_pricemenu 立即选购
-            %li
-              .p_img
-                %a
-                %img{:src=>asset_path("test/img-13.jpg"), :width=>"158", :height=>"158",  :border=>"0"}
-              .p_title
-                %a 米其林 205/55R16【自营】北上广等多省市包快
-              .p_price
-                %span ￥
-                %b 699
-                %span .00
-              .p_pricemenu
-                %a#p_pricemenu 立即选购
-            %li
-              .p_img
-                %a
-                %img{:src=>asset_path("test/img-13.jpg"), :width=>"158", :height=>"158",  :border=>"0"}
-              .p_title
-                %a 米其林 205/55R16【自营】北上广等多省市包快
-              .p_price
-                %span ￥
-                %b 699
-                %span .00
-              .p_pricemenu
-                %a#p_pricemenu 立即选购
-            %li
-              .p_img
-                %a
-                %img{:src=>asset_path("test/img-13.jpg"), :width=>"158", :height=>"158",  :border=>"0"}
-              .p_title
-                %a 米其林 205/55R16【自营】北上广等多省市包快
-              .p_price
-                %span ￥
-                %b 699
-                %span .00
-              .p_pricemenu
-                %a#p_pricemenu 立即选购
-
+      =render 'vendors/partial/vendor_recommend'
       .main_category_ranking
         %h3.Red
           %b 销量排行
@@ -182,34 +129,7 @@
       %span &nbsp;&nbsp;>&nbsp;&nbsp;
       %a 导航商品
     .category_right.right
-      .categroy_hottui
-        %h3
-          %b 热门产品推荐
-        .categroy_hottui_con
-          .categroy_hottui_list.left
-            %h5.left
-              %img{:src=>asset_path("test/img-20.jpg"),:width=>"100", :height=>"115"}
-            %h4.left
-              %div
-                %a 马牌轮胎205/55R16
-              %s ￥495.00
-              %a#categroy_menu 加入购物车
-          .categroy_hottui_list.left
-            %h5.left
-              %img{:src=>asset_path("test/img-20.jpg"),:width=>"100", :height=>"115"}
-            %h4.left
-              %div
-                %a 马牌轮胎205/55R16
-              %s ￥495.00
-              %a#categroy_menu 加入购物车
-          .categroy_hottui_list.left
-            %h5.left
-              %img{:src=>asset_path("test/img-20.jpg"),:width=>"100", :height=>"115"}
-            %h4.left
-              %div
-                %a 马牌轮胎205/55R16
-              %s ￥495.00
-              %a#categroy_menu 加入购物车
+      =render 'home/partial/goods_hot_rec'
       -if 1==@flag
         .category_class
           .main_class

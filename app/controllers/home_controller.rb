@@ -41,6 +41,9 @@ class HomeController < ApplicationController
       @page_title="全部商品"
     end
 
+    @good_hot_rec= MallBlock.where("mall_block_type_id=15")
+    @good_hot_rec1= MallBlock.where("mall_block_type_id=14")
+
   end
 
   def search_vendor( key)

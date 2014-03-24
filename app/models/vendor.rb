@@ -18,6 +18,7 @@ class Vendor < ActiveRecord::Base
   has_many :extra_consumption_records
   has_many :third_party_consumptions
   has_many :mall_order_lines
+  has_many :mall_goods
   belongs_to :mall_area
 
   accepts_nested_attributes_for :attachments, :allow_destroy => true

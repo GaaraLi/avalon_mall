@@ -13,7 +13,7 @@
         .main_products_li.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
           .p_img
             %a{:href=>good_path(g)}
-              %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
+              =image_tag( g.logo_url1, height:"135", width:"175")
           .p_title
             %a{:href=>good_path(g)}
               =g.title

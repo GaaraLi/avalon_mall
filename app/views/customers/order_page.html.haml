@@ -89,9 +89,9 @@
           %td(height="30" align="center" bgcolor="#FAFED3") 数量
           %td(height="30" align="center" bgcolor="#FAFED3") 订单金额
           %td(height="30" align="center" bgcolor="#FAFED3") 下单时间
-          %td(height="30" align="center" bgcolor="#FAFED3") 状态
+          %td(height="30" align="center" bgcolor="#FAFED3") 预约时间
           %td(height="30" align="center" bgcolor="#FAFED3") 操作
-        -@cart_orders.each do |o|
+        -@cart_orders.each_with_index do |o, index|
           %tr
             %td(width="60")
               %a
@@ -103,10 +103,10 @@
                 =o.customer.email
             %td(align="center" bgcolor="#FFFFFF")
               %b.Red
-                =o.mall_sku.customer_price
+                =current_customer.get_price(o.mall_sku)
               %br
             %td(align="center" bgcolor="#FFFFFF")
-              %b
+              %b.order_quantity
                 =o.quantity
             %td( align="center" bgcolor="#FFFFFF")
               %b.Red
@@ -116,21 +116,78 @@
             %td( align="center" bgcolor="#FFFFFF")
               %span.SInk
                 =(o.created_at).strftime("%Y-%m-%d %H:%M:%S")
+            %td.order_time(align="center")
+              尚未预约
             %td( align="center" bgcolor="#FFFFFF")
-              %span.Ink 已完成
-            %td( align="center" bgcolor="#FFFFFF")
-              %a.Red 查看订单
-              %br
-              %a.Red 申请退货
+              %a.Red.order_button{:value=> index} 预约
         %tr
           %td(width="170" colspan="9" align="right" )
             %hr
             =form_tag('/customers/cart_confirm', method: :GET ) do
               %input#selected_ids{:type=>"hidden",:name=>"selected_ids",:value=>"#{@cart_ids}"}
+              %input#selected_times{:type=>"hidden",:name=>"selected_times"}
               =submit_tag '去结算', :title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:id=>"continue_shopcar", :target=>"_blank"
     .clear
+    .order_date_pick_area.right
+      %button#button_decrease( width="20" height="20") -
+      %input#quantity_input( type="text" name="quantity_textfield" value="1" width="20px")
+      %button#button_increase( width="20" height="20") +
+      %br
+      %input.order_date_pick
+      %input#hidden_order_key{:type=>"hidden"}
+  :javascript
 
+    $("#button_decrease").click(function(){
+      var key= parseInt($("#hidden_order_key").attr("value"));
+      var max= parseInt($(".order_quantity").eq(key).text());
+      var min= 1;
+      var value=parseInt($("#quantity_input").attr("value"));
+      if( value>1 && value<=max){
+        value= value-1;
+        $("#quantity_input").attr("value",value);
+      }
+    });
+    $("#button_increase").click(function(){
+      var key= parseInt($("#hidden_order_key").attr("value"));
+      var max= parseInt($(".order_quantity").eq(key).text());
+      var min= 1;
+      var value=parseInt($("#quantity_input").attr("value"));
+      if( value>=0 && value<max){
+        value= value+1;
+        $("#quantity_input").attr("value",value);
+      }
+    });
 
+    $(".order_date_pick").datetimepicker();
 
+    $(".order_button").click(function(){
+      $(".order_date_pick_area").dialog("open");
+      $("#hidden_order_key").attr("value", $(this).attr("value") );
+    });
 
+    $(function(){
+      $(".order_date_pick_area").dialog({
+        autoOpen: false,
+        height:200,
+        modal: true,
+        buttons:{
+          取消: function(){
+            $(this).dialog("close");
+          },
+          确定: function(){
+            $(this).dialog("close");
+            var times= parseInt( $("#quantity_input").attr("value"));
+            var time= $(".order_date_pick").val();
+            var key= parseInt($("#hidden_order_key").attr("value"));
+            var order_time= time+" X "+times;
+            $(".order_time").eq(key).text(order_time);
+            var times_list= new Array();
+            $(".order_time").each(function(){
+              times_list.push($(this).text());
+            });
+            $("#selected_times").attr("value", times_list);
+          }
+        }
+      });
+    });
 

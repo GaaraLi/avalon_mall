@@ -12,7 +12,7 @@ class MallOrder < ActiveRecord::Base
       update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
 
       # new exchange code
-      @mall_order_lines= mall_order_lines if mall_order_lines!= nil
+      @mall_order_lines= mall_order_lines if (mall_order_lines!= nil)
       new_exchange_code_line( @mall_order_lines)
 
       #repaid
@@ -24,14 +24,29 @@ class MallOrder < ActiveRecord::Base
 
   def new_exchange_code_line( lines)
     lines.each do |l|
-      @code= create_exchange_code
       l.quantity.times do
+        @code= create_exchange_code
         MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id )
       end
       # @q>0
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
       l.mall_sku.mall_inventory.update_attributes(:inventory_qty=> @q)
     end
+    session[:order_times].scan(/[^,]+/).each do |t|
+      if t.include?"尚未预约"
+        next
+      else
+        tt= t.scan(/[^X]+/)
+      end
+      tt.each_slice(2) do |a,b|
+        b.to_i.times {
+          puts '========='
+          puts a.to_s
+        }
+      end
+    end
+    session[:order_times]=nil
+
     return true
   end
 
@@ -151,12 +166,7 @@ class MallOrder < ActiveRecord::Base
 
   def create_exchange_code
     #translate the date into second from 1970 then add the usec
-    t= Time.now
-    n=""
-    [t.usec.to_s,t.to_i.to_s].map{|tt|
-      n= tt+n
-    }
-    return n
+    rand(9999999..100000000)
   end
 
 

@@ -40,6 +40,8 @@ GEM
     arel (4.0.2)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    bootstrap-datepicker-rails (1.3.0.1)
+      railties (>= 3.0)
     builder (3.1.4)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
@@ -157,6 +159,7 @@ PLATFORMS
 DEPENDENCIES
   activemerchant
   activemerchant_patch_for_china
+  bootstrap-datepicker-rails
   carrierwave
   coffee-rails (~> 4.0.0)
   devise (= 3.0.3)

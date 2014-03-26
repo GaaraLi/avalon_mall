@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317030908) do
+ActiveRecord::Schema.define(version: 20140325093439) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -237,6 +237,7 @@ ActiveRecord::Schema.define(version: 20140317030908) do
     t.string   "exchange_code_number"
     t.integer  "status",               default: 0
     t.integer  "mall_order_line_id"
+    t.string   "order_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

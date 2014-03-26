@@ -135,7 +135,6 @@ body {
 }
 /*购物车*/
 a#shop_car {
-	background-image: url(../images/Index_BodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -76px;
 	display: block;
@@ -153,7 +152,6 @@ a#shop_car:hover {
 	position: relative;
 }
 a#shop_car s {
-	background-image: url(../images/Index_BodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: -293px -76px;
 	height: 22px;

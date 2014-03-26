@@ -6,6 +6,11 @@ class HomeController < ApplicationController
     @homepage_recommends= MallBlock.where("mall_block_type_id=4")
     @first_class= MallCategory.where(:level=>1)
     @second_class= MallCategory.where(:level=>2)
+
+    @new_rec_goods=  MallBlock.where("mall_block_type_id=6")
+    @hot_rec_goods=  MallBlock.where("mall_block_type_id=5")
+    @rec_vendors=  MallBlock.where("mall_block_type_id=7")
+
     @nav_label_check= 1
   end
 

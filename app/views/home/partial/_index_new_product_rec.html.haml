@@ -1,0 +1,25 @@
+.part_03list
+  %ul.part_list
+    -@new_rec_goods.each do |n|
+      %li
+        .p_img
+          %a{:href=> n.text2}
+            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic' }
+        .p_title
+          %a{:href=> n.text2}
+            =n.title
+        .p_price
+          %span ￥
+          %b
+            =n.text4
+      %li
+        .p_img
+          %a{:href=> n.text2}
+            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic' }
+        .p_title
+          %a{:href=> n.text2}
+            =n.title
+        .p_price
+          %span ￥
+          %b
+            =n.text4

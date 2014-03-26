@@ -13,6 +13,10 @@
             %input#search_type{:type=>"hidden", :name=>"search_type", :value=>1}
           .search_r.left
             %input.s1{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');", :name=>"submit", :type=>"submit",:value=>""}
+    %h3.shop_car.left
+      %a#shop_car{:target=>"_blank", :title=>"进入购物车进行结算",:style=>" background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+        %s{:style=>"  background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+          12
 
   :javascript
     $("#search_vendor").click(function(){
@@ -28,7 +32,12 @@
     });
 
     $(document).ready(function(){
-      if(#{@flag}==2){
+      if(#{@flag}){
+        flag=#{@flag};
+      }else{
+        flag=0;
+      }
+      if(flag==2){
         $("#search_service").removeClass("s_down");
         $("#search_vendor").addClass("s_down");
       }else{

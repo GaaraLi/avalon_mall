@@ -26,9 +26,43 @@ class CustomersController < ApplicationController
     render :json=>1
   end
 
+  def set_order_time_list
+    session[:order_times]= params[:time_list]
+    session[:order_times].scan(/[^,]+/).each do |t|
+      if t.include?"尚未预约"
+        next
+      else
+        tt= t.scan(/[^X]+/)
+      end
+      tt.each_slice(2) do |a,b|
+        b.to_i.times {
+          puts '========='
+          puts a.to_s
+        }
+      end
+    end
+    render :json=>1
+  end
+
   def cart_confirm
     @cart_ids= params[:selected_ids]
-
+    @order_times_list= params[:selected_times]
+    session[:order_times]= @order_times_list
+    session[:order_times].scan(/[^,]+/).each do |t|
+      if t.include?"尚未预约"
+        next
+      else
+        tt= t.scan(/[^X]+/)
+      end
+      tt.each_slice(2) do |a,b|
+        b.to_i.times {
+          puts '========='
+          puts a.to_s
+        }
+      end
+    end
+    session[:order_times]=nil
+    return
     @order_number= new_order_number
     @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,:customer_id=>current_customer.id)
     @mall_order_id= @order_order.id

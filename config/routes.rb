@@ -10,6 +10,7 @@ IxcMall::Application.routes.draw do
   get "home/research_goods_by_category"
   root "home#index"
 
+  get "customers/set_order_time_list"
   get "customers/shopping_car"
   get "customers/order_page"
   get "customers/success_page"

@@ -1,0 +1,15 @@
+.part_carli
+  %ul
+    -@rec_vendors.each do |v|
+      %li
+        .carli_l.left
+          %h3
+            %span.Red
+              =v.title
+          %h4
+            %b.Red
+              =v.text3
+          %h5
+            %a#qukankan
+        .carli_img.right
+          %img{ :src=>v.img_url, :width=>"110", :height=>"110" ,:alt=>'pic' }

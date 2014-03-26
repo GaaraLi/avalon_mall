@@ -16,8 +16,8 @@
             %input( type="checkbox" name="checkbox" value="checkbox" )
           %td( align="center" bgcolor="#eeeeee" colspan="2") 商品
           %td( width="75" align="center" bgcolor="#eeeeee") 单价
-          %td( width="150" align="center" bgcolor="#eeeeee") 数量
-          %td( width="150" align="center" bgcolor="#eeeeee") 库存
+          %td( width="50" align="center" bgcolor="#eeeeee") 数量
+          %td( width="50" align="center" bgcolor="#eeeeee") 库存
           %td( width="75" align="center" bgcolor="#eeeeee") 金额
           %td( width="100" align="center" bgcolor="#eeeeee") 操作
         -@cart_list.each do |l|
@@ -35,20 +35,21 @@
                 =l.mall_sku.mall_good.title
             %td( width="75" align="center")
               =current_customer.get_price( l.mall_sku)
-            %td( width="150" align="center")
+            %td( width="50" align="center")
               =l.quantity
-            %td( width="150" align="center")
+            %td( width="50" align="center")
               - if l.mall_sku.mall_inventory.inventory_qty<0
                 %p.Red 售磬
               -else
                 =l.quantity
             %td.good_price( width="75" align="center")
               =l.price
+
             %td( width="100" align="center")
               %a.Red
                 %b 删除
               %a.Red
-                %b 移入收藏夹
+                %b 预约
         %input#hidden_for_ids{:type =>"hidden"}
         %tr
           %td( height="50")
@@ -75,8 +76,8 @@
   :javascript
 
     function check_inventory(){
-      var ids= $("#selected_ids").val();
-      if(ids==""||ids==NULL){
+      var ids= $("#selected_ids").attr("value");
+      if(ids==""||ids==null){
         alert("请先选择至少一件商品再确认付款!");
         return;
       }

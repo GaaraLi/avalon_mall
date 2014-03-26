@@ -71,7 +71,7 @@
           %b 新品推荐
         =render 'home/partial/index_new_product_rec'
 
-    .hot_tui
+    .cars_tui
       .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"');"}
         %h3.part_03hd.Gold
           %b 推荐车行
@@ -81,8 +81,7 @@
       %a{:href=> @adv_area.text2}
         %img{ :src=>@adv_area.img_url, :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
     -else
-      %a
-        %img{ :src=>asset_path('test/img-06.jpg'), :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
+      %img{:width=>"960", :height=>"100", :border=>"0",:alt=>'pic', :src=> asset_path("test/img-06.jpg")}
   =render 'home/partial/bottom'
 
   :javascript

@@ -224,8 +224,8 @@ a#shop_car s {
 	height: 318px;
 }
 .part_01 .shop_class {
-	height: 320px;
-	width: 203px;
+	height: 314px;
+	width: 195px;
 	background-image: url(../images/Index_BodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -168px;
@@ -1821,7 +1821,7 @@ a#p_pricemenu:hover {
 /*2014-2-23新加样式 category 模版样式*/
 .category_shop_class {
 	height: auto;
-	width: 203px;
+	width: 196px;
 	position: relative;
 	left: 0px;
 	top: 0px;

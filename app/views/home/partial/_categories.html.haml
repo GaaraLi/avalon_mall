@@ -1,20 +1,19 @@
-.shop_class.category_shop_class.left{:style=>"margin-left:-10px;"}
+.shop_class.category_shop_class.left
   .shop_classbox2
     %a
-      %img{:src=>asset_path("test/shangcheng.png") , :width=>"203", :height=>"45", :border=>"0"}
-    %h1.shop_stornav2
+      %img{:src=>asset_path("test/shangcheng.png") , :width=>"196", :height=>"45", :border=>"0"}
+    %h1.shop_stornav2{:style=>"height:190px;"}
       #accordion_homepage{:border=>"1px"}
         -@first_class.each do |f|
-          %h3.accordion_head{:style=>"margin-top:-8px;"}
+          %h3.accordion_head{:style=>"margin-top:0px;"}
             .shop_stor2
               %b
                 =f.name
-          .stornav2_li.accordion_list
+          .stornav2_li.accordion_list.shop_stornav2
             -@second_class.each do |s|
               -if s.parent_code == f.code
                 =link_to s.name, ""
-          %hr
-        %h3.accordion_head{:style=>"margin-top:-8px;"}
+        %h3.accordion_head{:style=>"margin-top:3px;"}
           .shop_stor2
             %b{:style=>"color:#315F6F;"}
               车行会员卡
@@ -24,4 +23,4 @@
           =link_to "城西", ""
           =link_to "城北", ""
           =link_to "高新", ""
-          =link_to "曲江", ""
+        

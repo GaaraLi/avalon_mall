@@ -11,6 +11,9 @@ class HomeController < ApplicationController
     @hot_rec_goods=  MallBlock.where("mall_block_type_id=5")
     @rec_vendors=  MallBlock.where("mall_block_type_id=7")
 
+    @card_area= MallBlock.where("mall_block_type_id=3").first
+    @adv_area= MallBlock.where("mall_block_type_id=8").first
+
     @nav_label_check= 1
   end
 

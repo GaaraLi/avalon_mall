@@ -38,7 +38,7 @@
 
   .h_ad{:style=>" padding-top:10px;"}
     %a{:href=>@card_area.text2 }
-      %img{ :src=>@card_area.img_url, :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
+      %img{ :src=>@card_area.img_url, :width=>"960", :height=>"60", :border=>"0"  ,:alt=>'pic'}
 
   .part_02
     .division
@@ -65,14 +65,14 @@
         %h3.part_03hd.Bule
           %b 热门商品推荐
         =render 'home/partial/index_hot_product_rec'
-    .news_tui
-      .part03line
+    .hot_tui
+      .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"');"}
         %h3.part_03hd.Red
           %b 新品推荐
         =render 'home/partial/index_new_product_rec'
 
-    .cars_tui
-      .part03line
+    .hot_tui
+      .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"');"}
         %h3.part_03hd.Gold
           %b 推荐车行
         =render 'home/partial/index_vendor_rec'

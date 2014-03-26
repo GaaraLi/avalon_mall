@@ -77,47 +77,15 @@
           %b 推荐车行
         =render 'home/partial/index_vendor_rec'
   .h_ad{:style=>" padding-top:10px;"}
-    %a{:href=> @adv_area.text2}
-      %img{ :src=>@adv_area.img_url, :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
-  .store_info{:style=>"margin-top:10px;"}
-    .stor_infofirst.left
-      %h3.stor_01.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"} &nbsp;
-      .left
-        %h4
-          %b 关于享车网
-        %p
-          %a 商城简介
-        %p
-          %a 联系我们
-    .stor_infofirst.left
-      %h3.stor_01.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"} &nbsp;
-      .left
-        %h4
-          %b 关于享车网
-        %p
-          %a 商城简介
-        %p
-          %a 联系我们
-    .stor_infofirst.left
-      %h3.stor_01.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"} &nbsp;
-      .left
-        %h4
-          %b 关于享车网
-        %p
-          %a 商城简介
-        %p
-          %a 联系我们
-    .stor_infofirst.left
-      %h3.stor_01.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"} &nbsp;
-      .left
-        %h4
-          %b 关于享车网
-        %p
-          %a 商城简介
-        %p
-          %a 联系我们
+    - if @adv_area
+      %a{:href=> @adv_area.text2}
+        %img{ :src=>@adv_area.img_url, :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
+    -else
+      %a
+        %img{ :src=>asset_path('test/img-06.jpg'), :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
+  =render 'home/partial/bottom'
 
-      :javascript
+  :javascript
         $(".shop_adbox").hover(function(){
           $(this).find(".prev,.next").fadeTo("show",0.1);
           },function(){

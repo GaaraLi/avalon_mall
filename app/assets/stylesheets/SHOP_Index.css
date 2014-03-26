@@ -1980,3 +1980,36 @@ a#p_pricemenu:hover {
 	font-size:12px;
     z-index: 1;
 }
+
+/*2014.3.20商城底部正品保障等图标*/
+.footer_ico {
+	width: 940px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	height: 160px;
+	background-color: #FFFFFF;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 20px;
+}
+.footer_fore1 {
+	height: 135px;
+	width: 140px;
+	float: left;
+	margin-left: 40px;
+}
+.footer_fore1 h1 {
+	font-size: 16px;
+	color: #7F7F7F;
+	padding-top: 15px;
+	padding-bottom: 3px;
+	font-weight: bold;
+}
+.footer_fore1 h2 {
+	font-size: 12px;
+	color: #858585;
+	padding-top: 5px;
+}
+

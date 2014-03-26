@@ -4,8 +4,8 @@
       %p.logo.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
     .search.left
       %h3
-        %span#search_service.s_down 搜服务
-        %span#search_vendor 搜车行
+        %span#search_service.s_down{:style=>" cursor:pointer"} 搜服务
+        %span#search_vendor{:style=>" cursor:pointer"} 搜车行
       .search_into{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %form{:action=>"/home/search"}
           .search_l.left
@@ -32,6 +32,7 @@
     });
 
     $(document).ready(function(){
+
       if(#{@flag}){
         flag=#{@flag};
       }else{

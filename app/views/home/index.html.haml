@@ -79,7 +79,7 @@
   .h_ad{:style=>" padding-top:10px;"}
     - if @adv_area
       %a{:href=> @adv_area.text2}
-        %img{ :src=>@adv_area.img_url, :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
+        %img{ :src=> asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
     -else
       %img{:width=>"960", :height=>"100", :border=>"0",:alt=>'pic', :src=> asset_path("test/img-06.jpg")}
   =render 'home/partial/bottom'

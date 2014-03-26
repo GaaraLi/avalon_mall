@@ -1,25 +1,25 @@
-.part_03list
-  %ul.part_list{:style=>"margin-top:-10px;"}
+.part_03list{:style=>"margin-top:-10px;"}
+  %ul.part_list
     -@hot_rec_goods.each do |n|
       %li{:style=>"margin-top:10px;"}
         .p_img{:style=>" height:170px"}
           %a{:href=> n.text2}
-            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:170px; heigth:170px;"}
+            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:170px; height:170px;"}
         .p_title{:style=>" height:31px; overflow:hidden;"}
           %a{:href=> n.text2}
             =n.title
-        .p_price{:style=>"margin-top:10px;"}
+        .p_price
           %span ￥
           %b
             =n.text4
       %li{:style=>"margin-top:10px;"}
         .p_img{:style=>" height:170px"}
           %a{:href=> n.text2}
-            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:170px; heigth:170px;"}
+            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:170px; height:170px;"}
         .p_title{:style=>" height:31px; overflow:hidden;"}
           %a{:href=> n.text2}
             =n.title
-        .p_price{:style=>"margin-top:10px;"}
+        .p_price
           %span ￥
           %b
             =n.text4

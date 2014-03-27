@@ -225,7 +225,7 @@ a#shop_car s {
 }
 .part_01 .shop_class {
 	height: 314px;
-	width: 205px;
+	width: 204px;
 	background-image: url(../images/Index_BodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -168px;
@@ -793,7 +793,7 @@ a#qukankan:hover {
 }
 /*第二部分*/
 .main_box .main_info {
-	width: 172px;
+	width: 182px;
 	background-color: #FFFFFF;
 	border-right-width: 1px;
 	border-bottom-width: 1px;
@@ -1702,7 +1702,7 @@ a#enter_the_shop {
 	border-bottom-style: solid;
 	border-left-style: solid;
 	border-top-color: #C0C0C0;
-	border-right-color: #DA251C;
+	border-right-color: #C0C0C0;
 	border-bottom-color: #C0C0C0;
 	border-left-color: #C0C0C0;
 	padding-bottom: 5px;

@@ -1,5 +1,6 @@
 class GoodsController < ApplicationController
 	def show
+      @good_hot_rec= MallBlock.where("mall_block_type_id=15")
       @good = MallGood.find(params[:id])
       @page_title="#{@good.title}"
 

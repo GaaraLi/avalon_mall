@@ -1,16 +1,18 @@
-.news_tui
-  .part03line
-  %h3.part_03hd.Red
-  .part_03list
+.main_category_hotshop{:style=>"margin-top:0px; border:0;"}
+  %h3
+    %b 热销商品
+  .main_category_pro{:style=>"margin-left:-15px;"}
     %ul.part_list
-      -4.times do
-        %li
-          .p_img
-            %a
-              %img{ :src=>asset_path("test/img-04.jpg"), :border=>"0"}
-          .p_title
-            %a 米其林 205/55R16【自营】北上广等多省市包快
+      -@good_hot_rec.each do |h|
+        %li{:style=>"margin-left:4px;"}
+          .p_img{:style=>" width:171px; height:171px;"}
+            %a{:href=> h.text2 }
+            %img{:src=>"#{h.img_url}", :width=>"170", :height=>"170",  :border=>"1px solid #F3F3F3"}
+          .p_title{:style=>" height:31px; overflow:hidden; margin-top:10px;"}
+            %a{:href=> h.text2 }
+              =h.title
           .p_price
             %span ￥
-            %b 699
-            %span .00
+            %b
+              =h.text4
+

@@ -61,14 +61,12 @@
           %b 车行地理位置
         .map_content
           =render 'vendors/partial/vendor_map'
-      .information_title
-        %b 热销商品
-      =render 'vendors/partial/vendor_page_hot'
+      .category_left.left
+        =render 'vendors/partial/vendor_page_recommend'
       .main_left_ad
         %a
           %img{ :src=>asset_path("test/img-15.jpg"), :width=>"172", :height=>"300", :border=>"0"}
     .main_product.right
-      =render 'vendors/partial/vendor_page_recommend'
       .category_class
         .main_class
           -@first_class.each do |f|

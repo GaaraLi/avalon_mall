@@ -742,21 +742,6 @@ a#qukankan:hover {
 	padding-left: 10px;
 }
 /*第二部分*/
-.main_box .main_info {
-	width: 172px;
-	background-color: #FFFFFF;
-	border-right-width: 1px;
-	border-bottom-width: 1px;
-	border-left-width: 1px;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: solid;
-	border-right-color: #e5e5e5;
-	border-bottom-color: #e5e5e5;
-	border-left-color: #e5e5e5;
-	padding: 8px;
-	overflow: hidden;
-}
 .main_info .main_info_ico {
 	height: 125px;
 }
@@ -1869,7 +1854,7 @@ a#p_pricemenu:hover {
 .main_goods_garage_map_pic {
 	padding: 4px;
 	width: 220px;
-	height: 245px;
+	height: 170px;
 	margin-right: auto;
 	margin-left: auto;
 }

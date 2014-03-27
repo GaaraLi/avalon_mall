@@ -20,6 +20,7 @@ class VendorsController < ApplicationController
     @category_id= params[:id]
     @vendor_goods= Vendor.find(params[:id]).mall_goods.onsale
     @key_vendor_goods= @vendor_goods.page(params[:page])
+    @good_hot_rec= MallBlock.where("mall_block_type_id=15")
 
     @page_title="#{@vendor.name}"
   end

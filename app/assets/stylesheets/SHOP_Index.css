@@ -16,16 +16,6 @@ body {
 .clear {
 	clear:both
 }
-.wrap {
-	height: auto;
-	width: 960px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-	text-align: left;
-	position: relative;
-}
 /*top*/
 .top {
 	font-size: 12px;
@@ -465,15 +455,6 @@ background: #FF7700;
 /*第三部分*/
 .part_03 {
 	padding-top: 6px;
-}
-.part_03 .hot_tui {
-	border-right-width: 1px;
-	border-left-width: 1px;
-	border-right-style: solid;
-	border-left-style: solid;
-	border-right-color: #e6e6e6;
-	border-left-color: #e6e6e6;
-	background-color: #FFFFFF;
 }
 .hot_tui .part03line {
 	background-image: url(../images/LineBG.jpg);

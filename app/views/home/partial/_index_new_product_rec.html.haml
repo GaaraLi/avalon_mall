@@ -1,23 +1,23 @@
 .part_03list{:style=>"margin-top:-40px;"}
   %ul.part_list
     -@new_rec_goods.each_with_index do |n,index|
-      %li{:style=>"margin-top:35px;"}
+      %li{:style=>"margin-top:45px; margin-left:5px;"}
         .p_img{:style=>" height:170px"}
           %a{:href=> n.text2}
-            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:170px; height:170px;" }
+            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:170px; height:170px; border: 1px solid rgb(212, 208, 208);"}
         .p_title{:style=>" height:31px; overflow:hidden;"}
-          %a{:href=> n.text2}
+          %a{:href=> n.text2, :style=>"margin-top:10px;"}
             =n.title
         .p_price
           %span ￥
           %b
             =n.text4
-      %li{:style=>"margin-top:35px;"}
+      %li{:style=>"margin-top:45px; margin-left:5px;"}
         .p_img{:style=>" height:170px"}
           %a{:href=> n.text2}
-            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:170px; height:170px;" }
+            %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:170px; height:170px; border: 1px solid rgb(212, 208, 208);"}
         .p_title{:style=>" height:31px; overflow:hidden;"}
-          %a{:href=> n.text2}
+          %a{:href=> n.text2, :style=>"margin-top:10px;"}
             =n.title
         .p_price
           %span ￥

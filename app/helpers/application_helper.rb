@@ -17,4 +17,12 @@ module ApplicationHelper
 		end
 		return @bread_crumbs_html.html_safe
 	end
+
+    def get_footer_info
+      @footer_info= MallBlock.where("mall_block_type_id=16")
+    end
+
+    def get_search_flag
+    	@flag=0
+    end
 end

@@ -5,39 +5,36 @@
       %img{:src=> asset_path("test/pic_r3_c2_s1_s1.jpg")}
     .aboutus_menu
       %ul
-        %li
-          &gt;
-          %a
-            关于我们
-        %li
-          &gt;
-          %a
-            联系我们
-        %li
-          &gt;
-          %a
-            车行入驻
-        %li
-          &gt;
-          %a
-            车行服务
-        %li
-          &gt;
-          %a
-            手机享车网
-        %li
-          &gt;
-          %a
-            友情链接
-        %li
-          &gt;
-          %a
-            享车社区
-        %li
-          &gt;
-          %a
-            享车公益
+        -get_footer_info.each_with_index do |i,index|
+          %li
+            &gt;
+            %a.left_click_bar{:value=>index}
+              =i.title
   .aboutus_right
-    .aboutus_title 关于我们
-    .aboutus_words
-      %p 　　我们的宗旨是方便网友们快速找到自已需要的网站，而不用去记太多复杂的网址，我的导航能让网友快速收藏喜爱的网站；同时提供多种搜索引擎入口、实用工具、快速充值、天气预报、团购导航、地方导航等特色服务。我们打破了传统网址导航站十几年来一成不变的沉闷局面，首创了“网址+APP聚合”的模式，树立了新一代导航网站的行业标准。我们引领的APP化、个性化、地域化、工具化等特点已经成为业内其他网址站的效仿对象，引领了行业潮流。我们打破了传统网址导航站十几年来一成不变的沉闷局面，首创了“网址+APP聚合”的模式，树立了新一代导航网站的行业标准。我们引领的APP化、个性化、地域化、工具化等特点已经成为业内其他网址站的效仿对象，引领了行业潮流。我们打破了传统网址导航站十几年来一成不变的沉闷局面，首创了“网址+APP聚合”的模式，树立了新一代导航网站的行业标准。我们引领的APP化、个性化、地域化、工具化等特点已经成为业内其他网址站的效仿对象，引领了行业潮流。
+    -get_footer_info.each_with_index do |i,index|
+      .shown_area{:value=>index}
+        .aboutus_words
+          %p
+            =i.text_area.html_safe if i.text_area
+
+:javascript
+  $(document).ready(function(){
+    $(".shown_area").each(function(){
+      if( #{@shown_id.to_i}==parseInt($(this).attr("value"))){
+        $(this).css("display", "block");
+      }else{
+        $(this).css("display", "none");
+      }
+    });
+  });
+
+  $(".left_click_bar").click(function(){
+    var key= parseInt($(this).attr("value"));
+    $(".shown_area").each(function(){
+      if( key==parseInt($(this).attr("value"))){
+        $(this).css("display", "block");
+      }else{
+        $(this).css("display", "none");
+      }
+    });
+  });

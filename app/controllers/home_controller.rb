@@ -14,13 +14,12 @@ class HomeController < ApplicationController
     @card_area= MallBlock.where("mall_block_type_id=3").first
     @adv_area= MallBlock.where("mall_block_type_id=8").first
 
-    @flag=0
-
     @nav_label_check= 1
   end
 
   def about_us
-    
+    puts '=========='
+    @shown_id= params[:id]
   end
 
   def test

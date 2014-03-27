@@ -7,16 +7,16 @@
     .main_goods_img.left
       .main_goods_photo
         .label
-          %img{:src=>"#{@good.logo_url1}", :width=>"290", :height=>"290", :border=>"0"}
+          %img.shown_image{:src=>"#{@good.logo_url1}", :width=>"290", :height=>"290", :border=>"0"}
         %h3
           %a.left
-            %img{:src=>"#{@good.logo_url1}", :width=>"53", :height=>"53", :border=>"0" }
+            %img.shown_image_thumb{:src=>"#{@good.logo_url1}", :width=>"53", :height=>"53", :border=>"0" }
           %a.left
-            %img{:src=>"#{@good.logo_url2}", :width=>"53", :height=>"53", :border=>"0" }
+            %img.shown_image_thumb{:src=>"#{@good.logo_url2}", :width=>"53", :height=>"53", :border=>"0" }
           %a.left
-            %img{:src=>"#{@good.logo_url3}", :width=>"53", :height=>"53", :border=>"0" }
+            %img.shown_image_thumb{:src=>"#{@good.logo_url3}", :width=>"53", :height=>"53", :border=>"0" }
           %a.left
-            %img{:src=>"#{@good.logo_url4}", :width=>"53", :height=>"53", :border=>"0" }
+            %img.shown_image_thumb{:src=>"#{@good.logo_url4}", :width=>"53", :height=>"53", :border=>"0" }
       %h4{:style=>"margin-top:-20px;margin-left:-20px;"}
         .main_info_ico
           %p.main_infoico01.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
@@ -124,6 +124,12 @@
 
 
   :javascript
+
+    $(".shown_image_thumb").mouseover(function(){
+      var src= $(this).attr("src");
+      $(".shown_image").attr("src", src);
+    });
+
     $("#button_increase").click(function(){
       var value= $("#quantity_input").attr("value");
       value=parseInt(value)+1;

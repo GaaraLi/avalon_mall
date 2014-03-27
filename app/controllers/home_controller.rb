@@ -18,7 +18,6 @@ class HomeController < ApplicationController
   end
 
   def about_us
-    puts '=========='
     @shown_id= params[:id]
   end
 

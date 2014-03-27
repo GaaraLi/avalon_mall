@@ -204,19 +204,6 @@ a#shop_car s {
 	position: relative;
 	height: 318px;
 }
-.part_01 .shop_class {
-	height: 316px;
-	width: 196px;
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: 0px -168px;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	padding-right: 2px;
-	padding-bottom: 2px;
-	padding-left: 2px;
-}
 .shop_classbox {
 	height: 79px;
 	position: relative;
@@ -1940,7 +1927,7 @@ a#p_pricemenu:hover {
 .shop_stornav2 .stornav2_li {
 	height: auto;
 	padding-left: 7px;
-	width:190px;
+	width:200px;
 	overflow: hidden;
 	line-height: 20px;
 }

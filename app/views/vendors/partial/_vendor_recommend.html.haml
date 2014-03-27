@@ -4,11 +4,11 @@
   .main_category_pro
     %ul.part_list
       -@good_hot_rec.each do |h|
-        %li
-          .p_img
+        %li{:style=>"margin-left:4px;"}
+          .p_img{:style=>" width:171px; height:171px;"}
             %a{:href=> h.text2 }
-            %img{:src=>"#{h.img_url}", :width=>"158", :height=>"158",  :border=>"0"}
-          .p_title
+            %img{:src=>"#{h.img_url}", :width=>"170", :height=>"170",  :border=>"1px solid #F3F3F3"}
+          .p_title{:style=>" height:31px; overflow:hidden; margin-top:10px;"}
             %a{:href=> h.text2 }
               =h.title
           .p_price

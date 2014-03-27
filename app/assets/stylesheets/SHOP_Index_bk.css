@@ -225,7 +225,7 @@ a#shop_car s {
 }
 .part_01 .shop_class {
 	height: 314px;
-	width: 195px;
+	width: 205px;
 	background-image: url(../images/Index_BodyBG.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -168px;
@@ -479,10 +479,13 @@ background: #FF7700;
 	height: 560px;
 	border-right-width: 1px;
 	border-left-width: 1px;
+	border-bottom-width: 1px;
 	border-right-style: solid;
 	border-left-style: solid;
+	border-bottom-style: solid;
 	border-right-color: #e6e6e6;
 	border-left-color: #e6e6e6;
+	border-bottom-color: #e6e6e6;
 	background-color: #FFFFFF;
 }
 .hot_tui .part03line {
@@ -1814,14 +1817,15 @@ a#p_pricemenu:hover {
 	padding-top: 10px;
 }
 .category_left {
-	width: 200px;
+	width: 210px;
 	overflow: hidden;
 }
 
 /*2014-2-23新加样式 category 模版样式*/
 .category_shop_class {
+	margin-left:2px;
 	height: auto;
-	width: 196px;
+	width: 206px;
 	position: relative;
 	left: 0px;
 	top: 0px;
@@ -2076,7 +2080,7 @@ a#categroy_menu {
 	font-size: 12px;
 	line-height: 25px;
 	color: #FFFFFF;
-	background-color: #9EC687;
+	background-color: #FF6600;
 	height: 25px;
 	display: block;
 	float: left;
@@ -2086,12 +2090,12 @@ a#categroy_menu {
 }
 a#categroy_menu:hover {
 	color: #FFFFFF;
-	background-color: #92BA7C;
+	background-color: #FF9900;
 	height: 23px;
 	line-height: 23px;
 	padding-right: 9px;
 	padding-left: 9px;
-	border: 1px solid #6A9951;
+	border: 1px solid #E15A00;
 }.category_right .category_class {
 	background-color: #FFFFFF;
 	border-right-width: 1px;

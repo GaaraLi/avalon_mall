@@ -2,7 +2,7 @@
 .wrap
   .part_01
     =render "home/partial/categories"
-    .shop_ad
+    .shop_ad{:style=>"margin-left:10px;"}
       .shop_adbox
         %ul.shop_adpic
           -@homepage_sliders.each do |slider|
@@ -65,12 +65,14 @@
         %h3.part_03hd.Bule
           %b 热门商品推荐
         =render 'home/partial/index_hot_product_rec'
+  .part_03
     .hot_tui
       .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"');"}
         %h3.part_03hd.Red
           %b 新品推荐
         =render 'home/partial/index_new_product_rec'
 
+  .part_03
     .cars_tui
       .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"');"}
         %h3.part_03hd.Gold

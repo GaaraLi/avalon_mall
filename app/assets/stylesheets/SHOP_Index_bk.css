@@ -476,7 +476,7 @@ background: #FF7700;
 	padding-top: 6px;
 }
 .part_03 .hot_tui {
-	height: 550px;
+	height: 560px;
 	border-right-width: 1px;
 	border-left-width: 1px;
 	border-right-style: solid;
@@ -609,7 +609,7 @@ a#qukankan:hover {
 }
 .part_03list {
 	height: 200px;
-	width: 920px;
+	width: 940px;
 	padding-top: 15px;
 	padding-left: 25px;
 }

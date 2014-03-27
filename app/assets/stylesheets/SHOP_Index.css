@@ -578,12 +578,7 @@ a#qukankan:hover {
 	display: block;
 	font-size: 20px;
 }
-.part_03list {
-	height: 200px;
-	width: 920px;
-	padding-top: 15px;
-	padding-left: 25px;
-}
+
 .part_03list .part_list li {
 	height: 200px;
 	width: 175px;

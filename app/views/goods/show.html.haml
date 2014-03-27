@@ -37,28 +37,28 @@
         %b.mall_good_customer_price
           ￥
           =@good.mall_skus.first.price
-        %span{:style=>"color:#94999A;"} (仅注册会员价格)
+        %span{:style=>"color:#999999; font-size:14px;"} (仅注册会员价格)
       %h4
         会员价：
         %strong.mall_good_price
           ￥
           =@good.mall_skus.first.customer_price
-        %span{:style=>"color:#94999A;"} (已激活会员价格)
+        %span{:style=>"color:#999999; font-size:14px;"} (已激活会员价格)
 
       -@good_sku.each do |s|
         %h4
-          .main_goods_type2{:value=> s.id}
+          .main_goods_type2{:value=> s.id,:style=>"font-size:14px;"}
             =s.desc if s
-      %h4
-        %table( width="600" border="0" cellspacing="5" cellpadding="0" align="center")
+      %h5
+        %table( width="600" border="0" cellspacing="5" cellpadding="0" align="center" bgcolor="white")
           %tr
             %td(  width="95" height="33") 购买数量：
+            %td( style="margin-left:10px;")
+              %button#button_decrease( width="10" height="20") -
+            %td(  width="25")
+              %input#quantity_input( type="text" name="quantity_textfield" value="1" style="width:55px;margin-left:-60px;")
             %td
-              %button#button_decrease( width="20" height="20") -
-            %td(  width="105")
-              %input#quantity_input( type="text" name="quantity_textfield" value="1")
-            %td
-              %button#button_increase( width="20" height="20") +
+              %button#button_increase( width="20" height="20" style="margin-left:-20px;") +
             %td
               库存仅剩
               %b.Red.mall_inventory=@good.mall_skus.first.mall_inventory.inventory_qty
@@ -67,9 +67,9 @@
         =form_tag('/customers/buy', method: :GET) do
           %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
           %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
-          =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; cursor:pointer;", :title=>"立即购买",:id=>"goods_buymenu"
+          =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:33px; cursor:pointer;", :title=>"立即购买",:id=>"goods_buymenu"
         %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:200px; margin-top:-37px;"}
-      %h7
+      %h7{:style=>"margin-top:-15px;"}
         服务说明：
         =@good.service_info
   .main_box

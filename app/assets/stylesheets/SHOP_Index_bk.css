@@ -309,6 +309,7 @@ a#shop_car s {
 	height: 312px; 
 	position: relative; 
 	overflow:hidden;
+	margin-left:4px;
 }
 .shop_adbox .num { 
 	overflow:hidden; 
@@ -2811,7 +2812,7 @@ a#user_menuma:hover {
 .aboutus_right{
 	width:735px;
 	height: 700px;
-	float: right;
+	#float: right;
 	margin-left: auto;
 	margin-top: 0px;
 	margin-right: auto;
@@ -2908,4 +2909,9 @@ a#user_menuma:hover {
 	float: left;
 	padding-top: 10px;
 	padding-left: 10px;
+}
+
+.shown_area{
+	width:750px ;
+    margin-left:100px;
 }

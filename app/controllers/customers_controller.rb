@@ -66,18 +66,24 @@ class CustomersController < ApplicationController
 
   def success_page
     @order = MallOrder.find( params[:extra_common_param])
+    puts ' in success_page================='
+    puts payment_succeed?
+    puts @order.paid( params, request.raw_post)
     if payment_succeed? && @order.paid( params, request.raw_post)
       flash[:notice] = '恭喜，您已续费成功'
       if status == 0
         @order.update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
+         puts ' after update================='
 
         # new exchange code
         @mall_order_lines= @order.mall_order_lines if (@order.mall_order_lines!= nil)
         new_exchange_code_line( @mall_order_lines)
+         puts ' after exchange code line================='
 
         #repaid
         @current_customer= Customer.find(customer_id)
         do_order_repaid if @current_customer.card
+         puts ' after do_order_repaid================='
        end
       redirect_to "http://m.ixiangche.com/customers/center"
     else

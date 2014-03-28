@@ -8,6 +8,7 @@ class MallOrder < ActiveRecord::Base
   def paid( params, request_post)
     if Rails.env.production?
       return false unless from_alipay?(params[:notify_id])
+      return true
     end
   end
 

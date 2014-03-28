@@ -374,7 +374,7 @@ background: #FF7700;
 	display: block;
 }
 .shop_activities h5 {
-	height: 40px;
+	height: 80px;
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-top-color: #e6e6e6;
@@ -2239,7 +2239,7 @@ a#categroy_menu:hover {
 }
 .category_right .class_rule_retrieval {
 	height: 30px;
-	background-color: #FEEDD1;
+	background-color: #E1F7FD;
 	padding-left: 15px;
 	color: #676566;
 }

@@ -23,10 +23,25 @@ class MallOrder < ActiveRecord::Base
   end
 
   def new_exchange_code_line( lines)
-    lines.each do |l|
-      l.quantity.times do
+    lines.zip(session[:order_times].scan(/[^,]+/)).each do |l,t|
+      time,times=""
+      if t.include?"尚未预约"
+        tt=""
+      else
+        tt= t.scan(/[^X]+/)
+        tt.each_slice(2) do |a,b|
+          time = a.to_s
+          times= b.to_i
+        end
+      end
+      l.quantity.times.each do |l|
         @code= create_exchange_code
-        MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id )
+        if times>0
+          MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )
+          times -=1
+        else
+          MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id )
+        end
       end
       # @q>0
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
@@ -166,7 +181,13 @@ class MallOrder < ActiveRecord::Base
 
   def create_exchange_code
     #translate the date into second from 1970 then add the usec
-    rand(9999999..100000000)
+    @n= rand(9999999..100000000)
+    if MallExchange.find_by_exchange_code( @n)
+      create_exchange_code
+    else
+      @n
+    end
+
   end
 
 

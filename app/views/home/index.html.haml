@@ -28,7 +28,6 @@
                 %a{:href=>"#{link.text2}"}
                   =link.title
       .shop_news
-        %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %h4
           - @slider=@homepage_slider_right[1] if @homepage_slider_right[1]
           %a{:href=>"#{@slider.text2}"}
@@ -80,7 +79,7 @@
       =render 'home/partial/index_vendor_rec'
   .h_ad{:style=>" padding-top:10px;"}
     %a{:href=> @adv_area.text2}
-      %img{ :src=> @adv_area.img_url , :width=>"960", :height=>"60", :border=>"0"  ,:alt=>'pic'}
+      %img{ :src=> @adv_area.img_url , :width=>"980", :height=>"60", :border=>"0"  ,:alt=>'pic'}
   =render 'home/partial/bottom'
 
   :javascript

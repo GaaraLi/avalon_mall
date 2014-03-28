@@ -80,7 +80,7 @@
         .main_goods_garage_map_pic.map_content
           =render 'vendors/partial/vendor_map',locales:{:@vendor=>@good.vendor}
 
-        %a#enter_the_shop{ :href=>"", :target=>"_blank", :title=>"进入店铺",:style=>" background-image: url('"+asset_path("test/good_shop1.png")+"');"}
+        %a#enter_the_shop{ :href=> vendor_path( @good.vendor.id), :target=>"_blank", :title=>"进入店铺",:style=>" background-image: url('"+asset_path("test/good_shop1.png")+"');"}
         %li
           %strong 车行地址：
           =@good.vendor.address.street
@@ -96,7 +96,9 @@
           %strong 服务项目：
           洗车、打蜡、常规保养
         %li
-          %strong 技术顾问：
+          %strong
+            技术顾问：
+            =@good.vendor.phone1
       .main_goods_class
         %h2 产品分类
         %h3

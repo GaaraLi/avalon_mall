@@ -13,8 +13,6 @@ class HomeController < ApplicationController
 
     @card_area= MallBlock.where("mall_block_type_id=3").first
     @adv_area= MallBlock.where("mall_block_type_id=8").first
-    puts '=========='
-    puts current_customer.test(session, "hello world")
 
     @nav_label_check= 1
   end

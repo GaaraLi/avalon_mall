@@ -9,48 +9,8 @@ class MallOrder < ActiveRecord::Base
     if Rails.env.production?
       return false unless from_alipay?(params[:notify_id])
     end
-    if status == 0
-      update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
-
-      # new exchange code
-      @mall_order_lines= mall_order_lines if (mall_order_lines!= nil)
-      new_exchange_code_line( @mall_order_lines)
-
-      #repaid
-      @current_customer= Customer.find(customer_id)
-      do_order_repaid if @current_customer.card
-    end
-    return true
   end
 
-  def new_exchange_code_line( lines)
-    lines.zip( ApplicationHelper::get_order_times.scan(/[^,]+/)).each do |l,t|
-      time,times=""
-      if t.include?"尚未预约"
-        tt=""
-      else
-        tt= t.scan(/[^X]+/)
-        tt.each_slice(2) do |a,b|
-          time = a.to_s
-          times= b.to_i
-        end
-      end
-      l.quantity.times.each do |l|
-        @code= create_exchange_code
-        if times>0
-          MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )
-          times -=1
-        else
-          MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id )
-        end
-      end
-      # @q>0
-      @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
-      l.mall_sku.mall_inventory.update_attributes(:inventory_qty=> @q)
-    end
-
-    return true
-  end
 
   def do_order_repaid
     @current_customer= Customer.find(customer_id)

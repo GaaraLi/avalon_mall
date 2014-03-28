@@ -20,4 +20,8 @@ class Customer <ActiveRecord::Base
     end
   end
 
+  def test(session, k)
+    session[:times_h]=k
+  end
+
 end

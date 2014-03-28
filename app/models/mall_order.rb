@@ -23,7 +23,7 @@ class MallOrder < ActiveRecord::Base
   end
 
   def new_exchange_code_line( lines)
-    lines.zip(session[:order_times].scan(/[^,]+/)).each do |l,t|
+    lines.zip( get_order_times.scan(/[^,]+/)).each do |l,t|
       time,times=""
       if t.include?"尚未预约"
         tt=""

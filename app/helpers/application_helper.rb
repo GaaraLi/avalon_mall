@@ -25,4 +25,8 @@ module ApplicationHelper
     def get_search_flag
     	@flag=0
     end
+
+    def get_order_times
+    	session[:order_times]
+    end
 end

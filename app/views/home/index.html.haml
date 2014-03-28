@@ -75,15 +75,12 @@
   .part_03
     .cars_tui
       .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"'); background-repeat:repeat-x;"}
-        %h3.part_03hd.Gold
-          %b 推荐车行
-        =render 'home/partial/index_vendor_rec'
+      %h3.part_03hd.Gold
+        %b 推荐车行
+      =render 'home/partial/index_vendor_rec'
   .h_ad{:style=>" padding-top:10px;"}
-    - if @adv_area
-      %a{:href=> @adv_area.text2}
-        %img{ :src=> asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"  ,:alt=>'pic'}
-    -else
-      %img{:width=>"960", :height=>"100", :border=>"0",:alt=>'pic', :src=> asset_path("test/img-06.jpg")}
+    %a{:href=> @adv_area.text2}
+      %img{ :src=> @adv_area.img_url , :width=>"960", :height=>"60", :border=>"0"  ,:alt=>'pic'}
   =render 'home/partial/bottom'
 
   :javascript

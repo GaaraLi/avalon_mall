@@ -488,6 +488,7 @@ background: #FF7700;
 	border-left-color: #e6e6e6;
 	border-bottom-color: #e6e6e6;
 	background-color: #FFFFFF;
+	background
 }
 .hot_tui .part03line {
 	background-image: url(../images/LineBG.jpg);
@@ -527,7 +528,7 @@ background: #FF7700;
 	border-left-width: 0px;
 }
 .part_03 .cars_tui {
-	height: 305px;
+	height: 500px;
 	margin-top: 6px;
 	border-right-width: 1px;
 	border-left-width: 1px;
@@ -551,12 +552,6 @@ background: #FF7700;
 	border-right-width: 0px;
 	border-bottom-width: 0px;
 	border-left-width: 0px;
-}
-.cars_tui .part_carli {
-	height: 235px;
-	padding-top: 5px;
-	padding-bottom: 20px;
-	padding-left: 30px;
 }
 .part_carli li {
 	display: block;
@@ -947,7 +942,7 @@ a#qukankan:hover {
 	height: 235px;
 	padding-top: 5px;
 	padding-bottom: 20px;
-	padding-left: 30px;
+	padding-left: 5px;
 }
 .part_carli li {
 	display: block;
@@ -1427,7 +1422,7 @@ a#p_price_menu:hover {
 /*第一部分*/
 .wrap .main_goods_box {
 	width: 958px;
-	height: 600px;
+	height: 540px;
 	border: 1px solid #cdcdcd;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -1456,7 +1451,7 @@ a#p_price_menu:hover {
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-right-color: #dfdfdf;
-	height: 600px;
+	height: 540px;
 }
 .main_goods_photo label {
 	height: 260px;
@@ -1503,7 +1498,7 @@ a#p_price_menu:hover {
 }
 .main_goods_box .main_goods_operation {
 	width: 600px;
-	height: 600px;
+	height: 540px;
 	padding-right: 20px;
 	padding-left: 30px;
 }
@@ -1517,12 +1512,12 @@ a#p_price_menu:hover {
 	font-weight: bold;
 }
 .main_goods_operation h2 {
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 20px;
 	display: block;
 	padding-top: 10px;
 	height: 20px;
-	color: #656565;
+	color: #FF3300;
 }
 .main_goods_operation h3 {
 	display: block;
@@ -1617,7 +1612,7 @@ a#goods_buymenu {
 	height: 25px;
 	line-height: 25px;
 	font-size: 12px;
-	color: #FF00FF;
+	color: #666666;
 	font-family: "宋体";
 }
 .main_goods_box .main_goods_garage {
@@ -2913,4 +2908,74 @@ a#user_menuma:hover {
 .shown_area{
 	width:750px ;
     margin-left:100px;
+}
+
+/*首页底部推荐车行2014.3.27*/
+.home_rec_recommend {
+	height: 440px;
+	width: 190px;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color: #FFFFFF;
+	float: left;
+	margin-left: 4px;
+}
+.home_rec_recommend2 {
+	height: 440px;
+	width: 190px;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color: #FFFFFF;
+	float: left;
+}
+.home_rec_recommend_inside {
+	width: 172px;
+	height: 425px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #E0E1D9;
+	border-right-color: #E0E1D9;
+	border-left-color: #E0E1D9;
+	margin-right: auto;
+	margin-left: auto;
+}
+.home_rec_recommend_inside h1 {
+	height: 200px;
+	width: 160px;
+	margin-top: 7px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+.home_rec_recommend_inside h2 {
+	width: 160px;
+	height: 55px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	font-size: 12px;
+	color: #666666;
+	line-height: 22px;
+}
+.home_rec_recommend_inside h3 {
+	color: #A6A699;
+	font-size: 12px;
+	line-height: 22px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	width: 160px;
+	height: 115px;
+	margin-top: 0px;
+}
+.home_rec_recommend_inside h4 {
+	text-align: right;
+	text-indent: 5px;
+	height: 40px;
+	width: 160px;
 }

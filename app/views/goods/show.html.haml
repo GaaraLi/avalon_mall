@@ -44,9 +44,8 @@
           ￥
           =@good.mall_skus.first.customer_price
         %span{:style=>"color:#999999; font-size:14px;"} (已激活会员价格)
-
-      -@good_sku.each do |s|
-        %h4
+      %h4
+        -@good_sku.each do |s|
           .main_goods_type2{:value=> s.id,:style=>"font-size:14px;"}
             =s.desc if s
       %h5
@@ -68,9 +67,10 @@
           %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
           %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
           =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:33px; cursor:pointer;", :title=>"立即购买",:id=>"goods_buymenu"
-        %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:200px; margin-top:-37px;"}
-      %h7{:style=>"margin-top:-15px;"}
-        服务说明：
+        %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:200px; margin-top:-38px;"}
+      -if @good.service_info
+        %h7{:style=>"margin-top:-15px;"}
+          服务说明：
         =@good.service_info
   .main_box
     .main_goods_L.left

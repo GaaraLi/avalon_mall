@@ -13,6 +13,8 @@ class HomeController < ApplicationController
 
     @card_area= MallBlock.where("mall_block_type_id=3").first
     @adv_area= MallBlock.where("mall_block_type_id=8").first
+    puts '=========='
+    puts @adv_area.img_url
 
     @nav_label_check= 1
   end

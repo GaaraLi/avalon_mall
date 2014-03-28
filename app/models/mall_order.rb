@@ -47,19 +47,6 @@ class MallOrder < ActiveRecord::Base
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
       l.mall_sku.mall_inventory.update_attributes(:inventory_qty=> @q)
     end
-    session[:order_times].scan(/[^,]+/).each do |t|
-      if t.include?"尚未预约"
-        next
-      else
-        tt= t.scan(/[^X]+/)
-      end
-      tt.each_slice(2) do |a,b|
-        b.to_i.times {
-          puts '========='
-          puts a.to_s
-        }
-      end
-    end
     session[:order_times]=nil
 
     return true

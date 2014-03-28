@@ -116,13 +116,16 @@ class MallOrder < ActiveRecord::Base
 
   private
   def from_alipay?(notify_id)
+    puts '========in from_alipay=========='
     uri = "https://mapi.alipay.com/gateway.do?service=notify_verify&partner=#{ActiveMerchant::Billing::Integrations::Alipay::ACCOUNT}&notify_id=#{notify_id}"
 
     html_response = nil
     open(uri) do |http|
       html_response = http.read
     end
+    puts html_response
     html_response == 'true'
+    html_response
     #html_response= 'true'
   end
 

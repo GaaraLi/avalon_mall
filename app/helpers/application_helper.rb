@@ -26,7 +26,7 @@ module ApplicationHelper
     	@flag=0
     end
 
-    def get_order_times
+    def ApplicationHelper.get_order_times
     	session[:order_times]
     end
 end

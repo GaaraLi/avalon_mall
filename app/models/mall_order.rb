@@ -1,4 +1,5 @@
 class MallOrder < ActiveRecord::Base
+  include ApplicationHelper
   require 'open-uri'
   belongs_to :vendor
   belongs_to :customer
@@ -23,7 +24,7 @@ class MallOrder < ActiveRecord::Base
   end
 
   def new_exchange_code_line( lines)
-    lines.zip( get_order_times.scan(/[^,]+/)).each do |l,t|
+    lines.zip( ApplicationHelper::get_order_times.scan(/[^,]+/)).each do |l,t|
       time,times=""
       if t.include?"尚未预约"
         tt=""
@@ -47,7 +48,6 @@ class MallOrder < ActiveRecord::Base
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
       l.mall_sku.mall_inventory.update_attributes(:inventory_qty=> @q)
     end
-    session[:order_times]=nil
 
     return true
   end

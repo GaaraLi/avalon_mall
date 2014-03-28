@@ -27,6 +27,7 @@ class CustomersController < ApplicationController
   end
 
   def set_order_time_list
+    session[:order_times]=nil
     session[:order_times]= params[:time_list]
     session[:order_times].scan(/[^,]+/).each do |t|
       if t.include?"尚未预约"

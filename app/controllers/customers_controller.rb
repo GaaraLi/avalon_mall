@@ -66,14 +66,14 @@ class CustomersController < ApplicationController
         @order.update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
          puts ' after update================='
 
+        @current_customer= Customer.find(@order.customer_id)
         # new exchange code
-        @mall_order_lines= @order.mall_order_lines if (@order.mall_order_lines!= nil)
-        new_exchange_code_line( @mall_order_lines)
+        @mall_order_lines= @order.mall_order_lines if (@order!= nil)
+        new_exchange_code_line( @mall_order_lines,@current_custome)
          puts ' after exchange code line================='
 
         #repaid
-        @current_customer= Customer.find(customer_id)
-        do_order_repaid if @current_customer.card
+        do_order_repaid(@current_customer, @order) if @current_customer.card
          puts ' after do_order_repaid================='
        end
       redirect_to "http://m.ixiangche.com/customers/center"
@@ -83,19 +83,19 @@ class CustomersController < ApplicationController
     end
   end
 
-  def do_order_repaid
-    @current_customer= Customer.find(customer_id)
+  def do_order_repaid(c, o)
+    @current_customer= c
     if @current_customer.card.repaid_time >= @current_customer.card.repaid_tactic_customer.times
       return true
     end
     
     if @current_customer.card.vendor_binding_record
-      @price= get_binding_vendor_price
+      @price= get_binding_vendor_price( c, o)
     else
       @price= 0
     end
     if ( @price>= @current_customer.card.repaid_tactic_customer.consumption_amount )
-       repaid= get_repaid( @price)
+       repaid= get_repaid( @price,@current_customer )
        return true if !repaid
 
        #repaid history
@@ -122,10 +122,10 @@ class CustomersController < ApplicationController
     end
   end
 
-  def get_repaid( price)
-    @current_customer= Customer.find(customer_id)
+  def get_repaid( price, c)
+    @current_customer= c
     customer_id= @current_customer.id
-    @tactic_id= Customer.find(customer_id).card.repaid_tactic_customer_id
+    @tactic_id= c.card.repaid_tactic_customer_id
     @repaid_tactic= RepaidTacticCustomer.find(:first, :conditions=>["expired=0 and start_rule=1 and id>=#{@tactic_id} "])
     if check_date( customer_id)
       if price >= @repaid_tactic.consumption_amount
@@ -171,10 +171,10 @@ class CustomersController < ApplicationController
       return false
     end
   end
-  def get_binding_vendor_price
-    @current_customer= Customer.find(customer_id)
+  def get_binding_vendor_price(c, o)
+    @current_customer= c
     price=0
-    mall_order_lines.each do |l|
+    o.mall_order_lines.each do |l|
       if l.vendor_id== @current_customer.card.vendor_binding_record.vendor_id
         price= price+ l.price
       end
@@ -182,8 +182,8 @@ class CustomersController < ApplicationController
     return price
   end
 
-  def new_exchange_code_line( lines)
-    lines.zip( current_customer.customer_order_times.scan(/[^,]+/)).each do |l,t|
+  def new_exchange_code_line( lines,c)
+    lines.zip( c.customer_order_times.scan(/[^,]+/)).each do |l,t|
       time,times=""
       if t.include?"尚未预约"
         tt=""

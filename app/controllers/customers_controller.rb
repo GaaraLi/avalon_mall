@@ -194,7 +194,7 @@ class CustomersController < ApplicationController
           times= b.to_i
         end
       end
-      l.quantity.times.each do |l|
+      l.quantity.times.each do |q|
         @code= create_exchange_code
         if times>0
           MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )

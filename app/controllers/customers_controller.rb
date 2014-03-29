@@ -71,7 +71,7 @@ class CustomersController < ApplicationController
     puts @order.paid( params, request.raw_post)
     if payment_succeed? && @order.paid( params, request.raw_post)
       flash[:notice] = '恭喜，您已续费成功'
-      if status == 0
+      if @order.status == 0
         @order.update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
          puts ' after update================='
 

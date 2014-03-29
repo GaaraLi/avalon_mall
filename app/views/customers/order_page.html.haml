@@ -186,6 +186,18 @@
               times_list.push($(this).text());
             });
             $("#selected_times").attr("value", times_list);
+            var requestUrl= "/customers/set_order_time_list";
+            var data= times_list;
+            $.ajax({
+              url: requestUrl,
+              data: "time_list="+data,
+              contentType: "application/json; charset=utf-8;",
+              dataType:"json",
+              success: function(json){
+                alert(json);
+              }
+
+            });
           }
         }
       });

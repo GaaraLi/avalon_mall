@@ -69,7 +69,7 @@ class CustomersController < ApplicationController
         @current_customer= Customer.find(@order.customer_id)
         # new exchange code
         @mall_order_lines= @order.mall_order_lines if (@order!= nil)
-        new_exchange_code_line( @mall_order_lines,@current_custome)
+        new_exchange_code_line( @mall_order_lines,@current_customer)
          puts ' after exchange code line================='
 
         #repaid

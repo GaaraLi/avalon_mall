@@ -27,8 +27,10 @@ class CustomersController < ApplicationController
   end
 
   def set_order_time_list
-    session[:order_times]=nil
+    #session[:order_times]=nil
     session[:order_times]= params[:time_list]
+    puts 'in set_order_time_list==========='
+    puts session[:order_times]
 
     render :json=>1
   end

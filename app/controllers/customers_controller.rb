@@ -196,11 +196,13 @@ class CustomersController < ApplicationController
       end
       l.quantity.times.each do |q|
         @code= create_exchange_code
-        if times>0
-          MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )
-          times -=1
-        else
-          MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id )
+        if times
+          if times >0
+            MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )
+            times -=1
+          else
+            MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id )
+          end
         end
       end
       # @q>0

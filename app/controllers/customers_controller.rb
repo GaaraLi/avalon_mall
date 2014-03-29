@@ -213,7 +213,7 @@ class CustomersController < ApplicationController
   def create_exchange_code
     #translate the date into second from 1970 then add the usec
     @n= rand(9999999..100000000)
-    if MallExchange.find_by_exchange_code( @n)
+    if MallExchange.find_by_exchange_code_number( @n)
       create_exchange_code
     else
       @n

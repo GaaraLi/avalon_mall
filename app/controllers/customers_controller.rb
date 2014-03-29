@@ -29,19 +29,7 @@ class CustomersController < ApplicationController
   def set_order_time_list
     session[:order_times]=nil
     session[:order_times]= params[:time_list]
-    session[:order_times].scan(/[^,]+/).each do |t|
-      if t.include?"尚未预约"
-        next
-      else
-        tt= t.scan(/[^X]+/)
-      end
-      tt.each_slice(2) do |a,b|
-        b.to_i.times {
-          puts '========='
-          puts a.to_s
-        }
-      end
-    end
+
     render :json=>1
   end
 
@@ -192,7 +180,8 @@ class CustomersController < ApplicationController
   end
 
   def new_exchange_code_line( lines)
-    lines.zip( session[:order_times] .scan(/[^,]+/)).each do |l,t|
+    puts session[:order_times]
+    lines.zip( session[:order_times].scan(/[^,]+/)).each do |l,t|
       time,times=""
       if t.include?"尚未预约"
         tt=""

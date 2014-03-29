@@ -27,18 +27,19 @@ class CustomersController < ApplicationController
   end
 
   def set_order_time_list
-    #session[:order_times]=nil
-    session[:order_times]= params[:time_list]
-    puts 'in set_order_time_list==========='
-    puts session[:order_times]
-
+    @order_times= params[:time_list]
+    current_customer.update_attributes(:customer_order_times=>@order_times)
+    puts '==========in set_order_time_list'
+    puts current_customer.customer_order_times
     render :json=>1
   end
 
   def cart_confirm
     @cart_ids= params[:selected_ids]
     @order_times_list= params[:selected_times]
-    session[:order_times]= @order_times_list
+    current_customer.update_attributes(:customer_order_times=>@order_times_list)
+    puts '==========in cat_confirm'
+    puts current_customer.customer_order_times
 
     @order_number= new_order_number
     @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,:customer_id=>current_customer.id)
@@ -182,8 +183,7 @@ class CustomersController < ApplicationController
   end
 
   def new_exchange_code_line( lines)
-    puts session[:order_times]
-    lines.zip( session[:order_times].scan(/[^,]+/)).each do |l,t|
+    lines.zip( current_customer.customer_order_times.scan(/[^,]+/)).each do |l,t|
       time,times=""
       if t.include?"尚未预约"
         tt=""
@@ -207,7 +207,6 @@ class CustomersController < ApplicationController
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
       l.mall_sku.mall_inventory.update_attributes(:inventory_qty=> @q)
     end
-
     return true
   end
 

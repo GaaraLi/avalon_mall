@@ -200,7 +200,7 @@ A.Orange:visited {
 	width:54px;
 	float:right;
 	position:fixed;
-	bottom:15px;
+	bottom:50px;
 	_position:absolute;
 	_bottom:auto;
 	_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));

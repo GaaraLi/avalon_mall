@@ -1,5 +1,5 @@
 .IndexContentMain{:style=>"height:320px; overflow:hidden;width:550px;"}
-  .indexBanner{:style=>"margin-top:8px;"}
+  .indexBanner{:style=>"margin-top:2px; margin-left:5px;"}
     #indexBannerdatouwang.datouwang
       %ul.imgList{:style=>" position: absolute;left:0px;"}
         -@homepage_sliders.each do |slider|
@@ -15,7 +15,7 @@
 
 :javascript
 
-  (function() {
+  $(function() {
 
     var maxShowedBanner = 1, currentBanner = 1,
         maxBannerNum = 7, datouwang = $(".indexBanner"),
@@ -47,18 +47,4 @@
         bsObj = datouwang.data("bannerSlider");
     });
     }());
-
-    $(function () {
-        var sideBar = $("#sideBarContainer"),
-            cartNote = sideBar.find('#shoppingCart_sidebar .pubCartNote');
-        sideBar.sideBar({
-            startTop:270
-        });
-        if (cartDialog) {
-            cartDialog.init("#shoppingCart_sidebar");
-        }
-        Common.PubSub.subscribe("shoppingCart/ItemNumUpdate", function (data) {
-            cartNote.removeClass("hide").html(data.cartItemNumStr);
-        });
-    });
 

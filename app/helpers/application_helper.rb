@@ -25,4 +25,15 @@ module ApplicationHelper
     def get_search_flag
     	@flag=0
     end
+
+    def get_shopping_car_qty
+      @shopping_car_qty= 0
+      if current_customer
+        @shopping_car_goods=MallShoppingCar.where("customer_id=#{current_customer.id}")
+        @shopping_car_goods.each do |g|
+          @shopping_car_qty += g.quantity
+        end
+      end
+      @shopping_car_qty
+    end
 end

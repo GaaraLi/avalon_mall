@@ -1,0 +1,64 @@
+.IndexContentMain{:style=>"height:320px; overflow:hidden;width:550px;"}
+  .indexBanner{:style=>"margin-top:8px;"}
+    #indexBannerdatouwang.datouwang
+      %ul.imgList{:style=>" position: absolute;left:0px;"}
+        -@homepage_sliders.each do |slider|
+          %li
+            %a{:href=>"#{slider.text2}"}
+              %img{:src=> "#{slider.img_url}" ,:alt=>'pic'}
+      #btnList.btnList
+        .BtnimgList
+          -@homepage_sliders.each do |slider|
+            %a{:href=>"javascript:void(0);"}
+              %img.thumb_pic{:src=> "#{slider.img_url}" ,:alt=>'pic'}
+
+
+:javascript
+
+  (function() {
+
+    var maxShowedBanner = 1, currentBanner = 1,
+        maxBannerNum = 7, datouwang = $(".indexBanner"),
+        bsObj, bannerShelf, replaceStart = false, replaced = false;
+
+    Common.AjaxCombiner.addCall({ type: "GET", url: "GetFirstShelf",
+        success: function(result){
+            bannerShelf = result ? result : "hot";
+            Common.PubSub.publish("UserStat/Shelf", { shelf: bannerShelf });
+            datouwang.trigger("cust:replace");
+        }
+    });
+
+    $(function () {
+        datouwang.bannerSlider({
+            arrow:true,
+            bannerHover:function () {
+                maxShowedBanner = maxBannerNum;
+            },
+            beforeSlideTo : function (bannerIndex) {
+                currentBanner = bannerIndex;
+                maxShowedBanner = currentBanner > maxShowedBanner ? currentBanner : maxShowedBanner;
+                if (replaceStart || maxShowedBanner >= maxBannerNum || bannerShelf !== "hot") {
+                    return;
+                }
+                datouwang.trigger("cust:replace");
+            }
+        });
+        bsObj = datouwang.data("bannerSlider");
+    });
+    }());
+
+    $(function () {
+        var sideBar = $("#sideBarContainer"),
+            cartNote = sideBar.find('#shoppingCart_sidebar .pubCartNote');
+        sideBar.sideBar({
+            startTop:270
+        });
+        if (cartDialog) {
+            cartDialog.init("#shoppingCart_sidebar");
+        }
+        Common.PubSub.subscribe("shoppingCart/ItemNumUpdate", function (data) {
+            cartNote.removeClass("hide").html(data.cartItemNumStr);
+        });
+    });
+

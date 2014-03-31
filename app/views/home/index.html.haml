@@ -2,17 +2,7 @@
 .wrap
   .part_01
     =render "home/partial/categories"
-    .shop_ad{:style=>"margin-left:10px;"}
-      .shop_adbox
-        %ul.shop_adpic
-          -@homepage_sliders.each do |slider|
-            %li
-              %a{:href=>"#{slider.text2}"}
-                %img{:src=> "#{slider.img_url}" ,:alt=>'pic'}
-        %a.prev{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
-        %a.next{:href=>"javascript:void(0)", :style=>"background-image: url('"+asset_path("test/btn.png")+"');"}
-        .num
-          %ul
+    =render "home/partial/homepage_sliders"
     .shop_tuijian
       .shop_activities
         %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
@@ -82,109 +72,5 @@
       %img{ :src=> @adv_area.img_url , :width=>"980", :height=>"60", :border=>"0"  ,:alt=>'pic'}
   =render 'home/partial/bottom'
 
-  :javascript
-          $(".shop_adbox").hover(function(){
-            $(this).find(".prev,.next").fadeTo("show",0.1);
-            },function(){
-              $(this).find(".prev,.next").hide();
-              }
-          )
-            /*鼠标移过某个按钮 高亮显示*/
-        $(".prev,.next").hover(function(){
-          $(this).fadeTo("show",0.7);
-          },function(){
-            $(this).fadeTo("show",0.1);
-            }
-        )
 
-        $(".shop_adbox").slide({ titCell:".num ul" , mainCell:".shop_adpic" , effect:"fold", autoPlay:true, delayTime:700 , autoPage:true });
 
-        (function(){
-          var vari={
-            width:885,
-            pics:document.getElementById("pics"),
-            prev:document.getElementById("prev"),
-            next:document.getElementById("next"),
-            len:document.getElementById("pics").getElementsByTagName("li").length,
-            intro:document.getElementById("pics").getElementsByTagName("p"),
-            now:1,
-            step:5,
-            dir:null,
-            span:null,
-            span2:null,
-            begin:null,
-            begin2:null,
-            end2:null,
-            move:function(){
-              if(parseInt(vari.pics.style.left,10)>vari.dir*vari.now*vari.width&&vari.dir==-1){
-                vari.step=(vari.step<2)?1:(parseInt(vari.pics.style.left,10)-vari.dir*vari.now*vari.width)/5;
-                vari.pics.style.left=parseInt(vari.pics.style.left,10)+vari.dir*vari.step+"px";
-              }
-              else if(parseInt(vari.pics.style.left,10)<-vari.dir*(vari.now-2)*vari.width&&vari.dir==1){
-              vari.step=(vari.step<2)?1:(-vari.dir*(vari.now-2)*vari.width-parseInt(vari.pics.style.left,10))/5;
-              vari.pics.style.left=parseInt(vari.pics.style.left,10)+vari.dir*vari.step+"px";
-              }
-              else{
-                vari.now=vari.now-vari.dir;
-                clearInterval(vari.begin);
-                vari.begin=null;
-                vari.step=5;
-                vari.width=885;
-              }
-              },
-            scr:function(){
-              if(parseInt(vari.span.style.top,10)>-31){
-                vari.span.style.top=parseInt(vari.span.style.top,10)-5+"px";
-              }
-              else{
-                clearInterval(vari.begin2);
-                vari.begin2=null;
-              }
-              },
-                stp:function(){
-                  if(parseInt(vari.span2.style.top,10)<0){
-                  vari.span2.style.top=parseInt(vari.span2.style.top,10)+10+"px";
-                  }
-                  else{
-                    clearInterval(vari.end2);
-                    vari.end2=null;
-                    }
-                  }
-                };
-                vari.prev.onclick=function(){
-                  if(!vari.begin&&vari.now!=1){
-                  vari.dir=1;
-                  vari.begin=setInterval(vari.move,20);
-                  }
-                  else if(!vari.begin&&vari.now==1){
-                    vari.dir=-1
-                    vari.width*=vari.len-1;
-                    vari.begin=setInterval(vari.move,20);
-                    };
-                  };
-                  vari.next.onclick=function(){
-                    if(!vari.begin&&vari.now!=vari.len){
-                      vari.dir=-1;
-                       vari.begin=setInterval(vari.move,20);
-                    }
-                    else if(!vari.begin&&vari.now==vari.len){
-                      vari.dir=1
-                      vari.width*=vari.len-1;
-                      vari.begin=setInterval(vari.move,20);
-                      };
-                    };
-                  for(var i=0;i<vari.intro.length;i++){
-                    vari.intro[i].onmouseover=function(){
-                    vari.span=this.getElementsByTagName("span")[0];
-                    vari.span.style.top=0+"px";
-                    if(vari.begin2){clearInterval(vari.begin2);}
-                    vari.begin2=setInterval(vari.scr,20);
-                    };
-                    vari.intro[i].onmouseout=function(){
-                    vari.span2=this.getElementsByTagName("span")[0];
-                    if(vari.begin2){clearInterval(vari.begin2);}
-                      if(vari.end2){clearInterval(vari.end2);}
-                        vari.end2=setInterval(vari.stp,5);
-                      };
-                    }
-                })();

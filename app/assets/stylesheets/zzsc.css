@@ -1,0 +1,70 @@
+*{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 \5B8B\4F53,tahoma,arial}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+ul,ol{list-style:none outside none}
+form,img,input{border:none 0}
+em,var,address,cite,dfn{font-style:normal}
+a:link{color:#333;text-decoration:none;outline:0 none}
+a:visited{color:#333;text-decoration:none;outline:0 none}
+a:hover{color:#83b842;text-decoration:underline;outline:0 none}
+a:active{color:#83b842;text-decoration:none;outline:0 none}
+body{background:#fff}
+.contentall{width:100%;position:relative}
+.IndexContentBox{width:100%;min-height:600px;_height:900px;height:auto!important}
+.IndexContent{width:558px;position:relative;margin:0 auto}
+.IndexContentMain{width:550px;margin-left:auto;margin-right:auto}
+.datouwang ul.imgList li{float:left;width:550px}
+.datouwang ul.imgList li a{text-decoration:none;outline:0;cursor:pointer}
+.datouwang div.btnList{width:550px;height:70px;text-align:center}
+.datouwang div.btnList a{padding:2px;position:relative}
+.datouwang div.btnList a .ScrollArr{visibility:hidden}
+.datouwang div.btnList a.curr{border:2px solid #83b842;padding:0}
+.datouwang div.btnList a.curr .ScrollArr{visibility:visible;top:-6px;left:48px}
+.IndexProduct{float:left}
+.datouwang{position:relative;height:320px;overflow:hidden;float:left}
+.datouwang .btnList .cur{border:2px solid #83b842;zoom:1}
+.datouwang .btnList img{display:inline}
+.datouwang .imgList{width:100%}
+.datouwang .numList{position:absolute;right:8px;bottom:10px;z-index:3}
+.datouwang .numList a,.datouwang .BtnNumList a{width:20px;height:20px;background:#ccc;text-align:center;display:block;float:left;_display:inline;*zoom:1;margin-right:2px;line-height:20px}
+.datouwang .numList a.cur,.datouwang .BtnNumList a.cur{background:#83B842;text-decoration:none;color:#fff}
+.datouwang .BtnimgList{display:inline-block;*display:inline;margin-left:auto;margin-right:auto;bottom:-250px;height:60px;position:relative;background:#000;background:url(BtnimgListBj130607.png) repeat-x left center;padding:5px 15px;zoom:1}
+.BtnimgList a *{position:relative}
+.datouwang .BtnNumList{width:550px;height:20px;text-align:center}
+.datouwang .BtnNumWrap{position:relative;display:inline-block;*display:inline;text-align:center;z-index:3;margin-left:auto;margin-right:auto;bottom:-390px;zoom:1}
+.indexBanner{height:320px;width:550px;overflow:hidden;background-color:#fff}
+.pagesliderWrap{clear:both;position:relative}
+.pagingArrowWrap{width:22px;height:65px;position:absolute;text-align:center;display:none;}
+.pagingArrowWrap.prev{left:0}
+.pagingArrowWrap.next{right:0}
+.pagingArrowWrap .arrow{height:45px;display:block;cursor:pointer}
+.pagingArrowWrap.prev .arrow{background:url(btnPrevbg.gif) no-repeat}
+.pagingArrowWrap.next .arrow{background:url(btnNextbg.gif) no-repeat}
+.pagingArrowWrap .pagingCount{height:18px;line-height:16px;text-align:center;width:22px}
+.indexBanner .pagingArrowWrap{width:55px;height:73px}
+.indexBanner .pagingArrowWrap .arrow,.indexBanner .pagingArrowWrap .arrow:hover{height:73px;background:url(icon_hmBannerArrow130607.png) no-repeat}
+.indexBanner .pagingArrowWrap.prev .arrow{background-position:0 -120px}
+.indexBanner .pagingArrowWrap.prev .arrow:hover{background-position:-65px -120px;background-color:#83b842}
+.indexBanner .pagingArrowWrap.next .arrow{background-position:0 -220px}
+.indexBanner .pagingArrowWrap.next .arrow:hover{background-position:-65px -220px;background-color:#83b842}
+.indexBanner .datouwang .BtnNumList a{color:#fff;background:#83B842}
+.indexBanner .datouwang .BtnNumList a.cur{color:#333;background:#ccc}
+.hmCategoryBx{width:550px;overflow:hidden;margin:0 auto;text-align:left;margin-bottom:50px;margin-top:35px;*margin-bottom:20px}
+.hmCategoryBx .hmCategoryTitle{width:550px;height:32px;overflow:hidden;text-align:left;border-bottom:3px solid #009d42}
+.hmCategoryBx .hmCategoryTitle h2{width:425px;height:26px;overflow:hidden;display:block;background-position:0 0;margin:0;padding:0}
+.hmCategoryBx .hmCategoryTitle h2 span{display:block;overflow:hidden;text-indent:-99999px;white-space:nowrap}
+.hmCategoryBx ul{width:1032px;overflow:hidden;text-align:left}
+.hmCategoryBx ul li{width:516px;height:84px;overflow:hidden;float:left;text-align:left;margin-top:16px;position:relative;z-index:10}
+.hmCategoryBx ul li h3{width:86px;height:84px;overflow:hidden;display:block;float:left;text-align:left;background-color:#FFF;border-bottom:2px solid #fff;position:relative;z-index:9;margin:0;padding:0}
+.hmCategoryBx ul li h3 a:hover img{margin-top:-84px}
+.hmCategoryBx ul li.curt h3 a img,.hmCategoryBx ul li.curt h3 a:hover img{margin-top:-84px}
+.hmCategoryBx table{width:395px;height:84px;overflow:hidden;float:left;text-align:left;vertical-align:middle;position:relative;z-index:1;margin:0 0 0 -3px;padding:0}
+.hmCategoryBx table td{width:395px;height:84px;overflow:hidden;text-align:left;vertical-align:middle;word-wrap:break-word;word-break:break-all;margin:0;padding:0}
+.hmCategoryBx table p{width:auto;height:21px;overflow:hidden;display:inline;text-align:left;font-size:12px;color:#666;line-height:21px;white-space:nowrap;margin:0;padding:0;float:left;*float:none}
+.hmCategoryBx table p a,.hmCategoryBx table p a:hover{display:inline-block;text-align:left;font-size:12px;line-height:21px;text-decoration:none;margin:0;padding:0 8px}
+.hmCategoryBx table p a{color:#666;background-position:-449px 5px}
+.hmCategoryBx table p a:hover{color:#fff!important;background:none #009d42}
+.hmCategoryBx table p span{overflow:hidden;text-align:left;color:#ccc;margin:0;padding:0}
+.hmCategoryBx table p a span{margin:0;padding:0 0 0 4px}
+.hmCategoryBx table p a:hover span{color:#fff!important}
+.hmCategoryBx table p.noSplit a{background:0}

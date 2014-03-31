@@ -1,17 +1,21 @@
 .categroy_hottui
-  %h3
+  %h3{:style=>"background-color:#F3F3F3"}
     %b 热门产品推荐
-  .categroy_hottui_con{:style=>"margin-left:20px;"}
+  .categroy_hottui_con{:style=>"margin-left:20px; margin-top:10px;"}
     -@good_hot_rec1.each do |h|
       .categroy_hottui_list.left
         %h5.left
           %a{:href=> h.text2}
-            %img{:src=>h.img_url,:width=>"100", :height=>"115",:style=>"border:1px solid #F3F3F3;"}
-        %h4.left{:style=>"margin-left:15px;"}
-          %div{:style=>" overflow:hidden;width:100px;"}
+            %img{:src=>h.img_url,:width=>"98", :height=>"98",:style=>"border:1px solid #F3F3F3;"}
+        %h4.left{:style=>"margin-left:5px;"}
+          %div{:style=>" overflow:hidden;width:110px;"}
             %a{:href=> h.text2}
+              %p{:style=>"color:#969696;"}
               =h.title
           %s
-            ￥
-            =h.text4
+            %p{:style=>"color:#A9A9A9;"}
+              享车特价:
+              %font{:style=>"color:#F84A2D; font-size:15px;"}
+                ￥
+                h.text4
           %a#categroy_menu 加入购物车

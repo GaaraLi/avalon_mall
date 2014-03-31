@@ -55,18 +55,14 @@
           .main_class
             -@first_class.each do |f|
               .main_class_list
-                %label.left
+                %label.left{:style=>"margin-right:10px;"}
                   =f.name
                 .main_class_nav
                   -@second_class.each do |s|
                     -if s.parent_code == f.code
                       =link_to s.name,{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>s.id }, :class=>"second_class_link"
       .class_rule_number
-        .class_rule_icoX.left
-          %h4
-            %span.icoX01On.left
-            %span.icoX02.left
-        .class_rule_chose.left
+        .class_rule_chose.left{:style=>"padding-left:25px;"}
           %h4.choseon.left 默认
           %h4.left 销量
           %h4.left 价格↑

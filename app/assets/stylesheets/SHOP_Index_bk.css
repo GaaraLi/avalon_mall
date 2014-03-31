@@ -1918,9 +1918,9 @@ a#p_pricemenu:hover {
 	padding-left: 15px;
 }
 .main_category_hotshop .main_category_pro {
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #CCCCCC;
+	#border-bottom-width: 1px;
+	#border-bottom-style: dashed;
+	#border-bottom-color: #CCCCCC;
 	padding-top: 5px;
 	padding-right: 12px;
 	padding-bottom: 15px;
@@ -2036,8 +2036,8 @@ a#p_pricemenu:hover {
 	border-left-color: #CDCDCD;
 }
 .categroy_hottui h3 {
-	line-height: 40px;
-	height: 40px;
+	line-height: 30px;
+	height: 30px;
 	font-size: 16px;
 	padding-left: 10px;
 }
@@ -2065,7 +2065,7 @@ a#p_pricemenu:hover {
 	font-weight: bold;
 	display: block;
 	height: 35px;
-	font-size: 13px;
+	font-size: 10px;
 }
 .categroy_hottui_list h4 s {
 	text-decoration: none;
@@ -2977,4 +2977,8 @@ a#user_menuma:hover {
 	text-indent: 5px;
 	height: 40px;
 	width: 160px;
+}
+
+.second_class_link{
+
 }

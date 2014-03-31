@@ -10,9 +10,10 @@
               %b
                 =f.name
           .stornav2_li.accordion_list.shop_stornav2
-            -@second_class.each do |s|
-              -if s.parent_code == f.code
-                =link_to s.name, ""
+            .second_class_area
+              -@second_class.each do |s|
+                -if s.parent_code == f.code
+                  =link_to s.name, ""
         %h3.accordion_head{:style=>"margin-top:3px;"}
           .shop_stor2
             %b{:style=>"color:#315F6F;"}

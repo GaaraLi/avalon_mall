@@ -113,6 +113,7 @@ class CustomersController < ApplicationController
     repaid_info.card_id= card.id
     repaid_info.consumption_amount= consumption
     repaid_info.repaid_amount= repaid
+    repaid_info.vendor_id = card.vendor_binding_record.vendor_id
     repaid_info.repaid_tactic_customer_id= Card.find(card_id).repaid_tactic_customer_id
     if repaid_info.save
       #

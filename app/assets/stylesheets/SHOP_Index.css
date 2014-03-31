@@ -1892,9 +1892,9 @@ a#p_pricemenu:hover {
 }
 .shop_stornav2 {
 	height: auto;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #e6e6e6;
+	#border-bottom-width: 1px;
+	#border-bottom-style: solid;
+	#border-bottom-color: #e6e6e6;
 	width:196px;
 	padding-bottom: 2px;
 }

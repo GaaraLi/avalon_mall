@@ -4,8 +4,8 @@
       %p.logo.left{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
     .search.left
       %h3
-        %span#search_service.s_down 搜服务
-        %span#search_vendor 搜车行
+        %span#search_service.s_down{:style=>" cursor:pointer"} 搜服务
+        %span#search_vendor{:style=>" cursor:pointer"} 搜车行
       .search_into{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
         %form{:action=>"/home/search"}
           .search_l.left
@@ -13,6 +13,12 @@
             %input#search_type{:type=>"hidden", :name=>"search_type", :value=>1}
           .search_r.left
             %input.s1{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');", :name=>"submit", :type=>"submit",:value=>""}
+    %h3.shop_car.left
+      %a#shop_car{ :href=> customers_shopping_car_path ,:target=>"_blank", :title=>"进入购物车进行结算",:style=>" background-image: url('"+asset_path("test/Index_BodyBG.gif")+"'); margin-left:30px;"}
+        -if get_shopping_car_qty!=0
+          %s{:style=>"  background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+            =get_shopping_car_qty
+
 
   :javascript
     $("#search_vendor").click(function(){
@@ -26,3 +32,19 @@
       $("#search_service").addClass("s_down");
       $("#search_type").val("1");
     });
+
+    $(document).ready(function(){
+
+      if(#{get_search_flag}){
+        flag=#{get_search_flag};
+      }else{
+        flag=0;
+      }
+      if(flag==2){
+        $("#search_service").removeClass("s_down");
+        $("#search_vendor").addClass("s_down");
+      }else{
+        $("#search_service").addClass("s_down");
+      }
+      $(".w1").val("#{@key}");
+    })

@@ -10,6 +10,7 @@ IxcMall::Application.routes.draw do
   get "home/research_goods_by_category"
   root "home#index"
 
+  get "customers/set_order_time_list"
   get "customers/shopping_car"
   get "customers/order_page"
   get "customers/success_page"
@@ -20,6 +21,9 @@ IxcMall::Application.routes.draw do
   get "customers/add_in_shopping_car"
   get "customers/order_confirm"
   get "customers/cart_confirm"
+  get "customers/check_inventory"
+
+  get "goods/set_sku_info"
 
   get 'test' => 'home#test'
   get 'test1' => 'home#test1'

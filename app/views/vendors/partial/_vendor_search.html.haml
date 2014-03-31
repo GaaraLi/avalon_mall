@@ -1,4 +1,4 @@
-#ajax_vendor_search
+#ajax_vendor_search{:style=>"width:762px; margin-left:16px;"}
   .class_rule_retrieval
     %h3.left
       检索出
@@ -10,10 +10,10 @@
   .category_product
     -@key_vendor_goods.each do |g|
       %a
-        .main_products_li.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+        .main_products_li.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"'); margin-left:3px;"}
           .p_img
             %a{:href=>good_path(g.id)}
-              %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
+              =image_tag( g.logo_url1, height:"175", width:"175")
           .p_title
             %a{:href=>good_path(g.id)}
               =g.title
@@ -21,7 +21,7 @@
             %a
               =g.mall_category.name
           .p_price
-            %span ￥
+            %span{:style=>"font-size:20px;"} ￥
             %b
               =MallGood.find(g.id).mall_skus.first.customer_price
             %span .00

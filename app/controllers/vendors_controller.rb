@@ -3,15 +3,26 @@ class VendorsController < ApplicationController
   def index
     @vendors=Vendor.all
     @page_vendors= @vendors.page(params[:page])
+    @page_title="车行列表"
+    @bread_crumbs=['车行列表', vendors_path]
+    @nav_label_check= 2
+    @good_hot_rec= MallBlock.where("mall_block_type_id=15")
+    @good_hot_rec1= MallBlock.where("mall_block_type_id=14")
+    @first_class= MallCategory.where(:level=>1)
+    @second_class= MallCategory.where(:level=>2)
   end
 
   def show
     @vendor = Vendor.find(params[:id])
+    @vendor_map= @vendor.to_json(:include => [:address], :methods => :main_photo)
     @first_class= MallCategory.where(:level=>1)
     @second_class= MallCategory.where(:level=>2)
     @category_id= params[:id]
-    @vendor_goods= Vendor.find(params[:id]).mall_goods
+    @vendor_goods= Vendor.find(params[:id]).mall_goods.onsale
     @key_vendor_goods= @vendor_goods.page(params[:page])
+    @good_hot_rec= MallBlock.where("mall_block_type_id=15")
+
+    @page_title="#{@vendor.name}"
   end
 
   def research_vendor_goods_by_category
@@ -30,8 +41,9 @@ class VendorsController < ApplicationController
   end
 
   def map
-    @type = params[:type];
-    if @type.present?
+    #@type = params[:type];
+    @type= nil
+    if @type
       @vendors = Vendor.find(:all,:conditions=>["id in (5,21,22,6,23,11,16,24)"]);
     else
       @vendors = Vendor.find(:all,:conditions=>["id != 13 and id !=25"])
@@ -71,7 +83,6 @@ class VendorsController < ApplicationController
       @page_vendors= @vendors.page(params[:page])
     else
     end
-    
-  end
 
+  end
 end

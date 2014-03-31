@@ -21,3 +21,6 @@ gem 'ruby-hmac'
 
 gem 'nokogiri'
 gem 'i18n'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'bootstrap-datepicker-rails'

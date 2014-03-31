@@ -13,7 +13,7 @@
         .main_products_li.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
           .p_img
             %a{:href=>good_path(g)}
-              %img{:src=>asset_path("test/img-04.jpg"), :border=>"0"}
+              =image_tag( g.logo_url1, height:"175", width:"175", style:"height:175px;")
           .p_title
             %a{:href=>good_path(g)}
               =g.title
@@ -21,10 +21,18 @@
             %a
               =g.mall_category.name
           .p_price
-            %span ￥
+            %span{:style=>"font-size:20px;"} ￥
             %b
               =g.mall_skus.first.price
             .right_price.right
               %span 原价：￥
               %i{:style=>"text-decoration:line-through;"}
                 =g.mall_skus.first.show_price
+  .class_rule_retrieval.left{:style=>"width:97%;"}
+    %h3
+      检索出
+      %b.Red
+        =@goods.count
+      个符合您需求的商品
+    %h3.right{:style=>"margin-right:10px;"}
+      = paginate @key_goods

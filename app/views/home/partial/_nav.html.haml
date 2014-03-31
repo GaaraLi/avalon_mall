@@ -1,19 +1,32 @@
 .nav
   .nav_box.m
-    %h3.nav_class.left
-      %b
-        %a.Bai{:href=> home_search_path} 全部分类
     .nav_menu.left
       %ul
-        %li.nav_down
-          %a.Bai{:href=> root_path} 首页
+        %li{:style=>"width:208px;margin-left:-8px;"}
+          .nav_class
+            %b{:style=>"text-align:center;"}
+              %a.Bai{:href=> home_search_path(:search_key=>"",:search_type=>"1",:submit=>"")} 全部分类
         %li
-          %a.Bai{:href=> vendors_path} 车行
+          %a.Bai.nav_tag{:href=> root_path,:value=>1} 首页
         %li
-          %a.Bai{:href=> home_card_path} 汽车养护卡
+          %a.Bai.nav_tag{:href=> vendors_path,:value=>2} 车行
         %li
-          %a.Bai{:href=> '#'} 车管家
+          %a.Bai.nav_tag{:href=> home_card_path,:value=>3} 享车卡
         %li
-          %a.Bai{:href=> '#'} 服务地图
+          %a.Bai.nav_tag{:href=> vendors_map_path,:value=>4} 服务地图
         %li
-          %a.Bai{:href=> '#'} 会员权益
+          %a.Bai.nav_tag{:href=> '#',:value=>5} 会员权益
+  %input#hidden_for_label{:type=>"hidden"}
+:javascript
+
+  $(document).ready(function(){
+    var flag= parseInt($("#hidden_for_label").val());
+    if(#{@nav_label_check.to_i}!=0){
+      $("li").eq(#{@nav_label_check.to_i}).addClass("nav_down");
+    }
+
+  })
+
+  $(".nav_tag").click(function(){
+    $("#hidden_for_label").val( $(this).attr("value") );
+  });

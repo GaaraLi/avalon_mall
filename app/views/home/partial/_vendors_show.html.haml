@@ -12,7 +12,8 @@
       .garage_list
         .garage_img
           %a{:href=> vendor_path(v.id) }
-            %img{:src=>asset_path("test/garage_r1_c1.png"),:width=>"230", :height=>"165", :border=>"0"}
+            -if v.main_photo
+              %img{:src=>v.main_photo.medium,:width=>"230", :height=>"165", :border=>"0"}
         .garage_name
           %span(style="font-size: 12px;")
             %em(style="float:right")

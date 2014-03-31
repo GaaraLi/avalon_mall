@@ -15,7 +15,7 @@
       %br
       在线支付
     %td(width=""  bgcolor="#FFFFFF")
-      %span.SInk
+      %b.order_quantity
         =@good_quantity
     %td(width=""  bgcolor="#FFFFFF")
       %b.Red
@@ -24,9 +24,9 @@
     %td(width=""  bgcolor="#FFFFFF")
       %span.SInk
         =(Time.now).strftime("%Y-%m-%d %H:%M:%S")
+    %td.order_time(width=""  bgcolor="#FFFFFF")
+      尚未预约
     %td(width=""  bgcolor="#FFFFFF")
-      %span.Ink 已完成
-    %td(width=""  bgcolor="#FFFFFF")
-      %a.Red 功能1
+      %a.Red.order_button 预约
       %br
       %a.Red 功能2

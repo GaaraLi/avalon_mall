@@ -1,19 +1,8 @@
 .footer
   %h3.m
-    %a 关于我们 &nbsp;&nbsp;
     %span.Ink | &nbsp;&nbsp;
-    %a 联系我们 &nbsp;&nbsp;
-    %span.Ink | &nbsp;&nbsp;
-    %a 车行入驻 &nbsp;&nbsp;
-    %span.Ink | &nbsp;&nbsp;
-    %a 车行服务 &nbsp;&nbsp;
-    %span.Ink | &nbsp;&nbsp;
-    %a 手机享车网 &nbsp;&nbsp;
-    %span.Ink | &nbsp;&nbsp;
-    %a 友情链接 &nbsp;&nbsp;
-    %span.Ink | &nbsp;&nbsp;
-    %a 享车社区 &nbsp;&nbsp;
-    %span.Ink | &nbsp;&nbsp;
-    %a 享车公益 &nbsp;&nbsp;
-  %h4.m 西安市公安局备案编号110321321
-  %h5 西安享车网信息技术有限公司 Copyright ©2014 Ixiangche.com All Rights Reserved 陕ICP证090216号 陕公网安备23232356565 客服电话：400-810-400
+    -get_footer_info.each_with_index do |i,index|
+      =link_to i.title,home_about_us_path( :id=>index)
+      &nbsp;&nbsp;
+      %span.Ink | &nbsp;&nbsp;
+  %h5 西安车尚网络科技有限公司 Copyright ©2014 Ixiangche.com All Rights Reserved 陕ICP证13007579号  客服电话：029-81543924

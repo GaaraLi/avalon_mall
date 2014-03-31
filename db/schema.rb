@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319031114) do
+
+ActiveRecord::Schema.define(version: 20140329081434) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -158,6 +159,7 @@ ActiveRecord::Schema.define(version: 20140319031114) do
     t.string   "address"
     t.string   "phone"
     t.integer  "cash_account",           default: 0
+    t.string   "customer_order_times"
   end
 
   add_index "customers", ["confirmation_token"], name: "index_customers_on_confirmation_token", unique: true, using: :btree
@@ -236,6 +238,7 @@ ActiveRecord::Schema.define(version: 20140319031114) do
     t.string   "exchange_code_number"
     t.integer  "status",               default: 0
     t.integer  "mall_order_line_id"
+    t.string   "order_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

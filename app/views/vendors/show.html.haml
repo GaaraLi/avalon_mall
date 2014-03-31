@@ -1,5 +1,5 @@
-.banner{ :style=>" background-image: url('"+asset_path("test/brandBannerBG.jpg") +"')"}
-  .banner_box.m{:style=>" background-image: url('"+asset_path("test/banner.jpg")+"');"}
+.banner{ :style=>" "}
+  .banner_box.m{:style=>" background-image: url('"+asset_path(@vendor.banner_url)+"');"}
     .banner_companyinformation
       .banner_information_box{:style=>" background-image: url('"+ asset_path("test/brand.png")+"');"}
         %table{ :width=>"100%", :border=>"0", :cellspacing=>"0", :cellpadding=>"0"}
@@ -58,108 +58,15 @@
         %p.main_infoico04.left{:style=>"  background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
       .main_info_map
         %h3
-          %b 车行地理位置
+          %b{:style=>"font-size:15px;"} 车行地理位置
         .map_content
-          %img{ :src=> asset_path("test/brand_map.jpg"), :width=>"172", :height=>"196"}
-      .information_title
-        %b 热销产品
-      .main_hot_pro
-        %ul.part_list
-          %li
-            .p_img
-              %a
-              %img{ :src=>asset_path("test/img-13.jpg"),  :width=>"158", :height=>"158",  :border=>"0"}
-            .p_title
-              %a 米其林 205/55R16【自营】北上广等多省市包快
-            .p_price
-              %span ￥
-              %b 699
-              %span .00
-      .main_hot_pro
-        %ul.part_list
-          %li
-            .p_img
-              %a
-              %img{:src=>asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
-            .p_title
-              %a 米其林 205/55R16【自营】北上广等多省市包快
-            .p_price
-              %span ￥
-              %b 699
-              %span .00
-      .main_hot_pro
-        %ul.part_list
-          %li
-            .p_img
-              %a
-              %img{:src=>asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
-            .p_title
-              %a 米其林 205/55R16【自营】北上广等多省市包快
-            .p_price
-              %span ￥
-              %b 699
-              %span .00
-      .main_hot_pro
-        %ul.part_list
-          %li
-            .p_img
-              %a
-              %img{:src=>asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
-            .p_title
-              %a 米其林 205/55R16【自营】北上广等多省市包快
-            .p_price
-              %span ￥
-              %b 699
-              %span .00
+          =render 'vendors/partial/vendor_map'
+      .category_left.left
+        =render 'vendors/partial/vendor_page_recommend'
       .main_left_ad
         %a
           %img{ :src=>asset_path("test/img-15.jpg"), :width=>"172", :height=>"300", :border=>"0"}
     .main_product.right
-      .news_tui
-        .part03line
-        %h3.part_03hd.Red
-        .part_03list
-          %ul.part_list
-            %li
-              .p_img
-                %a
-                  %img{ :src=>asset_path("test/img-04.jpg"), :border=>"0"}
-              .p_title
-                %a 米其林 205/55R16【自营】北上广等多省市包快
-              .p_price
-                %span ￥
-                %b 699
-                %span .00
-            %li
-              .p_img
-                %a
-                  %img{ :src=>asset_path("test/img-04.jpg"), :border=>"0"}
-              .p_title
-                %a 米其林 205/55R16【自营】北上广等多省市包快
-              .p_price
-                %span ￥
-                %b 699
-                %span .00
-            %li
-              .p_img
-                %a
-                  %img{ :src=>asset_path("test/img-04.jpg"), :border=>"0"}
-              .p_title
-                %a 米其林 205/55R16【自营】北上广等多省市包快
-              .p_price
-                %span ￥
-                %b 699
-                %span .00
-            %li
-              .p_img
-                %a
-                  %img{ :src=>asset_path("test/img-04.jpg"), :border=>"0"}
-              .p_title
-                %a 米其林 205/55R16【自营】北上广等多省市包快
-              .p_price
-                %span ￥
-                %b 699
-                %span .00
       .category_class
         .main_class
           -@first_class.each do |f|

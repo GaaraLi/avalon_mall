@@ -89,7 +89,7 @@
           %td(height="30") 数量
           %td(height="30") 订单金额
           %td(height="30") 下单时间
-          %td(height="30") 状态
+          %td(height="30") 预约时间
           %td(height="30") 操作
         =render 'customers/center_partial/order_line'
         %tr
@@ -100,6 +100,77 @@
                 %td(width="170")
                   %a#continue_shopcar{:href=> customers_order_confirm_path(:good_quantity=>@good_quantity,:good_sku=>@good_sku), :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:title=>"去购物结算", :target=>"_blank"}
     .clear
+    .order_date_pick_area.right
+      %button#button_decrease( width="20" height="20") -
+      %input#quantity_input( type="text" name="quantity_textfield" value="1" width="20px")
+      %button#button_increase( width="20" height="20") +
+      %br
+      %input.order_date_pick
+      %input#hidden_order_key{:type=>"hidden"}
+
+  :javascript
+
+    $("#button_decrease").click(function(){
+      var max= parseInt($(".order_quantity").text());
+      var min= 1;
+      var value=parseInt($("#quantity_input").attr("value"));
+      if( value>1 && value<=max){
+        value= value-1;
+        $("#quantity_input").attr("value",value);
+      }
+    });
+    $("#button_increase").click(function(){
+      var max= parseInt($(".order_quantity").text());
+      var min= 1;
+      var value=parseInt($("#quantity_input").attr("value"));
+      if( value>=0 && value<max){
+        value= value+1;
+        $("#quantity_input").attr("value",value);
+      }
+    });
+
+    $(".order_date_pick").datetimepicker();
+
+    $(".order_button").click(function(){
+      $(".order_date_pick_area").dialog("open");
+      $("#hidden_order_key").attr("value", $(this).attr("value") );
+    });
+
+    $(function(){
+      $(".order_date_pick_area").dialog({
+        autoOpen: false,
+        height:200,
+        modal: true,
+        buttons:{
+          取消: function(){
+            $(this).dialog("close");
+          },
+          确定: function(){
+            $(this).dialog("close");
+            var times= parseInt( $("#quantity_input").attr("value"));
+            var time= $(".order_date_pick").val();
+            var key= parseInt($("#hidden_order_key").attr("value"));
+            var order_time= time+" X "+times;
+            $(".order_time").text(order_time);
+            var times_list= new Array();
+            times_list.push($(".order_time").text());
+            var requestUrl= "/customers/set_order_time_list";
+            var data= times_list;
+            $.ajax({
+              url: requestUrl,
+              data: "time_list="+data,
+              contentType: "application/json; charset=utf-8;",
+              dataType:"json",
+              success: function(json){
+                alert(json);
+              }
+
+            });
+
+          }
+        }
+      });
+    });
 
 
 

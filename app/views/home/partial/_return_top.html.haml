@@ -1,4 +1,25 @@
 #tbox{:style=>"background:url('"+asset_path("test/icon.gif")+"') no-repeat; "}
-  %a#pinglun{:href=>"#tag_cmt"}
-  %a#xiangguan{:href=>"#tag_about"}
-  %a#gotop{:href=>"javascript:void(0)"}
+  %a#pinglun{:href=>"#"}
+  %a#xiangguan{:href=>"#"}
+  %a#gotop{:href=>""}
+:javascript
+  function b(){
+    h = $(window).height();
+    t = $(document).scrollTop();
+    if(t > h){
+      $('#gotop').show();
+    }else{
+      $('#gotop').hide();
+    }
+  }
+  $(document).ready(function(e) {
+    b();
+    $('#gotop').click(function(){
+      $(document).scrollTop(0);
+    })
+   });
+
+  $(window).scroll(function(e){
+    b();
+  })
+

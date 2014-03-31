@@ -1,4 +1,5 @@
 class MallOrder < ActiveRecord::Base
+  include ApplicationHelper
   require 'open-uri'
   belongs_to :vendor
   belongs_to :customer
@@ -7,33 +8,10 @@ class MallOrder < ActiveRecord::Base
   def paid( params, request_post)
     if Rails.env.production?
       return false unless from_alipay?(params[:notify_id])
+      return true
     end
-    if status == 0
-      update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
-
-      # new exchange code
-      @mall_order_lines= mall_order_lines if mall_order_lines!= nil
-      new_exchange_code_line( @mall_order_lines)
-
-      #repaid
-      @current_customer= Customer.find(customer_id)
-      do_order_repaid if @current_customer.card
-    end
-    return true
   end
 
-  def new_exchange_code_line( lines)
-    lines.each do |l|
-      @code= create_exchange_code
-      l.quantity.times do
-        MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id )
-      end
-      # @q>0
-      @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
-      l.mall_sku.mall_inventory.update_attributes(:inventory_qty=> @q)
-    end
-    return true
-  end
 
   def do_order_repaid
     @current_customer= Customer.find(customer_id)
@@ -139,24 +117,28 @@ class MallOrder < ActiveRecord::Base
 
   private
   def from_alipay?(notify_id)
+    puts '========in from_alipay=========='
     uri = "https://mapi.alipay.com/gateway.do?service=notify_verify&partner=#{ActiveMerchant::Billing::Integrations::Alipay::ACCOUNT}&notify_id=#{notify_id}"
 
     html_response = nil
     open(uri) do |http|
       html_response = http.read
     end
+    puts html_response
     html_response == 'true'
+    html_response
     #html_response= 'true'
   end
 
   def create_exchange_code
     #translate the date into second from 1970 then add the usec
-    t= Time.now
-    n=""
-    [t.usec.to_s,t.to_i.to_s].map{|tt|
-      n= tt+n
-    }
-    return n
+    @n= rand(9999999..100000000)
+    if MallExchange.find_by_exchange_code( @n)
+      create_exchange_code
+    else
+      @n
+    end
+
   end
 
 

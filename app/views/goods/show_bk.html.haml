@@ -1,0 +1,238 @@
+=render "home/partial/nav"
+.header_position{:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+  .postiton_txt.m
+    %a 首页
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a 车行列表
+.wrap
+  .main_goods_box
+    .main_goods_img.left
+      .main_goods_photo
+        .label
+          %img{:src=>"#{@good.logo_url1}", :width=>"290", :height=>"290", :border=>"0"}
+        %h3
+          %a.left
+            %img{:src=>"#{@good.logo_url1}", :width=>"53", :height=>"53", :border=>"0" }
+          %a.left
+            %img{:src=>"#{@good.logo_url2}", :width=>"53", :height=>"53", :border=>"0" }
+          %a.left
+            %img{:src=>"#{@good.logo_url3}", :width=>"53", :height=>"53", :border=>"0" }
+          %a.left
+            %img{:src=>"#{@good.logo_url4}", :width=>"53", :height=>"53", :border=>"0" }
+      %h4
+        .main_info_ico
+          %p.main_infoico01.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+          %p.main_infoico02.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+          %p.main_infoico03.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+          %p.main_infoico05.left{:style=>"background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+    .main_goods_operation.left
+      %h1=@good.title
+      %h2=@good.subhead
+      %h3
+        原价：
+        %i
+          ￥
+          =@good.mall_skus.first.show_price
+        %span{:style=>"color:#94999A;"} (本商品原价)
+      %h4
+        商城价：
+        %b
+          ￥
+          =@good.mall_skus.first.price
+        %span{:style=>"color:#94999A;"} (仅注册会员价格)
+      %h4
+        会员价：
+        %strong
+          ￥
+          =@good.mall_skus.first.customer_price
+        %span{:style=>"color:#94999A;"} (已激活会员价格)
+      %h4
+        %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+          %tr
+            %td(  width="80" height="33") 数量选择：
+            %td
+              %button#button_decrease( width="20" height="20") -
+            %td(  width="105")
+              %input#quantity_input( type="text" name="quantity_textfield" value="1")
+            %td
+              %button#button_increase( width="20" height="20") +
+            %td
+              库存仅剩
+              %b.Red=@good.mall_skus.first.mall_inventory.inventory_qty
+              件
+        %h6
+          %a#goods_buycart{ :title=>"加入购物车", :style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+          =form_tag('/customers/buy', method: :GET) do
+            %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
+            %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
+            =submit_tag "立即购买",:id=>"goods_buymenu",:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"
+      %h7
+        服务说明：
+        =@good.service_info
+    .main_goods_garage.right
+      %table(  width="172" border="0" cellspacing="0" cellpadding="0")
+        %tr
+          %td( height="35")
+            %b 车行地理位置
+        %tr
+          %td
+            %img{:src=>asset_path("test/img-17.jpg"),  :width=>"172", :height=>"196" }
+        %tr
+          %td( height="20") &nbsp;
+        %tr
+          %td(height="35" align="center")
+            %a#enter_the_shop{ :title=>"进入店铺",:style=>"background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+        %tr
+          %td( height="20") &nbsp;
+        %tr
+          %td( height="40")
+            =@good.vendor.name
+        %tr
+          %td( height="40" valign="top")
+            =@good.vendor.address.street
+        %tr
+          %td( height="30")
+            %a
+              %img{:src=>asset_path("test/goods_kefu.jpg"), :width=>"81", :height=>"23"}
+  .main_box
+    .main_goods_L.left
+      .main_goods_class
+        %h3
+          维修保养
+          %span.goods_class_reduction{:style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+        .main_goods_classcon
+          %a 机油保养
+          %a 防冻液保养
+        %h3
+          轮胎\轮毂
+          %span.goods_class_plus{:style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+          .main_goods_classcon{:style=>"display:none"} 11111
+        %h3
+          维修\改装
+          %span.goods_class_plus{:style=>"	background-image: url('"+asset_path("test/goods_bodyBG.gif")+"');"}
+          .main_goods_classcon{:style=>"display:none"} 11111
+      .main_goods_hotshop
+        %h3
+          %b 热销产品
+        .main_goods_pro
+          %ul.part_list
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+            %li
+              .p_img
+                %a
+                  %img{:src=> asset_path("test/img-13.jpg"),:width=>"158", :height=>"158",  :border=>"0"}
+              .p_title
+                %a 米其林 205/55R16【自营】北上广等多省市包快
+              .p_price
+                %span ￥
+                %b 699
+                %span .00
+              .p_pricemenu
+                %a#p_pricemenu 立即选购
+    .main_goods_R.right
+      .main_goods_tab
+        %a.on 商品详情
+      .main_goods_details
+        .main_goods_txt
+          %h3.main_goods_title.Red
+            规格
+          .properties
+            -@good.mall_goods_properties.each do |p|
+              =p.name+":"
+              =p.content
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          %hr
+
+        .main_goods_txt
+          %p=@good.desc.html_safe
+    .clear
+  .clear
+  .h_ad{:style=>"padding-top:10px;"}
+    %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}
+
+
+  :javascript
+    $("#button_increase").click(function(){
+      var value= $("#quantity_input").attr("value");
+      value=parseInt(value)+1;
+      $("#quantity_input").attr("value",value);
+      $("#input_hidden").attr("value",value);
+    });
+
+    $("#button_decrease").click(function(){
+      var value= $("#quantity_input").attr("value");
+      value=parseInt(value)-1;
+      if(value<=1){
+        value=1;
+      }
+      $("#quantity_input").attr("value",value);
+      $("#input_hidden").attr("value",value);
+    });
+
+    $("#goods_buycart").click(function(){
+      var quantity= $("#quantity_input").attr('value');
+      var mall_sku_id=$("#input_hidden_sku").attr('value');
+      var RequestUrl= "/customers/add_in_shopping_car";
+      $.ajax({
+        url: RequestUrl,
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+        data:"quantity="+quantity+"&mall_sku_id="+mall_sku_id,
+        success: function(json){
+          if(1==json){
+            alert("成功保存到购物车！");
+            return;
+          }
+        },
+        error: function(){
+          alert("保存到购物车失败，请刷新后重新操作。");
+        }
+      });
+    });

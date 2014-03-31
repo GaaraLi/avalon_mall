@@ -1,0 +1,13 @@
+.categroy_hottui
+  %h3
+    %b 热门产品推荐
+  .categroy_hottui_con
+    -3.times do
+      .categroy_hottui_list.left
+        %h5.left
+          %img{:src=>asset_path("test/img-20.jpg"),:width=>"100", :height=>"115"}
+        %h4.left
+          %div
+            %a 马牌轮胎205/55R16
+          %s ￥495.00
+          %a#categroy_menu 加入购物车

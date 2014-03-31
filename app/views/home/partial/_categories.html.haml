@@ -1,0 +1,26 @@
+.shop_class.category_shop_class.left
+  .shop_classbox2
+    %a{:href=> home_card_path}
+      %img{:src=>asset_path("test/shangcheng.png") , :width=>"206", :height=>"45", :border=>"0"}
+    %h1.shop_stornav2{:style=>"height:320px;"}
+      #accordion_homepage{:border=>"1px",:style=>"margin-top:-10px;"}
+        -@first_class.each do |f|
+          %h3.accordion_head{:style=>"margin-top:0px;"}
+            .shop_stor2
+              %b
+                =f.name
+          .stornav2_li.accordion_list.shop_stornav2
+            -@second_class.each do |s|
+              -if s.parent_code == f.code
+                =link_to s.name, ""
+        %h3.accordion_head{:style=>"margin-top:3px;"}
+          .shop_stor2
+            %b{:style=>"color:#315F6F;"}
+              车行会员卡
+        .stornav2_li.accordion_list{:style=>"width:203px;"}
+          =link_to "城东", ""
+          =link_to "城南", ""
+          =link_to "城西", ""
+          =link_to "城北", ""
+          =link_to "高新", ""
+        

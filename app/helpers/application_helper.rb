@@ -36,4 +36,8 @@ module ApplicationHelper
       end
       @shopping_car_qty
     end
+
+    def get_rank_info
+    	@good_sale_rank= MallSku.order("sale_count DESC").limit(3)
+    end
 end

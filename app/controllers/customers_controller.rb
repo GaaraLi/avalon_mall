@@ -198,7 +198,7 @@ class CustomersController < ApplicationController
       l.quantity.times.each do |q|
         @code= create_exchange_code
         if times
-          if times >0
+          if times >1
             MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )
             times -=1
           else
@@ -209,6 +209,11 @@ class CustomersController < ApplicationController
       # @q>0
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
       l.mall_sku.mall_inventory.update_attributes(:inventory_qty=> @q)
+
+      #add sale number
+      @s= l.mall_sku.sale_count+ l.quantity
+      l.mall_sku.update_attributes(:sale_acount=> @s)
+
     end
     return true
   end

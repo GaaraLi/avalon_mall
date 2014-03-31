@@ -2,11 +2,18 @@
   %h3.Red
     %b 销量排行
   .main_category_proranking
-    -3.times do
+    -get_rank_info.each_with_index do |r,index|
+      - g=r.mall_good
       .ranking_list
         %p.left
-          %img{ :src=>asset_path("test/img-19.jpg"), :width=>"60", :height=>"60"}
+          %img{ :src=>g.logo_url1, :width=>"60", :height=>"60"}
         %h4.left
-          %a 马牌轮胎 205/55R16
-          %s ￥495.00
-        %span 1
+          %a
+            =g.title
+          %s
+            -if current_customer
+              =current_customer.get_price( r)
+            -else
+              =r.price
+        %span
+          = index+1

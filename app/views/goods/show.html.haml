@@ -103,22 +103,7 @@
           %strong
             咨询电话：
             =@good.vendor.phone1
-      .main_goods_class
-        %h2 产品分类
-        %h3
-          维修保养
-          %span.goods_class_reduction
-        .main_goods_classcon
-          %a 机油保养
-          %a 机油保养
-        %h3
-          轮胎\轮毂
-          %span.goods_class_plus
-          .main_goods_classcon{:style=>"display:none"} 111
-        %h3
-          维修\改装
-          %span.goods_class_plus
-          .main_goods_classcon{:style=>"display:none"} 111
+      =render "goods/partial/good_vendor_cat_first_class"
 
       =render "goods/partial/hot_goods"
     =render "goods/partial/good_info"

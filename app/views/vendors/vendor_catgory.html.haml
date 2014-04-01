@@ -1,0 +1,98 @@
+.banner{ :style=>" "}
+  .banner_box.m{:style=>" background-image: url('"+asset_path(@vendor.banner_url)+"');"}
+    .banner_companyinformation
+      .banner_information_box{:style=>" background-image: url('"+ asset_path("test/brand.png")+"');"}
+        %table{ :width=>"100%", :border=>"0", :cellspacing=>"0", :cellpadding=>"0"}
+          %tr
+            %td{ :height=>"35", :valign=>"top"}
+              %b.Bai{ :style=>"font-size:16px"} 车行信息
+          %tr
+            %td.Bai{:height=>"25"}
+              =@vendor.name
+          %tr
+            %td{:height=>"5"}
+          %tr
+            %td{:height=>"25"}
+              %table{:width=>"100%", :border=>"0", :cellspacing=>"0",:cellpadding=>"0"}
+                %tr
+                  %td.Bai{ :width=>"40", :height=>"25"} 等级:
+                  %td.Bai ★
+          %tr
+            %td( height="25")
+              %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+                %tr
+                  %td.Bai( width="40" height="30") 地区:
+                  %td.Bai
+                    /=@vendor.mall_area.name
+          %tr
+            %td( height="25")
+              %table( width="100%" border="0" cellspacing="0" cellpadding="0")
+                %tr
+                  %td.Bai( width="40" height="45" valign="top") 地址:
+                  %td.Bai(  valign="top")
+                    =@vendor.address.street
+          %tr
+            %td.Bai( height="25") 服务时间：
+          %tr
+            %td.Bai( height="20")
+              周一到周五：
+              =@vendor.opening_hours
+          %tr
+            %td.Bai( height="20")
+              周六到周日：
+              =@vendor.opening_hours
+          %tr
+            %td.Bai( height="25") 服务项目：
+          %tr
+            %td.Bai( height="20")
+              %B 洗车、打蜡、常规保养
+      .information_title
+        %b 车行信息
+.wrap
+  .main_box
+    .main_info.left
+      .main_info_ico
+        %p.main_infoico01.left{:style=>"  background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+        %p.main_infoico02.left{:style=>"  background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+        %p.main_infoico03.left{:style=>"  background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+        %p.main_infoico04.left{:style=>"  background-image: url('"+asset_path("test/brandBodyBG.gif")+"');"}
+      .main_info_map
+        %h3
+          %b{:style=>"font-size:15px;"} 车行地理位置
+        .map_content
+          =render 'vendors/partial/vendor_map'
+      .category_left.left
+        =render 'vendors/partial/vendor_page_recommend'
+      .main_left_ad
+        %a
+          %img{ :src=>asset_path("test/img-15.jpg"), :width=>"172", :height=>"300", :border=>"0"}
+    .main_product.right
+      .category_class
+        .main_class
+          -@first_class.each do |f|
+            .main_class_list
+              %label.left
+                =f.name
+              .main_class_nav.left
+                -@second_class.each do |s|
+                  -if s.parent_code == f.code
+                    =link_to s.name, :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>s.id
+      .main_num
+        .main_num_nav.left
+          %a 销量
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a 新品
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a 收藏
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a 价格
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          =link_to "全部", :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>0
+    .category_right.right{:style=>"width:79.3%;"}
+      #ajax_vendor_search
+        =render 'vendors/partial/vendor_search'
+        .clear
+    .clear
+  .clear
+  .h_ad{:style=>"padding-top:10px;"}
+    %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}

@@ -8,9 +8,11 @@
         %p.left
           %img{ :src=>g.logo_url1, :width=>"60", :height=>"60"}
         %h4.left
-          %a
+          %a{:style=>"overflow:hidden; height:33px;"}
             =g.title
           %s
+            %font{:style=>"color:#F84A2D;"}
+              ￥
             -if current_customer
               =current_customer.get_price( r)
             -else

@@ -13,6 +13,13 @@ class GoodsController < ApplicationController
          @good_price= @good.mall_skus.first.customer_price
       end
 
+      @vendor_first_class_cat_id= @good.vendor.mall_goods.map { |g|
+         g.mall_category.parent_code
+      }.uniq
+      @vendor_first_class_cat= @vendor_first_class_cat_id.map{ |c|
+        MallCategory.find( c.to_i)
+      }
+
       @bread_crumbs=[@vendor.name, vendor_path(@vendor.id), @good.title, good_path(@good.id) ]
 	end
 

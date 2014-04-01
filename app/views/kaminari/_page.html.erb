@@ -8,5 +8,16 @@
     remote:        data-remote
 -%>
 <span class="page<%= ' current' if page.current? %>">
-  <%= link_to_unless page.current?, page, url, {:remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil} %>
+  <%= link_to_unless page.current?, page, url, {:class=>"mouse_over_number",:remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil, :style=>"border:1px solid #D6D6D6; padding-top:1px; padding-left:4px; padding-bottom:1px; padding-right:4px;" }%>
 </span>
+
+<script>
+  $(".mouse_over_number").mouseover(function(){
+  	$(this).css("background-color","#066AB6");
+  	$(this).css("color","white");
+  });
+  $(".mouse_over_number").mouseout(function(){
+  	$(this).css("background-color","#E1F7FD");
+  	$(this).css("color","black");
+  });
+</script>

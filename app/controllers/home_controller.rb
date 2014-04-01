@@ -23,12 +23,11 @@ class HomeController < ApplicationController
 
   def test
   	@test= Customer.find(1)
-  	@vendors= Vendor.all
+  	@vendors= Vendor.onmall.all
   	@goods= MallGood.all
   end
 
   def search
-
     @first_class= MallCategory.where(:level=>1)
     @second_class= MallCategory.where(:level=>2)
 
@@ -41,7 +40,7 @@ class HomeController < ApplicationController
       @key_goods= @goods.page(params[:page])
     elsif @flag==2
       @page_title="车行搜索"
-      @vendors= search_vendor(@key)
+      @vendors= search_vendor( @key)
       @page_vendors = @vendors.page(params[:page])
     elsif @flag==0
       @goods=MallGood.all.onsale
@@ -55,7 +54,7 @@ class HomeController < ApplicationController
   end
 
   def search_vendor( key)
-    Vendor.where("name like '%#{key}%'")
+    Vendor.onmall.where("name like '%#{key}%'")
   end
 
   def search_service( key)

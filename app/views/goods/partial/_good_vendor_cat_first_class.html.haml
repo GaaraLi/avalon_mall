@@ -1,0 +1,6 @@
+.main_goods_class
+  %h2 产品分类
+  -@vendor_first_class_cat.each do |c|
+    %h3
+      %a{:href=> vendors_vendor_catgory_path(:cat_id=>c.id, :vendor_id=> @vendor.id)}
+        =c.name

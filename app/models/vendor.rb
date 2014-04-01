@@ -7,6 +7,7 @@ class Vendor < ActiveRecord::Base
          :timeoutable
   attr_accessor :login
 
+  scope :onmall, ->{ where is_mall: 1}
 
   has_one :address, :dependent => :destroy
   has_many :staffs

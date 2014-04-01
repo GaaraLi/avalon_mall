@@ -2951,7 +2951,7 @@ a#user_menuma:hover {
 }
 .home_rec_recommend_inside h2 {
 	width: 160px;
-	height: 55px;
+	height: 45px;
 	margin-top: 10px;
 	margin-right: auto;
 	margin-bottom: 0px;
@@ -2959,6 +2959,7 @@ a#user_menuma:hover {
 	font-size: 12px;
 	color: #666666;
 	line-height: 22px;
+	overflow: hidden;
 }
 .home_rec_recommend_inside h3 {
 	color: #A6A699;

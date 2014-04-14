@@ -1,0 +1,13 @@
+%div{:class=>"header_position"}
+  %div{:class=>"postiton_txt m"}
+    %a{:href=>"#",:target=>"_blank"}我的享车网
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a{:href=>"#",:target=>"_blank"}客服服务 
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a{:href=>"#",:target=>"_blank"}联系客服
+%div{:class=>"wrap"}
+  %div{:class=>"main_box path01",:style=>"background-color:#FFFFFF"}
+    = render 'center/menu.html'
+    %div{:class=>"main_userbox_R",:style=>"margin-left:200px"}
+      - if @block_contact_us.present?
+        =@block_contact_us[0].text_area.html_safe

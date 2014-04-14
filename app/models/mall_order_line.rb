@@ -3,4 +3,5 @@ class MallOrderLine < ActiveRecord::Base
 	belongs_to :vendor
 	belongs_to :mall_order
 	belongs_to :mall_sku
+	has_many   :mall_exchanges
 end

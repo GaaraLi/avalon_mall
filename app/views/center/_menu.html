@@ -1,0 +1,43 @@
+
+<div class="main_userbox_L left">
+	<!--用户中心 -->
+	<div class="userbox_center">
+		<h3>用户名：<b>zoujie0506</b></h3>
+		<h3>积分：<b class="Red">0</b></h3>
+		<h3>站内信：<a href="#" target="_blank" class="Bule"><strong>2</strong></a></h3>
+	</div>
+	
+	<!--账户管理 -->
+	<div class="user_admin">
+		<!--user_admin_hdOn 为上拉 user_admin_hd为下拉 -->
+		<h3 class="user_admin_hd">账户管理</h3>
+		<ul>
+			<li><a href="/center/account_info">账户信息</a></li>
+			<!-- <li><a href="#">账户安全</a></li>
+			<li><a href="#">修改密码</a></li>
+			<li><a href="#">我的积分</a></li> -->
+			<li><a target="_blank" href="/vendors/<%=current_customer.card.vendor_binding_record.vendor.id%>">服务车行</a></li>
+
+		</ul>
+	</div>
+	
+	<!--消费记录 -->
+	<div class="user_consumption">
+		<h3 class="user_admin_hd">消费记录</h3>
+		<ul>
+			<li><a href="/center/order">我的订单</a></li>
+			<li><a href="/center/cash_account">现金账户</a></li>
+			<li><a href="/center/car_wash">洗车记录</a></li>
+			<li><a href="/center/consumption">车行消费记录</a></li>
+		</ul>
+	</div>
+	
+	<!--客服服务 -->
+	<div class="user_help">
+		<h3 class="user_admin_hd">客服服务</h3>
+		<ul>
+			<li><a href="#">投诉建议</a></li>
+			<li><a href="/center/contact_us">联系客服</a></li>
+		</ul>
+	</div>
+</div>

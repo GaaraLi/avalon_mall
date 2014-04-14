@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140411072801) do
 
   create_table "activate_codes", force: true do |t|
@@ -168,6 +169,7 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.string   "address"
     t.string   "phone"
     t.integer  "cash_account",           default: 0
+    t.datetime "block_time"
     t.string   "customer_order_times"
     t.datetime "block_time"
   end

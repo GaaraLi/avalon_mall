@@ -1,0 +1,192 @@
+%div{:class=>"header_position"}
+  %div{:class=>"postiton_txt m"}
+    %a{:href=>"#",:target=>"_blank"}我的享车网
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a{:href=>"#",:target=>"_blank"}账户中心
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a{:href=>"#",:target=>"_blank"}账户信息	
+%div{:class=>"wrap"}
+  %div{:class=>"main_box path01",:style=>"background-color:#FFFFFF"}
+    = render 'center/menu.html'
+    %div{:class=>"main_userbox_R",:style=>"margin-left:200px"}
+      %div{:align=>"center"}
+        养护卡信息
+      %div
+        %font= "您的养护卡卡号为:"+@card.card_number
+        %br
+        您的购买的养护卡是：汽车养护卡普通会员（查看会员权限）
+        %br
+        您的卡片状态为：
+        - if @card.status == "actived"
+          正常状态
+        - if @card.status == "paid"
+          尚未选择车行
+        - if @card.status == "unpaid"
+          尚未支付
+        %br
+        养护卡有效期：
+        - if @card.activated_date.present?
+          =@card.activated_date.localtime.strftime("%Y年%m月%d日")+"--"+@card.expiring_date.strftime("%Y年%m月%d日")
+
+      %br
+      %hr
+      %br
+      %div{:align=>"center"}
+        服务车行
+      %div
+        您选择的服务车行为：
+        - if @card.vendor_binding_record.present?
+          =@card.vendor_binding_record.vendor.name
+        车行　
+        %a{:href=>"/vendors",:target=>"_blank"}进入车行商城
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        %a{:href=>"/vendors/map",:target=>"_blank"}查看车行地图
+
+      %br
+      %hr
+      %br
+      %div{:align=>"center"}
+        个人信息
+      %div
+        会员姓名：
+        =@customer.name
+        %br                
+        性别：
+        =@customer.gender
+        %br
+        联系电话： 
+        =@customer.phone               
+        %br
+        邮箱：
+        =@customer.email
+        %br
+        邮寄地址：
+        =@customer.address
+
+      %br
+      %hr
+      %br
+      %div{:align=>"center"}
+        车辆信息
+      %div
+        您的车辆：
+        -if @car.present?
+          - if @car.car_model.present?
+            = @car.car_model.car_set.car_brand.name 
+            &nbsp;
+            = @car.car_model.car_set.name 
+            &nbsp;
+            = @car.car_model.name 
+
+        %br
+        车牌号：
+        -if @car.present?
+          =@car.plate_number
+        %br
+        购车时间：
+        - if @car.present?
+          - if @car.bought_since.present?
+            = @car.bought_since.strftime("%Y-%m-%d")
+
+      %br
+      %hr
+      %br
+      %div{:align=>"center"}
+        账户安全
+      %div
+      %a{:href=>"javascript:void();",:onclick=>"show_update_pwd();"}点击修改密码
+      %div{:id=>"update_pwd_div",:style=>"display:none"}
+
+        %form{:action=>"update_cus_pwd",:method=>"post",:id=>"form_update_pwd"}
+          原始密码：
+          %input{:type=>"password",:name=>"old_pwd",:id=>"old_pwd",:style=>"border:1px solid green"}
+          %br
+          最新密码：
+          %input{:type=>"password",:name=>"pwd",:id=>"pwd",:style=>"border:1px solid green"}
+          %br
+          确认密码：
+          %input{:type=>"password",:name=>"re_pwd",:id=>"re_pwd",:style=>"border:1px solid green"}
+          %br
+          %input{:type=>"button",:value=>"确认",:onclick=>"update_password()"}
+          %input{:type=>"button",:value=>"取消",:onclick=>"hide_pwd_div()"}
+          %input{:type=>"hidden",:name=>"#{request_forgery_protection_token.to_s}",:value=>"#{form_authenticity_token}"}
+
+  
+        
+:javascript
+  if("#{@msg}" != "")
+  {
+    alert(#{@msg});
+  }
+
+  function show_update_pwd()
+  {
+    $("#update_pwd_div").show();
+  }
+
+  function hide_pwd_div()
+  {
+    $("#update_pwd_div").hide();
+    $("#pwd").val("");
+    $("#re_pwd").val("");
+    $("#old_pwd").val("");
+  }
+
+  function update_password()
+  {
+    var pwd = $("#pwd").val();
+    var re_pwd = $("#re_pwd").val();
+    var old_pwd = $("#old_pwd").val();
+    
+    if(old_pwd == "")
+    {
+      alert("请输入原始密码");
+      return;
+    }
+    if(old_pwd.length < 6)
+    {
+      alert("请输入最少6位原始密码");
+      return;
+    }
+    if(pwd == "")
+    {
+      alert("请输入最新密码");
+      return;
+    }
+    if(pwd.length < 6)
+    {
+      alert("请输入最少6位最新密码");
+      return;
+    }
+    if(re_pwd != pwd)
+    {
+      alert("两次密码不一致");
+      return;
+    }
+   
+    $.ajax
+    ({
+      url:'update_cus_pwd',type:'post',
+      data:"pwd="+encodeURI(pwd)+"&old_pwd="+encodeURI(old_pwd)+"&",
+
+      dataType:'text',
+      success:function(msg)
+      {
+        var json_msg = eval('(' + msg + ')');
+        if(json_msg.flag == "1")
+        {
+          alert(json_msg.content);
+          window.location.reload();
+        }
+        else
+        {
+          alert(json_msg.content);
+        }
+      }
+      ,
+      error:function()
+      {
+        alert("修改密码异常");
+      }
+    });
+  }

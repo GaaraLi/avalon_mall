@@ -1,0 +1,78 @@
+%div{:class=>"header_position"}
+  %div{:class=>"postiton_txt m"}
+    %a{:href=>"#",:target=>"_blank"}我的享车网
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a{:href=>"#",:target=>"_blank"}消费记录 
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a{:href=>"#",:target=>"_blank"}我的订单
+%div{:class=>"wrap"}
+  %div{:class=>"main_box path01",:style=>"background-color:#FFFFFF"}
+    = render 'center/menu.html'
+    %div{:class=>"main_userbox_R",:style=>"margin-left:200px"}
+      %div
+        %div{:align=>"center"}
+          我的订单  
+          %br
+          %a{:href=>"tencent://message/?uin=1946936437"}
+          享车网客服
+        %br
+        这里是您在享车网的所有订单列表，您可以按照不同条件进行查找/搜索，或者是申请取消订单。
+        享车网非常希望得到您对每一笔订单的评价，这对于我们服务质量的提升有很大的帮助。请您在消费结束后对该订单做出客观公正的评价。每一次评价，享车网将赠送您10个金币的积分。享车网积分如何使用？
+        %br
+        %hr
+        %br
+        未付款 已付款
+        %table{:border=>"1",:cellpadding=>"0",:cellspacing=>"0"}
+          %tr
+            %th{:style=>"width:200px"} 订单商品
+            %th{:style=>"width:100px"} 单价(元)
+            %th{:style=>"width:100px"} 数量
+            %th{:style=>"width:100px"} 实付总款
+            %th{:style=>"width:300px"} 提货码
+
+            %th{:style=>"width:50px"} 操作
+          - @orders.each do |order|
+            %tr 
+              %td{:colspan=>"5"}
+                订单号：
+                =order.order_no
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                下单时间：
+                =order.created_at.strftime("%Y-%m-%d %H:%M:%S")
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                状态：
+                - if order.status == 1
+                  已付款
+                - else 
+                  未付款
+              %td 
+            - @i = 0;
+            - order.mall_order_lines.each do |line|
+              %tr 
+                %td=line.mall_sku.mall_good.title+"-"+line.mall_sku.desc
+                %td=(line.original_price/line.quantity).to_s+"元"
+                %td=line.quantity.to_s+"件"
+                - if @i == 0
+                  %td{:rowspan=>"3"}=order.price.to_s+"元"
+                %td 
+                  - line.mall_exchanges.each do |ex|
+
+                    - @order_time = ex.order_time
+                    - if @order_time == nil 
+                      - @order_time = ""
+
+                    - if ex.status != 1
+                      %p=ex.exchange_code_number.to_s+"（未使用）"+@order_time
+                    - else 
+                      %p=ex.exchange_code_number.to_s+"（已使用）"+@order_time
+                  - if @i == 0 
+                    %td{:rowspan=>"3"} 退款
+              - @i=@i+1;
+            
+
+        
+
+             
+
+:javascript
+  

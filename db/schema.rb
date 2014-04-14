@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140329081434) do
+ActiveRecord::Schema.define(version: 20140402061821) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -23,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "is_shut",       limit: 1, default: 0
   end
 
   create_table "activate_utilities", force: true do |t|
@@ -134,6 +134,14 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.boolean  "consumed_by_card",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "vendor_id"
+  end
+
+  create_table "customer_memos", force: true do |t|
+    t.integer  "customer_id"
+    t.text     "memo_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "customers", force: true do |t|
@@ -159,6 +167,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.string   "address"
     t.string   "phone"
     t.integer  "cash_account",           default: 0
+    t.datetime "block_time"
     t.string   "customer_order_times"
   end
 
@@ -329,6 +338,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "mall_good_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sale_count",                                          default: 0
   end
 
   create_table "permission_items", force: true do |t|
@@ -356,6 +366,8 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "repaid_tactic_customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "vendor_id"
+    t.integer  "extra_consumption_record_id"
   end
 
   create_table "repaid_tactic_customers", force: true do |t|
@@ -526,6 +538,13 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.datetime "updated_at"
   end
 
+  create_table "vendor_goods", force: true do |t|
+    t.string   "title"
+    t.integer  "vendor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "vendor_recommendations", force: true do |t|
     t.string   "user_name"
     t.string   "user_phone"
@@ -533,6 +552,41 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.string   "vendor_add"
     t.integer  "acreage"
     t.string   "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_wx_bindings", force: true do |t|
+    t.string   "user_open_id"
+    t.integer  "user_id"
+    t.integer  "state",        default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_wx_consumption_records", force: true do |t|
+    t.integer  "vendor_wx_user_id"
+    t.integer  "vendor_good_id"
+    t.datetime "consumption_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_wx_user_goods", force: true do |t|
+    t.integer  "vendor_wx_user_id"
+    t.integer  "vendor_good_id"
+    t.integer  "quantity",          default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_wx_users", force: true do |t|
+    t.string   "name"
+    t.string   "plate_number"
+    t.string   "phone"
+    t.string   "insurance_number"
+    t.datetime "insurance_end_date"
+    t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -574,9 +628,18 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "is_mall",                limit: 1
     t.integer  "mall_area_id"
     t.text     "advertisement"
+    t.integer  "vendor_order"
   end
 
   add_index "vendors", ["reset_password_token"], name: "index_vendors_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vendors_public_keys", force: true do |t|
+    t.integer  "vendor_id"
+    t.string   "vendor_public_key"
+    t.integer  "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "withdraw_cashes", force: true do |t|
     t.integer  "customer_id"

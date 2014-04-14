@@ -6,7 +6,7 @@
       .login_OR_reg.left
         .login{:class=>"display:none;"}
           -if current_customer
-            %a{:href=> customers_center_path}
+            %a{:href=> center_account_info_path}
               =current_customer.email
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             %a.Red{:href=>"http://ixiangche.com/customers/logout"}

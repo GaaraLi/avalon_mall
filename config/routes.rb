@@ -1,4 +1,16 @@
 IxcMall::Application.routes.draw do
+
+  namespace :center do
+    get 'order' => 'customer#order'
+    get 'account_info' => 'customer#account_info'
+    post 'update_cus_pwd' => 'customer#update_cus_pwd'
+    get 'car_wash' => 'customer#car_wash'
+    get 'consumption' => 'customer#consumption'
+    get 'cash_account' => 'customer#cash_account'
+    get 'add_withdraw_cash' => 'customer#add_withdraw_cash'
+    get 'contact_us'=>'customer#contact_us'
+  end
+
   get "vendors/index"
   get "vendors/map"
   get "vendors/vendor_search"
@@ -28,6 +40,8 @@ IxcMall::Application.routes.draw do
 
   get 'test' => 'home#test'
   get 'test1' => 'home#test1'
+
+  
   devise_for :customers,
              :controllers => { :sessions => "devise_hack/sessions", :registrations=> "devise_hack/registrations"}
 

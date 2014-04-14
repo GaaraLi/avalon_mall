@@ -5,7 +5,7 @@
     =render "home/partial/homepage_sliders"
     .shop_tuijian
       .shop_activities
-        %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+        %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG111.gif")+"');"}
         %h4
           - @slider=@homepage_slider_right[0] if @homepage_slider_right[0]
           %a{:href=>"#{@slider.text2} "}
@@ -33,7 +33,7 @@
   .part_02
     .division
       #swap_pic
-        #prev.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+        #prev.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif111")+"');"}
         .box
           %ul#pics.pics( style=" left:5px;")
             -@homepage_recommends.each_slice(3) do |rec|
@@ -47,7 +47,7 @@
                 %p
                   %a{:href=>"#{rec[2].text2}"}
                     %img{:src=>"#{rec[2].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
-        #next.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+        #next.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG111.gif")+"');"}
 
   .part_03
     .hot_tui

@@ -26,15 +26,6 @@ body {
 	text-align: left;
 }
 /*top*/
-.top {
-	font-size: 12px;
-	height: 31px;
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: repeat-x;
-	background-position: 0px 0px;
-	color:#666666;
-	overflow: hidden;
-}
 .top .topBox {
 	height: 31px;
 	width: 940px;
@@ -50,12 +41,6 @@ body {
 .T_r .login_OR_reg {
 	padding-right: 15px;
 }
-.T_r .qq_login {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: -439px -125px;
-	padding-left: 23px;
-}
 /*header*/
 .header {
 	height: 110px;
@@ -69,14 +54,6 @@ body {
 	padding-top: 25px;
 	padding-right: 15px;
 	padding-left: 15px;
-}
-.header_Box .logo {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: 0px -111px;
-	height: 52px;
-	width: 142px;
-	display: block;
 }
 /*搜索*/
 .header_Box .search {
@@ -110,12 +87,6 @@ body {
 	margin-left: 3px;
 	background-color: #64B1DC;
 }
-.search .search_into {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: 0px -36px;
-	height: 35px;
-}
 .search_into .search_l {
 	width: 389px;
 	height: 25px;
@@ -132,41 +103,7 @@ body {
 	height: 35px;
 	width: 134px;
 }
-/*购物车*/
-a#shop_car {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: 0px -76px;
-	display: block;
-	height: 35px;
-	width: 134px;
-	position: relative;
-}
-a#shop_car:hover {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: -139px -76px;
-	display: block;
-	height: 35px;
-	width: 134px;
-	position: relative;
-}
-a#shop_car s {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: -293px -76px;
-	height: 22px;
-	width: 19px;
-	display: block;
-	position: absolute;
-	top: -10px;
-	right: 30px;
-	line-height: 16px;
-	text-align: center;
-	color: #FFFFFF;
-	text-decoration: none;
-	font-family: "宋体";
-}
+
 /*导航样式*/
 .nav {
 	background-color: #2E99C7;
@@ -869,18 +806,6 @@ a#shop_car s {
 	font-family: "Microsoft Yahei", "Tahoma", "SimSun";
 	font-size: 14px;
 	color: #c3c3c3;
-}
-.s1 {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: -399px -36px;
-	height: 35px;
-	width: 101px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-	cursor: pointer;
 }
 .s3 {
 	background-image: url(../images/golbal_classBG.gif);

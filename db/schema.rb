@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402061821) do
+
+ActiveRecord::Schema.define(version: 20140411072801) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -100,7 +101,7 @@ ActiveRecord::Schema.define(version: 20140402061821) do
     t.datetime "updated_at"
     t.integer  "repaid_tactic_customer_id",            default: 1
     t.datetime "end_time"
-    t.integer  "repaid_time"
+    t.integer  "repaid_time",                          default: 0
   end
 
   create_table "cars", force: true do |t|
@@ -122,6 +123,7 @@ ActiveRecord::Schema.define(version: 20140402061821) do
     t.integer  "card_id"
     t.datetime "appointment_time"
     t.integer  "extra_service_detail_id"
+    t.integer  "appointment_status",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "appointment_detail"
@@ -169,6 +171,7 @@ ActiveRecord::Schema.define(version: 20140402061821) do
     t.integer  "cash_account",           default: 0
     t.datetime "block_time"
     t.string   "customer_order_times"
+    t.datetime "block_time"
   end
 
   add_index "customers", ["confirmation_token"], name: "index_customers_on_confirmation_token", unique: true, using: :btree
@@ -264,10 +267,7 @@ ActiveRecord::Schema.define(version: 20140402061821) do
     t.integer  "mall_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo_url1_file_name",    limit: 45
-    t.string   "logo_url1_content_type", limit: 45
-    t.string   "logo_url1_file_size",    limit: 45
-    t.string   "subhead",                limit: 100
+    t.string   "subhead",          limit: 100
     t.string   "service_info"
   end
 
@@ -288,7 +288,7 @@ ActiveRecord::Schema.define(version: 20140402061821) do
 
   create_table "mall_inventory_records", force: true do |t|
     t.integer  "mall_inventory_id"
-    t.integer  "inventory_type"
+    t.integer  "inventory_type",    limit: 1
     t.integer  "inventory_qty"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -316,6 +316,9 @@ ActiveRecord::Schema.define(version: 20140402061821) do
     t.datetime "finish_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "input_name"
+    t.string   "input_phone"
+    t.integer  "input_car"
   end
 
   create_table "mall_shopping_cars", force: true do |t|
@@ -472,10 +475,10 @@ ActiveRecord::Schema.define(version: 20140402061821) do
     t.string   "code"
     t.string   "cus_name"
     t.string   "phone"
-    t.string   "plate_number",         limit: 45
+    t.string   "plate_number"
     t.integer  "vendor_id"
     t.integer  "car_model_id"
-    t.integer  "status"
+    t.integer  "status",               default: 0
     t.integer  "cus_type"
     t.date     "start_time"
     t.date     "end_time"
@@ -543,6 +546,7 @@ ActiveRecord::Schema.define(version: 20140402061821) do
     t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "state",      default: 0
   end
 
   create_table "vendor_recommendations", force: true do |t|
@@ -585,7 +589,7 @@ ActiveRecord::Schema.define(version: 20140402061821) do
     t.string   "plate_number"
     t.string   "phone"
     t.string   "insurance_number"
-    t.datetime "insurance_end_date"
+    t.date     "insurance_end_date"
     t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"

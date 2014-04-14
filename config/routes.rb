@@ -35,7 +35,10 @@ IxcMall::Application.routes.draw do
   get "customers/order_confirm"
   get "customers/cart_confirm"
   get "customers/check_inventory"
-
+  get "customers/del_shopping_car"
+  get "customers/allcarbrand"
+  get "customers/carbrand"
+  get 'customers/carset/:id'   => 'customers#carset'
   get "goods/set_sku_info"
 
   get 'test' => 'home#test'

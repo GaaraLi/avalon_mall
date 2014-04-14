@@ -1,90 +1,185 @@
 =render "home/partial/nav"
-.header
-  .header_Box.m
-    %p.logo.left{ :style=>"	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
-    .shopcar_one.right{ :style=>"	background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
-    .shopcar_two.right{:style=>"display:none;background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
-    .shopcar_three.right{:style=>"display:none;background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
-
-.wrap
-  .main_box
-    .main_box_shopcar 我的购物车
-    .main_shopcarbyket
-      %table( width="100%" border="0" cellspacing="0" cellpadding="5")
+.cart_box
+  .shopping_cart_title
+    = drop_bread_crumb
+  .shopping_step{:style=> "background-image: url('"+asset_path("test/shopping_cart_r2_c2.jpg")+"');"}
+    %ul
+      %li.shopping_stepwz16 1.我的购物车
+      %li.shopping_stepwz14 2.核对订单信息
+      %li.shopping_stepwz14 3.提交订单获取兑换码
+      %li.shopping_stepwz14 4.使用兑换码到车行消费
+  .step_one_title 已加入购物车宝贝
+  .step_one_goods
+    %table(width="100%" border="0" cellpadding="5" cellspacing="1")
+      %tr
+        %td(width="4%" height="30" align="center" valign="middle" bgcolor="#F7F7F7")
+          %label
+            %input#checkbox_all{:type=>"checkbox"}
+        %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 全选
+        %td(width="30%" height="30" align="center" bgcolor="#F7F7F7") 商品
+        %td(width="19%" height="30" align="center" bgcolor="#F7F7F7") 服务车行
+        %td(width="9%" height="30" align="center" bgcolor="#F7F7F7") 享车价
+        %td(width="9%" height="30" align="center" bgcolor="#F7F7F7") 数量
+        %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 库存
+        %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 金额
+        %td(width="8%" height="30" align="center" bgcolor="#F7F7F7") 操作
+      -@cart_list.each_with_index do |l,index|
         %tr
-          %td( width="40" height="30" align="center" bgcolor="#eeeeee")
-            %input( type="checkbox" name="checkbox" value="checkbox" )
-          %td( align="center" bgcolor="#eeeeee" colspan="2") 商品
-          %td( width="75" align="center" bgcolor="#eeeeee") 单价
-          %td( width="50" align="center" bgcolor="#eeeeee") 数量
-          %td( width="50" align="center" bgcolor="#eeeeee") 库存
-          %td( width="75" align="center" bgcolor="#eeeeee") 金额
-          %td( width="100" align="center" bgcolor="#eeeeee") 操作
-        -@cart_list.each do |l|
-          %tr
-            %td( width="40" height="80" align="center")
-              - if l.mall_sku.mall_inventory.inventory_qty<0
-                %input.good_check_box#good_111( type="checkbox" name="checkbox2" disabled="disabled" )
-              -else
-                %input.good_check_box#good_111( type="checkbox" name="checkbox2" )
-              %input#hidden_in_checkbox{:type=>"hidden",:value=>l.id }
-            %td( align="left")
-              %img{ :src=>asset_path("test/img-08.jpg"),:width=>"50", :height=>"50", :style=>"border: 1px solid #CCCCCC;"}
-            %td
-              %a.Red
+          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+            - if l.mall_sku.mall_inventory.inventory_qty<0
+              %input.good_check_box#good_111( type="checkbox" name="checkbox2" style="display:none;" )
+            -else
+              %input.good_check_box#good_111( type="checkbox" name="checkbox2" )
+            %input#hidden_in_checkbox{:type=>"hidden",:value=>l.id }
+          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+            .good_pic
+              %img{ :src=> l.mall_sku.mall_good.logo_url1, :width=>"50" ,:height=>"50"}
+          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+            .shopping_good_name(style="color:#0066FF")
+              %a.good_name_wz
                 =l.mall_sku.mall_good.title
-            %td( width="75" align="center")
-              =current_customer.get_price( l.mall_sku)
-            %td( width="50" align="center")
-              =l.quantity
-            %td( width="50" align="center")
-              - if l.mall_sku.mall_inventory.inventory_qty<0
-                %p.Red 售磬
-              -else
-                =l.quantity
-            %td.good_price( width="75" align="center")
-              =l.price
-
-            %td( width="100" align="center")
-              %a.Red
-                %b 删除
-        %input#hidden_for_ids{:type =>"hidden"}
-        %tr
-          %td( height="50")
+          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+            %a
+              =l.mall_sku.mall_good.vendor.name if l.mall_sku.mall_good.vendor
+          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+            =current_customer.get_price( l.mall_sku)
+          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+            %table( width="100%" border="0" cellspacing="3")
+              %tr
+                %td(width="25%" align="center")
+                  %img.decrease_btn{:src=> asset_path("test/shopping_cart_r4_c12.jpg"),:width=>"15" ,:height=>"15",:value=>index }
+                %td(width="40%" align="center")
+                  %p.quantity_number_input
+                    =l.quantity
+                %td(width="35%" align="center")
+                  %img.increase_btn{:src=> asset_path("test/shopping_cart_r4_c15.jpg"),:width=>"15" ,:height=>"15",:value=>index}
+          %td#mall_inventory{ :height=>"100", :align=>"center", :valign=>"middle", :bgcolor=>"#FDF3EA", :value=> l.mall_sku.mall_inventory.inventory_qty }
+            - if l.mall_sku.mall_inventory.inventory_qty<0
+              %p.Red 售磬
+            -else
+              =l.mall_sku.mall_inventory.inventory_qty
+          %td.good_total_wz14.good_price(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+            =l.price
+          %td( height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+            %a.del_shopping_car{ :value=> l.id} 删除
+      %input#hidden_for_ids{:type =>"hidden"}
+      %tr
+        %td( height="50")
+          %a.del_shopping_cars
             %img{:src=>asset_path("test/shopcar_menu.jpg"), :width=>"111", :height=>"22", :border=>"0" }
-        %tr
-          %td( width="300" align="right" colspan="8" style="font-size:15px;")
-            %b 购物车商品总价(不含运费)：
-            %strong.Red#total_price
-            %b 元
-            %br
-            %b 选中商品总价(不含运费)：
-            %strong.Red#selected_total_price 0
-            %b 元
-            %hr
-        %tr
-          %td( width="170" colspan="6" align="right")
-            %a#continue_shopping{ :href=>root_path, :title=>"继续购物", :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
-          %td( width="170" colspan="2" align="right")
-            =form_tag('/customers/order_page', method: :GET ,:class=>'go_to_submit' ) do
-              %input#selected_ids{:type=>"hidden",:name=>"selected_ids"}
-              %input#continue_shopcar{:value=>"去结算", :type=>"button",:style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:onclick=>"check_inventory()"}
-    .clear
+      %tr
+        %td( width="300" align="right" colspan="9" style="font-size:15px;")
+          %b 购物车商品总价(不含运费)：
+          %strong.Red#total_price
+          %b 元
+          %br
+          %b 选中商品总价(不含运费)：
+          %strong.Red#selected_total_price 0
+          %b 元
+          %hr
+      %tr
+        %td( width="170" colspan="7" align="right")
+          %a#continue_shopping{ :href=>root_path, :title=>"继续购物"}
+            %img{:src=> asset_path("test/shopping_cart_r8_c17.jpg"),:width=>"104", :height=>"36", :border=>"0",:style=>"" }
+        %td( width="170" colspan="2" align="right")
+          =form_tag('/customers/order_page', method: :GET ,:class=>'go_to_submit' ) do
+            %input#selected_ids{:type=>"hidden",:name=>"selected_ids"}
+            %input#continue_shopcar{:value=>"", :type=>"button",:style=>" background-image: url('"+asset_path("test/shopping_cart_r8_c19.jpg")+"'); width:135px; height:36px; margin-right:5px;",:onclick=>"check_inventory()"}
+
 
   :javascript
 
+    $(".decrease_btn").click(function(){
+       var m= $(this).attr("value");
+       var n= $(".quantity_number_input").eq(m).text();
+       var n_int= parseInt(n);
+       if(n_int>1){
+         n_int= n_int -1;
+       }
+       n= n_int.toString()+" ";
+       $(".quantity_number_input").eq(m).text( n);
+    });
+
+    $(".increase_btn").click(function(){
+      var m= $(this).attr("value");
+      var n= $(".quantity_number_input").eq(m).text();
+      var n_int= parseInt(n);
+      var max= $("#mall_inventory").attr("value");
+      if( n_int< max ){
+        n_int= n_int +1;
+      }
+      n= n_int.toString()+" ";
+      $(".quantity_number_input").eq(m).text( n);
+    });
+
+    $(".del_shopping_car").click(function(){
+      if (confirm("注意：删除之后不可找回。确认删除？")){
+        var del_obj= $(this);
+        var data= $(this).attr("value");
+        var requestUrl= "/customers/del_shopping_car";
+        $.ajax({
+          data:"data="+data,
+          url: requestUrl,
+          contentType:"application/json, charset:utf-8;",
+          dataType: "json",
+          success:function(json){
+            del_obj.parent().parent().fadeOut();
+            alert("删除成功！");
+          }
+        });
+      }else{
+        return;
+      }
+    });
+
+    $(".del_shopping_cars").click(function(){
+      if (confirm("注意：删除之后不可找回。确认删除？")){
+        check_checked_box();
+        var data= $("#selected_ids").attr("value");
+        var requestUrl= "/customers/del_shopping_car";
+        $.ajax({
+          data:"data="+data,
+          url: requestUrl,
+          contentType:"application/json, charset:utf-8;",
+          dataType: "json",
+          success:function(json){
+            $(".good_check_box:checked").parent().parent().fadeOut();
+            alert("删除成功！");
+          }
+        });
+      }else{
+        return;
+      }
+    });
+
+    $("#checkbox_all").click(function(){
+      if($(this).prop('checked')){
+        $(".good_check_box:visible").each(function(){
+          this.checked= true;
+        });
+
+      }else{
+        $(".good_check_box").attr("checked",false);
+      }
+    });
+
     function check_inventory(){
+      check_checked_box();
       var ids= $("#selected_ids").attr("value");
       if(ids==""||ids==null){
         alert("请先选择至少一件商品再确认付款!");
         return;
       }
+      var new_quantities=[];
+      
+      var all_quantity= $(".quantity_number_input").text();
+      alert( all_quantity);
       var RequestUrl="/customers/check_inventory";
       $.ajax({
         url:RequestUrl,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        data: "ids="+ids,
+        data: "ids="+ids+"&all_quantity="+all_quantity,
         success: function(json){
            if(0==json){
              alert("提醒:您选中的商品中有商品缺货。");

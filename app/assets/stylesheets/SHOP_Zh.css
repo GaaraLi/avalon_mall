@@ -221,3 +221,50 @@ A.Orange:visited {
 #gotop{ 
 	background-position:0 -118px;
 } 
+.good_name_wz{
+	font-size: 12px;
+	line-height: 20px;
+	color: #0E658A;
+}
+.good_name_wz:link {
+	font-size: 12px;
+	line-height: 20px;
+	color: #0E658A;
+}
+.good_name_wz:visited {
+	font-size: 12px;
+	line-height: 20px;
+	color: #0E658A;
+}
+.good_name_wz:hover {
+	font-size: 12px;
+	line-height: 20px;
+	color: #FF3300;
+}
+.good_total_wz14 {
+	font-size: 14px;
+	line-height: 20px;
+	color: #FF3300;
+	font-weight: bold;
+	font-family: Arial;
+}
+.shopping_stepwz16 {
+	color: #FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+}
+.shopping_stepwz14 {
+	color: #FF6600;
+	font-size: 14px;
+	font-weight: bold;
+}
+.shopping_totalwz20 {
+	color: #FF3300;
+	font-size: 20px;
+	font-weight: bold;
+}
+.shopping_black14 {
+	color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+}

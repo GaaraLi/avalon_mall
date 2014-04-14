@@ -4,24 +4,47 @@ class CustomersController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :authenticate_customer!, :except=>[:index,:show,:notify_page,:success_page]
 
+  def del_shopping_car
+    @shopping_car_id_string= params[:data]
+    @shopping_car_id_array= @shopping_car_id_string.split(",")
+    if @shopping_car_id_array.respond_to?("each")
+      @shopping_car_id_array.each { |id|
+        MallShoppingCar.delete(id.to_i)
+      }
+    else
+      MallShoppingCar.delete(@shopping_car_id_array.to_i)
+    end
+    render :json=>1
+  end
+
   def shopping_car
     @cart_list= current_customer.mall_shopping_cars
+    @bread_crumbs=["购物车"]
+    @page_title="我的购物车"
   end
 
   def order_page
     @cart_ids= params[:selected_ids]
     @cart_ids=@cart_ids.split(",").map{|i| i.to_i}
     @cart_orders= MallShoppingCar.find( @cart_ids )
+    @bread_crumbs=["购物车"]
+    @page_title="我的购物车"
   end
 
   def check_inventory
     @ids= params[:ids]
+    @all_quantity= params[:all_quantity]
+    @all_quantity_array= @all_quantity.scan(/[^ ]+/)
+
     @ids= @ids.delete("[").delete("]").split(",")
-    @ids.each do |id|
-      if (MallShoppingCar.find(id.to_i).mall_sku.mall_inventory.inventory_qty<=0)
+    @ids.zip(@all_quantity_array).each do |id,q|
+      @shopping_car_line= MallShoppingCar.find(id.to_i)
+      if (@shopping_car_line.mall_sku.mall_inventory.inventory_qty<=0)
         render :json=>0
         return
       end
+      @price= current_customer.get_price(@shopping_car_line.mall_sku).to_i * q.to_i
+      @shopping_car_line.update_attributes(:quantity=> q, :price=>@price, :original_price=>@price)
     end
     render :json=>1
   end
@@ -29,20 +52,27 @@ class CustomersController < ApplicationController
   def set_order_time_list
     @order_times= params[:time_list]
     current_customer.update_attributes(:customer_order_times=>@order_times)
-    puts '==========in set_order_time_list'
-    puts current_customer.customer_order_times
     render :json=>1
   end
 
   def cart_confirm
     @cart_ids= params[:selected_ids]
     @order_times_list= params[:selected_times]
-    current_customer.update_attributes(:customer_order_times=>@order_times_list)
+    current_customer.update_attributes(:customer_order_times=>@order_times_list )
     puts '==========in cat_confirm'
     puts current_customer.customer_order_times
 
     @order_number= new_order_number
-    @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,:customer_id=>current_customer.id)
+    
+    @input_name= params[:input_name]
+    @input_phone= params[:input_phone]
+    @input_car= params[:input_car]
+
+    @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,
+                                   :customer_id=>current_customer.id,
+                                   :input_name=> @input_name,
+                                   :input_phone=> @input_phone,
+                                   :input_car=>@input_car)
     @mall_order_id= @order_order.id
     @cart_ids= @cart_ids.delete("[").delete("]").split(",")
     @cart_ids.each do |id|
@@ -185,26 +215,10 @@ class CustomersController < ApplicationController
 
   def new_exchange_code_line( lines,c)
     lines.zip( c.customer_order_times.scan(/[^,]+/)).each do |l,t|
-      time,times=""
-      if t.include?"尚未预约"
-        tt=""
-      else
-        tt= t.scan(/[^X]+/)
-        tt.each_slice(2) do |a,b|
-          time = a.to_s
-          times= b.to_i
-        end
-      end
-      l.quantity.times.each do |q|
+
+      l.quantity.times do
         @code= create_exchange_code
-        if times
-          if times >1
-            MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )
-            times -=1
-          else
-            MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id )
-          end
-        end
+        MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )
       end
       # @q>0
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
@@ -322,6 +336,20 @@ class CustomersController < ApplicationController
       n= tt+n
     }
     return "XA"+n
+  end
+
+  def allcarbrand
+    render :json => CarBrand.all
+  end
+
+  def carbrand
+    @car_brand = CarBrand.find(params[:id])
+    render :json => @car_brand.car_sets.to_a
+  end
+
+  def carset
+    @car_set = CarSet.find(params[:id])
+    render :json => @car_set.car_models.to_a
   end
 
   private

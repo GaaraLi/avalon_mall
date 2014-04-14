@@ -6,17 +6,17 @@
       %h3
         %span#search_service.s_down{:style=>" cursor:pointer"} 搜服务
         %span#search_vendor{:style=>" cursor:pointer"} 搜车行
-      .search_into{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+      .search_into{:style=>"background-image: url('"+asset_path("test/home_r2_c1.gif")+"');"}
         %form{:action=>"/home/search"}
           .search_l.left
             %input.w1( name="search_key" type="text" placeholder="请输入您所想搜索的内容" )
             %input#search_type{:type=>"hidden", :name=>"search_type", :value=>1}
           .search_r.left
-            %input.s1{:style=>"background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');", :name=>"submit", :type=>"submit",:value=>""}
+            %input.s1{:style=>"background-image: url('"+asset_path("test/home_r4_c10.gif")+"');", :name=>"submit", :type=>"submit",:value=>""}
     %h3.shop_car.left
-      %a#shop_car{ :href=> customers_shopping_car_path ,:target=>"_blank", :title=>"进入购物车进行结算",:style=>" background-image: url('"+asset_path("test/Index_BodyBG.gif")+"'); margin-left:30px;"}
+      %a#shop_car{ :href=> customers_shopping_car_path ,:target=>"_blank", :title=>"进入购物车进行结算",:style=>" background-image: url('"+asset_path("test/home_r4_c1.gif")+"'); margin-left:30px;"}
         -if get_shopping_car_qty!=0
-          %s{:style=>"  background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');"}
+          %s{:style=>"  background-image: url('"+asset_path("test/home_r4_c8.gif")+"');"}
             =get_shopping_car_qty
 
 

@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140329081434) do
+ActiveRecord::Schema.define(version: 20140411072801) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -23,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "is_shut",       limit: 1, default: 0
   end
 
   create_table "activate_utilities", force: true do |t|
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.datetime "updated_at"
     t.integer  "repaid_tactic_customer_id",            default: 1
     t.datetime "end_time"
-    t.integer  "repaid_time"
+    t.integer  "repaid_time",                          default: 0
   end
 
   create_table "cars", force: true do |t|
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "card_id"
     t.datetime "appointment_time"
     t.integer  "extra_service_detail_id"
+    t.integer  "appointment_status",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "appointment_detail"
@@ -132,6 +133,14 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "vendor_binding_record_id"
     t.integer  "service_id"
     t.boolean  "consumed_by_card",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "vendor_id"
+  end
+
+  create_table "customer_memos", force: true do |t|
+    t.integer  "customer_id"
+    t.text     "memo_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -160,6 +169,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.string   "phone"
     t.integer  "cash_account",           default: 0
     t.string   "customer_order_times"
+    t.datetime "block_time"
   end
 
   add_index "customers", ["confirmation_token"], name: "index_customers_on_confirmation_token", unique: true, using: :btree
@@ -255,10 +265,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "mall_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo_url1_file_name",    limit: 45
-    t.string   "logo_url1_content_type", limit: 45
-    t.string   "logo_url1_file_size",    limit: 45
-    t.string   "subhead",                limit: 100
+    t.string   "subhead",          limit: 100
     t.string   "service_info"
   end
 
@@ -279,7 +286,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
 
   create_table "mall_inventory_records", force: true do |t|
     t.integer  "mall_inventory_id"
-    t.integer  "inventory_type"
+    t.integer  "inventory_type",    limit: 1
     t.integer  "inventory_qty"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -307,6 +314,9 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.datetime "finish_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "input_name"
+    t.string   "input_phone"
+    t.integer  "input_car"
   end
 
   create_table "mall_shopping_cars", force: true do |t|
@@ -329,6 +339,7 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "mall_good_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sale_count",                                          default: 0
   end
 
   create_table "permission_items", force: true do |t|
@@ -356,6 +367,8 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "repaid_tactic_customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "vendor_id"
+    t.integer  "extra_consumption_record_id"
   end
 
   create_table "repaid_tactic_customers", force: true do |t|
@@ -460,10 +473,10 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.string   "code"
     t.string   "cus_name"
     t.string   "phone"
-    t.string   "plate_number",         limit: 45
+    t.string   "plate_number"
     t.integer  "vendor_id"
     t.integer  "car_model_id"
-    t.integer  "status"
+    t.integer  "status",               default: 0
     t.integer  "cus_type"
     t.date     "start_time"
     t.date     "end_time"
@@ -526,6 +539,14 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.datetime "updated_at"
   end
 
+  create_table "vendor_goods", force: true do |t|
+    t.string   "title"
+    t.integer  "vendor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "state",      default: 0
+  end
+
   create_table "vendor_recommendations", force: true do |t|
     t.string   "user_name"
     t.string   "user_phone"
@@ -533,6 +554,41 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.string   "vendor_add"
     t.integer  "acreage"
     t.string   "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_wx_bindings", force: true do |t|
+    t.string   "user_open_id"
+    t.integer  "user_id"
+    t.integer  "state",        default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_wx_consumption_records", force: true do |t|
+    t.integer  "vendor_wx_user_id"
+    t.integer  "vendor_good_id"
+    t.datetime "consumption_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_wx_user_goods", force: true do |t|
+    t.integer  "vendor_wx_user_id"
+    t.integer  "vendor_good_id"
+    t.integer  "quantity",          default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_wx_users", force: true do |t|
+    t.string   "name"
+    t.string   "plate_number"
+    t.string   "phone"
+    t.string   "insurance_number"
+    t.date     "insurance_end_date"
+    t.integer  "vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -574,9 +630,18 @@ ActiveRecord::Schema.define(version: 20140329081434) do
     t.integer  "is_mall",                limit: 1
     t.integer  "mall_area_id"
     t.text     "advertisement"
+    t.integer  "vendor_order"
   end
 
   add_index "vendors", ["reset_password_token"], name: "index_vendors_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vendors_public_keys", force: true do |t|
+    t.integer  "vendor_id"
+    t.string   "vendor_public_key"
+    t.integer  "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "withdraw_cashes", force: true do |t|
     t.integer  "customer_id"

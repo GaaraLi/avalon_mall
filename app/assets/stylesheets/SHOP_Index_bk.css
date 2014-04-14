@@ -1378,9 +1378,9 @@ a#qukankan:hover {
 	padding-bottom: 15px;
 }
 .main_product .main_company_products .main_products_li {
-	background-image: url(../images/brandBodyBG.gif);
+#	background-image: url(../images/brandBodyBG.gif);
 	background-repeat: no-repeat;
-	background-position: -257px 0px;
+#	background-position: -257px 0px;
 	height: 290px;
 	width: 223px;
 	padding: 10px;
@@ -2435,9 +2435,9 @@ a#categroy_menu:hover {
 	padding-right: 10px;
 }
 .category_product .main_products_li {
-	background-image: url(../images/brandBodyBG.gif);
+#	background-image: url(../images/brandBodyBG.gif);
 	background-repeat: no-repeat;
-	background-position: -257px 0px;
+#	background-position: -257px 0px;
 	height: 290px;
 	width: 223px;
 	padding: 10px;

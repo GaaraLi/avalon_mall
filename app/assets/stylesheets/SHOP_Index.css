@@ -16,16 +16,6 @@ body {
 .clear {
 	   clear:both
 }
-/*top*/
-.top {
-	font-size: 12px;
-	height: 31px;
-	background-image: url(../images/Index_BodyBG111.gif);
-	background-repeat: repeat-x;
-	background-position: 0px 0px;
-	color:#666666;
-	overflow: hidden;
-}
 .top .topBox {
 	height: 31px;
 	width: 940px;

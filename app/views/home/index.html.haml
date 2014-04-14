@@ -33,7 +33,7 @@
   .part_02
     .division
       #swap_pic
-        #prev.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG111.gif")+"');"}
+        #prev.scroll
         .box
           %ul#pics.pics( style=" left:5px;")
             -@homepage_recommends.each_slice(3) do |rec|
@@ -51,20 +51,20 @@
 
   .part_03
     .hot_tui
-      .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"'); background-repeat:repeat-x;"}
+      .part03line{:style=>"background-image: url('"+asset_path("test/line_r1_c1.jpg")+"'); background-repeat:repeat-x;"}
         %h3.part_03hd.Bule
           %b 热门商品推荐
         =render 'home/partial/index_hot_product_rec'
   .part_03
     .hot_tui
-      .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"'); background-repeat:repeat-x;"}
+      .part03line{:style=>"background-image: url('"+asset_path("test/line_r3_c1.jpg")+"'); background-repeat:repeat-x;"}
         %h3.part_03hd.Red
           %b 新品推荐
         =render 'home/partial/index_new_product_rec'
 
   .part_03
     .cars_tui
-      .part03line{:style=>"background-image: url('"+asset_path("test/LineBG.jpg")+"'); background-repeat:repeat-x;"}
+      .part03line{:style=>"background-image: url('"+asset_path("test/line_r5_c1.jpg")+"'); background-repeat:repeat-x;"}
       %h3.part_03hd.Gold
         %b 推荐车行
       =render 'home/partial/index_vendor_rec'

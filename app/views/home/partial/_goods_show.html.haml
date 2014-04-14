@@ -9,25 +9,24 @@
       = paginate @key_goods
   .category_product
     -@key_goods.each do |g|
-      %a
-        .main_products_li.left{:style=>"background-image: url('"+asset_path("test/76C28745.gif")+"');"}
-          .p_img
-            %a{:href=>good_path(g)}
-              =image_tag( g.logo_url1, height:"175", width:"175", style:"height:175px;")
-          .p_title
-            %a{:href=>good_path(g)}
-              =g.title
-            %br
-            %a
-              =g.mall_category.name
-          .p_price
-            %span{:style=>"font-size:20px;"} ￥
-            %b
-              =g.mall_skus.first.price
-            .right_price.right
-              %span 原价：￥
-              %i{:style=>"text-decoration:line-through;"}
-                =g.mall_skus.first.show_price
+      .main_products_li.left{:style=>"background-image: url('"+asset_path("test/76C28745.gif")+"');"}
+        .p_img
+          %a{:href=>good_path(g)}
+            =image_tag( g.logo_url1, height:"175", width:"175", style:"height:175px;")
+        .p_title
+          %a{:href=>good_path(g)}
+            =g.title
+          %br
+          %a
+            =g.mall_category.name
+        .p_price
+          %span{:style=>"font-size:20px;"} ￥
+          %b
+            =g.mall_skus.first.price
+          .right_price.right
+            %span 原价：￥
+            %i{:style=>"text-decoration:line-through;"}
+              =g.mall_skus.first.show_price
   .class_rule_retrieval.left{:style=>"width:97%;"}
     %h3
       检索出

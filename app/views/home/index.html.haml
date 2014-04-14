@@ -5,7 +5,7 @@
     =render "home/partial/homepage_sliders"
     .shop_tuijian
       .shop_activities
-        %h3{:style=>"background-image: url('"+asset_path("test/Index_BodyBG111.gif")+"');"}
+        %h3
         %h4
           - @slider=@homepage_slider_right[0] if @homepage_slider_right[0]
           %a{:href=>"#{@slider.text2} "}

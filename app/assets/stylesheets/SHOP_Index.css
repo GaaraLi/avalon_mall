@@ -20,7 +20,7 @@ body {
 .top {
 	font-size: 12px;
 	height: 31px;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: repeat-x;
 	background-position: 0px 0px;
 	color:#666666;
@@ -280,7 +280,7 @@ background: #FF7700;
 	background-color: #FFFFFF;
 }
 .shop_activities h3 {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -225px -414px;
 	height: 35px;
@@ -303,7 +303,7 @@ background: #FF7700;
 	height: 18px;
 }
 .shop_news h3 {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -225px -451px;
 	height: 35px;
@@ -351,7 +351,7 @@ background: #FF7700;
 	padding-left:15px;
 }
 #prev {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -445px -355px;
 	height: 40px;
@@ -361,7 +361,7 @@ background: #FF7700;
 	margin-top:30px;
 }
 #next {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -468px -355px;
 	height: 40px;
@@ -485,7 +485,7 @@ background: #FF7700;
 	padding-top: 10px;
 }
 a#qukankan {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -152px -115px;
 	display: block;
@@ -493,7 +493,7 @@ a#qukankan {
 	width: 48px;
 }
 a#qukankan:hover {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -152px -140px;
 	display: block;
@@ -560,7 +560,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -181px;
 }
@@ -568,7 +568,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -223px;
 }
@@ -576,7 +576,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -266px;
 }
@@ -584,7 +584,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -309px;
 }

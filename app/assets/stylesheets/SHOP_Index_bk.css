@@ -37,7 +37,7 @@ body {
 .top {
 	font-size: 12px;
 	height: 31px;
-#	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');
+#	background-image: url('"+asset_path("test/Index_BodyBG111.gif")+"');
 	background-repeat: repeat-x;
 #	background-position: 0px 0px;
 	color:#666666;
@@ -59,7 +59,7 @@ body {
 	padding-right: 15px;
 }
 .T_r .qq_login {
-#	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');
+#	background-image: url('"+asset_path("test/Index_BodyBG111.gif")+"');
 	background-repeat: no-repeat;
 #	background-position: -439px -125px;
 	padding-left: 23px;
@@ -79,7 +79,7 @@ body {
 	padding-left: 15px;
 }
 .header_Box .logo {
-#	background-image: url(../images/Index_BodyBG.gif);
+#	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 #	background-position: 0px -111px;
 	height: 52px;
@@ -119,7 +119,7 @@ body {
 	background-color: #64B1DC;
 }
 .search .search_into {
-#	background-image: url(../images/Index_BodyBG.gif);
+#	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 #	background-position: 0px -36px;
 	height: 35px;
@@ -142,7 +142,7 @@ body {
 }
 /*购物车*/
 a#shop_car {
-#	background-image: url(../images/Index_BodyBG.gif);
+#	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 #	background-position: 0px -76px;
 	display: block;
@@ -151,7 +151,7 @@ a#shop_car {
 	position: relative;
 }
 a#shop_car:hover {
-#	background-image: url(../images/Index_BodyBG.gif);
+#	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 #	background-position: -139px -76px;
 	display: block;
@@ -160,7 +160,7 @@ a#shop_car:hover {
 	position: relative;
 }
 a#shop_car s {
-#	background-image: url(../images/Index_BodyBG.gif);
+#	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 #	background-position: -293px -76px;
 	height: 22px;
@@ -226,7 +226,7 @@ a#shop_car s {
 .part_01 .shop_class {
 	height: 314px;
 	width: 204px;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -168px;
 	position: absolute;
@@ -365,7 +365,7 @@ background: #FF7700;
 	background-color: #FFFFFF;
 }
 .shop_activities h3 {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -225px -414px;
 	height: 35px;
@@ -388,7 +388,7 @@ background: #FF7700;
 	height: 18px;
 }
 .shop_news h3 {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -225px -451px;
 	height: 35px;
@@ -436,7 +436,7 @@ background: #FF7700;
 	padding-left:15px;
 }
 #prev {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -445px -355px;
 	height: 40px;
@@ -446,7 +446,7 @@ background: #FF7700;
 	margin-top:30px;
 }
 #next {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -468px -355px;
 	height: 40px;
@@ -577,7 +577,7 @@ background: #FF7700;
 	padding-top: 10px;
 }
 a#qukankan {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -152px -115px;
 	display: block;
@@ -585,7 +585,7 @@ a#qukankan {
 	width: 48px;
 }
 a#qukankan:hover {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -152px -140px;
 	display: block;
@@ -657,7 +657,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -181px;
 }
@@ -665,7 +665,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -223px;
 }
@@ -673,7 +673,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -266px;
 }
@@ -681,7 +681,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -309px;
 }
@@ -735,7 +735,7 @@ a#qukankan:hover {
 	color: #c3c3c3;
 }
 .s1 {
-#	background-image: url(../images/Index_BodyBG.gif);
+#	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 #	background-position: -399px -36px;
 	height: 35px;

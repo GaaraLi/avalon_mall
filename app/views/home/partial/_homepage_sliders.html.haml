@@ -21,14 +21,6 @@
         maxBannerNum = 7, datouwang = $(".indexBanner"),
         bsObj, bannerShelf, replaceStart = false, replaced = false;
 
-    Common.AjaxCombiner.addCall({ type: "GET", url: "GetFirstShelf",
-        success: function(result){
-            bannerShelf = result ? result : "hot";
-            Common.PubSub.publish("UserStat/Shelf", { shelf: bannerShelf });
-            datouwang.trigger("cust:replace");
-        }
-    });
-
     $(function () {
         datouwang.bannerSlider({
             arrow:true,

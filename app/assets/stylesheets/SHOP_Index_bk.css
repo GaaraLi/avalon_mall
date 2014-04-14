@@ -37,9 +37,9 @@ body {
 .top {
 	font-size: 12px;
 	height: 31px;
-	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');
+#	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');
 	background-repeat: repeat-x;
-	background-position: 0px 0px;
+#	background-position: 0px 0px;
 	color:#666666;
 	overflow: hidden;
 }
@@ -59,9 +59,9 @@ body {
 	padding-right: 15px;
 }
 .T_r .qq_login {
-	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');
+#	background-image: url('"+asset_path("test/Index_BodyBG.gif")+"');
 	background-repeat: no-repeat;
-	background-position: -439px -125px;
+#	background-position: -439px -125px;
 	padding-left: 23px;
 }
 /*header*/
@@ -79,9 +79,9 @@ body {
 	padding-left: 15px;
 }
 .header_Box .logo {
-	background-image: url(../images/Index_BodyBG.gif);
+#	background-image: url(../images/Index_BodyBG.gif);
 	background-repeat: no-repeat;
-	background-position: 0px -111px;
+#	background-position: 0px -111px;
 	height: 52px;
 	width: 142px;
 	display: block;

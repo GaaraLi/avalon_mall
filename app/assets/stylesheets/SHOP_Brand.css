@@ -26,15 +26,6 @@ body {
 	text-align: left;
 }
 /*top*/
-.top {
-	font-size: 12px;
-	height: 31px;
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: repeat-x;
-	background-position: 0px 0px;
-	color:#666666;
-	overflow: hidden;
-}
 .top .topBox {
 	height: 31px;
 	width: 940px;
@@ -50,12 +41,6 @@ body {
 .T_r .login_OR_reg {
 	padding-right: 15px;
 }
-.T_r .qq_login {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: -439px -125px;
-	padding-left: 23px;
-}
 /*header*/
 .header {
 	height: 110px;
@@ -69,14 +54,6 @@ body {
 	padding-top: 25px;
 	padding-right: 15px;
 	padding-left: 15px;
-}
-.header_Box .logo {
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: no-repeat;
-	background-position: 0px -111px;
-	height: 52px;
-	width: 142px;
-	display: block;
 }
 /*搜索*/
 .header_Box .search {

@@ -18,7 +18,8 @@
       .home_rec_recommend{:style=>" background-image: url( '"+asset_path("test/home_rec_recommend_r4_c8_s1.jpg")+"');"}
         .home_rec_recommend_inside
           %h1
-            %img{:src=> v.img_url, :width=>"160px", :height=>"200px"}
+            %a{:href=> v.text2}
+              %img{:src=> v.img_url, :width=>"160px", :height=>"200px"}
           %h2
             %strong 推荐理由：
             =v.text1

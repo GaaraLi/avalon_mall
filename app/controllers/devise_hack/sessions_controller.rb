@@ -1,5 +1,5 @@
 class DeviseHack::SessionsController < Devise::SessionsController
 	def new
-		redirect_to "http://test.ixiangche.com/customers/login"
+		redirect_to "http://ixiangche.com/customers/login"
 	end
 end

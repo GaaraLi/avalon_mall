@@ -16,6 +16,7 @@ class HomeController < ApplicationController
 
 
     @nav_label_check= 1
+    @key= params[:search_key]
   end
 
   def about_us

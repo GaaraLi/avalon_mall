@@ -72,10 +72,11 @@
                   =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:33px; cursor:pointer; float:left;", :title=>"立即购买",:id=>"goods_buymenu"
                 %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:50px; float:left; "}
           %tr
-            -if @good.service_info
-              %h7{:style=>"margin-top:-15px;"}
-                服务说明：
-              =@good.service_info
+            %td(colspan="5")
+              -if @good.service_info
+                %h7{:style=>"margin-top:-20px;"}
+                  服务说明：
+                =@good.service_info
   .main_box
     .main_goods_L.left
       .main_goods_garage_map

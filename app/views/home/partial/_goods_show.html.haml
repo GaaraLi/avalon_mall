@@ -13,7 +13,7 @@
         .p_img
           %a{:href=>good_path(g)}
             =image_tag( g.logo_url1, height:"175", width:"175", style:"height:175px;")
-        .p_title
+        .p_title{:style=>"height:34px; overflow:hidden;"}
           %a{:href=>good_path(g)}
             =g.title
           %br

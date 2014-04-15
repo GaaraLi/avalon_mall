@@ -14,8 +14,14 @@
 
 
 :javascript
+  $(document).mousemove(function(e){
+    $(".BtnimgList").mouseover();
+    $(".BtnimgList").mouseout();
+  });
 
   $(function() {
+    $(".BtnimgList").mouseover();
+    //$(".thumb_pic").mouseout();
 
     var maxShowedBanner = 1, currentBanner = 1,
         maxBannerNum = 7, datouwang = $(".indexBanner"),

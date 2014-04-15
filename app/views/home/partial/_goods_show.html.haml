@@ -28,10 +28,10 @@
             %i{:style=>"text-decoration:line-through;"}
               =g.mall_skus.first.show_price
   .class_rule_retrieval.left{:style=>"width:97%;"}
-    %h3
+    %h3.left
       检索出
       %b.Red
         =@goods.count
       个符合您需求的商品
-    %h3.right{:style=>"margin-right:10px;"}
-      = paginate @key_goods
+      %h3.right{:style=>"margin-right:10px;"}
+        = paginate @key_goods

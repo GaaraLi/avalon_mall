@@ -42,11 +42,6 @@ body {
 	padding-right: 15px;
 }
 /*header*/
-.header {
-	height: 110px;
-	overflow: hidden;
-	background-color: #FFFFFF;
-}
 .header .header_Box {
 	height: 75px;
 	width: 930px;
@@ -295,18 +290,6 @@ body {
 	border-bottom-color: #e6e6e6;
 	background-color: #FFFFFF;
 }
-.news_tui .part03line {
-	background-image: url(../images/LineBG.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px -4px;
-	margin: 0px;
-	padding: 0px;
-	height: 2px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-}
 .main_product .cars_tui {
 	height: 305px;
 	margin-top: 6px;
@@ -320,18 +303,6 @@ body {
 	border-left-color: #e6e6e6;
 	border-bottom-color: #e6e6e6;
 	background-color: #FFFFFF;
-}
-.cars_tui .part03line {
-	background-image: url(../images/LineBG.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px -8px;
-	margin: 0px;
-	padding: 0px;
-	height: 2px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
 }
 .cars_tui .part_carli {
 	height: 235px;

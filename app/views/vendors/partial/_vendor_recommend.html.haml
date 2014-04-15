@@ -1,6 +1,6 @@
 .main_category_hotshop{:style=>"  background-image: url('"+asset_path("test/category_lBG.jpg")+"');"}
   %h3
-    %b 热销商品
+    %b 热销商品1
   .main_category_pro
     %ul.part_list
       -@good_hot_rec.each do |h|
@@ -8,7 +8,7 @@
           .p_img{:style=>" width:171px; height:171px;"}
             %a{:href=> h.text2 }
             %img{:src=>"#{h.img_url}", :width=>"170", :height=>"170",  :border=>"1px solid #F3F3F3"}
-          .p_title{:style=>" height:31px; overflow:hidden; margin-top:10px;"}
+          .p_title{:style=>" height:35px; overflow:hidden; margin-top:10px;"}
             %a{:href=> h.text2 }
               =h.title
           .p_price

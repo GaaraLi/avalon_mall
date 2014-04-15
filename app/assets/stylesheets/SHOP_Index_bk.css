@@ -68,7 +68,7 @@ body {
 .header {
 	height: 110px;
 	overflow: hidden;
-	background-color: #FFFFFF;
+	background-color: #FAFAFA;
 }
 .header .header_Box {
 	height: 75px;
@@ -539,18 +539,6 @@ background: #FF7700;
 	border-bottom-color: #e6e6e6;
 	background-color: #FFFFFF;
 }
-.cars_tui .part03line {
-	background-image: url(../images/LineBG.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px -8px;
-	margin: 0px;
-	padding: 0px;
-	height: 2px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-}
 .part_carli li {
 	display: block;
 	float: left;
@@ -928,7 +916,7 @@ a#qukankan:hover {
 .cars_tui .part03line {
 	background-image: url(../images/LineBG.jpg);
 	background-repeat: no-repeat;
-	background-position: 0px -8px;
+#	background-position: 0px -8px;
 	margin: 0px;
 	padding: 0px;
 	height: 2px;
@@ -1594,14 +1582,15 @@ a#p_price_menu:hover {
 	line-height: 31px;
 	text-align: center;
 	background-color: #FFFFFF;
-	background-image: url(../images/goods_type.png);
+#	background-image: url(../images/goods_type.png);
 	background-repeat: no-repeat;
-	background-position: right bottom;
+#	background-position: right bottom;
 	margin-left: 10px;
 	float: left;
 	padding-right: 5px;
 	padding-left: 5px;
 	margin-top: 5px;
+	overflow:hidden;
 }
 .main_goods_type2{
 	height: 30px;
@@ -1615,6 +1604,7 @@ a#p_price_menu:hover {
 	padding-right: 5px;
 	padding-left: 5px;
 	margin-top: 5px;
+	overflow:hidden;
 }
 .main_goods_operation input {
 	height: 31px;
@@ -2418,7 +2408,7 @@ a#categroy_menu:hover {
 }
 .category_right .class_rule_retrieval {
 	height: 30px;
-	background-color: #E1F7FD;
+#	background-color: #E1F7FD;
 	padding-left: 15px;
 	color: #676566;
 }

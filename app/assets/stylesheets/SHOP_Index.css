@@ -32,11 +32,6 @@ body {
 	padding-right: 15px;
 }
 /*header*/
-.header {
-	height: 110px;
-	overflow: hidden;
-	background-color: #FFFFFF;
-}
 .header .header_Box {
 	height: 75px;
 	width: 930px;
@@ -417,32 +412,6 @@ background: #FF7700;
 	border-bottom-width: 0px;
 	border-left-width: 0px;
 }
-.part_03 .cars_tui {
-	height: 305px;
-	margin-top: 6px;
-	border-right-width: 1px;
-	border-left-width: 1px;
-	border-bottom-width: 1px;
-	border-right-style: solid;
-	border-left-style: solid;
-	border-bottom-style: solid;
-	border-right-color: #e6e6e6;
-	border-left-color: #e6e6e6;
-	border-bottom-color: #e6e6e6;
-	background-color: #FFFFFF;
-}
-.cars_tui .part03line {
-	background-image: url(../images/LineBG.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px -8px;
-	margin: 0px;
-	padding: 0px;
-	height: 2px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-}
 .cars_tui .part_carli {
 	height: 235px;
 	padding-top: 5px;
@@ -787,18 +756,6 @@ a#qukankan:hover {
 	border-left-color: #e6e6e6;
 	border-bottom-color: #e6e6e6;
 	background-color: #FFFFFF;
-}
-.cars_tui .part03line {
-	background-image: url(../images/LineBG.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px -8px;
-	margin: 0px;
-	padding: 0px;
-	height: 2px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
 }
 .cars_tui .part_carli {
 	height: 235px;
@@ -1432,22 +1389,6 @@ a#p_price_menu:hover {
 	line-height: 15px;
 	text-align: center;
 	background-color: #F5F5F5;
-}
-.main_goods_type1{
-	height: 30px;
-	width: auto;
-	border: 2px solid #FF3300;
-	line-height: 31px;
-	text-align: center;
-	background-color: #FFFFFF;
-	background-image: url(../images/goods_type.png);
-	background-repeat: no-repeat;
-	background-position: right bottom;
-	margin-left: 10px;
-	float: left;
-	padding-right: 5px;
-	padding-left: 5px;
-	margin-top: 5px;
 }
 .main_goods_type2{
 	height: 30px;

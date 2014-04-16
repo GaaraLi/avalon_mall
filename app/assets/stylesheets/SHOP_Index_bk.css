@@ -1408,7 +1408,7 @@ a#p_price_menu:hover {
 /*2014-2-23新加样式 goods 模版样式*/
 /*第一部分*/
 .wrap .main_goods_box {
-	width: 958px;
+	width: 978px;
 	height: 540px;
 	border: 1px solid #cdcdcd;
 	margin-top: 10px;
@@ -1570,7 +1570,7 @@ a#p_price_menu:hover {
     display: block;
     padding-top: 10px;
     height: 50px;
-    background-color: #F7F7F7;
+#    background-color: #F7F7F7;
     padding-bottom: 5px;
     margin-top: 15px;
     width: 620px;
@@ -1855,7 +1855,7 @@ a#p_pricemenu:hover {
 }
 .main_goods_R .main_goods_tab {
 	line-height: 40px;
-	background-color: #F8F8F8;
+#	background-color: #F8F8F8;
 	height: 40px;
 	font-size: 16px;
 }
@@ -3198,7 +3198,7 @@ a#user_menuma:hover {
 	font-size: 12px;
 	margin-bottom: 15px;
 	text-align: left;
-	text-indent: 20px;
+#	text-indent: 20px;
 	height: 30px;
 	padding-top: 20px;
 }
@@ -3299,7 +3299,7 @@ a#user_menuma:hover {
 	margin-left: 85%;
 }
 .order_information {
-	height:310px;
+#	height:310px;
 	min-height:200px;
 	width: 974px;
 	margin-top: 14px;

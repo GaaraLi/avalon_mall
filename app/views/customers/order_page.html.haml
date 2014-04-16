@@ -19,23 +19,23 @@
         您的姓名：
       %h3
         %label
-          %input#textfield_name(name="textfield" type="text" size="10")
+          %input#textfield_name(name="textfield" type="text" size="10" style="border: 1px solid rgb(131,131,131);" )
       %h2
         %span.Red *
         手机号码：
       %h3
         %label
-          %input#textfield_phone(name="textfield" type="text" size="15")
+          %input#textfield_phone(name="textfield" type="text" size="15" style="border: 1px solid rgb(131,131,131);" )
       %h4
         %a
           %img#input_name_and_phone{:src=>asset_path("test/shopping_cart_r9_c11.jpg")}
     .order_info_details{:style=>"display:none;"}
+      姓名：
+      %font.input_name
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>" margin-right:20px;"}
+      手机号码：
+      %font.input_phone
       %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8"}
-        姓名：
-        %font.input_name
-      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>" margin-left:20px;"}
-        手机号码：
-        %font.input_phone
     .line
     %h1
       %span.shopping_black14 您的车辆信息：
@@ -54,7 +54,7 @@
         = select_tag "car_model_id", options_for_select([['车型', -1]])
       %h4
         %a
-          %img.select_car_info{:src=> asset_path("test/shopping_cart_r9_c12.jpg")}
+          %img.select_car_info{:src=> asset_path("test/shopping_cart_r9_c12.jpg"),:style=>"margin-bottom:10px;"}
     .order_info_details.order_info_details_1{:style=>"display:none"}
       %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8"}
         车辆品牌：
@@ -157,10 +157,26 @@
     $("#input_name_and_phone").click(function(){
       var name= $("#textfield_name").val();
       var phone= $("#textfield_phone").val();
+
+      if( name=="" || name== null || name == " "){
+        alert("请输入姓名！");
+        return;
+      }
+
+      isNum = /\d{11}/;
+      if( phone.length != 11){
+        alert("请输入正确长度手机号码！")
+        return;
+      }
+      if("false" == (isNum.test( phone).toString())){
+        alert("请输入正确手机号码！");
+        return;
+      }
+
       $(".input_name_and_phone_area").css("display","none");
       $(".order_info_details:first").css("display","block");
-      $(".input_name").text("name");
-      $(".input_phone").text("phone");
+      $(".input_name").text(name);
+      $(".input_phone").text(phone);
 
       $("#selected_name").attr("value", name);
       $("#selected_phone").attr("value", phone);

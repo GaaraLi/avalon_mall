@@ -68,7 +68,7 @@ class HomeController < ApplicationController
   end
 
   def search_service( key)
-    MallGood.where("title like '%#{key}%'").onsale
+    MallGood.where("title like '%#{key}%'").order(" id DESC").onsale
   end
 
   def research_goods_by_category

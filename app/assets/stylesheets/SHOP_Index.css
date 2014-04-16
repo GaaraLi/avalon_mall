@@ -1227,15 +1227,6 @@ a#p_price_menu:hover {
 
 /*2014-2-23新加样式 goods 模版样式*/
 /*第一部分*/
-.wrap .main_goods_box {
-	width: 958px;
-	height: 460px;
-	border: 1px solid #cdcdcd;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	background-color: #FFFFFF;
-	box-shadow: 2px 2px 2px #E9E9E9;
-}
 .header_position {
 	background-image: url(../images/goods_bodyBG.gif);
 	background-repeat: repeat-x;
@@ -1372,15 +1363,6 @@ a#p_price_menu:hover {
 	font-family: Arial, Helvetica, sans-serif;
 	padding-left:15px;
 	color:#999999;
-}
-.main_goods_operation h5 {
-	display: block;
-	padding-top: 5px;
-	height: 50px;
-	background-color: #F7F7F7;
-	padding-bottom: 5px;
-	margin-top: 10px;
-	width: 620px;
 }
 .main_goods_operation input {
 	height: 20px;
@@ -1595,12 +1577,6 @@ a#p_pricemenu:hover {
 	width: 707px;
 	background-color: #FFFFFF;
 	border: 1px solid #e5e5e5;
-}
-.main_goods_R .main_goods_tab {
-	line-height: 40px;
-	background-color: #F8F8F8;
-	height: 40px;
-	font-size: 16px;
 }
 .main_goods_tab a.on {
 	display: block;

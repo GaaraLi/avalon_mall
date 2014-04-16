@@ -1,78 +1,193 @@
-%div{:class=>"header_position"}
-  %div{:class=>"postiton_txt m"}
-    %a{:href=>"#",:target=>"_blank"}我的享车网
-    %span &nbsp;&nbsp;>&nbsp;&nbsp;
-    %a{:href=>"#",:target=>"_blank"}消费记录 
-    %span &nbsp;&nbsp;>&nbsp;&nbsp;
-    %a{:href=>"#",:target=>"_blank"}我的订单
-%div{:class=>"wrap"}
-  %div{:class=>"main_box path01",:style=>"background-color:#FFFFFF"}
+%script{:language=>"javascript",:type=>"text/javascript",:src=>"/My97DatePicker/WdatePicker.js"}
+
+
+%div{:class=>"my_center_box"}
+  %div{:class=>"shopping_cart_title"}
+    %a{:href=>"#",:target=>"_blank"}我的享车网 
+    &gt;
+    %a{:href=>"#",:target=>"_blank"}个人中心
+    &gt; 
+    %strong 账户管理 
+  %div{:class=>"my_center_left"}
     = render 'center/menu.html'
-    %div{:class=>"main_userbox_R",:style=>"margin-left:200px"}
-      %div
-        %div{:align=>"center"}
-          我的订单  
-          %br
-          %a{:href=>"tencent://message/?uin=1946936437"}
-          享车网客服
-        %br
-        这里是您在享车网的所有订单列表，您可以按照不同条件进行查找/搜索，或者是申请取消订单。
-        享车网非常希望得到您对每一笔订单的评价，这对于我们服务质量的提升有很大的帮助。请您在消费结束后对该订单做出客观公正的评价。每一次评价，享车网将赠送您10个金币的积分。享车网积分如何使用？
-        %br
-        %hr
-        %br
-        未付款 已付款
-        %table{:border=>"1",:cellpadding=>"0",:cellspacing=>"0"}
-          %tr
-            %th{:style=>"width:200px"} 订单商品
-            %th{:style=>"width:100px"} 单价(元)
-            %th{:style=>"width:100px"} 数量
-            %th{:style=>"width:100px"} 实付总款
-            %th{:style=>"width:300px"} 提货码
 
-            %th{:style=>"width:50px"} 操作
-          - @orders.each do |order|
-            %tr 
-              %td{:colspan=>"5"}
-                订单号：
-                =order.order_no
-                &nbsp;&nbsp;&nbsp;&nbsp; 
-                下单时间：
-                =order.created_at.strftime("%Y-%m-%d %H:%M:%S")
-                &nbsp;&nbsp;&nbsp;&nbsp; 
-                状态：
-                - if order.status == 1
-                  已付款
-                - else 
-                  未付款
-              %td 
+  %div{:class=>"my_center_right"}
+    %div{:class=>"my_center_details"}
+      %div{:class=>"my_center_title"}我的订单
+      %div{:class=>"order_info_words"}
+        这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表
+      %div{:class=>"my_center_title2"}
+        全部订单
+      %div{:class=>"order_info_title"}
+        %font{:style=>"margin-left:100px"}订单信息
+        %font{:style=>"margin-left:150px"}服务车行
+        %font{:style=>"margin-left:80px"}单价
+        %font{:style=>"margin-left:30px"}数量
+        %font{:style=>"margin-left:25px"}实付总额
+        %font{:style=>"margin-left:70px"}操作     
+
+      - @orders.each do |order|
+        %div{:class=>"order_list"}
+          %table{:width=>"818px",:border=>"0px",:cellpadding=>"0px",:cellspacing=>"1px",:bgcolor=>"#EAEAEA"}
+            %tr
+              %td{:height=>"20px",:colspan=>"6",:align=>"left",:valign=>"middle" ,:bgcolor=>"#F3F3F3"}
+                %table{:width=>"361px",:border=>"0px",:cellspacing=>"10px",:cellpadding=>"0px"}
+                  %tr
+                    %td{:align=>"right"}订单编号：
+                    %td{:align=>"left",:class=>"Red"}=order.order_no
+                    %td 下单时间：#{order.created_at.strftime("%Y-%m-%d %H:%M:%S")}
+            - @lines = get_order_lines(order.id.to_s);
             - @i = 0;
-            - order.mall_order_lines.each do |line|
-              %tr 
-                %td=line.mall_sku.mall_good.title+"-"+line.mall_sku.desc
-                %td=(line.original_price/line.quantity).to_s+"元"
-                %td=line.quantity.to_s+"件"
+            - @lines.each do |line|
+              %tr
+                %td{:width=>"303px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}
+                  %table{:width=>"300px",:border=>"0px",:cellpadding=>"0px",:cellspacing=>"10px"}
+                    %tr
+                      %td{:width=>"52px"}
+                        %table{:width=>"50px",:border=>"0px",:align=>"center",:cellpadding=>"0px",:cellspacing=>"1px",:bgcolor=>"#CCCCCC"}
+                          %tr
+                            %td{:height=>"50px",:align=>"left",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}
+                              %a{:href=>"#",:target=>"_blank",:class=>"good_name_wz"}
+                                %img{:src=>"#{line['logo_url1']}",:alt=>"",:width=>"50px",:height=>"50px"}
+                   
+                      %td
+                        %a{:href=>"#",:target=>"_blank",:class=>"good_name_wz"}=line['title']+"-"+line['desc']
+                   
+                %td{:align=>"center",:valign=>"middle",:bgcolor=>"#FFFFFF"}
+                  %a{:href=>"/vendors/#{line['v_id']}",:target=>"_blank"}=line['v_name']
+
+                %td{:width=>"76px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}￥ #{line['price']/line['quantity']}
+
+                %td{:width=>"42px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}1件
+
                 - if @i == 0
-                  %td{:rowspan=>"3"}=order.price.to_s+"元"
-                %td 
-                  - line.mall_exchanges.each do |ex|
+                  %td{:width=>"89px",:rowspan=>"#{@lines.count}",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}
+                    %strong{:class=>"good_total_wz14"}￥#{order.price}
 
-                    - @order_time = ex.order_time
-                    - if @order_time == nil 
-                      - @order_time = ""
+                %td{:width=>"160px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}
+                  %table{:width=>"134px",:border=>"0px",:cellspacing=>"5px",:cellpadding=>"0px"}
+                    - if line["used_time"].present?
+                      %tr
+                        %td{:height=>"30px",:align=>"center",:valign=>"middle"}=line["used_time"].strftime("%Y-%m-%d %H:%M:%S")+" 已使用"
+                    - else
+                      %tr
+                        %td{:height=>"30px",:align=>"center",:valign=>"middle",:class=>"Red"}  兑换码：#{line['exchange_code_number']}
+                      - if line["order_time"].present?
+                        %tr
+                          %td{:height=>"30px",:align=>"center",:valign=>"middle"}
+                            #{line["order_time"]}
+                            %a{:onclick=>"show_time(#{line['me_id']});",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改
+                      - else
+                        %tr
+                          %td{:height=>"30px",:align=>"center",:valign=>"middle"}
+                            %a{:onclick=>"show_time(#{line['me_id']});"}
+                              %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px"}
 
-                    - if ex.status != 1
-                      %p=ex.exchange_code_number.to_s+"（未使用）"+@order_time
-                    - else 
-                      %p=ex.exchange_code_number.to_s+"（已使用）"+@order_time
-                  - if @i == 0 
-                    %td{:rowspan=>"3"} 退款
-              - @i=@i+1;
-            
+            %div{:class=>"pagebar"}
+              <!--当分页未到达末尾页时 -->
+              %div{:class=>"page-bottom right"}
+                %span{:class=>"page_start"}
+                <!--A 标签 class="page_curOn" 为当前页选中样式 -->
+                <a href="#" class="page_curOn">1</a>
+                <a href="#" class="page_cur">2</a>
+                <a href="#" class="page_cur">3</a>
+                <a href="#" class="page_cur">4</a>
+                <a href="#" class="page_cur">5</a>
+                <!--当分页大于5 则选用 <span class="page_omit"> -->
+                <span class="page_omit">...</span>
+                <a href="#" class="next">下一页</a>          
+              </div>
+              <!--当分页到达末尾页时 -->
+              <div class="page-bottom right" style="display:none">
+                <a href="#" class="back">上一页</a>
+                <!--当分页大于5 则选用 <span class="page_omit"> -->
+                <span class="page_omit">...</span>
+                <!--A 标签 class="page_curOn" 为当前页选中样式 -->
+                <a href="#" class="page_cur">96</a>
+                <a href="#" class="page_cur">97</a>
+                <a href="#" class="page_cur">98</a>
+                <a href="#" class="page_cur">99</a>
+                <a href="#" class="page_curOn">100</a>
+                <span class="page_startR"></span>
 
-        
 
-             
+              -@i = @i+1;
+%div{:id=>"time_div",:align=>"center",:style=>"position:absolute;left:0px;top:0px; width:100%;height:2300px;background-color:black;filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity: 0.85; opacity: 0.85;display:none"}
+%div{:id=>"time_input",:style=>"position:absolute;top:400px;left:32%;background-color:#ffffff;width:450px;height:150px;filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);-moz-box-shadow: 5px 5px 10px #000000;-webkit-box-shadow: 5px 5px 10px #000000;box-shadow:5px 5px 10px #000000;display:none"}
+  %div{:style=>"background-color:#5d83b3;height:25px;padding:3px;",:align=>"left"}   
+    %font{:id=>"time_font",:color=>"#ffffff",:style=>"font-size:16px;"} &nbsp;&nbsp;预约时间
+    %a{:style=>"cursor:pointer;float:right;margin-right:5px;font-size:16px;color:#ffffff",:onclick=>"close_time();"} x   
+  %div{:style=>"margin-left:0px"}
+    %br
+      %font{:style=>"font-size:14px"} 预约时间：
+      %input{:class=>"Wdate",:id=>"time",:type=>"text",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"}
+    %br 
+      %a{:type=>"button",:value=>"确  定",:class=>"good_name_wz",:style=>"font-size:14px;cursor:pointer",:onclick=>"update_order_time();"}确  定
+      %a{:type=>"button",:value=>"取  消",:class=>"good_name_wz",:style=>"margin-left:50px;font-size:14px;cursor:pointer",:onclick=>"close_time();"}取  消
+      %input{:type=>"hidden",:id=>"h_id"}
 
 :javascript
-  
+  function update_order_time()
+  {
+    if(!confirm("是否需要预约？"))
+    {
+      return false;
+    }
+
+    var h_id = $("#h_id").val();
+    var time = $("#time").val();
+    
+    if(time.replace(/[ ]/g,"") == "")
+    {
+      alert("请输入预约时间");
+      return false;
+    }
+
+    if(h_id.replace(/[ ]/g,"") == "")
+    {
+      alert("商品预约ID未找到");
+      return false;
+    }
+
+    $.ajax
+    ({
+      url:'update_order_time',type:'get',
+      data:"time="+encodeURI(time)+"&h_id="+h_id,
+      dataType:'text',
+      success:function(msg)
+      {
+        var json_msg = eval('(' + msg + ')');
+        if(json_msg.flag == "1")
+        {
+          alert(json_msg.content);
+          window.location.reload();
+        }
+        else
+        {
+          alert(json_msg.content);
+        }
+      }
+      ,
+      error:function()
+      {
+        alert("预约功能异常");
+      }
+    });
+  }
+
+  function show_time(id)
+  {
+    $("#time").val("");
+
+    $("#h_id").val(id);
+
+    $("#time_input").css("top",$(document).scrollTop()+150+"px");
+    $("#time_div").show();
+    $("#time_input").show();
+  }
+
+  function close_time()
+  {
+    $("#time_div").hide();
+    $("#time_input").hide();
+  }

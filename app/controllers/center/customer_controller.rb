@@ -8,10 +8,25 @@ class Center::CustomerController < CenterCustomerController
     @orders = MallOrder.where("customer_id="+current_customer.id.to_s);
   end
 
+  def update_order_time
+    @h_id = params[:h_id];
+    @time = URI.unescape(params[:time]);
+    if MallExchange.find(@h_id).update_attributes(:order_time=>@time)
+      render :text => '{"flag":"1","content":"预约成功"}'; 
+    else
+      render :text => '{"flag":"0","content":"预约失败"}'; 
+    end
+  end
+
   def account_info
   	@customer = current_customer;
   	@card = @customer.card;
   	@car = @customer.car;
+    get_wash_info();
+  end
+
+  def update_pwd
+    
   end
 
   def update_cus_pwd
@@ -24,8 +39,8 @@ class Center::CustomerController < CenterCustomerController
     end
 
     @cus = Customer.find(current_customer.id);    
-    @cus.password='userpassword'
-    @cus.password_confirmation='userpassword'
+    @cus.password=@pwd
+    @cus.password_confirmation=@pwd
     if @cus.save 
       render :text => '{"flag":"1","content":"修改密码成功"}'  
       return;
@@ -112,7 +127,25 @@ class Center::CustomerController < CenterCustomerController
     @block_contact_us = MallBlock.where("id = 35");
   end
 
+
   private
+
+  def get_wash_info
+    @today = Time.new.strftime("%Y-%m-%d");
+    @days = (Time.now.strftime("%Y-%m-%d").to_date - current_customer.card.activated_date.strftime("%Y-%m-%d").to_date).to_i
+    @renewal = Renewal.find(:all,:conditions=>["customer_id = ? and renewal_start <= ? and renewal_end >= ?",current_customer.id,@today,@today]);
+    #在此卡有效期内本月 本应可以洗多少次(不算已洗次数)
+    @total_month_count = get_total_month_count(@renewal[0].renewal_start,@today);
+    #在此卡有效期内一共洗了多少次
+    @used_month_count = get_used_month_count(current_customer.card.id,@renewal[0].renewal_start,@today);
+
+    @this_month_wash = 0;
+    if @total_month_count - @used_month_count > 0
+      @this_month_wash = @total_month_count - @used_month_count;      
+    end
+    @consumption_records = current_customer.card.vendor_binding_record.consumption_records.order("created_at desc");  
+  end
+
   def get_total_month_count (start_time , end_time);
     @today_month = end_time.to_s.split("-");
     @start_month = start_time.to_s.split("-");

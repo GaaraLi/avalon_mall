@@ -1,0 +1,90 @@
+%div{:class=>"my_center_box"}
+  %div{:class=>"shopping_cart_title"}
+    %a{:href=>"#",:target=>"_blank"}我的享车网
+    &gt;
+    %a{:href=>"#",:target=>"_blank"}个人中心
+    &gt; 
+    %strong 账户管理
+  %div{:class=>"my_center_left"}
+    = render 'center/menu.html'
+
+  %div{:class=>"my_center_right"}
+    %div{:class=>"my_center_details"}
+      %div{:class=>"my_center_title"}修改密码
+      %div{:class=>"my_center_details_left"}
+        %li 原始密码：
+        %li 最新密码：
+        %li 再次确认：
+      
+      %div{:class=>"my_center_details_right"}
+        %li 
+          %input{:type=>"password",:name=>"old_pwd",:id=>"old_pwd",:style=>"border:1px solid grey"}
+        %li
+          %input{:type=>"password",:name=>"pwd",:id=>"pwd",:style=>"border:1px solid grey"}
+        %li
+          %input{:type=>"password",:name=>"re_pwd",:id=>"re_pwd",:style=>"border:1px solid grey"}
+        
+      %table{:width=>"62%",:border=>"0px",:align=>"left",:cellpadding=>"0px" ,:cellspacing=>"10px"}
+        %tr
+          %td{:height=>"50px",:align=>"center",:valign=>"middle"}
+            %a{:target=>"_blank",:onclick=>"update_password()",:style=>"cursor:pointer"}
+              %img{:src=>asset_path("test/queren.jpg"),:width=>"208px",:height=>"32px",:alt=>""}
+    
+%div{:class=>"my_center_box",:style=>"height:10px"}
+
+
+:javascript
+  function update_password()
+  {
+    var pwd = $("#pwd").val();
+    var re_pwd = $("#re_pwd").val();
+    var old_pwd = $("#old_pwd").val();
+    
+    if(old_pwd == "")
+    {
+      alert("请输入原始密码");
+      return;
+    }
+   
+    if(pwd == "")
+    {
+      alert("请输入最新密码");
+      return;
+    }
+    if(pwd.length < 8)
+    {
+      alert("请输入最少8位最新密码");
+      return;
+    }
+    if(re_pwd != pwd)
+    {
+      alert("两次密码不一致");
+      return;
+    }
+   
+    $.ajax
+    ({
+      url:'update_cus_pwd',type:'post',
+      data:"pwd="+encodeURI(pwd)+"&old_pwd="+encodeURI(old_pwd)+"&",
+
+      dataType:'text',
+      success:function(msg)
+      {
+        var json_msg = eval('(' + msg + ')');
+        if(json_msg.flag == "1")
+        {
+          alert(json_msg.content);
+          window.location.reload();
+        }
+        else
+        {
+          alert(json_msg.content);
+        }
+      }
+      ,
+      error:function()
+      {
+        alert("修改密码异常");
+      }
+    });
+  }

@@ -1,40 +1,31 @@
-%div{:class=>"header_position"}
-  %div{:class=>"postiton_txt m"}
+%div{:class=>"my_center_box"}
+  %div{:class=>"shopping_cart_title"}
     %a{:href=>"#",:target=>"_blank"}我的享车网
-    %span &nbsp;&nbsp;>&nbsp;&nbsp;
-    %a{:href=>"#",:target=>"_blank"}消费记录 
-    %span &nbsp;&nbsp;>&nbsp;&nbsp;
-    %a{:href=>"#",:target=>"_blank"}洗车记录
-%div{:class=>"wrap"}
-  %div{:class=>"main_box path01",:style=>"background-color:#FFFFFF"}
+    &gt;
+    %a{:href=>"#",:target=>"_blank"}个人中心
+    &gt; 
+    %strong 账户管理
+  %div{:class=>"my_center_left"}
     = render 'center/menu.html'
-    %div{:class=>"main_userbox_R",:style=>"margin-left:200px"}
-      %div
-        %div{:align=>"center"}
-          洗车记录
-          %br
-          在过去的#{@days}天中，您已经洗车#{@consumption_records.count}次，本月您还能洗车#{@this_month_wash}次，总剩余洗车次数：#{12-@used_month_count}次。 
-        %br
-        %hr
-        %br
 
-        %table{:border=>"1",:cellpadding=>"0",:cellspacing=>"0"}
+
+  %div{:class=>"my_center_right"}
+    %div{:class=>"my_center_details"}
+      %div{:class=>"my_center_title"}车行洗车记录
+      %table{:width=>"770px",:border=>"0px",:align=>"center",:cellpadding=>"0px",:cellspacing=>"1px",:bgcolor=>"#CCCCCC"}
+        %tr
+          %td{:height=>"40px",:align=>"center",:valign=>"middle", :bgcolor=>"#FDF3EA"}序号
+          %td{:height=>"40px",:align=>"center",:valign=>"middle", :bgcolor=>"#FDF3EA"}服务项目
+          %td{:height=>"40px",:align=>"center",:valign=>"middle", :bgcolor=>"#FDF3EA"}车行
+          %td{:height=>"40px",:align=>"center",:valign=>"middle", :bgcolor=>"#FDF3EA"}消费时间
+        - @i = 0;
+        - @consumption_records.each do |consumption_record|
+          - @i=@i+1
           %tr
-            %th{:style=>"width:100px"} 序号   
-            %th{:style=>"width:100px"} 服务
-            %th{:style=>"width:200px"} 商家
-            %th{:style=>"width:200px"} 时间
-          - @i = 0;
-          - @consumption_records.each do |consumption_record|
-            - @i=@i+1
-            %tr
-              %td=@i
-              %td 普通洗车
-              %td=consumption_record.vendor.name
-              %td=consumption_record.created_at.strftime("%Y-%m-%d %H:%M:%S")
-          
+            %td{:height=>"35px",:align=>"center",:valign=>"middle", :bgcolor=>"#FFFFFF"}=@i
 
-             
+            %td{:height=>"35px",:align=>"center",:valign=>"middle", :bgcolor=>"#FFFFFF"} 普通洗车
 
-:javascript
-  
+            %td{:height=>"35px",:align=>"center",:valign=>"middle", :bgcolor=>"#FFFFFF"}=consumption_record.vendor.name
+
+            %td{:height=>"35px",:align=>"center",:valign=>"middle", :bgcolor=>"#FFFFFF"}=consumption_record.created_at.strftime("%Y-%m-%d %H:%M:%S")

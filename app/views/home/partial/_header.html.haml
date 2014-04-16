@@ -1,7 +1,7 @@
 .header
   .header_Box.m
     %a{:href=> root_path}
-      %p.logo.left{:style=>"background-image: url('"+asset_path("test/home_r7_c1.gif")+"');"}
+      %p.logo.left{:style=>"background-image: url('"+asset_path("test/home_r7_c1.jpg")+"');"}
     .search.left
       %h3
         %span#search_service.s_down{:style=>" cursor:pointer"} 搜服务
@@ -15,7 +15,7 @@
             %input.s1{:style=>"background-image: url('"+asset_path("test/home_r4_c10.gif")+"');", :name=>"submit", :type=>"submit",:value=>""}
     %h3.shop_car.left
       %a#shop_car{ :href=> customers_shopping_car_path ,:target=>"_blank", :title=>"进入购物车进行结算",:style=>" background-image: url('"+asset_path("test/home_r4_c1.gif")+"'); margin-left:30px;"}
-        -if get_shopping_car_qty!=0
+        -if get_shopping_car_qty != 0
           %s{:style=>"  background-image: url('"+asset_path("test/home_r4_c8.gif")+"');"}
             =get_shopping_car_qty
 

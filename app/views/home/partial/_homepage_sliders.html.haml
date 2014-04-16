@@ -1,5 +1,5 @@
 .IndexContentMain{:style=>"height:320px; overflow:hidden;width:550px;"}
-  .indexBanner{:style=>"margin-top:2px; margin-left:5px;"}
+  .indexBanner{:style=>"margin-top:5px; margin-left:5px;"}
     #indexBannerdatouwang.datouwang
       %ul.imgList{:style=>" position: absolute;left:0px;"}
         -@homepage_sliders.each do |slider|
@@ -14,20 +14,20 @@
 
 
 :javascript
+  function init_slider(){
+    $(".BtnimgList").mouseover();
+    $(".BtnimgList").mouseout();
+  }
+
+  setTimeout("init_slider()",1000);
 
   $(function() {
+    $(".BtnimgList").mouseover();
+    //$(".thumb_pic").mouseout();
 
     var maxShowedBanner = 1, currentBanner = 1,
         maxBannerNum = 7, datouwang = $(".indexBanner"),
         bsObj, bannerShelf, replaceStart = false, replaced = false;
-
-    Common.AjaxCombiner.addCall({ type: "GET", url: "GetFirstShelf",
-        success: function(result){
-            bannerShelf = result ? result : "hot";
-            Common.PubSub.publish("UserStat/Shelf", { shelf: bannerShelf });
-            datouwang.trigger("cust:replace");
-        }
-    });
 
     $(function () {
         datouwang.bannerSlider({

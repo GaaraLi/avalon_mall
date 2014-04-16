@@ -16,16 +16,6 @@ body {
 .clear {
 	   clear:both
 }
-/*top*/
-.top {
-	font-size: 12px;
-	height: 31px;
-	background-image: url(../images/Index_BodyBG.gif);
-	background-repeat: repeat-x;
-	background-position: 0px 0px;
-	color:#666666;
-	overflow: hidden;
-}
 .top .topBox {
 	height: 31px;
 	width: 940px;
@@ -42,11 +32,6 @@ body {
 	padding-right: 15px;
 }
 /*header*/
-.header {
-	height: 110px;
-	overflow: hidden;
-	background-color: #FFFFFF;
-}
 .header .header_Box {
 	height: 75px;
 	width: 930px;
@@ -280,7 +265,7 @@ background: #FF7700;
 	background-color: #FFFFFF;
 }
 .shop_activities h3 {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -225px -414px;
 	height: 35px;
@@ -303,7 +288,7 @@ background: #FF7700;
 	height: 18px;
 }
 .shop_news h3 {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -225px -451px;
 	height: 35px;
@@ -351,7 +336,7 @@ background: #FF7700;
 	padding-left:15px;
 }
 #prev {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -445px -355px;
 	height: 40px;
@@ -361,7 +346,7 @@ background: #FF7700;
 	margin-top:30px;
 }
 #next {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -468px -355px;
 	height: 40px;
@@ -427,32 +412,6 @@ background: #FF7700;
 	border-bottom-width: 0px;
 	border-left-width: 0px;
 }
-.part_03 .cars_tui {
-	height: 305px;
-	margin-top: 6px;
-	border-right-width: 1px;
-	border-left-width: 1px;
-	border-bottom-width: 1px;
-	border-right-style: solid;
-	border-left-style: solid;
-	border-bottom-style: solid;
-	border-right-color: #e6e6e6;
-	border-left-color: #e6e6e6;
-	border-bottom-color: #e6e6e6;
-	background-color: #FFFFFF;
-}
-.cars_tui .part03line {
-	background-image: url(../images/LineBG.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px -8px;
-	margin: 0px;
-	padding: 0px;
-	height: 2px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-}
 .cars_tui .part_carli {
 	height: 235px;
 	padding-top: 5px;
@@ -485,7 +444,7 @@ background: #FF7700;
 	padding-top: 10px;
 }
 a#qukankan {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -152px -115px;
 	display: block;
@@ -493,7 +452,7 @@ a#qukankan {
 	width: 48px;
 }
 a#qukankan:hover {
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -152px -140px;
 	display: block;
@@ -560,7 +519,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -181px;
 }
@@ -568,7 +527,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -223px;
 }
@@ -576,7 +535,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -266px;
 }
@@ -584,7 +543,7 @@ a#qukankan:hover {
 	width: 38px;
 	height: 38px;
 	display:block;
-	background-image: url(../images/Index_BodyBG.gif);
+	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: -368px -309px;
 }
@@ -797,18 +756,6 @@ a#qukankan:hover {
 	border-left-color: #e6e6e6;
 	border-bottom-color: #e6e6e6;
 	background-color: #FFFFFF;
-}
-.cars_tui .part03line {
-	background-image: url(../images/LineBG.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px -8px;
-	margin: 0px;
-	padding: 0px;
-	height: 2px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
 }
 .cars_tui .part_carli {
 	height: 235px;
@@ -1239,9 +1186,9 @@ a#qukankan:hover {
 	padding-bottom: 15px;
 }
 .main_product .main_company_products .main_products_li {
-	background-image: url(../images/brandBodyBG.gif);
+#	background-image: url(../images/brandBodyBG.gif);
 	background-repeat: no-repeat;
-	background-position: -257px 0px;
+#	background-position: -257px 0px;
 	height: 290px;
 	width: 223px;
 	padding: 10px;
@@ -1280,15 +1227,6 @@ a#p_price_menu:hover {
 
 /*2014-2-23新加样式 goods 模版样式*/
 /*第一部分*/
-.wrap .main_goods_box {
-	width: 958px;
-	height: 460px;
-	border: 1px solid #cdcdcd;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	background-color: #FFFFFF;
-	box-shadow: 2px 2px 2px #E9E9E9;
-}
 .header_position {
 	background-image: url(../images/goods_bodyBG.gif);
 	background-repeat: repeat-x;
@@ -1426,15 +1364,6 @@ a#p_price_menu:hover {
 	padding-left:15px;
 	color:#999999;
 }
-.main_goods_operation h5 {
-	display: block;
-	padding-top: 5px;
-	height: 50px;
-	background-color: #F7F7F7;
-	padding-bottom: 5px;
-	margin-top: 10px;
-	width: 620px;
-}
 .main_goods_operation input {
 	height: 20px;
 	width: 25px;
@@ -1442,22 +1371,6 @@ a#p_price_menu:hover {
 	line-height: 15px;
 	text-align: center;
 	background-color: #F5F5F5;
-}
-.main_goods_type1{
-	height: 30px;
-	width: auto;
-	border: 2px solid #FF3300;
-	line-height: 31px;
-	text-align: center;
-	background-color: #FFFFFF;
-	background-image: url(../images/goods_type.png);
-	background-repeat: no-repeat;
-	background-position: right bottom;
-	margin-left: 10px;
-	float: left;
-	padding-right: 5px;
-	padding-left: 5px;
-	margin-top: 5px;
 }
 .main_goods_type2{
 	height: 30px;
@@ -1664,12 +1577,6 @@ a#p_pricemenu:hover {
 	width: 707px;
 	background-color: #FFFFFF;
 	border: 1px solid #e5e5e5;
-}
-.main_goods_R .main_goods_tab {
-	line-height: 40px;
-	background-color: #F8F8F8;
-	height: 40px;
-	font-size: 16px;
 }
 .main_goods_tab a.on {
 	display: block;

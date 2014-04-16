@@ -24,26 +24,26 @@
         %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 金额
         %td(width="8%" height="30" align="center" bgcolor="#F7F7F7") 操作
       -@cart_list.each_with_index do |l,index|
-        %tr
-          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+        %tr.set_tr_color
+          %td(height="100" align="center" valign="middle" )
             - if l.mall_sku.mall_inventory.inventory_qty<0
               %input.good_check_box#good_111( type="checkbox" name="checkbox2" style="display:none;" )
             -else
               %input.good_check_box#good_111( type="checkbox" name="checkbox2" )
             %input#hidden_in_checkbox{:type=>"hidden",:value=>l.id }
-          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+          %td(height="100" align="center" valign="middle" )
             .good_pic
               %img{ :src=> l.mall_sku.mall_good.logo_url1, :width=>"50" ,:height=>"50"}
-          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+          %td(height="100" align="center" valign="middle" )
             .shopping_good_name(style="color:#0066FF")
               %a.good_name_wz
                 =l.mall_sku.mall_good.title
-          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+          %td(height="100" align="center" valign="middle" )
             %a
               =l.mall_sku.mall_good.vendor.name if l.mall_sku.mall_good.vendor
-          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+          %td(height="100" align="center" valign="middle" )
             =current_customer.get_price( l.mall_sku)
-          %td(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+          %td(height="100" align="center" valign="middle" )
             %table( width="100%" border="0" cellspacing="3")
               %tr
                 %td(width="25%" align="center")
@@ -53,14 +53,14 @@
                     =l.quantity
                 %td(width="35%" align="center")
                   %img.increase_btn{:src=> asset_path("test/shopping_cart_r4_c15.jpg"),:width=>"15" ,:height=>"15",:value=>index}
-          %td#mall_inventory{ :height=>"100", :align=>"center", :valign=>"middle", :bgcolor=>"#FDF3EA", :value=> l.mall_sku.mall_inventory.inventory_qty }
+          %td#mall_inventory{ :height=>"100", :align=>"center", :valign=>"middle",  :value=> l.mall_sku.mall_inventory.inventory_qty }
             - if l.mall_sku.mall_inventory.inventory_qty<0
               %p.Red 售磬
             -else
               =l.mall_sku.mall_inventory.inventory_qty
-          %td.good_total_wz14.good_price(height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+          %td.good_total_wz14.good_price(height="100" align="center" valign="middle" )
             =l.price
-          %td( height="100" align="center" valign="middle" bgcolor="#FDF3EA")
+          %td( height="100" align="center" valign="middle" )
             %a.del_shopping_car{ :value=> l.id} 删除
       %input#hidden_for_ids{:type =>"hidden"}
       %tr
@@ -79,7 +79,7 @@
           %hr
       %tr
         %td( width="170" colspan="7" align="right")
-          %a#continue_shopping{ :href=>root_path, :title=>"继续购物"}
+          %a#continue_shopping{ :href=>root_path, :title=>"继续购物",:style=>"margin-top:10px; margin-bottom:10px; "}
             %img{:src=> asset_path("test/shopping_cart_r8_c17.jpg"),:width=>"104", :height=>"36", :border=>"0",:style=>"" }
         %td( width="170" colspan="2" align="right")
           =form_tag('/customers/order_page', method: :GET ,:class=>'go_to_submit' ) do
@@ -88,6 +88,8 @@
 
 
   :javascript
+    $(".set_tr_color:odd").attr("bgcolor","#F0FAFF");
+    $(".set_tr_color:even").attr("bgcolor","#FDF3EA");
 
     $(".decrease_btn").click(function(){
        var m= $(this).attr("value");
@@ -153,14 +155,9 @@
     });
 
     $("#checkbox_all").click(function(){
-      if($(this).prop('checked')){
-        $(".good_check_box:visible").each(function(){
-          this.checked= true;
-        });
-
-      }else{
-        $(".good_check_box").attr("checked",false);
-      }
+      $(".good_check_box:visible").each(function(){
+        this.click();
+      });
     });
 
     function check_inventory(){
@@ -173,7 +170,6 @@
       var new_quantities=[];
       
       var all_quantity= $(".quantity_number_input").text();
-      alert( all_quantity);
       var RequestUrl="/customers/check_inventory";
       $.ajax({
         url:RequestUrl,

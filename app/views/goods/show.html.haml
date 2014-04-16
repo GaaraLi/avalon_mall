@@ -46,32 +46,37 @@
         %span{:style=>"color:#999999; font-size:14px;"} (已激活会员价格)
       %h4
         -@good_sku.each do |s|
-          .main_goods_type2{:value=> s.id,:style=>"font-size:14px;"}
+          .main_goods_type2#main_goods_sku{:value=> s.id,:style=>"font-size:14px; cursor:pointer;"}
             =s.desc if s
       %h5
         %table( width="600" border="0" cellspacing="5" cellpadding="0" align="center" bgcolor="white")
           %tr
-            %td(  width="95" height="33") 购买数量：
-            %td( style="margin-left:10px;")
-              %button#button_decrease( width="10" height="20") -
-            %td(  width="25")
-              %input#quantity_input( type="text" name="quantity_textfield" value="1" style="width:55px;margin-left:-60px;")
+            %td(  width="95" height="33")
+              购买数量：
             %td
-              %button#button_increase( width="20" height="20" style="margin-left:-20px;") +
+              %img#button_decrease{:width=>"20", :height=>"20", :src=>asset_path("test/shopping_cart_r4_c12.jpg")} 
+            %td
+              %input#quantity_input( type="text" name="quantity_textfield" value="1" style="width:55px;margin-left:-50px;" disabled="disabled")
+            %td
+              %img#button_increase{:width=>"20", :height=>"20", :src=>asset_path("test/shopping_cart_r4_c15.jpg"),:style=>"margin-left:-15px;"} 
             %td
               库存仅剩
               %b.Red.mall_inventory=@good.mall_skus.first.mall_inventory.inventory_qty
               件
-      %h6
-        =form_tag('/customers/buy', method: :GET) do
-          %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
-          %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
-          =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:33px; cursor:pointer;", :title=>"立即购买",:id=>"goods_buymenu"
-        %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:200px; margin-top:-38px;"}
-      -if @good.service_info
-        %h7{:style=>"margin-top:-15px;"}
-          服务说明：
-        =@good.service_info
+          %tr
+            %td(colspan="5")
+              %h6
+                =form_tag('/customers/buy', method: :GET) do
+                  %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
+                  %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
+                  =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:33px; cursor:pointer; float:left;", :title=>"立即购买",:id=>"goods_buymenu"
+                %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:50px; float:left; "}
+          %tr
+            %td(colspan="5")
+              -if @good.service_info
+                %h7{:style=>"margin-top:-20px;"}
+                  服务说明：
+                =@good.service_info
   .main_box
     .main_goods_L.left
       .main_goods_garage_map
@@ -113,7 +118,6 @@
   .h_ad{:style=>"padding-top:10px;"}
     %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}
 
-
   :javascript
 
     $(".shown_image_thumb").mouseover(function(){
@@ -123,7 +127,9 @@
 
     $("#button_increase").click(function(){
       var value= $("#quantity_input").attr("value");
-      value=parseInt(value)+1;
+      if(value!=#{@good.mall_skus.first.mall_inventory.inventory_qty}){
+        value=parseInt(value)+1;
+      }
       $("#quantity_input").attr("value",value);
       $("#input_hidden").attr("value",value);
     });
@@ -167,6 +173,33 @@
       $(".main_goods_type2:first").addClass("main_goods_type1").removeClass("main_goods_type2");
     })
 
+    $("#main_goods_sku").click(function(){
+      $(".main_goods_type1").removeClass("main_goods_type1").addClass("main_goods_type2");
+      $(this).removeClass("main_goods_type2").addClass("main_goods_type1");
+      $("#input_hidden_sku").val( $(this).attr("value"));
+
+      var requestUrl= "/goods/set_sku_info";
+      var sku_id= $(".main_goods_type1").attr("value");
+
+      $.ajax({
+        url: requestUrl,
+        data: "sku_id="+sku_id,
+        contentType: "application/json; charset= utf-8;",
+        dataType: "json",
+        success: function( sku){
+        var show_price= "￥"+sku.show_price.toString();
+        $(".mall_good_show_price").text( show_price);
+
+        var customer_price= "￥"+sku.price.toString();
+        $(".mall_good_customer_price").text( customer_price);
+
+        var price= "￥"+sku.customer_price.toString();
+        $(".mall_good_price").text( price);
+
+        }
+      });
+    });
+
     $(".main_goods_type2").click(function(){
       $(".main_goods_type1").removeClass("main_goods_type1").addClass("main_goods_type2");
       $(this).removeClass("main_goods_type2").addClass("main_goods_type1");
@@ -191,7 +224,7 @@
         $(".mall_good_price").text( price);
 
         }
-      })
+      });
 
     })
 

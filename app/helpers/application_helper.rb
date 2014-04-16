@@ -31,13 +31,16 @@ module ApplicationHelper
       if current_customer
         @shopping_car_goods=MallShoppingCar.where("customer_id=#{current_customer.id}")
         @shopping_car_goods.each do |g|
-          @shopping_car_qty += g.quantity
+          if g.quantity != 0
+            @shopping_car_qty = g.quantity + @shopping_car_qty
+            puts g.quantity
+          end
         end
       end
       @shopping_car_qty
     end
 
     def get_rank_info
-    	@good_sale_rank= MallSku.order("sale_count DESC").limit(3)
+    	@good_sale_rank= MallSku.order("sale_count DESC").limit(5)
     end
 end

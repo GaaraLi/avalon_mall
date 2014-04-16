@@ -1,10 +1,10 @@
 .main_category_ranking
   %h3.Red
     %b 销量排行
-  .main_category_proranking
+  .main_category_proranking{:style=>"background-image:url('"+asset_path("test/category_lBG.jpg")+"')"}
     -get_rank_info.each_with_index do |r,index|
       - g=r.mall_good
-      .ranking_list
+      .ranking_list{:style=>"background-color:white;"}
         %p.left
           %img{ :src=>g.logo_url1, :width=>"60", :height=>"60"}
         %h4.left
@@ -19,3 +19,4 @@
               =r.price
         %span
           = index+1
+

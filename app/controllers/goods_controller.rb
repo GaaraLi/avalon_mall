@@ -5,6 +5,7 @@ class GoodsController < ApplicationController
       @page_title="#{@good.title}"
 
       @vendor= @good.vendor
+      @vendor_map= @vendor.to_json(:include => [:address], :methods => :main_photo)
       @good_sku= @good.mall_skus
 
       if (@good_sku[0] && current_customer)

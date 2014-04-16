@@ -2,7 +2,7 @@
   .shop_classbox2
     %a{:href=> home_card_path}
       %img{:src=>asset_path("test/shangcheng.png") , :width=>"206", :height=>"45", :border=>"0"}
-    %h1.shop_stornav2{:style=>"height:320px;"}
+    %h1.shop_stornav2{:style=>"height:275px;"}
       #accordion_homepage{:border=>"1px",:style=>"margin-top:-10px;"}
         -@first_class.each do |f|
           %h3.accordion_head{:style=>"margin-top:0px;"}
@@ -13,4 +13,4 @@
             .second_class_area
               -@second_class.each do |s|
                 -if s.parent_code == f.code
-                  =link_to s.name, ""
+                  =link_to s.name,home_search_path(:search_key=>s.id,:search_type=>"3",:submit=>"")

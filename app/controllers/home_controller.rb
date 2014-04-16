@@ -16,6 +16,7 @@ class HomeController < ApplicationController
 
 
     @nav_label_check= 1
+    @key= params[:search_key]
   end
 
   def about_us
@@ -47,6 +48,10 @@ class HomeController < ApplicationController
       @goods=MallGood.all.onsale
       @key_goods= @goods.page(params[:page])
       @page_title="全部商品"
+    elsif @flag==3
+      @page_title="产品搜索"
+      @goods= search_service_from_homepage(@key.to_i)
+      @key_goods= @goods.page(params[:page])
     end
 
     @good_hot_rec= MallBlock.where("mall_block_type_id=15")
@@ -54,12 +59,16 @@ class HomeController < ApplicationController
 
   end
 
+  def search_service_from_homepage(key)
+    MallGood.onsale.where("mall_category_id = #{key} ")
+  end
+
   def search_vendor( key)
     Vendor.onmall.where("name like '%#{key}%'")
   end
 
   def search_service( key)
-    MallGood.where("title like '%#{key}%'").onsale
+    MallGood.where("title like '%#{key}%'").order(" id DESC").onsale
   end
 
   def research_goods_by_category

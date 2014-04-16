@@ -8,7 +8,9 @@ IxcMall::Application.routes.draw do
     get 'consumption' => 'customer#consumption'
     get 'cash_account' => 'customer#cash_account'
     get 'add_withdraw_cash' => 'customer#add_withdraw_cash'
+    get 'update_pwd' => 'customer#update_pwd'
     get 'contact_us'=>'customer#contact_us'
+    get 'update_order_time'=>'customer#update_order_time'
   end
 
   get "vendors/index"

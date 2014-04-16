@@ -3442,3 +3442,236 @@ a#user_menuma:hover {
 	margin-left: 18px;
 	font-family: "微软雅黑";
 }
+
+
+
+/*2014.4.11个人中心页面*/
+.my_center_box{
+	width: 980px;
+	min-height:750px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}.my_center_left {
+	width: 150px;
+	float: left;
+	height: 550px;
+}
+.my_center_left_board {
+	height: 130px;
+	width: 150px;
+	background-color: #EEFAFF;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #9CD0E8;
+	font-size: 12px;
+	color: #333333;
+}
+.my_center_left_board h1 {
+	height: 35px;
+	width: 150px;
+	font-size: 16px;
+	color: #2E99C7;
+	line-height: 35px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.my_center_left_board h2 {
+	width: 130px;
+	float: left;
+	height: 25px;
+	line-height: 20px;
+	text-align: left;
+	margin-left: 10px;
+}
+.my_center_left_menu {
+	font-size: 12px;
+	width: 150px;
+	height: 140px;
+	float: left;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+}
+.my_center_left_menu h1 {
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+	line-height: 20px;
+	height: 22px;
+	float: left;
+	text-align: left;
+	text-indent: 8px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.my_center_left_menu h2 {
+	font-size: 12px;
+	color: #7F7F7F;
+	line-height: 20px;
+	float: left;
+	width: 100px;
+	height: 25px;
+	text-align: left;
+	text-indent: 22px;
+}
+.my_center_right {
+	float: right;
+	width: 820px;
+	height: 670px;
+}
+.account_info {
+	height: 130px;
+	background-color: #EEFAFF;
+	margin-bottom: 10px;
+	width: 818px;
+	float: left;
+	border: 1px solid #CCCCCC;
+}
+.account_info ul {
+	list-style-position: inside;
+	list-style-image: none;
+	list-style-type: none;
+	width: 220px;
+	float: left;
+	margin-left: 30px;
+	height: 110px;
+	padding-top: 15px;
+}
+.account_info li {
+	width: 215px;
+	float: left;
+	height: auto;
+	text-align: left;
+	color: #666666;
+	font-size: 12px;
+	line-height: 22px;
+	margin-top: 5px;
+}
+.my_center_details {
+	height: auto;
+	float: left;
+	width: 820px;
+	background-color: #FFFFFF;
+	padding-bottom: 50px;
+}
+.my_center_title {
+	width: 100%;
+	height: 30px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #9CD0E8;
+	font-size: 16px;
+	color: #666666;
+	line-height: 20px;
+	margin-top: 30px;
+	text-align: left;
+	text-indent: 20px;
+	float: left;
+	margin-bottom: 20px;
+}
+.my_center_title2 {
+	width: 100%;
+	height: 30px;
+	font-size: 18px;
+	color: #666666;
+	line-height: 20px;
+	margin-top: 30px;
+	text-align: left;
+	text-indent: 20px;
+	float: left;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.my_center_details_left {
+	height: auto;
+	float: left;
+	width: 200px;
+	margin-top: 10px;
+}
+.my_center_details_left li {
+	font-size: 12px;
+	line-height: 22px;
+	list-style-position: inside;
+	list-style-image: none;
+	list-style-type: none;
+	height: 30px;
+	float: right;
+	width: 140px;
+	text-align: right;
+}
+.my_center_details_right {
+	height: auto;
+	float: left;
+	width: 600px;
+	margin-top: 10px;
+}
+.my_center_details_right li {
+	font-size: 12px;
+	line-height: 22px;
+	list-style-position: inside;
+	list-style-image: none;
+	list-style-type: none;
+	height: 30px;
+	float: left;
+	width: 500px;
+	text-align: left;
+	text-indent: 10px;
+	
+}
+.my_center_line {
+	height: 128px;
+	width: 1px;
+	float: left;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCCCCC;
+	margin-left: 15px;
+}
+.order_info_words {
+	width: 760px;
+	float: left;
+	margin-left: 20px;
+	height: 80px;
+	line-height: 25px;
+	color: #666666;
+	font-size: 12px;
+	text-align: left;
+}
+.order_info_title {
+	height: 36px;
+	background-color: #EEFAFF;
+	float: left;
+	width: 818px;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #9CD0E8;
+	line-height: 30px;
+	font-weight: bold;
+	font-size: 12px;
+	text-align: left;
+	text-indent: 30px;
+	color: #606060;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-bottom-color: #CCCCCC;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+}
+.order_list {
+	width: 818px;
+	float: left;
+	height: auto;
+	margin-bottom: 10px;
+	line-height: 20px;
+	text-align: left;
+	background-color: #FFFFFF;
+}

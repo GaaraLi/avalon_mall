@@ -1,0 +1,279 @@
+%div{:class=>"header_position"}
+  %div{:class=>"postiton_txt m"}
+    %a{:href=>"#",:target=>"_blank"}我的享车网
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a{:href=>"#",:target=>"_blank"}消费记录 
+    %span &nbsp;&nbsp;>&nbsp;&nbsp;
+    %a{:href=>"#",:target=>"_blank"}现金账户
+%div{:class=>"wrap"}
+  %div{:class=>"main_box path01",:style=>"background-color:#FFFFFF"}
+    = render 'center/menu.html'
+    %div{:class=>"main_userbox_R",:style=>"margin-left:200px"}
+      %div
+        %div{:align=>"center"}
+          %h1 账户信息
+          %br
+          账户余额：
+          =@customer.cash_account
+          元 
+          %br
+          消费返现获利：
+          - if @sum_rh_price[0].price.present?
+            =@sum_rh_price[0].price.to_s+" 元"
+          - else
+            0
+          元
+          %br
+          邀请返现获利：
+          - if @transfer_code.present?
+            =@sum_tc_count*@transfer_code[0].old_cus_account
+          -else
+            0
+          元 （
+          %a{:href=>"javascript:void(0)",:onclick=>"show_withdraw();"} 申请提现
+          ）
+        %br
+        %hr
+        %br
+        %div
+          提现记录
+          %table{:border=>"1",:cellpadding=>"0",:cellspacing=>"0"}
+            %tr
+              %th{:style=>"width:100px"} 序号   
+              %th{:style=>"width:200px"} 提现金额
+              %th{:style=>"width:200px"} 银行卡号
+              %th{:style=>"width:200px"} 状态
+              %th{:style=>"width:200px"} 申请时间
+              %th{:style=>"width:200px"} 返款时间
+            - @i = 0;
+            - @wcs.each do |wc|
+              - @i=@i+1
+              %tr
+                %td=@i
+                %td=wc.price.to_s+" 元"
+                %td=wc.bank_no
+                - if wc.status==0
+                  %td 申请中  
+                - else
+                  %td 返现成功
+                %td=wc.created_at.strftime("%Y-%m-%d %H:%M:%S")
+                - if wc.status == 0
+                  %td
+                - else
+                  %td=wc.updated_at.strftime("%Y-%m-%d %H:%M:%S")
+          %br
+          %hr
+          %br
+          消费返现记录
+          %table{:border=>"1",:cellpadding=>"0",:cellspacing=>"0"}
+            %tr
+              %th{:style=>"width:100px"} 序号   
+              %th{:style=>"width:200px"} 消费金额 
+              %th{:style=>"width:200px"} 返现金额
+              %th{:style=>"width:200px"} 时间
+            - @k = 0;
+            - @rhs.each do |rh|
+              - @k=@k+1
+              %tr
+                %td=@k
+                %td=rh.consumption_amount.to_s+" 元"
+                %td=rh.repaid_amount.to_s+" 元"
+                %td=rh.created_at.strftime("%Y-%m-%d %H:%M:%S")
+          %br
+          %hr
+          %br
+          邀请好友返现记录
+          %table{:border=>"1",:cellpadding=>"0",:cellspacing=>"0"}
+            %tr
+              %th{:style=>"width:100px"} 序号   
+              %th{:style=>"width:200px"} 被邀请好友账号
+              %th{:style=>"width:200px"} 邀请时间
+              %th{:style=>"width:200px"} 返现金额(元)
+            - @j = 0;
+            - if @transfer_code.present?
+              - @transfer_code[0].transfer_customers.each do |tc|
+                - @j=@j+1
+                %tr
+                  %td=@j
+                  %td=tc.customer.email
+                  %td=@transfer_code[0].old_cus_account.to_s+" 元"
+                  %td=tc.created_at.strftime("%Y-%m-%d %H:%M:%S")
+
+%div{:id=>"withdraw_div",:align=>"center",:style=>"position:absolute;left:0px;top:0px; width:100%;height:800px;background-color:#ffffff;filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity: 0.85; opacity: 0.85;display:none"}
+%div{:id=>"withdraw_input",:style=>"position:absolute;top:200px;left:30%;background-color:#ffffff;width:550px;height:370px;filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);-moz-box-shadow: 5px 5px 10px #000000;-webkit-box-shadow: 5px 5px 10px #000000;box-shadow:5px 5px 10px #000000;display:none;"}
+  %div{:style=>"background-color:#5d83b3;height:25px;padding:3px;",:align=>"left"}   
+    %font{:color=>"#ffffff",:style=>"font-size:16px;"} &nbsp;&nbsp;提现申请
+    %a{:style=>"cursor:pointer;float:right;margin-right:5px;font-size:16px;color:#ffffff",:onclick=>"close_withdraw();"} x
+    %div{:style=>"padding-left:50px"}
+      %br
+      - if @sum_price[0].sum_price == nil
+        %font 账户余额：#{@customer.cash_account.to_s}元 
+        &nbsp;&nbsp;
+        %font 可提现：#{@customer.cash_account.to_s}元 
+        &nbsp;&nbsp;
+        %font 提现审核：0元
+        
+      - else
+        %font 账户余额：#{@customer.cash_account.to_s}元
+        &nbsp;&nbsp;
+        %font 可提现：#{@customer.cash_account.to_i - @sum_price[0].sum_price.to_i}元 
+        &nbsp;&nbsp;
+        %font 提现审核：#{@sum_price[0].sum_price}元        
+      %br
+      %br
+      提取金额：
+      %input{:type=>"text",:id=>"price",:maxlength=>"50",:style=>"width:80px;border:1px solid green"} 
+      %font{:color=>"red"} *(最少提取金额10元，并且为10元倍数)
+      %br
+      开户卡号：
+      %input{:type=>"text",:id=>"bank_no",:maxlength=>"50",:style=>"width:300px;border:1px solid green"}
+      %font{:color=>"red"} *
+      %br
+      开户姓名：
+      %input{:type=>"text",:id=>"bank_card_name",:maxlength=>"50",:style=>"width:100px;border:1px solid green"}
+      %font{:color=>"red"} *
+      %br
+      开户银行：
+      %input{:type=>"text",:id=>"bank_name",:maxlength=>"50",:style=>";border:1px solid green"}
+      %font{:color=>"red"} *
+      %br
+      开户支行：
+      %input{:type=>"text",:id=>"bank_zhi_name",:maxlength=>"50",:style=>";border:1px solid green"}
+      %font{:color=>"red"} *
+      %br
+      身份证号：
+      %input{:type=>"text",:id=>"id_card",:maxlength=>"50",:style=>";border:1px solid green"}
+      %font{:color=>"red"} *
+      %br
+      联系电话：
+      %input{:type=>"text",:id=>"mobile_phone",:maxlength=>"50",:value=>"#{@customer.phone}",:style=>";border:1px solid green"}
+      %font{:color=>"red"} *
+      %br
+      %br
+      %input{:type=>"button",:value=>"确  定",:class=>"btn btn-success",:style=>"height:35px;width:80px;font-size:16px;margin-left:38%;border:1px solid green",:onclick=>"check_withdraw();"}
+      %br
+      %br
+      %font *您提交申请表后，我们会在3个工作日内进行审核，并在次月15日统一打款。
+      %br
+      %font *请确保您提交的各项信息准备无误，如因信息不实造成损失，我们不承担任何责任。                  
+                
+:javascript
+  function show_withdraw()
+  {
+    $("#withdraw_div").show();
+    $("#withdraw_input").css("top",$(document).scrollTop()+150+"px");
+
+    $("#withdraw_div").show();
+    $("#withdraw_input").show();
+  }
+
+  function close_withdraw()
+  {
+    $("#withdraw_div").hide();
+    $("#withdraw_input").hide();
+  }
+
+  function check_withdraw()
+  {
+    var price = $("#price").val();
+    var bank_no = $("#bank_no").val();
+    var bank_card_name = $("#bank_card_name").val();
+    var bank_name = $("#bank_name").val();
+    var id_card = $("#id_card").val();
+    var mobile_phone = $("#mobile_phone").val();
+    var bank_zhi_name =$("#bank_zhi_name").val();
+
+    var r = /^\+?[1-9][0-9]*$/;
+    if(!r.test(price))
+    {
+      alert("请输入提取金额(正整数)");
+      return;
+    }
+    
+    if(price % 10 != 0)
+    {
+      alert("提取金额必须为10元的倍数");
+      return;
+    }
+
+    if(bank_no.replace(/[ ]/g,"") == "")
+    {
+      alert("请输入开户卡号");
+      return;
+    }
+
+    if(bank_card_name.replace(/[ ]/g,"") == "")
+    {
+      alert("请输入开户姓名");
+      return;
+    }
+
+    if(bank_name.replace(/[ ]/g,"") == "")
+    {
+      alert("请输入开户银行");
+      return;
+    }
+
+    if(id_card.replace(/[ ]/g,"") == "")
+    {
+      alert("请输入身份证");
+      return;
+    }
+
+    if(mobile_phone.replace(/[ ]/g,"") == "")
+    {
+      alert("请输入联系电话");
+      return;
+    }
+
+    if(bank_zhi_name.replace(/[ ]/g,"") == "")
+    {
+      alert("请输入开户支行");
+      return;
+    }
+
+    add_withdraw_cash();
+  }
+
+  function add_withdraw_cash()
+  {
+    var price = $("#price").val();
+    var bank_no = $("#bank_no").val();
+    var bank_card_name = $("#bank_card_name").val();
+    var bank_name = $("#bank_name").val();
+    var id_card = $("#id_card").val();
+    var mobile_phone = $("#mobile_phone").val();
+    var bank_zhi_name =$("#bank_zhi_name").val();
+
+    var ajax_data = "price="+encodeURI(price)
+    ajax_data += "&bank_no="+encodeURI(bank_no)
+    ajax_data += "&bank_card_name="+encodeURI(bank_card_name)
+    ajax_data += "&bank_name="+encodeURI(bank_name+"-"+bank_zhi_name)
+    ajax_data += "&id_card="+encodeURI(id_card)
+    ajax_data += "&mobile_phone="+encodeURI(mobile_phone)
+
+    $.ajax
+    ({
+      url:'add_withdraw_cash',type:'get',
+      data:ajax_data,
+      dataType:'text',
+      success:function(msg)
+      {
+        var json_msg = eval('(' + msg + ')');
+        if(json_msg.flag == "1")
+        {
+          alert(json_msg.content);
+          window.location.reload();
+        }
+        else
+        {
+          alert(json_msg.content);
+        }
+      }
+      ,
+      error:function()
+      {
+        alert("提现异常，请刷新页面，或联系客服");
+      }
+    }); 
+  }

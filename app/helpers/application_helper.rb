@@ -38,6 +38,6 @@ module ApplicationHelper
     end
 
     def get_rank_info
-    	@good_sale_rank= MallSku.order("sale_count DESC").limit(3)
+    	@good_sale_rank= MallSku.order("sale_count DESC").limit(5)
     end
 end

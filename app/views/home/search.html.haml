@@ -5,18 +5,7 @@
     .category_left.left
       =render "home/partial/categories"
       =render 'vendors/partial/vendor_recommend'
-      .main_category_ranking
-        %h3.Red
-          %b 销量排行
-        -5.times do
-          .main_category_proranking
-            .ranking_list{:style=>"background-color:white;"}
-              %p.left
-                %img{ :src=>asset_path("test/img-19.jpg"), :width=>"60", :height=>"60"}
-              %h4.left
-                %a 马牌轮胎 205/55R16
-                %s ￥495.00
-              %span 1
+      =render 'vendors/partial/vendor_ranking'
     .category_postiton_txt.right
       %a 首页
       %span &nbsp;&nbsp;>&nbsp;&nbsp;

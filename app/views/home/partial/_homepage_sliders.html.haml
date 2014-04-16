@@ -14,10 +14,12 @@
 
 
 :javascript
-  $(document).mousemove(function(e){
+  function init_slider(){
     $(".BtnimgList").mouseover();
     $(".BtnimgList").mouseout();
-  });
+  }
+
+  setTimeout("init_slider()",1000);
 
   $(function() {
     $(".BtnimgList").mouseover();

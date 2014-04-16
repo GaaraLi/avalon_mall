@@ -12,7 +12,7 @@
       %a 导航商品
     .category_right.right
       =render 'home/partial/goods_hot_rec'
-      -if 1==@flag
+      -if 1==@flag || 3 ==@flag
         .category_class
           .main_class
             -@first_class.each do |f|

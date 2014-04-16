@@ -48,11 +48,19 @@ class HomeController < ApplicationController
       @goods=MallGood.all.onsale
       @key_goods= @goods.page(params[:page])
       @page_title="全部商品"
+    elsif @flag==3
+      @page_title="产品搜索"
+      @goods= search_service_from_homepage(@key.to_i)
+      @key_goods= @goods.page(params[:page])
     end
 
     @good_hot_rec= MallBlock.where("mall_block_type_id=15")
     @good_hot_rec1= MallBlock.where("mall_block_type_id=14")
 
+  end
+
+  def search_service_from_homepage(key)
+    MallGood.onsale.where("mall_category_id = #{key} ")
   end
 
   def search_vendor( key)

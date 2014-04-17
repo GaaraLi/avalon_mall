@@ -276,7 +276,14 @@ class CustomersController < ApplicationController
   end
 
   def add_into_cart( q, s)
-    @price= order_line_price( @quantity, @mall_sku_id)
+    puts '=====add_into_cart====='
+    puts q
+    puts s
+
+    @price= order_line_price( q, s)
+    puts '=====add_into_cart====='
+    puts @price
+
     @vendor_id= MallSku.find( s).mall_good.vendor.id
 
     @new_cart_line= MallShoppingCar.create(:price=> @price,
@@ -326,6 +333,7 @@ class CustomersController < ApplicationController
     @s= MallSku.find(s.to_i)
     p= current_customer.get_price(@s)
     @price= p*q.to_i
+    @price
   end
 
   def new_order_number

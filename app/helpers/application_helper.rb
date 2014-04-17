@@ -31,7 +31,7 @@ module ApplicationHelper
       if current_customer
         @shopping_car_goods=MallShoppingCar.where("customer_id=#{current_customer.id}")
         @shopping_car_goods.each do |g|
-          if g.quantity != 0 || !g.quantity.nil?
+          if g.quantity != 0 && !g.quantity.nil?
             @shopping_car_qty = g.quantity + @shopping_car_qty
             puts g.quantity
           end

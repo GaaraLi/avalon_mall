@@ -276,13 +276,8 @@ class CustomersController < ApplicationController
   end
 
   def add_into_cart( q, s)
-    puts '=====add_into_cart====='
-    puts q
-    puts s
 
     @price= order_line_price( q, s)
-    puts '=====add_into_cart====='
-    puts @price
 
     @vendor_id= MallSku.find( s).mall_good.vendor.id
 

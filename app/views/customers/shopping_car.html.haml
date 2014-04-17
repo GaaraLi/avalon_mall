@@ -171,6 +171,12 @@
       
       var all_quantity= $(".quantity_number_input").text();
       alert(all_quantity);
+
+      var all_quantity=[];
+      $(".quantity_number_input").each(function(){
+        all_quantity.push( $(this).text());
+        alert(all_quantity);
+      });
       var RequestUrl="/customers/check_inventory";
       $.ajax({
         url:RequestUrl,

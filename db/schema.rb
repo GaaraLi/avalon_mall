@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20140417072141) do
     t.datetime "updated_at"
     t.integer  "repaid_tactic_customer_id",            default: 1
     t.datetime "end_time"
-    t.integer  "repaid_time"
+    t.integer  "repaid_time",                          default: 0
   end
 
   create_table "cars", force: true do |t|
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20140417072141) do
     t.integer  "card_id"
     t.datetime "appointment_time"
     t.integer  "extra_service_detail_id"
+    t.integer  "appointment_status",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "appointment_detail"
@@ -167,8 +168,8 @@ ActiveRecord::Schema.define(version: 20140417072141) do
     t.string   "address"
     t.string   "phone"
     t.integer  "cash_account",           default: 0
-    t.datetime "block_time"
     t.string   "customer_order_times"
+    t.datetime "block_time"
   end
 
   add_index "customers", ["confirmation_token"], name: "index_customers_on_confirmation_token", unique: true, using: :btree
@@ -216,10 +217,10 @@ ActiveRecord::Schema.define(version: 20140417072141) do
     t.string   "name"
     t.string   "desc"
     t.integer  "expiring_days"
+    t.integer  "condition"
+    t.integer  "gift_times"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "condition"
-    t.string   "gift_times",    limit: 45
   end
 
   create_table "kindeditor_assets", force: true do |t|
@@ -291,10 +292,7 @@ ActiveRecord::Schema.define(version: 20140417072141) do
     t.integer  "mall_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo_url1_file_name",    limit: 45
-    t.string   "logo_url1_content_type", limit: 45
-    t.string   "logo_url1_file_size",    limit: 45
-    t.string   "subhead",                limit: 100
+    t.string   "subhead",          limit: 100
     t.string   "service_info"
   end
 
@@ -315,7 +313,7 @@ ActiveRecord::Schema.define(version: 20140417072141) do
 
   create_table "mall_inventory_records", force: true do |t|
     t.integer  "mall_inventory_id"
-    t.integer  "inventory_type"
+    t.integer  "inventory_type",    limit: 1
     t.integer  "inventory_qty"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -502,10 +500,10 @@ ActiveRecord::Schema.define(version: 20140417072141) do
     t.string   "code"
     t.string   "cus_name"
     t.string   "phone"
-    t.string   "plate_number",         limit: 45
+    t.string   "plate_number"
     t.integer  "vendor_id"
     t.integer  "car_model_id"
-    t.integer  "status"
+    t.integer  "status",               default: 0
     t.integer  "cus_type"
     t.date     "start_time"
     t.date     "end_time"

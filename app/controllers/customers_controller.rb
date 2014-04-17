@@ -36,9 +36,10 @@ class CustomersController < ApplicationController
     @all_quantity= params[:all_quantity]
     puts '=======all_quantity'
     puts @all_quantity
-    @all_quantity_array= @all_quantity.scan(/[^ ]+/)
+    @all_quantity_array= @all_quantity.scan(/[^\s,]+/)
     puts '=======all_quantity_array'
     puts @all_quantity_array
+    return
 
     @ids= @ids.delete("[").delete("]").split(",")
     @ids.zip(@all_quantity_array).each do |id,q|

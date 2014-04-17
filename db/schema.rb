@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140411072801) do
+ActiveRecord::Schema.define(version: 20140417072141) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -101,7 +100,7 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.datetime "updated_at"
     t.integer  "repaid_tactic_customer_id",            default: 1
     t.datetime "end_time"
-    t.integer  "repaid_time",                          default: 0
+    t.integer  "repaid_time"
   end
 
   create_table "cars", force: true do |t|
@@ -123,7 +122,6 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.integer  "card_id"
     t.datetime "appointment_time"
     t.integer  "extra_service_detail_id"
-    t.integer  "appointment_status",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "appointment_detail"
@@ -171,7 +169,6 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.integer  "cash_account",           default: 0
     t.datetime "block_time"
     t.string   "customer_order_times"
-    t.datetime "block_time"
   end
 
   add_index "customers", ["confirmation_token"], name: "index_customers_on_confirmation_token", unique: true, using: :btree
@@ -197,6 +194,32 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "gift_customers", force: true do |t|
+    t.integer  "vendor_id"
+    t.integer  "gift_id"
+    t.integer  "customer_id"
+    t.datetime "used_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gift_vendors", force: true do |t|
+    t.integer  "vendor_id"
+    t.integer  "gift_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gifts", force: true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.integer  "expiring_days"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "condition"
+    t.string   "gift_times",    limit: 45
   end
 
   create_table "kindeditor_assets", force: true do |t|
@@ -253,6 +276,7 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.string   "order_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "used_time"
   end
 
   create_table "mall_goods", force: true do |t|
@@ -267,7 +291,10 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.integer  "mall_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "subhead",          limit: 100
+    t.string   "logo_url1_file_name",    limit: 45
+    t.string   "logo_url1_content_type", limit: 45
+    t.string   "logo_url1_file_size",    limit: 45
+    t.string   "subhead",                limit: 100
     t.string   "service_info"
   end
 
@@ -288,7 +315,7 @@ ActiveRecord::Schema.define(version: 20140411072801) do
 
   create_table "mall_inventory_records", force: true do |t|
     t.integer  "mall_inventory_id"
-    t.integer  "inventory_type",    limit: 1
+    t.integer  "inventory_type"
     t.integer  "inventory_qty"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -318,7 +345,7 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.datetime "updated_at"
     t.string   "input_name"
     t.string   "input_phone"
-    t.integer  "input_car"
+    t.integer  "car_model_id"
   end
 
   create_table "mall_shopping_cars", force: true do |t|
@@ -475,10 +502,10 @@ ActiveRecord::Schema.define(version: 20140411072801) do
     t.string   "code"
     t.string   "cus_name"
     t.string   "phone"
-    t.string   "plate_number"
+    t.string   "plate_number",         limit: 45
     t.integer  "vendor_id"
     t.integer  "car_model_id"
-    t.integer  "status",               default: 0
+    t.integer  "status"
     t.integer  "cus_type"
     t.date     "start_time"
     t.date     "end_time"

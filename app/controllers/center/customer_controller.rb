@@ -5,7 +5,29 @@ class Center::CustomerController < CenterCustomerController
   skip_before_filter :verify_authenticity_token  
 
   def order
-    @orders = MallOrder.where("customer_id="+current_customer.id.to_s);
+
+    @pageIndex = params[:h_pageIndex].to_i;
+    @pageCount = 1;
+    if @pageIndex == nil || @pageIndex == "" || @pageIndex <= 0
+      @pageIndex = 1;
+    end 
+    @pageIndexSQL = (@pageIndex-1)*@pageCount ;
+
+    @orders = MallOrder.where("customer_id="+current_customer.id.to_s).limit(@pageIndexSQL.to_s+","+@pageCount.to_s);
+
+    @orders_count = MallOrder.where("customer_id="+current_customer.id.to_s).count;
+
+    @sumCount = 0;
+    if @orders_count.to_i == 0
+      @sumCount = 1;
+    else
+      if @orders_count.to_i % @pageCount == 0
+        @sumCount = @orders_count/@pageCount.to_i;
+      else
+        @sumCount = @orders_count/@pageCount.to_i+1;
+      end
+    end
+
   end
 
   def update_order_time

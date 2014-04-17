@@ -82,36 +82,34 @@
                           %td{:height=>"30px",:align=>"center",:valign=>"middle"}
                             %a{:onclick=>"show_time(#{line['me_id']});"}
                               %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px"}
-
-            %div{:class=>"pagebar"}
-              <!--当分页未到达末尾页时 -->
-              %div{:class=>"page-bottom right"}
-                %span{:class=>"page_start"}
-                <!--A 标签 class="page_curOn" 为当前页选中样式 -->
-                <a href="#" class="page_curOn">1</a>
-                <a href="#" class="page_cur">2</a>
-                <a href="#" class="page_cur">3</a>
-                <a href="#" class="page_cur">4</a>
-                <a href="#" class="page_cur">5</a>
-                <!--当分页大于5 则选用 <span class="page_omit"> -->
-                <span class="page_omit">...</span>
-                <a href="#" class="next">下一页</a>          
-              </div>
-              <!--当分页到达末尾页时 -->
-              <div class="page-bottom right" style="display:none">
-                <a href="#" class="back">上一页</a>
-                <!--当分页大于5 则选用 <span class="page_omit"> -->
-                <span class="page_omit">...</span>
-                <!--A 标签 class="page_curOn" 为当前页选中样式 -->
-                <a href="#" class="page_cur">96</a>
-                <a href="#" class="page_cur">97</a>
-                <a href="#" class="page_cur">98</a>
-                <a href="#" class="page_cur">99</a>
-                <a href="#" class="page_curOn">100</a>
-                <span class="page_startR"></span>
-
-
               -@i = @i+1;
+          %div
+            %div{:class=>"pagebar"}
+              / 当分页未到达末尾页时 
+              %div{:class=>"page-bottom right"}
+                %a{:href=>"order?h_pageIndex=1",:class=>"next",:style=>"text-align:center;margin-right:10px"}首页
+                - if @pageIndex>1
+                  %a{:href=>"order?h_pageIndex=#{@pageIndex-1}",:class=>"next",:style=>"text-align:center;"}上一页
+                  %span{:class=>"page_omit"}...
+                / A 标签 class="page_curOn" 为当前页选中样式
+                %a{:class=>"page_curOn"}=@pageIndex
+                - @i=1;
+                - while @i.to_i < 5 do 
+                  - if @pageIndex+@i <= @sumCount
+                    %a{:href=>"order?h_pageIndex=#{@pageIndex+@i}",:class=>"page_cur"}=@pageIndex+@i
+                  - else 
+                    - break;
+                  -@i=@i+1
+                / <!--当分页大于5 则选用 <span class="page_omit"> 
+                - if @sumCount-@pageIndex >= 5
+                  %span{:class=>"page_omit"}...
+                - if @pageIndex < @sumCount
+                  %a{:href=>"order?h_pageIndex=#{@pageIndex+1}",:class=>"next",:style=>"text-align:center;"}下一页          
+                %a{:href=>"order?h_pageIndex=#{@sumCount}",:class=>"next",:style=>"margin-left:10px;text-align:center;"}末页
+       
+%div{:style=>"min-height:350px"}
+
+              
 %div{:id=>"time_div",:align=>"center",:style=>"position:absolute;left:0px;top:0px; width:100%;height:2300px;background-color:black;filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity: 0.85; opacity: 0.85;display:none"}
 %div{:id=>"time_input",:style=>"position:absolute;top:400px;left:32%;background-color:#ffffff;width:450px;height:150px;filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);-moz-box-shadow: 5px 5px 10px #000000;-webkit-box-shadow: 5px 5px 10px #000000;box-shadow:5px 5px 10px #000000;display:none"}
   %div{:style=>"background-color:#5d83b3;height:25px;padding:3px;",:align=>"left"}   

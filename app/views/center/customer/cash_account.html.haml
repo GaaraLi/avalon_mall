@@ -105,7 +105,7 @@
       
         - @j = 0;
         - if @transfer_code.present?
-          - @transfer_code[0].transfer_customers.each do |tc|
+          - @transfer_code[0].transfer_customers.order("created_at desc").each do |tc|
             - @j=@j+1 
             %tr
               %td{:height=>"35px",:align=>"center",:valign=>"middle",:bgcolor=>"#FFFFFF"}=@j

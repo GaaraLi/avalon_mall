@@ -1618,7 +1618,7 @@ a#p_price_menu:hover {
 a#goods_buycart {
 	background-repeat: no-repeat;
 	background-position: -180px 0px;
-	height: 42px;
+	height: 31px;
 	width: 147px;
 	display: block;
 	float: left;
@@ -1627,7 +1627,7 @@ a#goods_buycart {
 a#goods_buymenu {
 	background-repeat: no-repeat;
 	background-position: right 0px;
-	height: 42px;
+	height: 31px;
 	width: 137px;
 	display: block;
 	float: left;

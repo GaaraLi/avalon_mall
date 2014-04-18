@@ -66,14 +66,15 @@
       %tr
         %td( height="50")
           %a.del_shopping_cars
-            %img{:src=>asset_path("test/shopcar_menu.jpg"), :width=>"111", :height=>"22", :border=>"0" }
+            %img{:src=>asset_path("test/shopcar_menu.jpg"), :width=>"120", :height=>"25", :border=>"0" }
       %tr
         %td( width="300" align="right" colspan="9" style="font-size:15px;")
-          %b 购物车商品总价(不含运费)：
+          %b 购物车商品总价：
           %strong.Red#total_price
           %b 元
           %br
-          %b 选中商品总价(不含运费)：
+          %b{:style=>"margin-right:42px;"}
+            选中商品总价：
           %strong.Red#selected_total_price 0
           %b 元
           %hr
@@ -170,12 +171,10 @@
       var new_quantities=[];
       
       var all_quantity= $(".quantity_number_input").text();
-      alert(all_quantity);
 
       var all_quantity=[];
       $(".quantity_number_input").each(function(){
         all_quantity.push( $(this).text());
-        alert(all_quantity);
       });
       var RequestUrl="/customers/check_inventory";
       $.ajax({

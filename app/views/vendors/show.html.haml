@@ -12,12 +12,6 @@
           %tr
             %td{:height=>"5"}
           %tr
-            %td{:height=>"25"}
-              %table{:width=>"100%", :border=>"0", :cellspacing=>"0",:cellpadding=>"0"}
-                %tr
-                  %td.Bai{ :width=>"40", :height=>"25"} 等级:
-                  %td.Bai ★
-          %tr
             %td( height="25")
               %table( width="100%" border="0" cellspacing="0" cellpadding="0")
                 %tr
@@ -35,11 +29,7 @@
             %td.Bai( height="25") 服务时间：
           %tr
             %td.Bai( height="20")
-              周一到周五：
-              =@vendor.opening_hours
-          %tr
-            %td.Bai( height="20")
-              周六到周日：
+              周一到周日：
               =@vendor.opening_hours
           %tr
             %td.Bai( height="25") 服务项目：
@@ -79,15 +69,19 @@
                     =link_to s.name, :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>s.id
       .main_num
         .main_num_nav.left
-          %a 销量
-          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
-          %a 新品
-          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
-          %a 收藏
-          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
-          %a 价格
-          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
           =link_to "全部", :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>0
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a{:style=>"cursor:pointer;"}
+            销量
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a{:style=>"cursor:pointer;"}
+            新品
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a{:style=>"cursor:pointer;"}
+            收藏
+          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a{:style=>"cursor:pointer;"}
+            价格
     .category_right.right{:style=>"width:79.3%;"}
       #ajax_vendor_search
         =render 'vendors/partial/vendor_search'

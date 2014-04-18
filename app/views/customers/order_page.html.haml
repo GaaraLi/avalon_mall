@@ -56,15 +56,15 @@
         %a
           %img.select_car_info{:src=> asset_path("test/shopping_cart_r9_c12.jpg"),:style=>"margin-bottom:10px;"}
     .order_info_details.order_info_details_1{:style=>"display:none"}
-      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8"}
-        车辆品牌：
-        %font.input_text_1
-      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8"}
-        &nbsp&nbsp&nbsp&nbsp&nbsp车型：
-        %font.input_text_2
-      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8"}
-        &nbsp&nbsp&nbsp&nbsp&nbsp车系：
-        %font.input_text_3
+      车辆品牌：
+      %font.input_text_1
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
+      &nbsp&nbsp&nbsp&nbsp&nbsp车型：
+      %font.input_text_2
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
+      &nbsp&nbsp&nbsp&nbsp&nbsp车系：
+      %font.input_text_3
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
   .order_use
     %h1
       购买后如何使用：
@@ -109,9 +109,9 @@
                 -o.quantity.times do
                   %tr
                     %td
+                      %font.choose_order_time
                       %a.order_button{:value=> count,:style=>"cursor:pointer;color:blue;"}
                         %img{:src=>asset_path("test/yuyuefuwu.jpg"), :width=>"86", :height=>"23", :border=>"0"}
-                      %font.choose_order_time
                       -count= count+1
 
       /%tr
@@ -204,7 +204,7 @@
             var key= parseInt($("#hidden_order_key").attr("value"));
 
             var order_time= time;
-            $(".order_button").eq(key).text("修改预约时间");
+            $(".order_button").eq(key).text("  修改");
             $(".choose_order_time").eq(key).text(order_time);
 
             var times_list= new Array();

@@ -6,9 +6,10 @@
       - g=r.mall_good
       .ranking_list{:style=>"background-color:white;"}
         %p.left
-          %img{ :src=>g.logo_url1, :width=>"60", :height=>"60"}
+          %a{:href=> good_path(g) }
+            %img{ :src=>g.logo_url1, :width=>"60", :height=>"60"}
         %h4.left
-          %a{:style=>"overflow:hidden; height:33px;"}
+          %a{:style=>"overflow:hidden; height:33px;",:href=> good_path(g)}
             =g.title
           %s
             %font{:style=>"color:#F84A2D;"}

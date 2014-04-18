@@ -78,7 +78,7 @@ class CustomersController < ApplicationController
                                    :customer_id=>current_customer.id,
                                    :input_name=> @input_name,
                                    :input_phone=> @input_phone,
-                                   :input_car=>@input_car)
+                                   :car_model_id=>@input_car)
     @mall_order_id= @order_order.id
     @cart_ids= @cart_ids.delete("[").delete("]").split(",")
     @cart_ids.each do |id|

@@ -568,12 +568,6 @@ a#qukankan:hover {
 	border-top-style: solid;
 	border-top-color: #e5e5e5;
 }
-.footer h3 {
-	height: 20px;
-	padding-top: 15px;
-	width: 960px;
-	display: block;
-}
 .footer h4 {
 	height: 25px;
 	display: block;
@@ -1384,24 +1378,6 @@ a#p_price_menu:hover {
 	padding-right: 5px;
 	padding-left: 5px;
 	margin-top: 5px;
-}
-a#goods_buycart {
-	background-repeat: no-repeat;
-	background-position: -180px 0px;
-	height: 31px;
-	width: 165px;
-	display: block;
-	float: left;
-	margin-right: 10px;
-}
-a#goods_buymenu {
-	background-repeat: no-repeat;
-	background-position: right 0px;
-	height: 31px;
-	width: 165px;
-	display: block;
-	float: left;
-	margin-right: 10px;
 }
 
 .main_goods_operation h6 {

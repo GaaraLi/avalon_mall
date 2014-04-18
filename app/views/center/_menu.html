@@ -1,8 +1,17 @@
+<%  
+  @menu_wash_count = 0;
+  if current_customer.card.vendor_binding_record.present?
+    @menu_wash_count = current_customer.card.vendor_binding_record.consumption_records.count
+  end
+%>
+
+
 <div class="my_center_left_board">
   <h1>我的享车网</h1>
-  <h2>用户名：<%=current_customer.email%></h2>
-  <!-- <h2>积  分：<strong style="color:#FF3300">10</strong></h2>
-  <h2>站内信：<strong style="color:#2E99C7">2</strong></h2> -->
+  <h2>卡号：<%=current_customer.card.card_number%></h2>
+ 
+  <h2>洗车次数：<strong style="color:#FF3300"><%=@menu_wash_count%>次</strong></h2>
+  <h2>账户余额：<strong style="color:#2E99C7"><%=current_customer.cash_account%>元</strong></h2> 
 </div>
 <div class="my_center_left_menu">
   <h1>账户管理　　　　　▼</h1>
@@ -13,7 +22,7 @@
     <% if current_customer.card.vendor_binding_record.present?%>
       <a href="/vendors/<%=current_customer.card.vendor_binding_record.vendor_id%>">服务车行</a>
     <%else%>
-      <font>服务车行(未绑定)</font>
+      <font>服务车行(无)</font>
     <%end%>
   </h2>
 </div>

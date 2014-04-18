@@ -1,132 +1,184 @@
 =render "home/partial/nav"
-.header
-  .header_Box.m
-    %p.logo.left{ :style=>"	background-image: url('"+asset_path("test/Index_BodyBG111.gif")+"');"}
-    .shopcar_one.right{ :style=>"	background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
-    .shopcar_two.right{:style=>"display:none;background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
-    .shopcar_three.right{:style=>"display:none;background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');"}
-.wrap
-  .main_box
-    .main_box_shopcar 填写并核对订单信息
-    .main_shopcarbyket
-      %table( width="100%" border="0" cellspacing="0" cellpadding="0")
-        %tr
-          %td( height="30" bgcolor="#FFFDDD")
-            %table( width="100%" border="0" cellspacing="0" cellpadding="0")
-              %tr
-                %td( width="120" height="30" align="right" valign="bottom" bgcolor="#FFFDDD") 您的个人信息：
-                %td( align="center" bgcolor="#FFFDDD") &nbsp;
-              %tr
-                %td( height="35" align="right" bgcolor="#FFFFFF")
-                  %p 登录账户：
-                %td( align="left" bgcolor="#FFFFFF")
-                  =current_customer.email
-                %td( align="center" bgcolor="#FFFFFF") &nbsp;
-              %tr
-                %td( height="35" align="right" bgcolor="#FFFDDD")
-                  %p 联系电话：
-                %td( align="left" bgcolor="#FFFDDD")
-                  =current_customer.phone if !current_customer.phone.nil?
-                  ="暂无信息" if current_customer.phone.nil?
-                %td( align="center" bgcolor="#FFFDDD") &nbsp;
-              %tr
-                %td( height="35" align="right" bgcolor="#FFFFFF")
-                  %p 地址：
-                %td( colspan="2" align="left" bgcolor="#FFFFFF")
-                  %p
-                  =current_customer.address if !current_customer.address.nil?
-                  ="暂无信息" if current_customer.address.nil?
-              %tr
-                %td(  height="35" align="right" bgcolor="#FFFDDD")
-                  %p 车辆信息：
-                %td( align="left" bgcolor="#FFFDDD")
-                  =current_customer.car.car_model.car_set.car_brand if !current_customer.car.nil?
-                  ="暂无信息" if current_customer.car.nil?
-                %td( align="center" bgcolor="#FFFDDD") &nbsp;
-              %tr
-                %td(  height="35" align="right" bgcolor="#FFFFFF") 车型：
-                %td( colspan="2" align="left" bgcolor="#FFFFFF")
-                  =current_customer.car.car_model.car_set.car_brand.name+current_customer.car.car_model.car_set.name+current_customer.car.car_model.name if !current_customer.car.nil?
-                  ="暂无信息" if current_customer.car.nil?
-              %tr
-                %td(  height="35" align="right" bgcolor="#FFFDDD")
-                  %p 购车日期：
-                %td( align="left" bgcolor="#FFFDDD")
-                  =current_customer.car.bought_since if !current_customer.car.nil?
-                  ="暂无信息" if current_customer.car.nil?
-                %td( align="center" bgcolor="#FFFDDD") &nbsp;
-    .main_shopcarbyket
-      %table( width="100%" border="0" cellspacing="0" cellpadding="0")
-        %tr
-          %td(height="30")
-            %table(width="100%" border="0" cellspacing="0" cellpadding="0")
-              %tr
-                %td(width="120" height="40" align="left" bgcolor="#FFFFFF")
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  %strong 购买后如何使用：
-              %tr
-                %td(height="60" valign="top" bgcolor="#FFFFFF")
-                  %p(style="padding-left:20px; line-height:18px;")
-                    成功购买后，即可直接到所购买车行前台处，报出手机号，进行消费。无需预约！（注意：个别产品需预约，请在购买前阅读产品说明！）
-        %tr
-          %td &nbsp;
-        %tr
-          %td( height="80")
-            %table( width="90%" border="0" align="center" cellpadding="0" cellspacing="0")
-              %tr
-                %td(height="50")
-                  %b(style="font-size:14px") 享车网客服电话：029-81543924
-    .main_shopcarbyket
-      %table(width="100%" cellspacing="0" cellpadding="10")
-        %tr(style=" border:1px solid red;")
-          %td(height="30" style="font-size:14px; font-style:bold;"  colspan="9")
-            商品清单
-        %tr( style=" border:1px solid red;" bgcolor="#FAFED3")
-          %td(height="30") 商品展示
-          %td(height="30") 商品名称
-          %td(height="30") 收货人
-          %td(height="30") 商品单价
-          %td(height="30") 数量
-          %td(height="30") 订单金额
-          %td(height="30") 下单时间
-          %td(height="30") 预约时间
-          %td(height="30") 操作
-        =render 'customers/center_partial/order_line'
-        %tr
-          %td(height="50" colspan="9")
-            %table(width="90%" border="0"  cellpadding="0" cellspacing="0")
-              %tr
-                %td(height="50") &nbsp;
-                %td(width="170")
-                  %a#continue_shopcar{:href=> customers_order_confirm_path(:good_quantity=>@good_quantity,:good_sku=>@good_sku), :style=>" background-image: url('"+asset_path("test/shopcar_bodyBG.gif")+"');",:title=>"去购物结算", :target=>"_blank"}
-    .clear
-    .order_date_pick_area.right
-      %button#button_decrease( width="20" height="20") -
-      %input#quantity_input( type="text" name="quantity_textfield" value="1" width="20px")
-      %button#button_increase( width="20" height="20") +
-      %br
-      %input.order_date_pick
-      %input#hidden_order_key{:type=>"hidden"}
+.cart_box
+  .shopping_cart_title
+    = drop_bread_crumb
+  .shopping_step2{:style=> "background-image: url('"+asset_path("test/shopping_cart_r2_c3.jpg")+"');"}
+    %ul
+      %li.shopping_stepwz14 1.我的购物车
+      %li.shopping_stepwz16 2.核对订单信息
+      %li.shopping_stepwz14 3.提交订单获取兑换码
+      %li.shopping_stepwz14 4.使用兑换码到车行消费
+  .step_one_title 填写并核对订单信息
+  .order_information
+    %h1
+      %span.shopping_black14 您的个人信息：
+      %span.Red 个人信息保存后无法修改，请确认无误后再提交
+    .input_name_and_phone_area
+      %h2
+        %span.Red *
+        您的姓名：
+      %h3
+        %label
+          %input#textfield_name(name="textfield" type="text" size="10" style="border: 1px solid rgb(131,131,131);" )
+      %h2
+        %span.Red *
+        手机号码：
+      %h3
+        %label
+          %input#textfield_phone(name="textfield" type="text" size="15" style="border: 1px solid rgb(131,131,131);" )
+      %h4
+        %a
+          %img#input_name_and_phone{:src=>asset_path("test/shopping_cart_r9_c11.jpg")}
+    .order_info_details{:style=>"display:none;"}
+      姓名：
+      %font.input_name
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>" margin-right:20px;"}
+      手机号码：
+      %font.input_phone
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8"}
+    .line
+    %h1
+      %span.shopping_black14 您的车辆信息：
+      %span.Red 选填项
+    .car_select_area
+      %h2 车辆品牌：
+      %h3
+        %label
+          = select_tag "car_brand_branch", options_for_select([['品牌', -1]])
+      %h2 车型：
+      %h3
+        %label
+          = select_tag "car_set_branch", options_for_select([['车系', -1]])
+      %h2 车系：
+      %h3
+        = select_tag "car_model_id", options_for_select([['车型', -1]])
+      %h4
+        %a
+          %img.select_car_info{:src=> asset_path("test/shopping_cart_r9_c12.jpg"),:style=>"margin-bottom:10px;"}
+    .order_info_details.order_info_details_1{:style=>"display:none"}
+      车辆品牌：
+      %font.input_text_1
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
+      &nbsp&nbsp&nbsp&nbsp&nbsp车型：
+      %font.input_text_2
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
+      &nbsp&nbsp&nbsp&nbsp&nbsp车系：
+      %font.input_text_3
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
+  .order_use
+    %h1
+      购买后如何使用：
+      %img{:src=>asset_path("test/shopping_cart_r10_c9.jpg"), :width=>"13", :height=>"13"}
+      享车网客服电话：029-81543924
+    %h2
+      成功购买后，即可直接到所购买车行前台处，报出手机号，进行消费。无需预约！（注意：个别产品需预约，请在购买前阅读产品说明！）
+  .step_one_title 购物车清单
+  .step_one_goods
+    %table(width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF")
+      %tr
+        %td(height="30" colspan="2" align="center" bgcolor="#F7F7F7") 商品清单
+        %td(width="8%" height="30" align="center" bgcolor="#F7F7F7") 享车价
+        %td(width="5%" height="30" align="center" bgcolor="#F7F7F7") 数量
+        %td(width="9%" height="30" align="center" bgcolor="#F7F7F7") 库存
+        %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 金额
+        %td(width="24%" align="center" bgcolor="#F7F7F7") 操作
+      -count=0
+      %tr
+        %td( width="90" height="90" align="center" valign="middle" bgcolor="#FFFFFF")
+          .good_pic
+            %img{:src=>@good.logo_url1,:width=>"50", :height=>"50"}
+        %td( height="90" align="left" valign="middle" bgcolor="#FFFFFF")
+          .shopping_good_name
+            %a.good_name_wz
+              =@good.title
+        %td(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
+          =current_customer.get_price(@good_sku)
+        %td(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
+          =@good_quantity
+        %td(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
+          =@good_sku.mall_inventory.inventory_qty
+        %td.good_total_wz14(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
+          ￥
+          =@good_quantity*current_customer.get_price( @good_sku)
+        %td.order_time(align="center" style="display:none;")
+          尚未预约
+        %td.good_total_wz14(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
+          %table( border="0" cellspacing="3" cellpadding="0")
+            -if @good_quantity
+              - @good_quantity.times do
+                %tr
+                  %td
+                    %font.choose_order_time
+                    %a.order_button{:value=> count,:style=>"cursor:pointer;color:blue;"}
+                      %img{:src=>asset_path("test/yuyuefuwu.jpg"), :width=>"86", :height=>"23", :border=>"0"}
+                    -count= count+1
+
+      /%tr
+      /  %td(height="50" colspan="10" align="center" valign="middle" bgcolor="#F7F7F7")
+      /    %table(width="100%" border="0" cellspacing="5" cellpadding="0")
+      /      %tr
+      /        %td(width="82%" align="right") &nbsp;
+      /        %td(width="7%" align="center") 总计
+      /        %td.shopping_totalwz20(width="11%") ￥350.00
+  .cart_submit
+    %a
+      =form_tag('/customers/cart_confirm', method: :GET ) do
+        %input#selected_ids{:type=>"hidden",:name=>"selected_ids",:value=>"#{@cart_ids}"}
+        %input#selected_times{:type=>"hidden",:name=>"selected_times"}
+        %input#selected_name{:type=>"hidden",:name=>"input_name"}
+        %input#selected_phone{:type=>"hidden",:name=>"input_phone"}
+        %input#selected_car{:type=>"hidden",:name=>"input_car"}
+        =submit_tag '', :title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopping_cart_r9_c5.jpg")+"'); width:135px; height:36px;",:id=>"continue_shopcar", :target=>"_blank"
+  .clear
+  .order_date_pick_area.right
+    %input.order_date_pick
+    %input#hidden_order_key{:type=>"hidden"}
 
   :javascript
 
-    $("#button_decrease").click(function(){
-      var max= parseInt($(".order_quantity").text());
-      var min= 1;
-      var value=parseInt($("#quantity_input").attr("value"));
-      if( value>1 && value<=max){
-        value= value-1;
-        $("#quantity_input").attr("value",value);
-      }
+    $(".select_car_info").click(function(){
+      var car_model_id= $("#car_model_id").val();
+      var name_1= $("#car_brand_branch option:selected").text();
+      var name_2= $("#car_set_branch option:selected").text();
+      var name_3= $("#car_model_id option:selected").text();
+
+      $(".input_text_1").text(name_1);
+      $(".input_text_2").text(name_2);
+      $(".input_text_3").text(name_3);
+
+      $(".car_select_area").css("display","none");
+      $(".order_info_details_1").css("display","block");
+
+      $("#selected_car").attr("value",car_model_id);
+
     });
-    $("#button_increase").click(function(){
-      var max= parseInt($(".order_quantity").text());
-      var min= 1;
-      var value=parseInt($("#quantity_input").attr("value"));
-      if( value>=0 && value<max){
-        value= value+1;
-        $("#quantity_input").attr("value",value);
+
+    $("#input_name_and_phone").click(function(){
+      var name= $("#textfield_name").val();
+      var phone= $("#textfield_phone").val();
+
+      if( name=="" || name== null || name == " "){
+        alert("请输入姓名！");
+        return;
       }
+
+      isNum = /\d{11}/;
+      if( phone.length != 11){
+        alert("请输入正确长度手机号码！")
+        return;
+      }
+      if("false" == (isNum.test( phone).toString())){
+        alert("请输入正确手机号码！");
+        return;
+      }
+
+      $(".input_name_and_phone_area").css("display","none");
+      $(".order_info_details:first").css("display","block");
+      $(".input_name").text(name);
+      $(".input_phone").text(phone);
+
+      $("#selected_name").attr("value", name);
+      $("#selected_phone").attr("value", phone);
     });
 
     $(".order_date_pick").datetimepicker();
@@ -147,13 +199,18 @@
           },
           确定: function(){
             $(this).dialog("close");
-            var times= parseInt( $("#quantity_input").attr("value"));
             var time= $(".order_date_pick").val();
             var key= parseInt($("#hidden_order_key").attr("value"));
-            var order_time= time+" X "+times;
-            $(".order_time").text(order_time);
+
+            var order_time= time;
+            $(".order_button").eq(key).text("  修改");
+            $(".choose_order_time").eq(key).text(order_time);
+
             var times_list= new Array();
-            times_list.push($(".order_time").text());
+            $(".choose_order_time").each(function(){
+              times_list.push($(this).text());
+            });
+            $("#selected_times").attr("value", times_list);
             var requestUrl= "/customers/set_order_time_list";
             var data= times_list;
             $.ajax({
@@ -162,17 +219,14 @@
               contentType: "application/json; charset=utf-8;",
               dataType:"json",
               success: function(json){
-                alert(json);
+
               }
 
             });
-
           }
         }
       });
     });
-
-
 
 
 

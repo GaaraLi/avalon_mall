@@ -27,24 +27,27 @@
       %h1=@good.title
       %h2=@good.subhead
       %h3
-        原价：
+        %font{:style=>"font-size:14px;"}
+          原价：
         %i.mall_good_show_price
           ￥
           =@good.mall_skus.first.show_price
-        %span{:style=>"color:#94999A;"} (本商品原价)
+        %span{:style=>"color:#94999A;"}
       %h4
         商城价：
         %b.mall_good_customer_price
           ￥
           =@good.mall_skus.first.price
-        %span{:style=>"color:#999999; font-size:14px;"} (仅注册会员价格)
+        %span{:style=>"color:#999999; font-size:14px;"}
       %h4
         会员价：
         %strong.mall_good_price
           ￥
           =@good.mall_skus.first.customer_price
-        %span{:style=>"color:#999999; font-size:14px;"} (已激活会员价格)
+        %span{:style=>"color:#999999; font-size:14px;"} (享车卡会员专享价格)
       %h4
+        %font{:style=>"float:left;"}
+          规格：
         -@good_sku.each do |s|
           .main_goods_type2#main_goods_sku{:value=> s.id,:style=>"font-size:14px; cursor:pointer;"}
             =s.desc if s
@@ -52,7 +55,8 @@
         %table( width="600" border="0" cellspacing="5" cellpadding="0" align="center" bgcolor="white")
           %tr
             %td(  width="95" height="33")
-              购买数量：
+              %font{:style=>"font-size:14px;"}
+                数量：
             %td
               %img#button_decrease{:width=>"20", :height=>"20", :src=>asset_path("test/shopping_cart_r4_c12.jpg")} 
             %td
@@ -69,7 +73,7 @@
                 =form_tag('/customers/buy', method: :GET) do
                   %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
                   %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
-                  =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:33px; cursor:pointer; float:left;", :title=>"立即购买",:id=>"goods_buymenu"
+                  =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:31px; cursor:pointer; float:left;", :title=>"立即购买",:id=>"goods_buymenu"
                 %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:50px; float:left; "}
           %tr
             %td(colspan="5")

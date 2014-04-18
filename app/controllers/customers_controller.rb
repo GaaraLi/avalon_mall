@@ -78,7 +78,7 @@ class CustomersController < ApplicationController
                                    :customer_id=>current_customer.id,
                                    :input_name=> @input_name,
                                    :input_phone=> @input_phone,
-                                   :input_car=>@input_car)
+                                   :car_model_id=>@input_car)
     @mall_order_id= @order_order.id
     @cart_ids= @cart_ids.delete("[").delete("]").split(",")
     @cart_ids.each do |id|
@@ -270,6 +270,9 @@ class CustomersController < ApplicationController
     @good_quantity=params[:input_hidden_name].to_i
     @good_sku= params[:good_sku]
     @good_sku= MallSku.find(@good_sku)
+    @good= @good_sku.mall_good
+    @bread_crumbs=["立即购买"]
+    @page_title="立即购买"
   end
 
   def add_in_shopping_car

@@ -8,7 +8,7 @@
         -get_footer_info.each_with_index do |i,index|
           %li
             &gt;
-            %a.left_click_bar{:value=>index}
+            %a.left_click_bar{:value=>index,:style=>"cursor:pointer;"}
               =i.title
   .aboutus_right
     -get_footer_info.each_with_index do |i,index|

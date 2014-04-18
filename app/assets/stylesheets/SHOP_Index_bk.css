@@ -2956,6 +2956,7 @@ a#user_menuma:hover {
 
 /*2014-3-12新加样式关于我们*/
 .aboutus_wrap{
+	text-align: left;
 	width:960px;
 	margin-top: 0px;
 	margin-right: auto;

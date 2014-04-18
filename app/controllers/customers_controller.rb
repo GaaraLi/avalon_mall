@@ -112,7 +112,7 @@ class CustomersController < ApplicationController
         do_order_repaid(@current_customer, @order) if @current_customer.card
          puts ' after do_order_repaid================='
        end
-      redirect_to "http://m.ixiangche.com/customers/center"
+      redirect_to "http://m.ixiangche.com/center/order"
     else
       flash[:error] = '支付失败！请检查您的支付操作是否成功'
       render customers_error_page_path
@@ -224,7 +224,7 @@ class CustomersController < ApplicationController
 
       l.quantity.times do
         @code= create_exchange_code
-        MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time )
+        MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>t )
       end
       # @q>0
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity

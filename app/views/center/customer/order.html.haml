@@ -14,10 +14,10 @@
   %div{:class=>"my_center_right"}
     %div{:class=>"my_center_details"}
       %div{:class=>"my_center_title"}我的订单
-      %div{:class=>"order_info_words"}
-        这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表
-      %div{:class=>"my_center_title2"}
-        全部订单
+      / %div{:class=>"order_info_words"}
+      /   这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表
+      / %div{:class=>"my_center_title2"}
+      /   全部订单
       %div{:class=>"order_info_title"}
         %font{:style=>"margin-left:100px"}订单信息
         %font{:style=>"margin-left:150px"}服务车行
@@ -31,11 +31,18 @@
           %table{:width=>"818px",:border=>"0px",:cellpadding=>"0px",:cellspacing=>"1px",:bgcolor=>"#EAEAEA"}
             %tr
               %td{:height=>"20px",:colspan=>"6",:align=>"left",:valign=>"middle" ,:bgcolor=>"#F3F3F3"}
-                %table{:width=>"361px",:border=>"0px",:cellspacing=>"10px",:cellpadding=>"0px"}
+                %table{:border=>"0px",:cellspacing=>"10px",:cellpadding=>"0px"}
                   %tr
                     %td{:align=>"right"}订单编号：
-                    %td{:align=>"left",:class=>"Red"}=order.order_no
+                    %td{:align=>"left",:class=>"Red"}=order.order_no.to_s+""
                     %td 下单时间：#{order.created_at.strftime("%Y-%m-%d %H:%M:%S")}
+                    - if order.status == 1
+                      %td 
+                        %b 已支付 
+                    - elsif order.status == 0
+                      %td 
+                        %b 未支付
+
             - @lines = get_order_lines(order.id.to_s);
             - @i = 0;
             - @lines.each do |line|

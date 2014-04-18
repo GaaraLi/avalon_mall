@@ -17,15 +17,19 @@
       %div{:class=>"my_center_line"}            
       %ul
         %li{:class=>"shopping_black14"}洗车记录：
-        %li{:class=>"mycenter12"}
-          %strong{:class=>"good_total_wz14"}#{@days}
-          天中，您已经洗车
-          %strong{:class=>"good_total_wz14"}#{@consumption_records.count}
-          次，本月您还能洗车
-          %strong{:class=>"good_total_wz14"}#{@this_month_wash}
-          次，总剩余洗车次数
-          %strong{:class=>"good_total_wz14"}#{12-@used_month_count}
-          次
+        - if @cus_status == "actived"
+          %li{:class=>"mycenter12"}
+            %strong{:class=>"good_total_wz14"}#{@days}
+            天中，您已经洗车
+            %strong{:class=>"good_total_wz14"}#{@consumption_records.count}
+            次，本月您还能洗车
+            %strong{:class=>"good_total_wz14"}#{@this_month_wash}
+            次，总剩余洗车次数
+            %strong{:class=>"good_total_wz14"}#{12-@used_month_count}
+            次
+        - else
+          %li{:class=>"mycenter12"}
+            无
       %div{:class=>"my_center_line"}
       %ul
         %li{:style=>"padding-top:30px;"}
@@ -65,13 +69,15 @@
       %div{:class=>"my_center_details_right"}
         %li{:class=>"shopping_black14"}
           %strong
-            %a{:href=>"#",:target=>"_blank",:class=>"good_name_wz"}
-              - if @card.vendor_binding_record.present?
-                =@card.vendor_binding_record.vendor.name
+            - if @card.vendor_binding_record.present?
+              %a{:href=>"#",:target=>"_blank",:class=>"good_name_wz"}=@card.vendor_binding_record.vendor.name
+                
+              %a{:href=>"/vendors",:target=>"_blank",:class=>"good_name_wz",:style=>"margin-left:10px"}进入车行店铺
 
-            %a{:href=>"/vendors",:target=>"_blank",:class=>"good_name_wz",:style=>"margin-left:10px"}进入车行店铺
+              %a{:href=>"/vendors/map",:target=>"_blank",:class=>"good_name_wz",:style=>"margin-left:10px"}查看车行地图
 
-            %a{:href=>"/vendors/map",:target=>"_blank",:class=>"good_name_wz",:style=>"margin-left:10px"}查看车行地图
+            - else 
+              没有车行
 
       %div{:class=>"my_center_title"}个人信息
       %div{:class=>"my_center_details_left"}

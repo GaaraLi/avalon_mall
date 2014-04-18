@@ -45,6 +45,7 @@ class Center::CustomerController < CenterCustomerController
   	@card = @customer.card;
   	@car = @customer.car;
     get_wash_info();
+    
   end
 
   def update_pwd
@@ -73,19 +74,22 @@ class Center::CustomerController < CenterCustomerController
   end
 
   def car_wash
-    @today = Time.new.strftime("%Y-%m-%d");
-    @days = (Time.now.strftime("%Y-%m-%d").to_date - current_customer.card.activated_date.strftime("%Y-%m-%d").to_date).to_i
-    @renewal = Renewal.find(:all,:conditions=>["customer_id = ? and renewal_start <= ? and renewal_end >= ?",current_customer.id,@today,@today]);
+    # @today = Time.new.strftime("%Y-%m-%d");
+    # @days = (Time.now.strftime("%Y-%m-%d").to_date - current_customer.card.activated_date.strftime("%Y-%m-%d").to_date).to_i
+    # @renewal = Renewal.find(:all,:conditions=>["customer_id = ? and renewal_start <= ? and renewal_end >= ?",current_customer.id,@today,@today]);
     #在此卡有效期内本月 本应可以洗多少次(不算已洗次数)
-    @total_month_count = get_total_month_count(@renewal[0].renewal_start,@today);
+    # @total_month_count = get_total_month_count(@renewal[0].renewal_start,@today);
     #在此卡有效期内一共洗了多少次
-    @used_month_count = get_used_month_count(current_customer.card.id,@renewal[0].renewal_start,@today);
+    # @used_month_count = get_used_month_count(current_customer.card.id,@renewal[0].renewal_start,@today);
 
-    @this_month_wash = 0;
-    if @total_month_count - @used_month_count > 0
-      @this_month_wash = @total_month_count - @used_month_count;      
+    # @this_month_wash = 0;
+    # if @total_month_count - @used_month_count > 0
+    #   @this_month_wash = @total_month_count - @used_month_count;      
+    # end
+    @consumption_records = [];
+    if current_customer.card.vendor_binding_record.present?
+      @consumption_records = current_customer.card.vendor_binding_record.consumption_records.order("created_at desc");
     end
-    @consumption_records = current_customer.card.vendor_binding_record.consumption_records.order("created_at desc");
   end
 
   def consumption
@@ -153,19 +157,22 @@ class Center::CustomerController < CenterCustomerController
   private
 
   def get_wash_info
-    @today = Time.new.strftime("%Y-%m-%d");
-    @days = (Time.now.strftime("%Y-%m-%d").to_date - current_customer.card.activated_date.strftime("%Y-%m-%d").to_date).to_i
-    @renewal = Renewal.find(:all,:conditions=>["customer_id = ? and renewal_start <= ? and renewal_end >= ?",current_customer.id,@today,@today]);
-    #在此卡有效期内本月 本应可以洗多少次(不算已洗次数)
-    @total_month_count = get_total_month_count(@renewal[0].renewal_start,@today);
-    #在此卡有效期内一共洗了多少次
-    @used_month_count = get_used_month_count(current_customer.card.id,@renewal[0].renewal_start,@today);
+    @cus_status = current_customer.card.status;
+    if @cus_status == "actived"
+      @today = Time.new.strftime("%Y-%m-%d");
+      @days = (Time.now.strftime("%Y-%m-%d").to_date - current_customer.card.activated_date.strftime("%Y-%m-%d").to_date).to_i
+      @renewal = Renewal.find(:all,:conditions=>["customer_id = ? and renewal_start <= ? and renewal_end >= ?",current_customer.id,@today,@today]);
+      #在此卡有效期内本月 本应可以洗多少次(不算已洗次数)
+      @total_month_count = get_total_month_count(@renewal[0].renewal_start,@today);
+      #在此卡有效期内一共洗了多少次
+      @used_month_count = get_used_month_count(current_customer.card.id,@renewal[0].renewal_start,@today);
 
-    @this_month_wash = 0;
-    if @total_month_count - @used_month_count > 0
-      @this_month_wash = @total_month_count - @used_month_count;      
+      @this_month_wash = 0;
+      if @total_month_count - @used_month_count > 0
+        @this_month_wash = @total_month_count - @used_month_count;      
+      end
+      @consumption_records = current_customer.card.vendor_binding_record.consumption_records.order("created_at desc");  
     end
-    @consumption_records = current_customer.card.vendor_binding_record.consumption_records.order("created_at desc");  
   end
 
   def get_total_month_count (start_time , end_time);

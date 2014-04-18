@@ -2972,7 +2972,8 @@ a#user_menuma:hover {
 }
 .aboutus_right{
 	width:735px;
-	height: 700px;
+	min-height: 600px;
+#	height: 700px;
 	#float: right;
 	margin-left: auto;
 	margin-top: 0px;
@@ -3054,7 +3055,7 @@ a#user_menuma:hover {
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-right-color: #DFDFDF;
-	border-bottom-width: 1px;
+	border-bottom-width: 1px																																																																																																								;
 	border-bottom-style: solid;
 	border-bottom-color: #DFDFDF;
 }
@@ -3062,12 +3063,12 @@ a#user_menuma:hover {
 	line-height: 30px;
 	font-size: 14px;
 	color: #333333;
-	height: 500px;
-	width: 700px;
+#	height: 500px;
+	width: 700px;								
 	text-align: left;
 	display: inline;
 	list-style-position: inside;
-	float: left;
+#	float: left;
 	padding-top: 10px;
 	padding-left: 10px;
 }
@@ -3247,7 +3248,7 @@ a#user_menuma:hover {
 .step_one_goods {
 	height:auto !important;
     height:200px; 
-    min-height:200px; 
+#    min-height:200px; 
 	width: 978px;
 	margin-top: 14px;
 	background-color: #F7F7F7;

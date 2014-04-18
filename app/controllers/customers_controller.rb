@@ -270,6 +270,9 @@ class CustomersController < ApplicationController
     @good_quantity=params[:input_hidden_name].to_i
     @good_sku= params[:good_sku]
     @good_sku= MallSku.find(@good_sku)
+    @good= @good_sku.mall_good
+    @bread_crumbs=["立即购买"]
+    @page_title="立即购买"
   end
 
   def add_in_shopping_car

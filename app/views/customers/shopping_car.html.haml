@@ -145,7 +145,7 @@
           contentType:"application/json, charset:utf-8;",
           dataType: "json",
           success:function(json){
-            $(".good_check_box:checked").parent().parent().fadeOut();
+            $(".good_check_box:checked").parent().parent().remove();
             alert("删除成功！");
           }
         });
@@ -170,6 +170,13 @@
       var new_quantities=[];
       
       var all_quantity= $(".quantity_number_input").text();
+      alert(all_quantity);
+
+      var all_quantity=[];
+      $(".quantity_number_input").each(function(){
+        all_quantity.push( $(this).text());
+        alert(all_quantity);
+      });
       var RequestUrl="/customers/check_inventory";
       $.ajax({
         url:RequestUrl,
@@ -215,7 +222,7 @@
     function check_checked_box(){
       var ids=[];
       $(".good_check_box").each(function(){
-        if( $(this).prop('checked')){
+        if( $(this).prop('checked') ){
           ids.push( parseInt($(this).next("#hidden_in_checkbox").val()) );
         }
       });

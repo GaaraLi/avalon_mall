@@ -34,10 +34,16 @@ class CustomersController < ApplicationController
   def check_inventory
     @ids= params[:ids]
     @all_quantity= params[:all_quantity]
-    @all_quantity_array= @all_quantity.scan(/[^ ]+/)
+    puts '=======all_quantity'
+    puts @all_quantity
+    @all_quantity_array= @all_quantity.scan(/[^\s,]+/)
+    puts '=======all_quantity_array'
+    puts @all_quantity_array
 
     @ids= @ids.delete("[").delete("]").split(",")
     @ids.zip(@all_quantity_array).each do |id,q|
+      puts '--'
+      puts q
       @shopping_car_line= MallShoppingCar.find(id.to_i)
       if (@shopping_car_line.mall_sku.mall_inventory.inventory_qty<=0)
         render :json=>0

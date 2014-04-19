@@ -38,13 +38,13 @@
           %ul#pics.pics( style=" left:5px;")
             -@homepage_recommends.each_slice(3) do |rec|
               %li
-                %p
+                %p{:style=>"margin-left:2px;"}
                   %a{:href=>"#{rec[0].text2}"}
                     %img{:src=>"#{rec[0].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
-                %p
+                %p{:style=>"margin-left:2px;"}
                   %a{:href=>"#{rec[1].text2}"}
                     %img{:src=>"#{rec[1].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
-                %p
+                %p{:style=>"margin-left:2px;"}
                   %a{:href=>"#{rec[2].text2}"}
                     %img{:src=>"#{rec[2].img_url}",:alt=>"pic",:style=>"width:295px; height:100px;"}
         #next.scroll{:style=>"background-image: url('"+asset_path("test/Index_BodyBG111.gif")+"');"}

@@ -12,7 +12,7 @@
       %a 搜索商品
     .category_right.right
       =render 'home/partial/goods_hot_rec'
-      -if 1==@flag || 3 ==@flag
+      -if 1==@flag || 3 ==@flag || 4 == @flag
         .category_class
           .main_class
             -@first_class.each do |f|
@@ -22,13 +22,7 @@
                 .main_class_nav
                   -@second_class.each do |s|
                     -if s.parent_code == f.code
-                      =link_to s.name,{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>s.id }, :class=>"second_class_link"
-      .class_rule_number
-        .class_rule_chose.left{:style=>"padding-left:25px;"}
-          %h4.choseon.left 默认
-          %h4.left 销量
-          %h4.left 价格↑
-          %h4.left 价格↓
+                      =link_to s.name,{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>s.id, :order_flag=>1,:first_show=>0 }, :class=>"second_class_link"
       #ajax_category_product
         -if 2!=@flag
           =render 'home/partial/goods_show'

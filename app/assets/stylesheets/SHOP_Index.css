@@ -360,17 +360,6 @@ background: #FF7700;
 	width: 5000px; 
 	top: 0px
 }
-.pics LI {
-	width: 885px; 
-	float: left; 
-	height: 100px; 
-	overflow: hidden
-}
-.pics LI P {
-	position: relative; 
-	float: left; 
-	overflow: hidden; 
-}
 /*第三部分*/
 .part_03 {
 	padding-top: 6px;

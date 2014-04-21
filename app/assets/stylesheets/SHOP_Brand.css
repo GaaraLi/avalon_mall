@@ -16,15 +16,6 @@ body {
 .clear {
 	clear:both
 }
-.wrap {
-	height: auto;
-	width: 960px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-	text-align: left;
-}
 /*top*/
 .top .topBox {
 	height: 31px;

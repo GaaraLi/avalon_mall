@@ -229,7 +229,7 @@ a#shop_car s {
 	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -168px;
-	#position: absolute;
+	position: absolute;
 	left: 0px;
 	top: 0px;
 	padding-right: 2px;
@@ -1996,9 +1996,6 @@ a#p_pricemenu:hover {
 	margin-left:2px;
 	height: auto;
 	width: 206px;
-	position: relative;
-	left: 0px;
-	top: 0px;
 	border-right-width: 1px;
 	border-bottom-width: 1px;
 	border-left-width: 1px;

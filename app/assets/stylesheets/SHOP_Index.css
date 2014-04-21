@@ -132,10 +132,6 @@ body {
 	background-color: #0F658A;
 }
 /*第一部分*/
-.part_01 {
-	position: relative;
-	height: 318px;
-}
 .shop_classbox {
 	height: 79px;
 	position: relative;
@@ -1668,20 +1664,6 @@ a#p_pricemenu:hover {
 	margin-left: auto;
 }
 /*商城分类修改*/
-.shop_stornav2 {
-	height: auto;
-	#border-bottom-width: 1px;
-	#border-bottom-style: solid;
-	#border-bottom-color: #e6e6e6;
-	width:196px;
-	padding-bottom: 2px;
-}
-.shop_stornav2 .shop_stor2 {
-	font-size: 15px;
-	padding-top: 8px;
-	padding-left: 7px;
-	padding-bottom: 5px;
-}
 .shop_stornav2 .stornav2_li {
 	height: auto;
 	padding-left: 7px;

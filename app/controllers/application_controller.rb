@@ -12,9 +12,6 @@ class ApplicationController < ActionController::Base
           value: fullpath,
           domain: '.ixiangche.com'
         }
-        puts '============='
-        puts request.fullpath
-        puts fullpath
     end
   end
 end

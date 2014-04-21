@@ -11,9 +11,9 @@
           %a{:href=>"#{@slider.text2} "}
             %img{ :src=> "#{@slider.img_url}", :width=>"202", :height=>"88", :border=>"0"  ,:alt=>'pic'}
         %h5
-          %ul
+          %ul{:style=>" margin-left:-10px;"}
             -@homepage_slider_right_links.each do |link|
-              %li
+              %li{:style=>"width:190px; overflow:hidden;"}
                 ·&nbsp;
                 %a{:href=>"#{link.text2}"}
                   =link.title

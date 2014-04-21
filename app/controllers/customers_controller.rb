@@ -73,11 +73,13 @@ class CustomersController < ApplicationController
     @input_name= params[:input_name]
     @input_phone= params[:input_phone]
     @input_car= params[:input_car]
+    @input_plate_number= params[:input_plate_number]
 
     @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,
                                    :customer_id=>current_customer.id,
                                    :input_name=> @input_name,
                                    :input_phone=> @input_phone,
+                                   :input_plate_number=> @input_plate_number,
                                    :car_model_id=>@input_car)
     @mall_order_id= @order_order.id
     @cart_ids= @cart_ids.delete("[").delete("]").split(",")

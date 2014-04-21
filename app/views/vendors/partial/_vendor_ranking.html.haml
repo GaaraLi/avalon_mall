@@ -14,9 +14,6 @@
           %s
             %font{:style=>"color:#F84A2D;"}
               ￥
-            -if current_customer
-              =current_customer.get_price( r)
-            -else
               =r.price
         %span
           = index+1

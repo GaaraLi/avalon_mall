@@ -37,6 +37,10 @@
             %span 原价：￥
             %i{:style=>"text-decoration:line-through;"}
               =g.mall_skus.first.show_price
+        .p_vendor{:style=>"margin-top:14px;"}
+          %span{:style=>"font-size:10px;"}
+            %a{:href=> vendor_path(g.vendor) }
+              =g.vendor.name
   .class_rule_retrieval.left{:style=>"width:100%;"}
     %h3.left
       检索出

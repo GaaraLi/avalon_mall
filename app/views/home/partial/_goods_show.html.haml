@@ -2,7 +2,7 @@
   .class_rule_number
     .class_rule_chose.left{:style=>"padding-left:25px;"}
       %h4.choseon.left
-        =link_to "默认",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>1,:first_show=>@first_show }, :class=>"second_class_link"
+        =link_to "全部",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>1,:first_show=>@first_show }, :class=>"second_class_link"
       %h4.left
         =link_to "销量",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>2,:first_show=>@first_show }, :class=>"second_class_link"
       %h4.left

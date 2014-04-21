@@ -1,0 +1,15 @@
+%html
+  %head
+    = stylesheet_link_tag    "SHOP_Index_bk"
+    = stylesheet_link_tag    "SHOP_Zh"
+
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = set_title_tag
+
+  %body
+    =render "home/partial/top"
+    =render "home/partial/header"
+    =yield
+    =render "home/partial/footer"
+    =render "home/partial/return_top"

@@ -1,16 +1,16 @@
-.shop_class.category_shop_class.left{:style=>"width:100px;"}
-  .shop_classbox2{:style=>"width:100px;"}
+.shop_class.category_shop_class.left
+  .shop_classbox2
     %a{:href=> home_card_path, :height=>"45"}
-      %img{:src=>asset_path("test/shangcheng.png") , :width=>"106", :height=>"45", :border=>"0"}
+      %img{:src=>asset_path("test/shangcheng.png") , :width=>"206", :height=>"45", :border=>"0"}
     %h1.shop_stornav2{:style=>"height:275px;"}
       #accordion_homepage{:border=>"1px",:style=>"margin-top:-10px;"}
         -@first_class.each do |f|
-          %h3.accordion_head{:style=>"margin-top:0px;width:100px;"}
-            .shop_stor2{:style=>"width:100px;"}
+          %h3.accordion_head{:style=>"margin-top:0px;"}
+            .shop_stor2
               %b
                 =f.name
           .stornav2_li.accordion_list.shop_stornav2{:style=>"width:100px;"}
-            .second_class_area{:style=>"width:100px;"}
+            .second_class_area
               -@second_class.each do |s|
                 -if s.parent_code == f.code
                   =link_to s.name,home_search_path(:search_key=>s.id,:search_type=>"4",:submit=>"")

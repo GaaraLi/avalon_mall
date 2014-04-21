@@ -1668,11 +1668,6 @@ a#p_pricemenu:hover {
 	margin-left: auto;
 }
 /*商城分类修改*/
-.shop_classbox2 {
-	height: 310px;
-	position: relative;
-	width:196px;
-}
 .shop_stornav2 {
 	height: auto;
 	#border-bottom-width: 1px;

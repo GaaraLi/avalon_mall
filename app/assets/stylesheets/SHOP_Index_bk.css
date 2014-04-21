@@ -229,7 +229,7 @@ a#shop_car s {
 	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;
 	background-position: 0px -168px;
-	position: absolute;
+	#position: absolute;
 	left: 0px;
 	top: 0px;
 	padding-right: 2px;
@@ -1654,7 +1654,6 @@ a#goods_buymenu {
 /*商城分类修改*/
 .shop_classbox2 {
 	height: 310px;
-	position: relative;
 	width:196px;
 }
 .shop_stornav2 {

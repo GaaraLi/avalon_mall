@@ -7,10 +7,14 @@ class ApplicationController < ActionController::Base
   private
   def store_location
     if( request.fullpath != "/customers/login" && request.fullpath != "/customers/sign_up" && !request.xhr? )
+        fullpath= "m.ixiangche.com"+request.fullpath
         cookies[:previous_url] = {
-          value: request.fullpath,
+          value: fullpath,
           domain: '.ixiangche.com'
         }
+        puts '============='
+        puts request.fullpath
+        puts fullpath
     end
   end
 end

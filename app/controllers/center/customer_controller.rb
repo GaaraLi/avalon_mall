@@ -7,7 +7,7 @@ class Center::CustomerController < CenterCustomerController
   def order
 
     @pageIndex = params[:h_pageIndex].to_i;
-    @pageCount = 1;
+    @pageCount = 10;
     if @pageIndex == nil || @pageIndex == "" || @pageIndex <= 0
       @pageIndex = 1;
     end 

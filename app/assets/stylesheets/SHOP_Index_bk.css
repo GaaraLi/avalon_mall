@@ -716,7 +716,8 @@ a#qukankan:hover {
 .w1 {
 	line-height: 22px;
 	height: 22px;
-	border: 1px solid #FFFFFF;
+#	border: 1px solid #FFFFFF;
+    outline: none;
 	width: 380px;
 	font-family: "Microsoft Yahei", "Tahoma", "SimSun";
 	font-size: 14px;

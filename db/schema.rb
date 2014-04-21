@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417072141) do
+ActiveRecord::Schema.define(version: 20140421031727) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -333,8 +333,8 @@ ActiveRecord::Schema.define(version: 20140417072141) do
 
   create_table "mall_orders", force: true do |t|
     t.string   "order_no"
-    t.decimal  "price",          precision: 10, scale: 2
-    t.decimal  "original_price", precision: 10, scale: 2
+    t.decimal  "price",              precision: 10, scale: 2
+    t.decimal  "original_price",     precision: 10, scale: 2
     t.integer  "quantity"
     t.integer  "status"
     t.integer  "customer_id"
@@ -344,6 +344,7 @@ ActiveRecord::Schema.define(version: 20140417072141) do
     t.string   "input_name"
     t.string   "input_phone"
     t.integer  "car_model_id"
+    t.string   "input_plate_number"
   end
 
   create_table "mall_shopping_cars", force: true do |t|

@@ -3666,3 +3666,354 @@ a#user_menuma:hover {
 	text-align: left;
 	background-color: #FFFFFF;
 }
+
+/*2014.4.17商城上线专题页面*/
+.zhuanti_products1 {
+	height: 600px;
+	background-image: url(/assets/topic/zhuanti14_04_r2_c2_r1_c1.jpg);
+}
+.zhuanti_products2 {
+	height: 600px;
+	background-image: url(/assets/topic/zhuanti14_04_3.jpg);
+}
+.zhuanti_products3 {
+	height: 1000px;
+	background-image: url(/assets/topic/zhuanti14_05.jpg);
+}
+.zhuanti_products4 {
+	height: 1000px;
+	background-image: url(/assets/topic/zhuanti14_06.png);
+}
+.zhuanti_products5 {
+	height: 600px;
+	background-image: url(/assets/topic/zhuanti14_07.jpg);
+}
+.zhuanti_products1,.zhuanti_products2,.zhuanti_products3,.zhuanti_products4,.zhuanti_products5 {
+	width: 1055px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 40px;
+	margin-left: auto;
+	background-repeat: no-repeat;
+}
+.zhuanti_products_title1 {
+	background-color: #AD4BAD;
+	background-image: url(/assets/topic/1f.jpg);
+}
+.zhuanti_products_title2 {
+	background-color: #1DA8EB;
+	background-image: url(/assets/topic/2f.jpg);
+}
+.zhuanti_products_title3 {
+	background-color: #F1592A;
+	background-image: url(/assets/topic/3f.jpg);
+}
+.zhuanti_products_title4 {
+	background-color: #79AA28;
+	background-image: url(/assets/topic/4f.jpg);
+}
+.zhuanti_products_title5 {
+	background-color: #F64269;
+	background-image: url(/assets/topic/5f.jpg);
+}
+.zhuanti_products_title1,.zhuanti_products_title2,.zhuanti_products_title3,.zhuanti_products_title4,.zhuanti_products_title5 {
+	height: 53px;
+	width: 980px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+.zhuanti_products_bg1 {
+	height: 520px;
+	border-right-color: #DBACDB;
+	border-bottom-color: #DBACDB;
+	border-left-color: #DBACDB;
+}
+.zhuanti_products_bg2 {
+	height: 520px;
+	border-right-color: #88D1F4;
+	border-bottom-color: #88D1F4;
+	border-left-color: #88D1F4;
+}
+.zhuanti_products_bg3 {
+	height: 930px;
+	border-right-color: #FAC3B2;
+	border-bottom-color: #FAC3B2;
+	border-left-color: #FAC3B2;
+}
+.zhuanti_products_bg4 {
+	height: 930px;
+	border-right-color: #CFE0B1;
+	border-bottom-color: #CFE0B1;
+	border-left-color: #CFE0B1;
+}
+.zhuanti_products_bg5 {
+	height: 520px;
+	border-right-color: #FCBBC9;
+	border-bottom-color: #FCBBC9;
+	border-left-color: #FCBBC9;
+}
+.zhuanti_products_bg1,.zhuanti_products_bg2,.zhuanti_products_bg3,.zhuanti_products_bg4,.zhuanti_products_bg5{
+    width: 980px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-color: #FFFFFF;
+	background-image: url(/assets/topic/zhuanti14_04_r4_c6.jpg);
+	background-repeat: repeat-x;
+	padding-bottom: 10px;
+	padding-top: 20px;
+	border-right-width: 3px;
+	border-bottom-width: 3px;
+	border-left-width: 3px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+
+.zhuanti_product {
+	width: 225px;
+	height: 380px;
+	border: 1px solid #CCCCCC;
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 14px;
+}
+.zhuanti_product:link,.zhuanti_product:visited {
+	width: 225px;
+	height: 380px;
+	border: 1px solid #CCCCCC;
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 14px;
+}
+.zhuanti_product:hover {
+	width: 225px;
+	height: 380px;
+	border: 1px solid #FF0000;
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 14px;
+}
+.zhuanti_product_pic {
+	width: 213px;
+	height: 230px;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-bottom: 5px;
+	margin-left: auto;
+}
+
+.zhuanti_product_name {
+	height: 55px;
+	width: 215px;
+	margin-top: 6px;
+	margin-right: auto;
+	margin-bottom: 6px;
+	margin-left: auto;
+}
+.zhuanti_product_price {
+	width: 100%;
+	height: 73px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-color: #FBF3E0;
+}
+.zhuanti_product_name h1 {
+	font-size: 20px;
+	color: #E60028;
+	font-weight: bold;
+	line-height: 20px;
+	width: 140px;
+	float: left;
+	margin-top: 5px;
+	text-align: left;
+	text-indent: 1px;
+}
+.zhuanti_product_name h2 {
+	font-size: 16px;
+	color: #333333;
+	font-weight: bold;
+	line-height: 20px;
+	width: 70px;
+	float: right;
+	margin-left: 2px;
+	margin-top: 5px;
+}
+.zhuanti_product_name h3 {
+	font-size: 14px;
+	color: #666666;
+	line-height: 20px;
+	width: 210px;
+	float: left;
+	margin-left: 2px;
+	margin-top: 8px;
+}
+.zhuanti_product_price h1 {
+	font-size: 12px;
+	width: 100px;
+	float: left;
+	line-height: 20px;
+	margin-left: 5px;
+	margin-top: 5px;
+	vertical-align: middle;
+	text-decoration:line-through;
+}
+.zhuanti_product_price img {
+	float: right;
+	margin-right: 5px;
+	margin-top: 10px;
+}
+.zhuanti_product_price h2 {
+	font-size: 17px;
+	width: 163px;
+	float: left;
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: #666666;
+	text-align: left;
+	text-indent: 8px;
+}
+.zhuanti_explain1 {
+	border: 1px solid #EDD6ED;
+	background-color: #FFEEFE;
+}
+.zhuanti_explain2 {
+	background-color: #E8FBFF;
+	border: 1px solid #EDD6ED;
+}
+.zhuanti_explain3 {
+	background-color: #FFEFEC;
+	border: 1px solid #FABDAB;
+}
+.zhuanti_explain4 {
+	background-color: #F3FDE8;
+	border: 1px solid #C6E691;
+}
+.zhuanti_explain5 {
+	background-color: #FEEDF1;
+	border: 1px solid #FCC0CD;
+}
+.zhuanti_explain1,.zhuanti_explain2,.zhuanti_explain3,.zhuanti_explain4,.zhuanti_explain5 {
+	width: 950px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 98px;
+}
+.zhuanti_explain1 img,.zhuanti_explain2 img,.zhuanti_explain3 img,.zhuanti_explain4 img,.zhuanti_explain5 img {
+	height: 86px;
+	width: 86px;
+	float: left;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.zhuanti_explain1 ul,.zhuanti_explain2 ul,.zhuanti_explain3 ul,.zhuanti_explain4 ul,.zhuanti_explain5 ul {
+	width: 255px;
+	height: 66px;
+	float: left;
+	margin-top: 15px;
+	margin-left: 20px;
+	list-style-position: inside;
+	list-style-image: none;
+	list-style-type: none;
+}
+.zhuanti_explain1 li,.zhuanti_explain2 li,.zhuanti_explain3 li,.zhuanti_explain4 li,.zhuanti_explain5 li {
+	text-align: left;
+	line-height: 30px;
+}
+.zhuanti_product_introduce{
+	font-size: 16px;
+	line-height: 30px;
+	width: 210px;
+	height: 330px;
+	float: right;
+	margin-top: 40px;
+	text-align: left;
+	margin-right: 20px;
+	margin-left: 10px;
+	vertical-align: text-bottom;
+	color: #999999;
+}
+.zhuanti_products_title1 h1,.zhuanti_products_title2 h1,.zhuanti_products_title3 h1,.zhuanti_products_title4 h1,.zhuanti_products_title5 h1 {
+	float: left;
+	height: 50px;
+	font-size: 28px;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 45px;
+	text-align: left;
+	text-indent: 15px;
+}
+.zhuanti_products_title1 h2,.zhuanti_products_title2 h2,.zhuanti_products_title3 h2,.zhuanti_products_title4 h2,.zhuanti_products_title5 h2 {
+	font-size: 16px;
+	font-style: italic;
+	color: #FFFFFF;
+	line-height: 50px;
+	text-align: left;
+	float: left;
+	height: 50px;
+	width: auto;
+	text-indent: 10px;
+}
+.zhuanti_products_title1 h3,.zhuanti_products_title2 h3,.zhuanti_products_title3 h3,.zhuanti_products_title4 h3,.zhuanti_products_title5 h3 {
+	height: 50px;
+	width: 100px;
+	float: right;
+	margin-right: 30px;
+}
+table td{
+	line-height: 20px;
+}
+.zhuanti_head1 {
+	background-image: url(/assets/topic/zhuanti_toutu_r1_c1.jpg);
+	background-repeat: no-repeat;
+}
+.zhuanti_head,.zhuanti_head1 {
+	height: 250px;
+	width: 1200px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+.zhuanti_daohang {
+	line-height: 50px;
+	height: 40px;
+	width: 150px;
+	color: #FFFFFF
+}
+.zhuanti_daohang:link,.zhuanti_daohang:visited,.zhuanti_daohang:hover {
+	line-height: 50px;
+	height: 40px;
+	width: 150px;
+	color: #FFFFFF;
+}
+
+/*2014.4.21商城上线专题页面右侧滚动栏*/
+.zhuanti_biaoqian {
+	height: 403px;
+	width: 90px;
+	background-image: url(/assets/topic/biaoqian_bj.jpg);
+	background-repeat: no-repeat;
+	padding-top: 27px;
+}
+.zhuanti_biaoqian h1 {
+	height: 70px;
+	width: 80px;
+	margin-bottom: 4px;
+	margin-left: auto;
+	margin-right: auto;
+}
+

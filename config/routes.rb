@@ -13,6 +13,10 @@ IxcMall::Application.routes.draw do
     get 'update_order_time'=>'customer#update_order_time'
   end
 
+  namespace :topic do
+    get 'shangxian' => 'topic#shangxian'
+  end
+
   get "vendors/index"
   get "vendors/map"
   get "vendors/vendor_search"

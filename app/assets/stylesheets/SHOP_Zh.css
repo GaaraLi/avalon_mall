@@ -279,3 +279,51 @@ A.Orange:visited {
 	color: #8A8A8A;
 	font-size: 12px;
 }
+
+/*2014.4.17商城上线专题页面*/
+.zhuanti_35{
+	font-size: 33px;
+	color: #E60027;
+	text-align: left;
+	font-style: italic;
+	font-family: Arial;
+	letter-spacing: -1px;
+}
+.zhuanti_20{
+	font-size: 19px;
+	color: #E60028;
+	font-style: italic;
+	font-family: Arial;
+	text-align: left;
+}
+.zhuanti_16{
+	font-size: 14px;
+	color: #E60028;
+	text-align: left;
+	font-weight: bold;
+	line-height: 25px;
+}
+.zhuanti_22{
+	font-size: 22px;
+	color: #666666;
+	font-family: "微软雅黑";
+	text-align: left;
+}
+.zhuanti_14{
+	font-size: 14px;
+	color: #FFFFFF;
+	line-height: 50px;
+	text-align: left;
+	float: right;
+	height: 50px;
+	width: 140px;
+}
+.zhuanti_14:link,.zhuanti_14:visited,.zhuanti_14:hover,.zhuanti_14:active{
+	font-size: 14px;
+	color: #FFFFFF;
+	line-height: 50px;
+	text-align: left;
+	float: right;
+	height: 50px;
+	width: 100px;
+}

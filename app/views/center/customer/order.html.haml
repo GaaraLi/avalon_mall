@@ -83,12 +83,16 @@
                         %tr
                           %td{:height=>"30px",:align=>"center",:valign=>"middle"}
                             #{line["order_time"]}
-                            %a{:onclick=>"show_time(#{line['me_id']});",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改
+
+                            %a{:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改
+
+                            %input{:type=>"hidden",:id=>"h_time_#{line['me_id']}"}
                       - else
                         %tr
                           %td{:height=>"30px",:align=>"center",:valign=>"middle"}
                             %a{:onclick=>"show_time(#{line['me_id']});"}
-                              %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px"}
+                              %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})"}
+                            %input{:type=>"hidden",:id=>"h_time_#{line['me_id']}"}
               -@i = @i+1;
           %div
             %div{:class=>"pagebar"}
@@ -132,27 +136,30 @@
       %input{:type=>"hidden",:id=>"h_id"}
 
 :javascript
-  function update_order_time()
+  function update_order_time(id)
   {
-    if(!confirm("是否需要预约？"))
-    {
-      return false;
-    }
+    //if(!confirm("是否需要预约？"))
+    //{
+      //return false;
+    //}
 
-    var h_id = $("#h_id").val();
-    var time = $("#time").val();
+    //var h_id = $("#h_id").val();
+    //var time = $("#time").val();
     
-    if(time.replace(/[ ]/g,"") == "")
-    {
-      alert("请输入预约时间");
-      return false;
-    }
+    //if(time.replace(/[ ]/g,"") == "")
+    //{
+      //alert("请输入预约时间");
+      //return false;
+    //}
 
-    if(h_id.replace(/[ ]/g,"") == "")
-    {
-      alert("商品预约ID未找到");
-      return false;
-    }
+    //if(h_id.replace(/[ ]/g,"") == "")
+    //{
+      //alert("商品预约ID未找到");
+      //return false;
+    //}
+    var obj = $("#h_time_"+id); 
+    var h_id = id;
+    var time = obj.val();
 
     $.ajax
     ({
@@ -182,13 +189,14 @@
 
   function show_time(id)
   {
-    $("#time").val("");
+    $("#h_time_"+id).trigger("click");
+    //$("#time").val("");
 
-    $("#h_id").val(id);
+    //$("#h_id").val(id);
 
-    $("#time_input").css("top",$(document).scrollTop()+150+"px");
-    $("#time_div").show();
-    $("#time_input").show();
+    //$("#time_input").css("top",$(document).scrollTop()+150+"px");
+    //$("#time_div").show();
+    //$("#time_input").show();
   }
 
   function close_time()

@@ -3670,23 +3670,20 @@ a#user_menuma:hover {
 /*2014.4.17商城上线专题页面*/
 .zhuanti_products1 {
 	height: 600px;
-	background-image: url(/assets/topic/zhuanti14_04_r2_c2_r1_c1.jpg);
+	
 }
 .zhuanti_products2 {
 	height: 600px;
-	background-image: url(/assets/topic/zhuanti14_04_3.jpg);
 }
 .zhuanti_products3 {
 	height: 1000px;
-	background-image: url(/assets/topic/zhuanti14_05.jpg);
+
 }
 .zhuanti_products4 {
 	height: 1000px;
-	background-image: url(/assets/topic/zhuanti14_06.png);
 }
 .zhuanti_products5 {
 	height: 600px;
-	background-image: url(/assets/topic/zhuanti14_07.jpg);
 }
 .zhuanti_products1,.zhuanti_products2,.zhuanti_products3,.zhuanti_products4,.zhuanti_products5 {
 	width: 1055px;
@@ -3698,23 +3695,18 @@ a#user_menuma:hover {
 }
 .zhuanti_products_title1 {
 	background-color: #AD4BAD;
-	background-image: url(/assets/topic/1f.jpg);
 }
 .zhuanti_products_title2 {
-	background-color: #1DA8EB;
-	background-image: url(/assets/topic/2f.jpg);
+	background-color: #1DA8EB;	
 }
 .zhuanti_products_title3 {
 	background-color: #F1592A;
-	background-image: url(/assets/topic/3f.jpg);
 }
 .zhuanti_products_title4 {
 	background-color: #79AA28;
-	background-image: url(/assets/topic/4f.jpg);
 }
 .zhuanti_products_title5 {
 	background-color: #F64269;
-	background-image: url(/assets/topic/5f.jpg);
 }
 .zhuanti_products_title1,.zhuanti_products_title2,.zhuanti_products_title3,.zhuanti_products_title4,.zhuanti_products_title5 {
 	height: 53px;
@@ -3763,7 +3755,6 @@ a#user_menuma:hover {
 	margin-bottom: 0px;
 	margin-left: auto;
 	background-color: #FFFFFF;
-	background-image: url(/assets/topic/zhuanti14_04_r4_c6.jpg);
 	background-repeat: repeat-x;
 	padding-bottom: 10px;
 	padding-top: 20px;
@@ -3977,7 +3968,6 @@ table td{
 	line-height: 20px;
 }
 .zhuanti_head1 {
-	background-image: url(/assets/topic/zhuanti_toutu_r1_c1.jpg);
 	background-repeat: no-repeat;
 }
 .zhuanti_head,.zhuanti_head1 {
@@ -4005,7 +3995,6 @@ table td{
 .zhuanti_biaoqian {
 	height: 403px;
 	width: 90px;
-	background-image: url(/assets/topic/biaoqian_bj.jpg);
 	background-repeat: no-repeat;
 	padding-top: 27px;
 }

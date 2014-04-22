@@ -1,5 +1,5 @@
 class Center::CustomerController < CenterCustomerController
-
+  layout "customer_center"
   protect_from_forgery :except => :index  
   # you can disable csrf protection on controller-by-controller basis:  
   skip_before_filter :verify_authenticity_token  
@@ -7,7 +7,7 @@ class Center::CustomerController < CenterCustomerController
   def order
 
     @pageIndex = params[:h_pageIndex].to_i;
-    @pageCount = 10;
+    @pageCount = 1;
     if @pageIndex == nil || @pageIndex == "" || @pageIndex <= 0
       @pageIndex = 1;
     end 

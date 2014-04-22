@@ -693,6 +693,7 @@ a#qukankan:hover {
 	border-top-width: 2px;
 	border-top-style: solid;
 	border-top-color: #e5e5e5;
+	clear:both;
 }
 .footer h3 {
 	height: 20px;
@@ -3436,7 +3437,7 @@ a#user_menuma:hover {
 /*2014.4.11个人中心页面*/
 .my_center_box{
 	width: 980px;
-	min-height:750px;
+	/*min-height:750px;*/
 	margin-top: 0px;
 	margin-right: auto;
 	margin-bottom: 0px;
@@ -3510,7 +3511,7 @@ a#user_menuma:hover {
 .my_center_right {
 	float: right;
 	width: 820px;
-	height: 670px;
+	
 }
 .account_info {
 	height: 130px;

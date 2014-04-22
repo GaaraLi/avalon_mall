@@ -79,45 +79,44 @@
                     - else
                       %tr
                         %td{:height=>"30px",:align=>"center",:valign=>"middle",:class=>"Red"}  兑换码：#{line['exchange_code_number']}
-                      - if line["order_time"].present?
-                        %tr
-                          %td{:height=>"30px",:align=>"center",:valign=>"middle"}
-                            #{line["order_time"]}
-
-                            %a{:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改
-
-                            %input{:type=>"hidden",:id=>"h_time_#{line['me_id']}"}
-                      - else
-                        %tr
-                          %td{:height=>"30px",:align=>"center",:valign=>"middle"}
-                            %a{:onclick=>"show_time(#{line['me_id']});"}
+                     
+                      %tr
+                        %td{:height=>"30px",:align=>"center",:valign=>"middle"}
+                          %font{:id=>"font_time_#{line['me_id']}"}#{line["order_time"]}
+                          
+                          - if line["order_time"].present?
+                            %a{:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改预约时间
+                          - else
+                            %a{:onclick=>"javascript:void(0);"}
                               %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})"}
-                            %input{:type=>"hidden",:id=>"h_time_#{line['me_id']}"}
+
+                          %input{:type=>"hidden",:id=>"h_time_#{line['me_id']}"}
+                     
               -@i = @i+1;
-          %div
-            %div{:class=>"pagebar"}
-              / 当分页未到达末尾页时 
-              %div{:class=>"page-bottom right"}
-                %a{:href=>"order?h_pageIndex=1",:class=>"next",:style=>"text-align:center;margin-right:10px"}首页
-                - if @pageIndex>1
-                  %a{:href=>"order?h_pageIndex=#{@pageIndex-1}",:class=>"next",:style=>"text-align:center;"}上一页
-                  %span{:class=>"page_omit"}...
-                / A 标签 class="page_curOn" 为当前页选中样式
-                %a{:class=>"page_curOn"}=@pageIndex
-                - @i=1;
-                - while @i.to_i < 5 do 
-                  - if @pageIndex+@i <= @sumCount
-                    %a{:href=>"order?h_pageIndex=#{@pageIndex+@i}",:class=>"page_cur"}=@pageIndex+@i
-                  - else 
-                    - break;
-                  -@i=@i+1
-                / <!--当分页大于5 则选用 <span class="page_omit"> 
-                - if @sumCount-@pageIndex >= 5
-                  %span{:class=>"page_omit"}...
-                - if @pageIndex < @sumCount
-                  %a{:href=>"order?h_pageIndex=#{@pageIndex+1}",:class=>"next",:style=>"text-align:center;"}下一页          
-                %a{:href=>"order?h_pageIndex=#{@sumCount}",:class=>"next",:style=>"margin-left:10px;text-align:center;"}末页
-       
+      %div
+        %div{:class=>"pagebar"}
+          / 当分页未到达末尾页时 
+          %div{:class=>"page-bottom right"}
+            %a{:href=>"order?h_pageIndex=1",:class=>"next",:style=>"text-align:center;margin-right:10px"}首页
+            - if @pageIndex>1
+              %a{:href=>"order?h_pageIndex=#{@pageIndex-1}",:class=>"next",:style=>"text-align:center;"}上一页
+              %span{:class=>"page_omit"}...
+            / A 标签 class="page_curOn" 为当前页选中样式
+            %a{:class=>"page_curOn"}=@pageIndex
+            - @i=1;
+            - while @i.to_i < 5 do 
+              - if @pageIndex+@i <= @sumCount
+                %a{:href=>"order?h_pageIndex=#{@pageIndex+@i}",:class=>"page_cur"}=@pageIndex+@i
+              - else 
+                - break;
+              -@i=@i+1
+            / <!--当分页大于5 则选用 <span class="page_omit"> 
+            - if @sumCount-@pageIndex >= 5
+              %span{:class=>"page_omit"}...
+            - if @pageIndex < @sumCount
+              %a{:href=>"order?h_pageIndex=#{@pageIndex+1}",:class=>"next",:style=>"text-align:center;"}下一页          
+            %a{:href=>"order?h_pageIndex=#{@sumCount}",:class=>"next",:style=>"margin-left:10px;text-align:center;"}末页
+  
       
 %div{:id=>"time_div",:align=>"center",:style=>"position:absolute;left:0px;top:0px; width:100%;height:2300px;background-color:black;filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity: 0.85; opacity: 0.85;display:none"}
 %div{:id=>"time_input",:style=>"position:absolute;top:400px;left:32%;background-color:#ffffff;width:450px;height:150px;filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);-moz-box-shadow: 5px 5px 10px #000000;-webkit-box-shadow: 5px 5px 10px #000000;box-shadow:5px 5px 10px #000000;display:none"}
@@ -170,7 +169,7 @@
         if(json_msg.flag == "1")
         {
           alert(json_msg.content);
-          window.location.reload();
+          $("#font_time_"+id).html(time);
         }
         else
         {

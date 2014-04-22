@@ -6,6 +6,7 @@
     .shop_tuijian
       .shop_activities
         %h3
+          %img{:src=> asset_path("test/tuijian_r1_c1.gif")}
         %h4
           - @slider=@homepage_slider_right[0] if @homepage_slider_right[0]
           %a{:href=>"#{@slider.text2} "}

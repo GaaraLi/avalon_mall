@@ -14,27 +14,47 @@
   <h2>账户余额：<strong style="color:#2E99C7"><%=current_customer.cash_account%>元</strong></h2> 
 </div>
 <div class="my_center_left_menu">
-  <h1>账户管理　　　　　▼</h1>
-  <h2><a href="/center/account_info">账户信息</a></h2>
-  <h2><a href="/center/update_pwd">修改密码</a></h2>
-  <!-- <h2><a href="#">我的积分</a></h2> -->
-  <h2>
-    <% if current_customer.card.vendor_binding_record.present?%>
-      <a target="_blank" href="/vendors/<%=current_customer.card.vendor_binding_record.vendor_id%>">服务车行</a>
-    <%else%>
-      <font>服务车行(无)</font>
-    <%end%>
-  </h2>
+  <h1 onclick="show_hide_menu_group(1)" style="cursor:pointer">账户管理　　　　　▼</h1>
+  <div id="menu_group_1">
+    <h2><a href="/center/account_info">账户信息</a></h2>
+    <h2><a href="/center/update_pwd">修改密码</a></h2>
+    <!-- <h2><a href="#">我的积分</a></h2> -->
+    <h2>
+      <% if current_customer.card.vendor_binding_record.present?%>
+        <a target="_blank" href="/vendors/<%=current_customer.card.vendor_binding_record.vendor_id%>">服务车行</a>
+      <%else%>
+        <font>服务车行(无)</font>
+      <%end%>
+    </h2>
+  </div>
 </div>
 <div class="my_center_left_menu">
-  <h1>消费记录　　　　　▼</h1>
-  <h2><a href="/center/order">我的订单</a></h2>
-  <h2><a href="/center/cash_account">现金账户</a></h2>
-  <h2><a href="/center/car_wash">洗车记录</a></h2>
-  <h2><a href="/center/consumption">消费记录</a></h2>
+  <h1 onclick="show_hide_menu_group(2)" style="cursor:pointer">消费记录　　　　　▼</h1>
+  <div id="menu_group_2">
+    <h2><a href="/center/order">我的订单</a></h2>
+    <h2><a href="/center/cash_account">现金账户</a></h2>
+    <h2><a href="/center/car_wash">洗车记录</a></h2>
+    <h2><a href="/center/consumption">消费记录</a></h2>
+  </div>
 </div>
 <!-- <div class="my_center_left_menu">
   <h1>客服服务　　　　　▼</h1>
   <h2><a href="#">投诉建议</a></h2>
   <h2><a href="#">联系客服</a></h2>
 </div> -->
+
+<script>
+  function show_hide_menu_group(id)
+  {
+    var menu = $("#menu_group_"+id);
+    if(menu.css("display")=="none")
+    {
+      menu.show();
+    }
+    else
+    {
+      menu.hide();
+    }
+  }
+</script>
+

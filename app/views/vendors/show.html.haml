@@ -24,7 +24,7 @@
                 %tr
                   %td.Bai( width="40" height="45" valign="top") 地址:
                   %td.Bai(  valign="top")
-                    =@vendor.address.street
+                    =@vendor.address.street if @vendor.address
           %tr
             %td.Bai( height="25") 服务时间：
           %tr
@@ -67,21 +67,21 @@
                 -@second_class.each do |s|
                   -if s.parent_code == f.code
                     =link_to s.name, :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>s.id
-      .main_num
-        .main_num_nav.left
-          =link_to "全部", :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>0
-          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
-          %a{:style=>"cursor:pointer;"}
-            销量
-          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
-          %a{:style=>"cursor:pointer;"}
-            新品
-          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
-          %a{:style=>"cursor:pointer;"}
-            收藏
-          %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
-          %a{:style=>"cursor:pointer;"}
-            价格
+      /.main_num
+      /  .main_num_nav.left
+      /    =link_to "全部", :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>0
+      /    %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+      /    %a{:style=>"cursor:pointer;"}
+      /      销量
+      /    %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+      /    %a{:style=>"cursor:pointer;"}
+      /      新品
+      /    %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+      /    %a{:style=>"cursor:pointer;"}
+      /      收藏
+      /    %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
+      /    %a{:style=>"cursor:pointer;"}
+      /      价格
     .category_right.right{:style=>"width:79.3%;"}
       #ajax_vendor_search
         =render 'vendors/partial/vendor_search'

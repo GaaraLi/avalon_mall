@@ -29,10 +29,9 @@ class VendorsController < ApplicationController
     @vendor = Vendor.find(params[:id])
     @category_id= params[:key_id]
     if 0!=@category_id.to_i
-      @vendor_goods = MallGood.find_by_sql("select g.id, g.mall_category_id, g.title, g.logo_url1,g.mall_sku_id from mall_goods g, mall_categories c,vendors v
-                                          where g.mall_category_id = #{@category_id} and v.id= #{params[:id]} and g.vendor_id= v.id").uniq
+      @vendor_goods = MallGood.find_by_sql("select g.id, g.mall_category_id, g.title, g.logo_url1 from mall_goods g, mall_categories c,vendors v where g.mall_category_id = #{@category_id} and v.id= #{params[:id]} and g.vendor_id= #{params[:id]} ").uniq
     else
-      @vendor_goods= @vendor.mall_goods
+      @vendor_goods= @vendor.mall_goods.onsale
     end
     @first_class= MallCategory.where(:level=>1)
     @second_class= MallCategory.where(:level=>2)

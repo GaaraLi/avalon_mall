@@ -53,7 +53,7 @@ body {
 }
 .topBox .T_r {
 	height: 31px;
-	min-width: 340px;
+	min-width: 30px;
 }
 .T_r .login_OR_reg {
 	padding-right: 15px;

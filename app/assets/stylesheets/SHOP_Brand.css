@@ -25,10 +25,6 @@ body {
 	padding-right: 10px;
 	padding-left: 10px;
 }
-.topBox .T_r {
-	height: 31px;
-	min-width: 340px;
-}
 .T_r .login_OR_reg {
 	padding-right: 15px;
 }

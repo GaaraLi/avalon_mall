@@ -72,11 +72,9 @@
         %li{:class=>"shopping_black14"}
           %strong
             - if @card.vendor_binding_record.present?
-              %a{:href=>"#",:target=>"_blank",:class=>"good_name_wz"}=@card.vendor_binding_record.vendor.name
+              %a{:href=>"/vendors/#{@card.vendor_binding_record.vendor_id}",:target=>"_blank",:class=>"good_name_wz"}=@card.vendor_binding_record.vendor.name
                 
-              %a{:href=>"/vendors",:target=>"_blank",:class=>"good_name_wz",:style=>"margin-left:10px"}进入车行店铺
-
-              %a{:href=>"/vendors/map",:target=>"_blank",:class=>"good_name_wz",:style=>"margin-left:10px"}查看车行地图
+              %a{:href=>"/vendors/map",:target=>"_blank",:class=>"good_name_wz",:style=>"margin-left:10px"}查看所有车行地图
 
             - else 
               没有车行

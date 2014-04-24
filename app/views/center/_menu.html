@@ -20,7 +20,7 @@
   <!-- <h2><a href="#">我的积分</a></h2> -->
   <h2>
     <% if current_customer.card.vendor_binding_record.present?%>
-      <a href="/vendors/<%=current_customer.card.vendor_binding_record.vendor_id%>">服务车行</a>
+      <a target="_blank" href="/vendors/<%=current_customer.card.vendor_binding_record.vendor_id%>">服务车行</a>
     <%else%>
       <font>服务车行(无)</font>
     <%end%>

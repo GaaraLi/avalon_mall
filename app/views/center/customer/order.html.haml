@@ -41,7 +41,7 @@
                         %b 已支付 
                     - elsif order.status == 0
                       %td 
-                        %b 未支付
+                        %a{:href=>"#{to_alipay_good(order)}"}继续支付
 
             - @lines = get_order_lines(order.id.to_s);
             - @i = 0;

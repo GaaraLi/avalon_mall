@@ -122,12 +122,14 @@
       /        %td.shopping_totalwz20(width="11%") ￥350.00
   .cart_submit
     %a
-      =form_tag('/customers/cart_confirm', method: :GET ) do
+      =form_tag('/customers/buy_now', method: :GET ) do
         %input#selected_ids{:type=>"hidden",:name=>"selected_ids",:value=>"#{@cart_ids}"}
         %input#selected_times{:type=>"hidden",:name=>"selected_times"}
         %input#selected_name{:type=>"hidden",:name=>"input_name"}
         %input#selected_phone{:type=>"hidden",:name=>"input_phone"}
         %input#selected_car{:type=>"hidden",:name=>"input_car"}
+        %input#input_quantity{:type=>"hidden",:name=>"input_quantity",:value=> @good_quantity}
+        %input#input_mall_sku{:type=>"hidden",:name=>"input_mall_sku",:value=> @good_sku.id}
         =submit_tag '', :title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopping_cart_r9_c5.jpg")+"'); width:135px; height:36px;",:id=>"continue_shopcar", :target=>"_blank"
   .clear
   .order_date_pick_area.right

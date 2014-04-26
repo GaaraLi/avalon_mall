@@ -63,10 +63,10 @@ class CustomersController < ApplicationController
 
   def cart_confirm
     @cart_ids= params[:selected_ids]
+    puts '=======cart_ids======='
+    puts @cart_ids
     @order_times_list= params[:selected_times]
     current_customer.update_attributes(:customer_order_times=>@order_times_list )
-    puts '==========in cat_confirm'
-    puts current_customer.customer_order_times
 
     @order_number= new_order_number
     
@@ -74,6 +74,8 @@ class CustomersController < ApplicationController
     @input_phone= params[:input_phone]
     @input_car= params[:input_car]
     @input_plate_number= params[:input_plate_number]
+
+    puts '==========in cat_confirm'
 
     @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,
                                    :customer_id=>current_customer.id,
@@ -86,11 +88,44 @@ class CustomersController < ApplicationController
     @cart_ids.each do |id|
       @shopping_car_line= MallShoppingCar.find( id.to_i)
       new_order_line( @shopping_car_line.quantity, @shopping_car_line.mall_sku_id, @mall_order_id)
-      MallShoppingCar.destroy(id.to_i)
+      MallShoppingCar.destroy(id.to_i) if MallShoppingCar.find(id.to_i)
     end
     @mall_order=MallOrder.find( @mall_order_id)
 
     redirect_to "#{to_alipay_good(@mall_order)}"
+  end
+
+  def buy_now
+    @cart_ids= params[:selected_ids]
+    puts '=======cart_ids======='
+    puts @cart_ids
+    @order_times_list= params[:selected_times]
+    current_customer.update_attributes(:customer_order_times=>@order_times_list )
+
+    @order_number= new_order_number
+    
+    @input_quantity= params[:input_quantity]
+    @input_mall_sku= params[:input_mall_sku]
+    @input_name= params[:input_name]
+    @input_phone= params[:input_phone]
+    @input_car= params[:input_car]
+    @input_plate_number= params[:input_plate_number]
+
+    puts '==========in cat_confirm'
+    puts @input_quantity
+
+    @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,
+                                   :customer_id=>current_customer.id,
+                                   :input_name=> @input_name,
+                                   :input_phone=> @input_phone,
+                                   :input_plate_number=> @input_plate_number,
+                                   :car_model_id=>@input_car)
+    @mall_order_id= @order_order.id
+    new_order_line( @input_quantity, @input_mall_sku, @mall_order_id)
+    @mall_order=MallOrder.find( @mall_order_id)
+
+    redirect_to "#{to_alipay_good(@mall_order)}"
+    
   end
 
   def success_page
@@ -270,9 +305,13 @@ class CustomersController < ApplicationController
 
   def buy
     @good_quantity=params[:input_hidden_name].to_i
-    @good_sku= params[:good_sku]
-    @good_sku= MallSku.find(@good_sku)
+    @good_sku_id= params[:good_sku]
+    @good_sku= MallSku.find(@good_sku_id)
+    puts '==============buy======'
+    puts @good_quantity
+    puts @good_sku
     @good= @good_sku.mall_good
+    @cart_ids= @good.id
     @bread_crumbs=["立即购买"]
     @page_title="立即购买"
   end

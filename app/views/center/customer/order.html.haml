@@ -43,7 +43,7 @@
                       %td 
                         %a{:href=>"#{to_alipay_good(order)}"}继续支付
 
-            - @lines = get_order_lines(order.id.to_s);
+            - @lines = get_order_lines(order.id.to_s,order.status);
             - @i = 0;
             - @lines.each do |line|
               %tr
@@ -65,7 +65,7 @@
 
                 %td{:width=>"76px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}￥ #{line['price']/line['quantity']}
 
-                %td{:width=>"42px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}1件
+                %td{:width=>"42px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}#{line['quantity']}件
 
                 - if @i == 0
                   %td{:width=>"89px",:rowspan=>"#{@lines.count}",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}

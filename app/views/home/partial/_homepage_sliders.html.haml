@@ -4,7 +4,7 @@
       %ul.imgList{:style=>" position: absolute;left:0px;"}
         -@homepage_sliders.each do |slider|
           %li
-            %a{:href=>"#{slider.text2}"}
+            %a{:href=>"#{slider.text2}",:target=>"_blank"}
               %img{:src=> "#{slider.img_url}" ,:alt=>'pic'}
       #btnList.btnList
         .BtnimgList

@@ -3,6 +3,7 @@ module CenterCustomerHelper
   	  if status == 0
   	  	@order_lines = ActiveRecord::Base.connection.select("
 		  	select 
+		  	    mg.id as mg_id,
 				mg.title,
 				ms.desc,
 				mg.logo_url1,
@@ -19,6 +20,7 @@ module CenterCustomerHelper
 	  elsif status == 1
 		@order_lines = ActiveRecord::Base.connection.select("
 		  	select 
+		  		mg.id as mg_id,
 				mg.title,
 				ms.desc,
 				mg.logo_url1,

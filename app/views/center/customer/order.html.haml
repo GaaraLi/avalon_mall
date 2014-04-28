@@ -73,22 +73,26 @@
 
                 %td{:width=>"160px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}
                   %table{:width=>"134px",:border=>"0px",:cellspacing=>"5px",:cellpadding=>"0px"}
-                    - if line["used_time"].present?
+                    - if order.status == 0
                       %tr
-                        %td{:height=>"30px",:align=>"center",:valign=>"middle"}=line["used_time"].strftime("%Y-%m-%d %H:%M:%S")+" 已使用"
-                    - else
-                      %tr
-                        %td{:height=>"30px",:align=>"center",:valign=>"middle",:class=>"Red"}  兑换码：#{line['exchange_code_number']}
-                     
-                      %tr
-                        %td{:height=>"30px",:align=>"center",:valign=>"middle"}
-                          %font{:id=>"font_time_#{line['me_id']}"}#{line["order_time"]}
-                          
-                          - if line["order_time"].present?
-                            %a{:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改预约时间
-                          - else
-                            %a{:onclick=>"javascript:void(0);"}
-                              %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})"}
+                        无
+                    -else
+                      - if line["used_time"].present?
+                        %tr
+                          %td{:height=>"30px",:align=>"center",:valign=>"middle"}=line["used_time"].strftime("%Y-%m-%d %H:%M:%S")+" 已使用"
+                      - else
+                        %tr
+                          %td{:height=>"30px",:align=>"center",:valign=>"middle",:class=>"Red"}  兑换码：#{line['exchange_code_number']}
+                       
+                        %tr
+                          %td{:height=>"30px",:align=>"center",:valign=>"middle"}
+                            %font{:id=>"font_time_#{line['me_id']}"}#{line["order_time"]}
+                            
+                            - if line["order_time"].present?
+                              %a{:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改预约时间
+                            - else
+                              %a{:onclick=>"javascript:void(0);"}
+                                %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})"}
 
                           %input{:type=>"hidden",:id=>"h_time_#{line['me_id']}"}
                      

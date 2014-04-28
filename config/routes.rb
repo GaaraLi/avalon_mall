@@ -37,6 +37,7 @@ IxcMall::Application.routes.draw do
   get "customers/error_page"
   get "customers/center"
   get "customers/buy"
+  get "customers/buy_now"
   get "customers/add_in_shopping_car"
   get "customers/order_confirm"
   get "customers/cart_confirm"

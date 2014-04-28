@@ -4004,3 +4004,20 @@ table td{
 	margin-right: auto;
 }
 
+.authentic_right {
+	width: 750px;
+	float: right;
+	height: 1860px;
+}
+.au_pic {
+	float: left;
+	height: 72px;
+	width: 73px;
+	margin-top: 17px;
+}
+.authentic_right li {
+	width: 750px;
+	float: left;
+	height: 310px;
+	margin: 0px;
+}

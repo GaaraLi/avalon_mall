@@ -264,21 +264,6 @@ background: #FF7700;
 	width: 202px;
 	display: block;
 }
-.shop_activities h5 {
-	height: 80px;
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #e6e6e6;
-	padding-top: 10px;
-	padding-right: 15px;
-	padding-bottom: 5px;
-	padding-left: 15px;
-	display: block;
-}
-.shop_activities h5 li {
-	line-height: 18px;
-	height: 18px;
-}
 .shop_news h3 {
 	background-image: url(../images/Index_BodyBG111.gif);
 	background-repeat: no-repeat;

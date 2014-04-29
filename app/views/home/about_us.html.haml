@@ -13,9 +13,14 @@
   .aboutus_right
     -get_footer_info.each_with_index do |i,index|
       .shown_area{:value=>index}
-        .aboutus_words
-          %p
-            =i.text_area.html_safe if i.text_area
+        -if 4==index
+          .aboutus_words{:style=>"line_height:0px;"}
+            %p
+              =i.text_area.html_safe if i.text_area
+        -else
+          .aboutus_words
+            %p
+              =i.text_area.html_safe if i.text_area
 
 :javascript
   $(document).ready(function(){

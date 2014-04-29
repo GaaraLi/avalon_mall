@@ -132,7 +132,7 @@
         %input#selected_car{:type=>"hidden",:name=>"input_car"}
         %input#input_quantity{:type=>"hidden",:name=>"input_quantity",:value=> @good_quantity}
         %input#input_mall_sku{:type=>"hidden",:name=>"input_mall_sku",:value=> @good_sku.id}
-        =submit_tag '', :title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopping_cart_r9_c5.jpg")+"'); width:135px; height:36px;",:id=>"continue_shopcar", :target=>"_blank"
+        =submit_tag '', :title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopping_cart_r9_c5.jpg")+"'); width:135px; height:36px;",:id=>"continue_shopcar", :target=>"_blank",:disabled=>"disabled"
   .clear
   .order_date_pick_area.right
     %input.order_date_pick
@@ -254,6 +254,8 @@
 
       $("#selected_name").attr("value", name);
       $("#selected_phone").attr("value", phone);
+
+      $("#continue_shopcar").attr("disabled",false);
     });
 
     $(".order_date_pick").datetimepicker();

@@ -6,7 +6,8 @@
       .login_OR_reg.left
         .login{:class=>"display:none;"}
           -if current_customer
-            %a{:href=> center_account_info_path}
+            /此链接去掉缓存
+            %a{:href=>"javascript:void(0);",:onclick=> "javascript:window.location.href='#{center_account_info_path}'"}
               =current_customer.email
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             %a.Red{:href=>"http://ixiangche.com/customers/logout"}
@@ -23,7 +24,7 @@
             &nbsp
       .userCenter.left
         &nbsp;&nbsp;
-        %a{:href=>center_account_info_path} 我的享车网
+        %a{:href=>"javascript:void(0);",:onclick=> "javascript:window.location.href='#{center_account_info_path}'"} 我的享车网
       .aboutXiche.left
         &nbsp;&nbsp;&nbsp;
         %a{:href=> home_about_us_path}

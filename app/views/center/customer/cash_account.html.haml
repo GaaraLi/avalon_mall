@@ -24,12 +24,12 @@
           - if @sum_rh_price[0].price.present?
             =@sum_rh_price[0].price.to_s+" 元"
           - else
-            "0 元"
+            0 元
         %li
           - if @transfer_code.present?
             =(@sum_tc_count*@transfer_code[0].old_cus_account).to_s+" 元"
           - else
-            "0 元"
+            0 元
          
 
       %div{:class=>"my_center_title"} 提现记录

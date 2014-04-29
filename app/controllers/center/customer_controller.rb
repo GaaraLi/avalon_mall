@@ -13,7 +13,7 @@ class Center::CustomerController < CenterCustomerController
     end 
     @pageIndexSQL = (@pageIndex-1)*@pageCount ;
 
-    @orders = MallOrder.where("customer_id="+current_customer.id.to_s).limit(@pageIndexSQL.to_s+","+@pageCount.to_s);
+    @orders = MallOrder.where("customer_id="+current_customer.id.to_s).limit(@pageIndexSQL.to_s+","+@pageCount.to_s).order("id desc");
 
     @orders_count = MallOrder.where("customer_id="+current_customer.id.to_s).count;
 

@@ -8,7 +8,7 @@
               %b.Bai{ :style=>"font-size:16px"} 车行信息
           %tr
             %td.Bai{:height=>"25"}
-              =@vendor.name
+              =@vendor.name if @vendor
           %tr
             %td{:height=>"5"}
           %tr
@@ -30,17 +30,17 @@
                 %tr
                   %td.Bai( width="40" height="45" valign="top") 地址:
                   %td.Bai(  valign="top")
-                    =@vendor.address.street
+                    =@vendor.address.street if (@vendor && @vendor.address )
           %tr
             %td.Bai( height="25") 服务时间：
           %tr
             %td.Bai( height="20")
               周一到周五：
-              =@vendor.opening_hours
+              =@vendor.opening_hours if @vendor
           %tr
             %td.Bai( height="20")
               周六到周日：
-              =@vendor.opening_hours
+              =@vendor.opening_hours if @vendor
           %tr
             %td.Bai( height="25") 服务项目：
           %tr
@@ -169,7 +169,11 @@
               .main_class_nav.left
                 -@second_class.each do |s|
                   -if s.parent_code == f.code
-                    =link_to s.name, :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>s.id
+                    -@vendor_id= @vendor.id if @vendor
+                    -if @vendor_id
+                      =link_to s.name, :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor_id, :key_id=>s.id
+                    -else
+                      =link_to s.name, :action=>"research_vendor_goods_by_category", :remote=>true, :key_id=>s.id
       .main_num
         .main_num_nav.left
           %a 销量
@@ -180,11 +184,14 @@
           %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
           %a 价格
           %span.Ink &nbsp;&nbsp;|&nbsp;&nbsp;
-          =link_to "全部", :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>0
+          -@vendor_id= @vendor.id if @vendor
+          -if @vendor_id
+            =link_to "全部1", :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor_id, :key_id=>0
+          -else
+            =link_to "全部", :action=>"research_vendor_goods_by_category", :remote=>true, :key_id=>0
       #ajax_vendor_search
         =render 'vendors/partial/vendor_search'
       .clear
     .clear
   .clear
-  .h_ad{:style=>"padding-top:10px;"}
-    %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}
+  =render 'home/partial/bottom_ad_without_homepage'

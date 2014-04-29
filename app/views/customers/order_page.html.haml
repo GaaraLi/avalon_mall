@@ -51,9 +51,10 @@
         %label
           = select_tag "car_set_branch", options_for_select([['车系', -1]])
       %h2 车系：
-      %h3
+      %h3{:style=>"min-width:400px;"}
         %label
           = select_tag "car_model_id", options_for_select([['车型', -1]])
+    .car_plate_number{:style=>"float:left;"}
       %h2 车牌号：
       %h3
         %label
@@ -175,6 +176,25 @@
       }
     });
     }
+    $(".select_car_info").click(function(){
+      var car_model_id= $("#car_model_id").val();
+      var name_1= $("#car_brand_branch option:selected").text();
+      var name_2= $("#car_set_branch option:selected").text();
+      var name_3= $("#car_model_id option:selected").text();
+      var name_4= $("#textfield_plate_number").val();
+
+      $(".input_text_1").text(name_1);
+      $(".input_text_2").text(name_2);
+      $(".input_text_3").text(name_3);
+      $(".input_text_4").text(name_4);
+
+      $(".car_select_area").css("display","none");
+      $(".car_plate_number").css("display","none");
+      $(".order_info_details_1").css("display","block");
+
+      $("#selected_car").attr("value",car_model_id);
+
+    });
 
   function show_time(id)
   {

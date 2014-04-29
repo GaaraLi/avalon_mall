@@ -54,8 +54,9 @@
       .category_left.left
         =render 'vendors/partial/vendor_page_recommend'
       .main_left_ad
-        %a
-          %img{ :src=>asset_path("test/img-15.jpg"), :width=>"172", :height=>"300", :border=>"0"}
+        %a{:href=>@vendor_left_ad.try(:text2)}
+          %img{ :src=>@vendor_left_ad.try(:img_url), :width=>"172", :height=>"300", :border=>"0"}
+        
     .main_product.right
       .category_class
         .main_class
@@ -66,7 +67,7 @@
               .main_class_nav.left
                 -@second_class.each do |s|
                   -if s.parent_code == f.code
-                    =link_to s.name, :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>s.id
+                    =link_to s.name, {:action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>s.id}, :class=>"second_class_link_cate"
       /.main_num
       /  .main_num_nav.left
       /    =link_to "全部", :action=>"research_vendor_goods_by_category", :remote=>true, :id=>@vendor.id, :key_id=>0
@@ -88,5 +89,12 @@
         .clear
     .clear
   .clear
-  .h_ad{:style=>"padding-top:10px;"}
-    %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}
+  =render 'home/partial/bottom_ad_without_homepage'
+  :javascript
+      $(".second_class_link_cate").click(function(){
+        $(".second_class_link_cate").css("background-color","white");
+        $(".second_class_link_cate").css("color","black");
+        $(this).css("background-color","#2e99c7");
+        $(this).css("color","white");
+        $(this).css("font","bold");
+      });

@@ -1,0 +1,4 @@
+.h_ad{:style=>" padding-top:10px;"}
+  -@a= get_bottom_ad_without_homepage
+  %a{:href=>@a.try(:text2) }
+    %img{:src=>@a.try(:img_url),:width=>"960", :height=>"100", :border=>"0"}

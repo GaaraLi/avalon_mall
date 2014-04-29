@@ -1,3 +1,4 @@
+%script{:language=>"javascript",:type=>"text/javascript",:src=>"/My97DatePicker/WdatePicker.js"}
 =render "home/partial/nav"
 .cart_box
   .shopping_cart_title
@@ -108,9 +109,10 @@
               - @good_quantity.times do
                 %tr
                   %td
-                    %font.choose_order_time
-                    %a.order_button{:value=> count,:style=>"cursor:pointer;color:blue;"}
-                      %img{:src=>asset_path("test/yuyuefuwu.jpg"), :width=>"86", :height=>"23", :border=>"0"}
+                    %a.choose_order_time{:id=>"choose_order_time_#{count}"}
+                    %a.order_button_111{:value=> count,:style=>"cursor:pointer;color:blue;",:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('choose_order_time_#{count}'),onpicked:function(){update_order_time(#{count})}})"}
+                      %img.img_link_area{:src=>asset_path("test/yuyuefuwu.jpg"), :width=>"86", :height=>"23", :border=>"0"}
+                      %font.edit_link_area{:style=>"display:none;", :width=>"86", :height=>"23"}   修改
                     -count= count+1
 
       /%tr
@@ -135,8 +137,79 @@
   .order_date_pick_area.right
     %input.order_date_pick
     %input#hidden_order_key{:type=>"hidden"}
+%div{:id=>"time_div",:align=>"center",:style=>"position:absolute;left:0px;top:0px; width:100%;height:2300px;background-color:black;filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity: 0.85; opacity: 0.85;display:none"}
+%div{:id=>"time_input",:style=>"position:absolute;top:400px;left:32%;background-color:#ffffff;width:450px;height:150px;filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);-moz-box-shadow: 5px 5px 10px #000000;-webkit-box-shadow: 5px 5px 10px #000000;box-shadow:5px 5px 10px #000000;display:none"}
+  %div{:style=>"background-color:#5d83b3;height:25px;padding:3px;",:align=>"left"}   
+    %font{:id=>"time_font",:color=>"#ffffff",:style=>"font-size:16px;"} &nbsp;&nbsp;预约时间
+    %a{:style=>"cursor:pointer;float:right;margin-right:5px;font-size:16px;color:#ffffff",:onclick=>"close_time();"} x   
+  %div{:style=>"margin-left:0px"}
+    %br
+      %font{:style=>"font-size:14px"} 预约时间：
+      %input{:class=>"Wdate",:id=>"time",:type=>"text",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"}
+    %br 
+      %a{:type=>"button",:value=>"确  定",:class=>"good_name_wz",:style=>"font-size:14px;cursor:pointer",:onclick=>"update_order_time();"}确  定
+      %a{:type=>"button",:value=>"取  消",:class=>"good_name_wz",:style=>"margin-left:50px;font-size:14px;cursor:pointer",:onclick=>"close_time();"}取  消
+      %input{:type=>"hidden",:id=>"h_id"}
+
 
   :javascript
+    function update_order_time( id){
+    var obj = $('.choose_order_time').eq(id).val(); 
+    $(".edit_link_area").eq(id).css("display","inline");
+    $(".img_link_area").eq(id).css("display","none");
+    var times_list= new Array();
+    $(".choose_order_time").each(function(){
+      times_list.push($(this).text());
+    });
+    $("#selected_times").attr("value", times_list);
+    var requestUrl= "/customers/set_order_time_list";
+    var data= times_list;
+    $.ajax({
+      url: requestUrl,
+      data: "time_list="+data,
+      contentType: "application/json; charset=utf-8;",
+      dataType:"json",
+      success: function(json){
+      }
+    });
+    }
+    $(".select_car_info").click(function(){
+      var car_model_id= $("#car_model_id").val();
+      var name_1= $("#car_brand_branch option:selected").text();
+      var name_2= $("#car_set_branch option:selected").text();
+      var name_3= $("#car_model_id option:selected").text();
+      var name_4= $("#textfield_plate_number").val();
+
+      $(".input_text_1").text(name_1);
+      $(".input_text_2").text(name_2);
+      $(".input_text_3").text(name_3);
+      $(".input_text_4").text(name_4);
+
+      $(".car_select_area").css("display","none");
+      $(".car_plate_number").css("display","none");
+      $(".order_info_details_1").css("display","block");
+
+      $("#selected_car").attr("value",car_model_id);
+
+    });
+
+    function show_time(id)
+    {
+    $("#h_time_"+id).trigger("click");
+    //$("#time").val("");
+
+    //$("#h_id").val(id);
+
+    //$("#time_input").css("top",$(document).scrollTop()+150+"px");
+    //$("#time_div").show();
+    //$("#time_input").show();
+    }
+
+    function close_time()
+    {
+    $("#time_div").hide();
+    $("#time_input").hide();
+    }
 
     $(".select_car_info").click(function(){
       var car_model_id= $("#car_model_id").val();

@@ -42,7 +42,8 @@
             %a
               =l.mall_sku.mall_good.vendor.name if l.mall_sku.mall_good.vendor
           %td(height="100" align="center" valign="middle" )
-            =current_customer.get_price( l.mall_sku)
+            %p.unit_price
+              =current_customer.get_price( l.mall_sku)
           %td(height="100" align="center" valign="middle" )
             %table( width="100%" border="0" cellspacing="3")
               %tr
@@ -93,14 +94,20 @@
     $(".set_tr_color:even").attr("bgcolor","#FDF3EA");
 
     $(".decrease_btn").click(function(){
-       var m= $(this).attr("value");
-       var n= $(".quantity_number_input").eq(m).text();
-       var n_int= parseInt(n);
-       if(n_int>1){
-         n_int= n_int -1;
-       }
-       n= n_int.toString()+" ";
-       $(".quantity_number_input").eq(m).text( n);
+      var m= $(this).attr("value");
+      var n= $(".quantity_number_input").eq(m).text();
+      var n_int= parseInt(n);
+      if(n_int>1){
+        n_int= n_int -1;
+      }
+      n= n_int.toString()+" ";
+      $(".quantity_number_input").eq(m).text( n);
+      var unit_price= $(".unit_price").eq(m).text();
+      var good_price= parseInt(n) * parseInt(unit_price);
+      $(".good_price").eq(m).text( good_price+".0");
+      $(".good_check_box").eq(m).attr("value", good_price);
+      get_total_price();
+      set_choosen_price();
     });
 
     $(".increase_btn").click(function(){
@@ -113,6 +120,13 @@
       }
       n= n_int.toString()+" ";
       $(".quantity_number_input").eq(m).text( n);
+
+      var unit_price= $(".unit_price").eq(m).text();
+      var good_price= parseInt(n) * parseInt(unit_price);
+      $(".good_price").eq(m).text( good_price+".0");
+      $(".good_check_box").eq(m).attr("value", good_price);
+      get_total_price();
+      set_choosen_price();
     });
 
     $(".del_shopping_car").click(function(){
@@ -126,7 +140,9 @@
           contentType:"application/json, charset:utf-8;",
           dataType: "json",
           success:function(json){
-            del_obj.parent().parent().fadeOut();
+            del_obj.parent().parent().remove();
+            get_total_price();
+            set_choosen_price();
             alert("删除成功！");
           }
         });
@@ -147,6 +163,8 @@
           dataType: "json",
           success:function(json){
             $(".good_check_box:checked").parent().parent().remove();
+            get_total_price();
+            set_choosen_price();
             alert("删除成功！");
           }
         });
@@ -156,9 +174,18 @@
     });
 
     $("#checkbox_all").click(function(){
+      var flag=0;
       $(".good_check_box:visible").each(function(){
-        this.click();
+        if( !$(this).prop('checked')){
+          $(this).click();
+          flag=1;
+        }
       });
+      if( flag==0){
+        $(".good_check_box:visible").each(function(){
+        $(this).click();
+        });
+      }
     });
 
     function check_inventory(){
@@ -195,10 +222,20 @@
 
     function get_total_price(){
       var total_price=0;
-      $(".good_price").each(function(){
+      $(".good_price:visible").each(function(){
         total_price= total_price+ parseInt($(this).text());
       });
       $("#total_price").text(total_price);
+    }
+
+    function set_choosen_price(){
+      var price=0;
+      $(".good_check_box:visible").each(function(){
+        if( $(this).prop('checked')){
+          price= price+ parseInt($(this).attr("value"));
+        }
+      });
+      $("#selected_total_price").text(price);
     }
 
     get_total_price();
@@ -241,6 +278,19 @@
         }
         $("#selected_total_price").text( price_tmp);
         check_checked_box();
+      }
+
+      var flag=0;
+      $(".good_check_box").each( function(){
+        if( !$(this).prop('checked') ){
+          flag=1;
+          return;
+        }
+      });
+      if(flag==0){
+        $("#checkbox_all").prop('checked',true);
+      }else{
+        $("#checkbox_all").attr("checked",false);
       }
     });
 

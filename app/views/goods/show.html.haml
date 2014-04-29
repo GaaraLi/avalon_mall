@@ -65,7 +65,8 @@
               %img#button_increase{:width=>"20", :height=>"20", :src=>asset_path("test/shopping_cart_r4_c15.jpg"),:style=>"margin-left:-15px;"} 
             %td
               库存仅剩
-              %b.Red.mall_inventory=@good.mall_skus.first.mall_inventory.inventory_qty
+              %b.Red.mall_inventory
+                =@good.mall_skus.first.mall_inventory.inventory_qty
               件
           %tr
             %td(colspan="5")
@@ -119,8 +120,7 @@
 
     .clear
   .clear
-  .h_ad{:style=>"padding-top:10px;"}
-    %img{:src=>asset_path("test/img-06.jpg"), :width=>"960", :height=>"100", :border=>"0"}
+  =render 'home/partial/bottom_ad_without_homepage'
 
   :javascript
 
@@ -164,7 +164,7 @@
           }
         },
         error: function(){
-          alert("保存到购物车失败，请刷新后重新操作。");
+          alert("保存到购物车失败，请先登陆！。");
         }
       });
     });
@@ -200,6 +200,9 @@
         var price= "￥"+sku.customer_price.toString();
         $(".mall_good_price").text( price);
 
+        var inventory= sku.mall_inventory.inventory_qty.toString();
+        $(".mall_inventory").text( inventory);
+
         }
       });
     });
@@ -227,6 +230,8 @@
         var price= "￥"+sku.customer_price.toString();
         $(".mall_good_price").text( price);
 
+        var inventory= sku.mall_inventory.inventory_qty.toString();
+        $(".mall_inventory").text( inventory);
         }
       });
 

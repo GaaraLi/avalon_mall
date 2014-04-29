@@ -28,6 +28,6 @@ class GoodsController < ApplicationController
 		sku_id= params[:sku_id]
 		@sku= MallSku.find(sku_id)
 
-		render :json=>@sku
+		render :json=>@sku, :include=>:mall_inventory
 	end
 end

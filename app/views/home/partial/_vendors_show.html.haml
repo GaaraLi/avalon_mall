@@ -18,7 +18,7 @@
           %span(style="font-size: 12px;")
             %em(style="float:right")
               %a(style="color:#137eac")
-                =v.mall_area.name
+                =v.mall_area.name if v.mall_area
           %span(style="font-size: 16px; color:#137EAC; font-weight: bold;")
             %a{:href=> vendor_path(v.id) }
               =v.name

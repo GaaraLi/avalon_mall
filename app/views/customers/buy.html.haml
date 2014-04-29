@@ -90,7 +90,7 @@
             %img{:src=>@good.logo_url1,:width=>"50", :height=>"50"}
         %td( height="90" align="left" valign="middle" bgcolor="#FFFFFF")
           .shopping_good_name
-            %a.good_name_wz
+            %a.good_name_wz{:href=> good_path(@good.id) }
               =@good.title
         %td(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
           =current_customer.get_price(@good_sku)

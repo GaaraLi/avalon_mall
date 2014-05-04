@@ -51,8 +51,16 @@
         %label
           = select_tag "car_set_branch", options_for_select([['车系', -1]])
       %h2 车系：
+      %h3{:style=>"min-width:400px;"}
+        %label
+          = select_tag "car_model_id", options_for_select([['车型', -1]])
+    
+    .car_plate_number{:style=>"float:left;"}
+      %h2 车牌号：
       %h3
-        = select_tag "car_model_id", options_for_select([['车型', -1]])
+        %label
+          %input#textfield_plate_number(name="textfield" type="text" size="15" style="border: 1px solid rgb(131,131,131);" )
+
       %h4
         %a
           %img.select_car_info{:src=> asset_path("test/shopping_cart_r9_c12.jpg"),:style=>"margin-bottom:10px;"}
@@ -65,6 +73,9 @@
       %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
       &nbsp&nbsp&nbsp&nbsp&nbsp车系：
       %font.input_text_3
+      %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
+      &nbsp&nbsp&nbsp&nbsp&nbsp车牌号：
+      %font.input_text_4
       %img{:src=>asset_path("test/shopping_cart_r11_c7.jpg") ,:width=>"11", :height=>"8",:style=>"margin-right:15px;"}
   .order_use
     %h1
@@ -129,6 +140,7 @@
         %input#selected_times{:type=>"hidden",:name=>"selected_times"}
         %input#selected_name{:type=>"hidden",:name=>"input_name"}
         %input#selected_phone{:type=>"hidden",:name=>"input_phone"}
+        %input#selected_plate_number{:type=>"hidden",:name=>"input_plate_number"}
         %input#selected_car{:type=>"hidden",:name=>"input_car"}
         %input#input_quantity{:type=>"hidden",:name=>"input_quantity",:value=> @good_quantity}
         %input#input_mall_sku{:type=>"hidden",:name=>"input_mall_sku",:value=> @good_sku.id}
@@ -190,6 +202,7 @@
       $(".order_info_details_1").css("display","block");
 
       $("#selected_car").attr("value",car_model_id);
+      $("#selected_plate_number").attr("value",name_4);
 
     });
 

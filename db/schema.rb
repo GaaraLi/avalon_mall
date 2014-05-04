@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421031727) do
+ActiveRecord::Schema.define(version: 20140422082127) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20140421031727) do
     t.datetime "updated_at"
     t.integer  "repaid_tactic_customer_id",            default: 1
     t.datetime "end_time"
-    t.integer  "repaid_time",                          default: 0
+    t.integer  "repaid_time"
   end
 
   create_table "cars", force: true do |t|
@@ -122,7 +122,6 @@ ActiveRecord::Schema.define(version: 20140421031727) do
     t.integer  "card_id"
     t.datetime "appointment_time"
     t.integer  "extra_service_detail_id"
-    t.integer  "appointment_status",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "appointment_detail"
@@ -168,8 +167,8 @@ ActiveRecord::Schema.define(version: 20140421031727) do
     t.string   "address"
     t.string   "phone"
     t.integer  "cash_account",           default: 0
-    t.string   "customer_order_times"
     t.datetime "block_time"
+    t.string   "customer_order_times"
   end
 
   add_index "customers", ["confirmation_token"], name: "index_customers_on_confirmation_token", unique: true, using: :btree
@@ -217,10 +216,10 @@ ActiveRecord::Schema.define(version: 20140421031727) do
     t.string   "name"
     t.string   "desc"
     t.integer  "expiring_days"
-    t.integer  "condition"
-    t.integer  "gift_times"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "condition"
+    t.string   "gift_times",    limit: 45
   end
 
   create_table "kindeditor_assets", force: true do |t|
@@ -292,7 +291,10 @@ ActiveRecord::Schema.define(version: 20140421031727) do
     t.integer  "mall_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "subhead",          limit: 100
+    t.string   "logo_url1_file_name",    limit: 45
+    t.string   "logo_url1_content_type", limit: 45
+    t.string   "logo_url1_file_size",    limit: 45
+    t.string   "subhead",                limit: 100
     t.string   "service_info"
   end
 
@@ -313,7 +315,7 @@ ActiveRecord::Schema.define(version: 20140421031727) do
 
   create_table "mall_inventory_records", force: true do |t|
     t.integer  "mall_inventory_id"
-    t.integer  "inventory_type",    limit: 1
+    t.integer  "inventory_type"
     t.integer  "inventory_qty"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -501,10 +503,10 @@ ActiveRecord::Schema.define(version: 20140421031727) do
     t.string   "code"
     t.string   "cus_name"
     t.string   "phone"
-    t.string   "plate_number"
+    t.string   "plate_number",         limit: 45
     t.integer  "vendor_id"
     t.integer  "car_model_id"
-    t.integer  "status",               default: 0
+    t.integer  "status"
     t.integer  "cus_type"
     t.date     "start_time"
     t.date     "end_time"
@@ -659,6 +661,8 @@ ActiveRecord::Schema.define(version: 20140421031727) do
     t.integer  "mall_area_id"
     t.text     "advertisement"
     t.integer  "vendor_order"
+    t.integer  "is_xiangche",            limit: 1,  default: 0
+    t.integer  "is_xiangche_bind",       limit: 1,  default: 1
   end
 
   add_index "vendors", ["reset_password_token"], name: "index_vendors_on_reset_password_token", unique: true, using: :btree

@@ -75,6 +75,11 @@ class CustomersController < ApplicationController
     @input_car= params[:input_car]
     @input_plate_number= params[:input_plate_number]
 
+    puts @input_name
+    puts @input_phone
+    puts @input_car
+    puts @input_plate_number
+
     puts '==========in cat_confirm'
 
     @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,
@@ -130,29 +135,34 @@ class CustomersController < ApplicationController
 
   def success_page
     @order = MallOrder.find( params[:extra_common_param])
-    puts ' in success_page================='
-    puts payment_succeed?
-    puts @order.paid( params, request.raw_post)
     if payment_succeed? && @order.paid( params, request.raw_post)
-      flash[:notice] = '恭喜，您已续费成功'
       if @order.status == 0
         @order.update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
-         puts ' after update================='
-
         @current_customer= Customer.find(@order.customer_id)
-        # new exchange code
         @mall_order_lines= @order.mall_order_lines if (@order!= nil)
         new_exchange_code_line( @mall_order_lines,@current_customer)
-         puts ' after exchange code line================='
-
-        #repaid
         do_order_repaid(@current_customer, @order) if @current_customer.card
-         puts ' after do_order_repaid================='
-       end
-      redirect_to "http://m.ixiangche.com/center/order"
+      end
+      redirect_to "/center/order"
     else
       flash[:error] = '支付失败！请检查您的支付操作是否成功'
       render customers_error_page_path
+    end
+  end
+
+  def notify_page
+    @order = MallOrder.find( params[:extra_common_param])
+    if @order.paid( params, request.raw_post)
+      if @order.status == 0
+        @order.update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
+        @current_customer= Customer.find(@order.customer_id)
+        @mall_order_lines= @order.mall_order_lines if (@order!= nil)
+        new_exchange_code_line( @mall_order_lines,@current_customer)
+        do_order_repaid(@current_customer, @order) if @current_customer.card
+      end
+      render :text=>'success'
+    else
+      render :text=>'failure'
     end
   end
 
@@ -285,15 +295,6 @@ class CustomersController < ApplicationController
       @n
     end
 
-  end
-
-  def notify_page
-    @order = MallOrder.find( params[:extra_common_param])
-    if @order.paid( params, request.raw_post)
-      render :text=>'success'
-    else
-      render :text=>'failure'
-    end
   end
 
   def error_page

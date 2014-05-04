@@ -7,10 +7,11 @@
 <title>享车商城开业啦！四重惊喜等你抢！</title>
 </head>
 
-<body style="background-color:#B00046">
+<body >
+<div style="background-color:#B00046;height:5250px">
   <div class="zhuanti_head1" style="background-image: url(<%= asset_path ('topic/zhuanti_toutu_r1_c1.jpg') %>);">
     <div class="zhuanti_daohang"><a href="http://www.ixiangche.com/" target="_blank" class="zhuanti_daohang">享车网　|</a><a href="http://m.ixiangche.com/" target="_blank" class="zhuanti_daohang">　享车商城</a><a href="#" class="zhuanti_daohang"></a></div>
-</div>
+  </div>
   <div class="zhuanti_head"><img src="<%=asset_path('topic/zhuanti_toutu_r2_c1.jpg')%>" width="1200" height="250" /></div>
   <div class="zhuanti_head"> <img src="<%=asset_path('topic/zhuanti_toutu_r3_c1.jpg')%>" width="1200px" height="250px"/></div>
   <div class="zhuanti_head"> <img src="<%=asset_path('topic/zhuanti_toutu_r4_c1.jpg')%>" width="1200px" height="250px"  /></div>
@@ -742,8 +743,8 @@
   <h1><a href="#f5"><img src="<%=asset_path('topic/biaoqian_r5_c1.jpg')%>"></a></h1>
 </div>
 
-
-
+</div>
+<%=render 'home/partial/bottom'%>
 <script>
   window.onload=function()
   {

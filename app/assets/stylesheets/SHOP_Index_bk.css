@@ -384,8 +384,8 @@ background: #FF7700;
 	display: block;
 }
 .shop_activities h5 li {
-	line-height: 18px;
-	height: 18px;
+	line-height: 20px;
+	height: 21px;
 }
 .shop_news h3 {
 	background-image: url(../images/Index_BodyBG111.gif);
@@ -723,6 +723,7 @@ a#qukankan:hover {
 	font-family: "Microsoft Yahei", "Tahoma", "SimSun";
 	font-size: 14px;
 	color: #c3c3c3;
+	border: 0px;
 }
 .s1 {
 #	background-image: url(../images/Index_BodyBG111.gif);
@@ -3300,7 +3301,7 @@ a#user_menuma:hover {
 }
 .order_information {
 #	height:310px;
-	min-height:200px;
+	min-height:240px;
 	width: 974px;
 	margin-top: 14px;
 	background-color: #FFFFFF;

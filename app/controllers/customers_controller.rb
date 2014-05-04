@@ -257,7 +257,8 @@ class CustomersController < ApplicationController
   end
 
   def new_exchange_code_line( lines,c)
-    lines.zip( c.customer_order_times.scan(/[^,]+/)).each do |l,t|
+    time= c.customer_order_times.scan(/[^,]+/)
+    lines.zip( time).each do |l,t|
 
       l.quantity.times do
         @code= create_exchange_code
@@ -269,7 +270,7 @@ class CustomersController < ApplicationController
 
       #add sale number
       @s= l.mall_sku.sale_count+ l.quantity
-      l.mall_sku.update_attributes(:sale_acount=> @s)
+      l.mall_sku.update_attributes(:sale_count=> @s)
 
     end
     return true

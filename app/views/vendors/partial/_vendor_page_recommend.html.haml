@@ -5,11 +5,11 @@
     %ul.part_list
       -@good_hot_rec.each do |h|
         %li{:style=>"margin-left:4px;"}
-          .p_img{:style=>" width:171px; height:171px;"}
-            %a{:href=> h.text2 }
-            %img{:src=>"#{h.img_url}", :width=>"170", :height=>"170",  :border=>"1px solid #F3F3F3"}
+          %a{:href=> h.text2 , :target=>"_blank" }
+            .p_img{:style=>" width:171px; height:171px;"}
+              %img{:src=>"#{h.img_url}", :width=>"170", :height=>"170",  :border=>"1px solid #F3F3F3"}
           .p_title{:style=>" height:35px; overflow:hidden; margin-top:5px;"}
-            %a{:href=> h.text2 }
+            %a{:href=> h.text2 , :target=>"_blank" }
               =h.title
           .p_price
             %span ￥

@@ -16,7 +16,7 @@ class HomeController < ApplicationController
 
 
     @nav_label_check= 1
-    @key= params[:search_key]
+    @input_key= params[:search_key]
   end
 
   def about_us
@@ -33,30 +33,34 @@ class HomeController < ApplicationController
     @first_class= MallCategory.where(:level=>1)
     @second_class= MallCategory.where(:level=>2)
 
-    @key= params[:search_key]
     @flag= params[:search_type].to_i
     @first_show= 0
 
     if @flag==1
+      @input_key= params[:search_key]
       @page_title="产品搜索"
-      @goods= search_service(@key)
+      @goods= search_service(@input_key)
       @key_goods= @goods.page(params[:page])
       @first_show= 1
     elsif @flag==2
+      @input_key= params[:search_key]
       @page_title="产品搜索"
-      @vendors= search_vendor( @key)
+      @vendors= search_vendor( @input_key)
       @page_vendors = @vendors.page(params[:page])
     elsif @flag==0
+      @input_key= params[:search_key]
       @page_title="全部商品"
       @goods=MallGood.all.onsale
       @key_goods= @goods.page(params[:page])
       @first_show= 0
     elsif @flag==3
+      @input_key= params[:search_key]
       @page_title="全部商品"
       @goods= MallGood.all.onsale
       @key_goods= @goods.page(params[:page])
       @first_show= 3
     elsif @flag==4
+      @key= params[:search_key]
       @page_title="产品搜索"
       @goods= search_service_from_homepage(@key.to_i)
       @key_goods= @goods.page(params[:page])
@@ -97,35 +101,35 @@ class HomeController < ApplicationController
         @goods=MallGood.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ")
         
       when 2
-        @goods=MallGood.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.sale_count ")
+        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.sale_count ")
         
       when 3
-        @goods=MallGood.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.show_price ")
+        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.show_price ")
         
       when 4
-        @goods=MallGood.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.show_price DESC")
+        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.show_price DESC")
         
       else
-        @goods=MallGood.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ")
+        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ")
         
       end
     #from top search label the first time
     elsif @first_show ==1
       case @flag.to_i
       when 1
-        @goods=MallGood.includes(:mall_skus).where("title like '%#{@key}%' ")
+        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ")
         
       when 2
-        @goods=MallGood.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.sale_count ")
+        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.sale_count ")
         
       when 3
-        @goods=MallGood.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.show_price ")
+        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.show_price ")
         
       when 4
-        @goods=MallGood.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.show_price DESC")
+        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.show_price DESC")
         
       else
-        @goods=MallGood.includes(:mall_skus).where("title like '%#{@key}%' ")
+        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ")
         
       end
     #all goods the first time

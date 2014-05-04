@@ -9,21 +9,20 @@
       = paginate @key_vendor_goods
   .category_product
     -@key_vendor_goods.each do |g|
-      %a
-        .main_products_li.left{:style=>"background-image: url('"+asset_path("test/76C28745.gif")+"'); margin-left:3px;"}
-          .p_img
-            %a{:href=>good_path(g.id)}
-              =image_tag( g.logo_url1, height:"175", width:"175")
-          .p_title{:style=>"overflow:hidden; height:30px;"}
-            %a{:href=>good_path(g.id)}
-              =g.title
-            %br
-          %a
-            =g.mall_category.name
-          .p_price
-            %span{:style=>"font-size:20px;"} ￥
-            %b
-              =MallGood.find(g.id).mall_skus.first.customer_price
-            %span .00
+      .main_products_li.left{:style=>"background-image: url('"+asset_path("test/76C28745.gif")+"'); margin-left:3px;"}
+        .p_img
+          %a{:href=>good_path(g.id), :target=>"_blank" }
+            =image_tag( g.logo_url1, height:"175", width:"175")
+        .p_title{:style=>"overflow:hidden; height:30px;"}
+          %a{:href=>good_path(g.id), :target=>"_blank" }
+            =g.title
+          %br
+        %a
+          =g.mall_category.name
+        .p_price
+          %span{:style=>"font-size:20px;"} ￥
+          %b
+            =MallGood.find(g.id).mall_skus.first.customer_price
+          /%span .00
 
 

@@ -2,7 +2,7 @@
   .class_rule_number
     .class_rule_chose.left{:style=>"padding-left:25px;"}
       %h4.choseon.left
-        =link_to "全部",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>1,:first_show=>@first_show }, :class=>"second_class_link"
+        =link_to "全部",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>1,:first_show=>@first_show }, :class=>"second_class_link", :remote=>true
       %h4.left
         =link_to "销量",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>2,:first_show=>@first_show }, :class=>"second_class_link"
       %h4.left
@@ -16,12 +16,12 @@
         =@goods.count
       个符合您需求的商品
     %h3.right{:style=>"margin-right:10px;"}
-      = paginate @key_goods
+      = paginate @key_goods, :remote=>true
   .category_product
     -@key_goods.each do |g|
       .main_products_li.left{:style=>"background-image: url('"+asset_path("test/76C28745.gif")+"');"}
         .p_img
-          %a{:href=>good_path(g)}
+          %a{:href=>good_path(g),:target=>"_blank"}
             =image_tag( g.logo_url1, height:"175", width:"175", style:"height:175px;")
         .p_title{:style=>"height:34px; overflow:hidden;"}
           %a{:href=>good_path(g)}
@@ -48,4 +48,4 @@
         =@goods.count
       个符合您需求的商品
       %h3.right{:style=>"margin-right:10px;"}
-        = paginate @key_goods
+        = paginate @key_goods, :remote=>true

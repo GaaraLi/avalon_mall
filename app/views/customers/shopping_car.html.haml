@@ -62,12 +62,12 @@
           %td.good_total_wz14.good_price(height="100" align="center" valign="middle" )
             =l.price
           %td( height="100" align="center" valign="middle" )
-            %a.del_shopping_car{ :value=> l.id} 删除
+            %a.del_shopping_car{ :value=> l.id,:style=>"cursor:pointer"} 删除
       %input#hidden_for_ids{:type =>"hidden"}
       %tr
         %td( height="50")
           %a.del_shopping_cars
-            %img{:src=>asset_path("test/shopcar_menu.jpg"), :width=>"120", :height=>"25", :border=>"0" }
+            %img{:src=>asset_path("test/shopcar_menu.jpg") }
       %tr
         %td( width="300" align="right" colspan="9" style="font-size:15px;")
           %b 购物车商品总价：

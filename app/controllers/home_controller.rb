@@ -142,10 +142,10 @@ class HomeController < ApplicationController
         @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.sale_count ")
         
       when 3
-        @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.show_price ")
+        @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.customer_price ")
         
       when 4
-        @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.show_price DESC")
+        @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.customer_price DESC")
         
       else
         @goods=MallGood.all.onsale.includes(:mall_skus)
@@ -161,10 +161,10 @@ class HomeController < ApplicationController
         @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.sale_count ")
         
       when 3
-        @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.show_price ")
+        @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.customer_price ")
         
       when 4
-        @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.show_price DESC")
+        @goods=MallGood.all.onsale.includes(:mall_skus).order("mall_skus.customer_price DESC")
         
       else
         @goods=MallGood.all.onsale.includes(:mall_skus)

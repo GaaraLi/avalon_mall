@@ -104,10 +104,10 @@ class HomeController < ApplicationController
         @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.sale_count ")
         
       when 3
-        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.show_price ")
+        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.customer_price ")
         
       when 4
-        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.show_price DESC")
+        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.customer_price DESC")
         
       else
         @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ")
@@ -123,10 +123,10 @@ class HomeController < ApplicationController
         @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.sale_count ")
         
       when 3
-        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.show_price ")
+        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.customer_price ")
         
       when 4
-        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.show_price DESC")
+        @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ").order("mall_skus.customer_price DESC")
         
       else
         @goods=MallGood.onsale.includes(:mall_skus).where("title like '%#{@key}%' ")

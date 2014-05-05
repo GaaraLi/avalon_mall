@@ -22,8 +22,8 @@ module AlipayHelper
                                #:amount => card.service_combo.price.to_s,
                                :amount => @price.to_s,
                                :out_trade_no => generate_trade_no(card),
-                               :notify_url => "http://m.ixiangche.com/customers/notify_page",
-                               :return_url => "http://m.ixiangche.com/customers/done_page",
+                               :notify_url => frontend_transactions_notify_url,
+                               :return_url => frontend_transactions_done_url,
                                :extra_common_param => card.card_number,
                                :_input_charset => 'utf-8')
   end
@@ -49,8 +49,10 @@ module AlipayHelper
                                #:amount => o.price.to_s,
                                :amount => "0.01",
                                :out_trade_no => o.order_no,
-                               :notify_url => customers_notify_page_url,
-                               :return_url => customers_success_page_url,
+                               :notify_url => "http://m.ixiangche.com/customers/notify_page",
+                               :return_url => "http://m.ixiangche.com/customers/done_page",
+                               # :notify_url => customers_notify_page_url,
+                               # :return_url => customers_success_page_url,
                                :extra_common_param => o.id.to_s,
                                :_input_charset => 'utf-8')
   end

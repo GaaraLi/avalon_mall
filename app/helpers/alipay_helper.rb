@@ -50,7 +50,7 @@ module AlipayHelper
                                :amount => "0.01",
                                :out_trade_no => o.order_no,
                                :notify_url => "http://m.ixiangche.com/customers/notify_page",
-                               :return_url => "http://m.ixiangche.com/customers/done_page",
+                               :return_url => "http://m.ixiangche.com/customers/success_page",
                                # :notify_url => customers_notify_page_url,
                                # :return_url => customers_success_page_url,
                                :extra_common_param => o.id.to_s,

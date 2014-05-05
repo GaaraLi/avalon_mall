@@ -32,11 +32,12 @@
               %input.good_check_box#good_111( type="checkbox" name="checkbox2" )
             %input#hidden_in_checkbox{:type=>"hidden",:value=>l.id }
           %td(height="100" align="center" valign="middle" )
-            .good_pic
-              %img{ :src=> l.mall_sku.mall_good.logo_url1, :width=>"50" ,:height=>"50"}
+            %a{:href=>"/goods/#{l.mall_sku.mall_good.id}",:target=>"_blank"}
+              .good_pic
+                %img{:src=> l.mall_sku.mall_good.logo_url1, :width=>"50" ,:height=>"50"}
           %td(height="100" align="center" valign="middle" )
             .shopping_good_name(style="color:#0066FF")
-              %a.good_name_wz
+              %a.good_name_wz{:href=>"/goods/#{l.mall_sku.mall_good.id}",:target=>"_blank"}
                 =l.mall_sku.mall_good.title
           %td(height="100" align="center" valign="middle" )
             %a

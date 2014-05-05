@@ -3,10 +3,10 @@
     -@hot_rec_goods.each do |n|
       %li{:style=>"margin-top:45px; margin-left:5px;"}
         .p_img{:style=>" height:170px"}
-          %a{:href=> n.text2}
+          %a{:href=> n.text2 ,:target=>"_blank"}
             %img{ :src=>n.img_url, :border=>"0" ,:alt=>'pic', :style=>"width:168px; height:168px; border: 1px solid #F3F3F3;"}
         .p_title{:style=>" height:37px; overflow:hidden;margin-top:10px;"}
-          %a{:href=> n.text2 }
+          %a{:href=> n.text2 ,:target=>"_blank"}
             =n.title
         .p_price
           %span ￥

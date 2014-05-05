@@ -5,11 +5,11 @@
     -@good_hot_rec1.each do |h|
       .categroy_hottui_list.left
         %h5.left
-          %a{:href=> h.text2}
+          %a{:href=> h.text2 ,:target=>"_blank"}
             %img{:src=>h.img_url,:width=>"98", :height=>"98",:style=>"border:1px solid #F3F3F3;"}
         %h5.left{:style=>"margin-left:5px; margin-top:10px;"}
           %div{:style=>" overflow:hidden;width:110px;"}
-            %a{:href=> h.text2}
+            %a{:href=> h.text2 ,:target=>"_blank"}
               %p{:style=>"color:#6A6A6A;font-weight:normal;"}
                 =h.title
           %p{:style=>"color:#A9A9A9;width:120px;"}

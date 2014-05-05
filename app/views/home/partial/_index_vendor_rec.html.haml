@@ -4,7 +4,7 @@
       .home_rec_recommend{:style=>" background-image: url( '"+asset_path("test/home_rec_recommend_r4_c4_s1.jpg")+"');"}
         .home_rec_recommend_inside
           %h1
-            %a{:href=> v.text2}
+            %a{:href=> v.text2 ,:target=>"_blank"}
               %img{:src=> v.img_url, :width=>"160px", :height=>"200px"}
           %h2
             %strong 推荐理由：
@@ -12,13 +12,13 @@
           %h3
             =v.text5
           %h4
-            %a{:href=> v.text2}
+            %a{:href=> v.text2 ,:target=>"_blank"}
               .Orange 详细
     -else
       .home_rec_recommend{:style=>" background-image: url( '"+asset_path("test/home_rec_recommend_r4_c8_s1.jpg")+"');"}
         .home_rec_recommend_inside
           %h1
-            %a{:href=> v.text2}
+            %a{:href=> v.text2,:target=>"_blank"}
               %img{:src=> v.img_url, :width=>"160px", :height=>"200px"}
           %h2
             %strong 推荐理由：
@@ -26,7 +26,7 @@
           %h3
             =v.text5
           %h4
-            %a{:href=> v.text2}
+            %a{:href=> v.text2,:target=>"_blank"}
               .Orange 详细
 
 

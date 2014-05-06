@@ -98,7 +98,7 @@ class HomeController < ApplicationController
     if @first_show == 0
       case @flag.to_i
       when 1
-        @goods=MallGood.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ")
+        @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ")
         
       when 2
         @goods=MallGood.onsale.includes(:mall_skus).where(" mall_category_id= '#{@category_id}' ").order("mall_skus.sale_count ")

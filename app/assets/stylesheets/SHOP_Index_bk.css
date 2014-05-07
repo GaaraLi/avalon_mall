@@ -1345,7 +1345,8 @@ a#qukankan:hover {
 	padding-left: 15px;
 }
 .main_class_nav a {
-	padding-right: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
 }
 .main_product .main_num {
 	height: 30px;
@@ -1681,7 +1682,8 @@ a#goods_buymenu {
     z-index: 1;
 }
 .stornav2_li a {
-	padding-right: 5px;
+	padding-right: 2px;
+	padding-left: 2px;
 }
 .main_goods_box .main_goods_garage {
 	background-color: #FFFAE7;

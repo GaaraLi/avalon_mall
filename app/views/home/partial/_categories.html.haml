@@ -14,10 +14,12 @@
               -@second_class.each do |s|
                 -if s.parent_code == f.code
                   =link_to s.name,home_search_path(:search_key=>s.id,:search_type=>"4",:submit=>"") , :class=>"second_class_link_cate"
+
+
   :javascript
       $(".second_class_link_cate").click(function(){
-        $(".second_class_link_cate").css("background-color","white");
-        $(".second_class_link_cate").css("color","black");
+        $(".second_class_link_cate").css("background-color","");
+        $(".second_class_link_cate").css("color","");
         $(this).css("background-color","#2e99c7");
         $(this).css("color","white");
         $(this).css("font","bold");

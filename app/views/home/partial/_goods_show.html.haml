@@ -2,13 +2,13 @@
   .class_rule_number
     .class_rule_chose.left{:style=>"padding-left:25px;"}
       %h4.choseon.left
-        =link_to "全部",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>1,:first_show=>@first_show }, :class=>"second_class_link", :remote=>true
+        =link_to "全部",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>1,:first_show=>@first_show }
       %h4.left
-        =link_to "销量",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>2,:first_show=>@first_show }, :class=>"second_class_link"
+        =link_to "销量",{:action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>2,:first_show=>@first_show }
       %h4.left
-        =link_to "价格↑",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>3 ,:first_show=>@first_show}, :class=>"second_class_link"
+        =link_to "价格↑",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>3 ,:first_show=>@first_show}
       %h4.left
-        =link_to "价格↓",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>4,:first_show=>@first_show }, :class=>"second_class_link"
+        =link_to "价格↓",{ :action=>"research_goods_by_category", :remote=>true, :key=>@key, :id=>@category_id, :order_flag=>4,:first_show=>@first_show }
   .class_rule_retrieval
     %h3.left
       检索出
@@ -49,3 +49,5 @@
       个符合您需求的商品
       %h3.right{:style=>"margin-right:10px;"}
         = paginate @key_goods, :remote=>true
+
+  

@@ -332,7 +332,7 @@ class CustomersController < ApplicationController
   end
 
   def add_in_shopping_car
-    if !current_customer.praesent?
+    if !current_customer.present?
       render :json=>0
       return; 
     end

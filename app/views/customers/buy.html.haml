@@ -149,7 +149,7 @@
           =@good_sku.mall_inventory.inventory_qty
         %td.good_total_wz14(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
           ￥
-          =@good_quantity*current_customer.get_price( @good_sku).to_s+" 元"
+          =(@good_quantity*current_customer.get_price( @good_sku)).to_s+" 元"
         %td.order_time(align="center" style="display:none;")
           尚未预约
         %td.good_total_wz14(height="90" align="center" valign="middle" bgcolor="#FFFFFF")

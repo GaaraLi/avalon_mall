@@ -332,10 +332,11 @@ class CustomersController < ApplicationController
   end
 
   def add_in_shopping_car
-    if !current_customer.present?
+    if !current_customer.praesent?
       render :json=>0
       return; 
     end
+
     @quantity= params[:quantity]
     @mall_sku_id= params[:mall_sku_id]
 

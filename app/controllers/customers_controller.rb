@@ -29,23 +29,23 @@ class CustomersController < ApplicationController
     @cart_orders= MallShoppingCar.find( @cart_ids )
     @bread_crumbs=["购物车"]
     @page_title="我的购物车"
+
+    @my97_start_time = Time.now.strftime("%Y-%m-%d %H:%M:%S");
+    @my97_end_time = (@my97_start_time.to_datetime + 30).strftime("%Y-%m-%d %H:%M:%S");
   end
 
   def check_inventory
     @ids= params[:ids]
     @all_quantity= params[:all_quantity]
-    puts '=======all_quantity'
-    puts @all_quantity
+ 
     @all_quantity_array= @all_quantity.scan(/[^\s,]+/)
-    puts '=======all_quantity_array'
-    puts @all_quantity_array
-
+ 
     @ids= @ids.delete("[").delete("]").split(",")
     @ids.zip(@all_quantity_array).each do |id,q|
-      puts '--'
-      puts q
+
       @shopping_car_line= MallShoppingCar.find(id.to_i)
-      if (@shopping_car_line.mall_sku.mall_inventory.inventory_qty<=0)
+
+      if (@shopping_car_line.mall_sku.mall_inventory.inventory_qty < q.to_i)
         render :json=>0
         return
       end
@@ -63,8 +63,7 @@ class CustomersController < ApplicationController
 
   def cart_confirm
     @cart_ids= params[:selected_ids]
-    puts '=======cart_ids======='
-    puts @cart_ids
+    
     @order_times_list= params[:selected_times]
     current_customer.update_attributes(:customer_order_times=>@order_times_list )
 
@@ -74,13 +73,6 @@ class CustomersController < ApplicationController
     @input_phone= params[:input_phone]
     @input_car= params[:input_car]
     @input_plate_number= params[:input_plate_number]
-
-    puts @input_name
-    puts @input_phone
-    puts @input_car
-    puts @input_plate_number
-
-    puts '==========in cat_confirm'
 
     @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,
                                    :customer_id=>current_customer.id,
@@ -309,21 +301,38 @@ class CustomersController < ApplicationController
     @good_quantity=params[:input_hidden_name].to_i
     @good_sku_id= params[:good_sku]
     @good_sku= MallSku.find(@good_sku_id)
-    puts '==============buy======'
-    puts @good_quantity
-    puts @good_sku
+  
+    if MallInventory.where("mall_sku_id ="+@good_sku_id)[0].inventory_qty<=0;
+      render :text => "错误：库存不足"
+      return;
+    end
+    
     @good= @good_sku.mall_good
     @cart_ids= @good.id
     @bread_crumbs=["立即购买"]
     @page_title="立即购买"
+
+    @my97_start_time = Time.now.strftime("%Y-%m-%d %H:%M:%S");
+    @my97_end_time = (@my97_start_time.to_datetime + 30).strftime("%Y-%m-%d %H:%M:%S");
   end
 
   def add_in_shopping_car
+    if !current_customer.present?
+      render :json=>0
+      return; 
+    end
     @quantity= params[:quantity]
     @mall_sku_id= params[:mall_sku_id]
 
-    add_into_cart( @quantity, @mall_sku_id)
-
+    @msc = MallShoppingCar.where("mall_sku_id = "+@mall_sku_id.to_s+" and customer_id = "+current_customer.id.to_s);
+    
+    if @msc.count >0
+      @new_quantity = @msc[0].quantity.to_i + @quantity.to_i;
+      @new_price = @msc[0].price + (@quantity.to_i*@msc[0].price);
+      @msc[0].update_attributes(:quantity=>@new_quantity ,:price=>@new_price,:original_price=>@new_price);
+    else
+      add_into_cart( @quantity, @mall_sku_id)
+    end
     render :json=>1
   end
 

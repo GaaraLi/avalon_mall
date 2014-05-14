@@ -22,6 +22,9 @@ class GoodsController < ApplicationController
       }
 
       @bread_crumbs=[@vendor.name, vendor_path(@vendor.id), @good.title, good_path(@good.id) ]
+
+      #此商品是否有限购
+      @is_limitation_buy =MallGoodsActivity.where("mall_activity_id = 1 and mall_good_id ="+@good.id.to_s).count;
 	end
 
 	def set_sku_info

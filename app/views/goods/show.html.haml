@@ -26,62 +26,71 @@
     .main_goods_operation.left
       %h1=@good.title
       %h2=@good.subhead
-      %h3
-        %font{:style=>"font-size:14px;"}
-          原价：
-        %i.mall_good_show_price
-          ￥
-          =@good.mall_skus.first.show_price
-        %span{:style=>"color:#94999A;"}
-      %h4
-        商城价：
-        %b.mall_good_customer_price
-          ￥
-          =@good.mall_skus.first.price
-        %span{:style=>"color:#999999; font-size:14px;"}
-      %h4
-        会员价：
-        %strong.mall_good_price
-          ￥
-          =@good.mall_skus.first.customer_price
-        %span{:style=>"color:#999999; font-size:14px;"} (享车卡会员专享价格)
-      %h4
-        %font{:style=>"float:left;"}
-          规格：
-        -@good_sku.each do |s|
-          .main_goods_type2#main_goods_sku{:value=> s.id,:style=>"font-size:14px; cursor:pointer;"}
-            =s.desc if s
-      %h5
-        %table( width="600" border="0" cellspacing="5" cellpadding="0" align="center" bgcolor="white")
-          %tr
-            %td(  width="95" height="33")
-              %font{:style=>"font-size:14px;"}
-                数量：
-            %td
-              %img#button_decrease{:width=>"20", :height=>"20", :src=>asset_path("test/shopping_cart_r4_c12.jpg")} 
-            %td
-              %input#quantity_input( type="text" name="quantity_textfield" value="1" style="width:55px;margin-left:-50px;" disabled="disabled")
-            %td
-              %img#button_increase{:width=>"20", :height=>"20", :src=>asset_path("test/shopping_cart_r4_c15.jpg"),:style=>"margin-left:-15px;"} 
-            %td
-              库存仅剩
-              %b.Red.mall_inventory
-                =@good.mall_skus.first.mall_inventory.inventory_qty
-              件
-          %tr
-            %td(colspan="5")
-              %h6
-                =form_tag('/customers/buy', method: :GET) do
-                  %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
-                  %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
-                  =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:31px; cursor:pointer; float:left;", :title=>"立即购买",:id=>"goods_buymenu"
-                %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:50px; float:left; "}
-          %tr
-            %td(colspan="5")
-              -if @good.service_info
-                %h7{:style=>"margin-top:-20px;"}
-                  服务说明：
-                =@good.service_info
+      - if @good.status == 0
+        %h1 此商品已下架
+      - else
+        %h3
+          %font{:style=>"font-size:14px;"}
+            原价：
+          %i.mall_good_show_price
+            ￥
+            =@good.mall_skus.first.show_price
+          %span{:style=>"color:#94999A;"}
+        %h4
+          商城价：
+          %b.mall_good_customer_price
+            ￥
+            =@good.mall_skus.first.price
+          %span{:style=>"color:#999999; font-size:14px;"}
+        %h4
+          会员价：
+          %strong.mall_good_price
+            ￥
+            =@good.mall_skus.first.customer_price
+          %span{:style=>"color:#999999; font-size:14px;"} (享车卡会员专享价格)
+        %h4
+          %font{:style=>"float:left;"}
+            规格：
+          -@good_sku.each do |s|
+            .main_goods_type2#main_goods_sku{:value=> s.id,:style=>"font-size:14px; cursor:pointer;"}
+              =s.desc if s
+        %h5
+          %table( width="600" border="0" cellspacing="5" cellpadding="0" align="center" bgcolor="white")
+            %tr
+              %td(  width="95" height="33")
+                %font{:style=>"font-size:14px;"}
+                  数量：
+              %td
+                -if @is_limitation_buy <= 0
+                  %img#button_decrease{:width=>"20", :height=>"20", :src=>asset_path("test/shopping_cart_r4_c12.jpg")} 
+              %td
+                %input#quantity_input( type="text" name="quantity_textfield" value="1" style="width:55px;margin-left:-50px;" disabled="disabled")
+              %td
+                -if @is_limitation_buy <= 0
+                  %img#button_increase{:width=>"20", :height=>"20", :src=>asset_path("test/shopping_cart_r4_c15.jpg"),:style=>"margin-left:-15px;"} 
+                -else
+                  此商品限购一件
+              %td
+                库存仅剩
+                %b.Red.mall_inventory
+                  =@good.mall_skus.first.mall_inventory.inventory_qty
+                件
+            %tr
+              %td(colspan="5")
+                %h6
+                  =form_tag('/customers/buy', method: :post, onSubmit:"return check_inventory_qty()") do
+                    %input#input_hidden{:type=>"hidden",:name=>"input_hidden_name",:value=>1}
+                    %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
+                    =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:31px; cursor:pointer; float:left;", :title=>"立即购买",:id=>"goods_buymenu"
+                  - if @is_limitation_buy <= 0
+                    %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:50px; float:left; "}
+               
+            %tr
+              %td(colspan="5")
+                -if @good.service_info
+                  %h7{:style=>"margin-top:-20px;"}
+                    服务说明：
+                  =@good.service_info
   .main_box
     .main_goods_L.left
       .main_goods_garage_map
@@ -123,7 +132,17 @@
   =render 'home/partial/bottom_ad_without_homepage'
 
   :javascript
-
+    
+    function check_inventory_qty()
+    {
+      if($(".mall_inventory").text() <= 0)
+      {
+        alert("商品库存不足，无法购买");
+        return false;
+      }
+      return true;
+    }
+       
     $(".shown_image_thumb").mouseover(function(){
       var src= $(this).attr("src");
       $(".shown_image").attr("src", src);
@@ -149,6 +168,10 @@
     });
 
     $("#goods_buycart").click(function(){
+      if(!check_inventory_qty())
+      {
+        return;
+      }
       var quantity= $("#quantity_input").attr('value');
       var mall_sku_id=$("#input_hidden_sku").attr('value');
       var RequestUrl= "/customers/add_in_shopping_car";
@@ -162,16 +185,17 @@
             alert("成功保存到购物车！");
             return;
           }
+          else if(0==json)
+          {
+            alert("请先登录");
+            return;
+          }
         },
         error: function(){
-          alert("保存到购物车失败，请先登陆！。");
+          alert("保存到购物车失败");
         }
       });
     });
-
-    if(#{@good.mall_skus.first.mall_inventory.inventory_qty}<=0){
-      $("#goods_buymenu").attr("disabled","disabled");
-    }
 
     $(document).ready(function(){
       $(".main_goods_type2:first").addClass("main_goods_type1").removeClass("main_goods_type2");

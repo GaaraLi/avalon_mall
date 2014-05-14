@@ -121,7 +121,7 @@
                   %tr
                     %td
                       %a.choose_order_time{:id=>"choose_order_time_#{count}"}
-                      %a.order_button_111{:value=> count,:style=>"cursor:pointer;color:blue;",:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('choose_order_time_#{count}'),onpicked:function(){update_order_time(#{count})}})"}
+                      %a.order_button_111{:value=> count,:style=>"cursor:pointer;color:blue;",:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#{@my97_start_time}',maxDate:'#{@my97_end_time}',el:$dp.$('choose_order_time_#{count}'),onpicked:function(){update_order_time(#{count})}})"}
                         %img.img_link_area{:src=>asset_path("test/yuyuefuwu.jpg"), :width=>"86", :height=>"23", :border=>"0"}
                         %font.edit_link_area{:style=>"display:none;", :width=>"86", :height=>"23"}   修改
                       -count= count+1

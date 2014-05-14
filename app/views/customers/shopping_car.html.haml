@@ -18,10 +18,10 @@
         %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 全选
         %td(width="30%" height="30" align="center" bgcolor="#F7F7F7") 商品
         %td(width="19%" height="30" align="center" bgcolor="#F7F7F7") 服务车行
-        %td(width="9%" height="30" align="center" bgcolor="#F7F7F7") 享车价
+        %td(width="9%" height="30" align="center" bgcolor="#F7F7F7") 单价
         %td(width="9%" height="30" align="center" bgcolor="#F7F7F7") 数量
         %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 库存
-        %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 金额
+        %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 总金额
         %td(width="8%" height="30" align="center" bgcolor="#F7F7F7") 操作
       -@cart_list.each_with_index do |l,index|
         %tr.set_tr_color
@@ -38,7 +38,7 @@
           %td(height="100" align="center" valign="middle" )
             .shopping_good_name(style="color:#0066FF")
               %a.good_name_wz{:href=>"/goods/#{l.mall_sku.mall_good.id}",:target=>"_blank"}
-                =l.mall_sku.mall_good.title
+                =l.mall_sku.mall_good.title+"-"+l.mall_sku.desc
           %td(height="100" align="center" valign="middle" )
             %a
               =l.mall_sku.mall_good.vendor.name if l.mall_sku.mall_good.vendor
@@ -55,8 +55,8 @@
                     =l.quantity
                 %td(width="35%" align="center")
                   %img.increase_btn{:src=> asset_path("test/shopping_cart_r4_c15.jpg"),:width=>"15" ,:height=>"15",:value=>index}
-          %td#mall_inventory{ :height=>"100", :align=>"center", :valign=>"middle",  :value=> l.mall_sku.mall_inventory.inventory_qty }
-            - if l.mall_sku.mall_inventory.inventory_qty<0
+          %td{:class=>"max_inventory", :height=>"100", :align=>"center", :valign=>"middle",  :value=> l.mall_sku.mall_inventory.inventory_qty }
+            - if l.mall_sku.mall_inventory.inventory_qty<=0
               %p.Red 售磬
             -else
               =l.mall_sku.mall_inventory.inventory_qty
@@ -85,7 +85,7 @@
           %a#continue_shopping{ :href=>root_path, :title=>"继续购物",:style=>"margin-top:10px; margin-bottom:10px; "}
             %img{:src=> asset_path("test/shopping_cart_r8_c17.jpg"),:width=>"104", :height=>"36", :border=>"0",:style=>"" }
         %td( width="170" colspan="2" align="right")
-          =form_tag('/customers/order_page', method: :GET ,:class=>'go_to_submit' ) do
+          =form_tag('/customers/order_page', method: :POST ,:class=>'go_to_submit' ) do
             %input#selected_ids{:type=>"hidden",:name=>"selected_ids"}
             %input#continue_shopcar{:value=>"", :type=>"button",:style=>" background-image: url('"+asset_path("test/shopping_cart_r8_c19.jpg")+"'); width:135px; height:36px; margin-right:5px;",:onclick=>"check_inventory()"}
 
@@ -115,7 +115,8 @@
       var m= $(this).attr("value");
       var n= $(".quantity_number_input").eq(m).text();
       var n_int= parseInt(n);
-      var max= $("#mall_inventory").attr("value");
+      var max= parseInt($(".max_inventory").eq(m).text());
+      
       if( n_int< max ){
         n_int= n_int +1;
       }

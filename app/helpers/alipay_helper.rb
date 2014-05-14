@@ -45,7 +45,7 @@ module AlipayHelper
   def to_alipay_good( o)
     redirect_to_alipay_gateway(:subject => "享车网订单",
                                :body => "享车网订单",
-                               :amount => "0.01",
+                               :amount => o.price.to_s,
                                :out_trade_no => o.order_no,
                                :notify_url => "http://m.ixiangche.com/customers/notify_page",
                                :return_url => "http://m.ixiangche.com/customers/success_page",

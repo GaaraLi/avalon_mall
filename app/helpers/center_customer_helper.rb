@@ -27,7 +27,7 @@ module CenterCustomerHelper
 				v.name as v_name,
 				v.id as v_id,
 				mol.price,
-				1 as quantity,
+				mol.quantity,
 				me.exchange_code_number,
 				me.status,
 				me.order_time,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422082127) do
+ActiveRecord::Schema.define(version: 20140514132739) do
 
   create_table "activate_codes", force: true do |t|
     t.string   "activate_code"
@@ -232,6 +232,12 @@ ActiveRecord::Schema.define(version: 20140422082127) do
     t.datetime "updated_at"
   end
 
+  create_table "mall_activities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mall_areas", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -298,6 +304,13 @@ ActiveRecord::Schema.define(version: 20140422082127) do
     t.string   "service_info"
   end
 
+  create_table "mall_goods_activities", force: true do |t|
+    t.integer  "mall_activity_id"
+    t.integer  "mall_good_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mall_goods_properties", force: true do |t|
     t.string   "name"
     t.string   "content"
@@ -335,8 +348,8 @@ ActiveRecord::Schema.define(version: 20140422082127) do
 
   create_table "mall_orders", force: true do |t|
     t.string   "order_no"
-    t.decimal  "price",              precision: 10, scale: 2
-    t.decimal  "original_price",     precision: 10, scale: 2
+    t.decimal  "price",                precision: 10, scale: 2
+    t.decimal  "original_price",       precision: 10, scale: 2
     t.integer  "quantity"
     t.integer  "status"
     t.integer  "customer_id"
@@ -347,6 +360,7 @@ ActiveRecord::Schema.define(version: 20140422082127) do
     t.string   "input_phone"
     t.integer  "car_model_id"
     t.string   "input_plate_number"
+    t.string   "customer_order_times"
   end
 
   create_table "mall_shopping_cars", force: true do |t|

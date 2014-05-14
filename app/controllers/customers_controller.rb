@@ -4,6 +4,24 @@ class CustomersController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :authenticate_customer!, :except=>[:index,:show,:notify_page,:success_page]
 
+  def check_is_have_plate_number
+    @good_id= params[:good_id];
+    @plate_number= URI.unescape(params[:plate_number]);
+
+    puts MallGoodsActivity.where("mall_good_id ="+@good_id.to_s).count
+    puts "-----"
+    if MallGoodsActivity.where("mall_good_id ="+@good_id.to_s).count <= 0
+      render :text => '{"flag":"1","content":"未找到"}'; 
+      return;
+    end
+
+    if MallOrder.where("status = 1 and input_plate_number ='"+@plate_number+"'").count >= 1
+      render :text => '{"flag":"0","content":"对不起，此车牌已经参与过限购活动"}'; 
+    else
+      render :text => '{"flag":"1","content":"未找到"}'; 
+    end
+  end
+
   def del_shopping_car
     @shopping_car_id_string= params[:data]
     @shopping_car_id_array= @shopping_car_id_string.split(",")
@@ -63,10 +81,7 @@ class CustomersController < ApplicationController
 
   def cart_confirm
     @cart_ids= params[:selected_ids]
-    
     @order_times_list= params[:selected_times]
-    current_customer.update_attributes(:customer_order_times=>@order_times_list )
-
     @order_number= new_order_number
     
     @input_name= params[:input_name]
@@ -79,7 +94,8 @@ class CustomersController < ApplicationController
                                    :input_name=> @input_name,
                                    :input_phone=> @input_phone,
                                    :input_plate_number=> @input_plate_number,
-                                   :car_model_id=>@input_car)
+                                   :car_model_id=>@input_car,
+                                   :customer_order_times=>@order_times_list )
     @mall_order_id= @order_order.id
     @cart_ids= @cart_ids.delete("[").delete("]").split(",")
     @cart_ids.each do |id|
@@ -94,13 +110,8 @@ class CustomersController < ApplicationController
 
   def buy_now
     @cart_ids= params[:selected_ids]
-    puts '=======cart_ids======='
-    puts @cart_ids
     @order_times_list= params[:selected_times]
-    current_customer.update_attributes(:customer_order_times=>@order_times_list )
-
     @order_number= new_order_number
-    
     @input_quantity= params[:input_quantity]
     @input_mall_sku= params[:input_mall_sku]
     @input_name= params[:input_name]
@@ -108,15 +119,15 @@ class CustomersController < ApplicationController
     @input_car= params[:input_car]
     @input_plate_number= params[:input_plate_number]
 
-    puts '==========in cat_confirm'
-    puts @input_quantity
+    
 
     @order_order= MallOrder.create(:order_no=> @order_number,:status=> 0,
                                    :customer_id=>current_customer.id,
                                    :input_name=> @input_name,
                                    :input_phone=> @input_phone,
                                    :input_plate_number=> @input_plate_number,
-                                   :car_model_id=>@input_car)
+                                   :car_model_id=>@input_car,
+                                   :customer_order_times=>@order_times_list)
     @mall_order_id= @order_order.id
     new_order_line( @input_quantity, @input_mall_sku, @mall_order_id)
     @mall_order=MallOrder.find( @mall_order_id)
@@ -132,7 +143,7 @@ class CustomersController < ApplicationController
         @order.update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
         @current_customer= Customer.find(@order.customer_id)
         @mall_order_lines= @order.mall_order_lines if (@order!= nil)
-        new_exchange_code_line( @mall_order_lines,@current_customer)
+        new_exchange_code_line( @mall_order_lines,@order)
         do_order_repaid(@current_customer, @order) if @current_customer.card
       end
       redirect_to "/center/order"
@@ -149,7 +160,7 @@ class CustomersController < ApplicationController
         @order.update_attributes(status: 1, finish_time: Time.now.strftime("%Y-%m-%d-%H:%M:%S") )
         @current_customer= Customer.find(@order.customer_id)
         @mall_order_lines= @order.mall_order_lines if (@order!= nil)
-        new_exchange_code_line( @mall_order_lines,@current_customer)
+        new_exchange_code_line( @mall_order_lines,@order)
         do_order_repaid(@current_customer, @order) if @current_customer.card
       end
       render :text=>'success'
@@ -258,13 +269,14 @@ class CustomersController < ApplicationController
     return price
   end
 
-  def new_exchange_code_line( lines,c)
-    time= c.customer_order_times.scan(/[^,]+/)
+  def new_exchange_code_line( lines,o)
+    time= o.customer_order_times.split(",")
     lines.zip( time).each do |l,t|
 
       l.quantity.times do
         @code= create_exchange_code
-        MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>t )
+        MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time[@i] )
+        @i = @i +1;
       end
       # @q>0
       @q= l.mall_sku.mall_inventory.inventory_qty- l.quantity
@@ -302,11 +314,16 @@ class CustomersController < ApplicationController
     @good_sku_id= params[:good_sku]
     @good_sku= MallSku.find(@good_sku_id)
   
-    if MallInventory.where("mall_sku_id ="+@good_sku_id)[0].inventory_qty<=0;
+    if MallInventory.where("mall_sku_id ="+@good_sku_id)[0].inventory_qty<=0
+      render :text => "错误：没有库存"
+      return;
+    end
+
+    if MallInventory.where("mall_sku_id ="+@good_sku_id)[0].inventory_qty<@good_quantity
       render :text => "错误：库存不足"
       return;
     end
-    
+
     @good= @good_sku.mall_good
     @cart_ids= @good.id
     @bread_crumbs=["立即购买"]
@@ -323,6 +340,16 @@ class CustomersController < ApplicationController
     end
     @quantity= params[:quantity]
     @mall_sku_id= params[:mall_sku_id]
+
+    if MallInventory.where("mall_sku_id ="+@mall_sku_id)[0].inventory_qty<=0
+      render :json=>9
+      return;
+    end
+
+    if MallInventory.where("mall_sku_id ="+@mall_sku_id)[0].inventory_qty<@quantity.to_i
+      render :json=>9
+      return;
+    end
 
     @msc = MallShoppingCar.where("mall_sku_id = "+@mall_sku_id.to_s+" and customer_id = "+current_customer.id.to_s);
     

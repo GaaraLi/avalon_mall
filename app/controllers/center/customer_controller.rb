@@ -1,11 +1,11 @@
 class Center::CustomerController < CenterCustomerController
+  include AlipayHelper
   layout "customer_center"
   protect_from_forgery :except => :index  
   # you can disable csrf protection on controller-by-controller basis:  
   skip_before_filter :verify_authenticity_token  
 
   def order
-
     @pageIndex = params[:h_pageIndex].to_i;
     @pageCount = 10;
     if @pageIndex == nil || @pageIndex == "" || @pageIndex <= 0
@@ -27,7 +27,19 @@ class Center::CustomerController < CenterCustomerController
         @sumCount = @orders_count/@pageCount.to_i+1;
       end
     end
+  end
 
+  def to_alipay
+    @order_id = params[:order_id];
+    @order = MallOrder.find_by_id(@order_id);
+
+    @order.mall_order_lines.each do |lines|
+      if lines.quantity > lines.mall_sku.mall_inventory.inventory_qty
+        render :text => '{"flag":"0","content":"此订单中有商品库存不足"}'; 
+        return;
+      end
+    end
+    render :text => '{"flag":"1","content":"'+to_alipay_good(@order)+'"}'; 
   end
 
   def update_order_time
@@ -45,7 +57,6 @@ class Center::CustomerController < CenterCustomerController
   	@card = @customer.card;
   	@car = @customer.car;
     get_wash_info();
-    
   end
 
   def update_pwd

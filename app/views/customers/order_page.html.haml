@@ -45,21 +45,56 @@
       %h2 车辆品牌：
       %h3
         %label
-          = select_tag "car_brand_branch", options_for_select([['品牌', -1]])
+          = select_tag "car_brand_branch", options_for_select([['品牌', -1]]),:style=>"font-size:12px"
       %h2 车型：
       %h3
         %label
-          = select_tag "car_set_branch", options_for_select([['车系', -1]])
+          = select_tag "car_set_branch", options_for_select([['车系', -1]]),:style=>"font-size:12px"
       %h2 车系：
       %h3{:style=>"min-width:400px;"}
         %label
-          = select_tag "car_model_id", options_for_select([['车型', -1]])
+          = select_tag "car_model_id", options_for_select([['车型', -1]]),:style=>"font-size:12px"
     
     .car_plate_number{:style=>"float:left;"}
-      %h2 车牌号：
+      %h2.Red * 车牌号：
       %h3
         %label
-          %input#textfield_plate_number(name="textfield" type="text" size="15" style="border: 1px solid rgb(131,131,131);" )
+          %select{:id=>"car_num",:name=>"car_num",:style=>'font-size:12px'}
+            %option{:value=>"陕"} 陕
+            %option{:value=>"京"} 京
+            %option{:value=>"津"} 津
+            %option{:value=>"沪"} 沪
+            %option{:value=>"渝"} 渝
+            %option{:value=>"冀"} 冀
+            %option{:value=>"豫"} 豫
+            %option{:value=>"云"} 云
+            %option{:value=>"辽"} 辽
+            %option{:value=>"黑"} 黑
+            %option{:value=>"湘"} 湘
+            %option{:value=>"皖"} 皖
+            %option{:value=>"鲁"} 鲁
+            %option{:value=>"新"} 新
+            %option{:value=>"苏"} 苏
+            %option{:value=>"浙"} 浙
+            %option{:value=>"赣"} 赣
+            %option{:value=>"鄂"} 鄂
+            %option{:value=>"桂"} 桂
+            %option{:value=>"甘"} 甘
+            %option{:value=>"晋"} 晋
+            %option{:value=>"蒙"} 蒙
+            %option{:value=>"吉"} 吉
+            %option{:value=>"闽"} 闽
+            %option{:value=>"贵"} 贵
+            %option{:value=>"粤"} 粤
+            %option{:value=>"青"} 青
+            %option{:value=>"藏"} 藏
+            %option{:value=>"川"} 川
+            %option{:value=>"宁"} 宁
+            %option{:value=>"琼"} 琼
+          
+        %input{:type=>"text",:id=>"plate_number_" ,:name=>"plate_number_",:placeholder=>"例如：“ A12345 ”",:onkeyup=>"this.value = this.value.toUpperCase();"}
+         
+        %input#textfield_plate_number(name="textfield" type="hidden" size="15")
       %h4
         %a
           %img.select_car_info{:src=> asset_path("test/shopping_cart_r9_c12.jpg"),:style=>"margin-bottom:10px;"}
@@ -128,14 +163,14 @@
 
   .cart_submit
     %a
-      =form_tag('/customers/cart_confirm', method: :GET ) do
+      =form_tag('/customers/cart_confirm', method: :GET ,:onSubmit=>"return check_form()" ) do
         %input#selected_ids{:type=>"hidden",:name=>"selected_ids",:value=>"#{@cart_ids}"}
         %input#selected_times{:type=>"hidden",:name=>"selected_times"}
         %input#selected_name{:type=>"hidden",:name=>"input_name"}
         %input#selected_phone{:type=>"hidden",:name=>"input_phone"}
         %input#selected_plate_number{:type=>"hidden",:name=>"input_plate_number"}
         %input#selected_car{:type=>"hidden",:name=>"input_car"}
-        =submit_tag '', :title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopping_cart_r9_c5.jpg")+"'); width:135px; height:36px;",:id=>"continue_shopcar", :target=>"_blank",:disabled=>"disabled"
+        =submit_tag '', :title=>"去购物结算", :style=>" background-image: url('"+asset_path("test/shopping_cart_r9_c5.jpg")+"'); width:135px; height:36px;",:id=>"continue_shopcar", :target=>"_blank"
   .clear
   .order_date_pick_area.right
     %input.order_date_pick
@@ -155,6 +190,53 @@
       %input{:type=>"hidden",:id=>"h_id"}
 
 :javascript
+  
+  function check_form()
+  {
+    if($("#textfield_name").val().replace(/[ ]/g,"") == "")
+    {
+      alert("请输入您的姓名");
+      return false;
+    }
+
+    if($("#textfield_phone").val().replace(/[ ]/g,"") == "")
+    {
+      alert("请输入您的手机号码");
+      return false;
+    }
+
+    if($("#plate_number_").val().replace(/[ ]/g,"") == "")
+    {
+      alert("请输入您的车牌号");
+      return false;
+    }
+
+    if($("#plate_number_").val().replace(/[ ]/g,"") == "")
+    {
+      alert("请输入您的车牌号");
+      return false;
+    }
+
+    if($("#selected_name").val().replace(/[ ]/g,"") == "")
+    {
+      alert("请保存个人信息");
+      return false;
+    }
+
+    if($("#selected_phone").val().replace(/[ ]/g,"") == "")
+    {
+      alert("请保存个人信息");
+      return false;
+    }
+
+
+    if($("#selected_plate_number").val().replace(/[ ]/g,"") == "")
+    {
+      alert("请保存车辆信息");
+      return false;
+    }
+    return true;
+  }
 
   function update_order_time( id)
   {
@@ -178,11 +260,35 @@
     });
     }
     $(".select_car_info").click(function(){
+
+      var plate_number_ = $("#plate_number_").val();
+      var first_plate_number_ = plate_number_.substring(0,1);
+      
+      if(plate_number_.length != 6)
+      {
+        alert("请输入正确车牌号 如：A12345");
+        return;
+      }
+      
+      if(/^[A-Z]+$/.test(first_plate_number_))
+      {
+        if(!/^[A-Z0-9]+$/.test(plate_number_))                                    
+        {
+          alert("请输入正确车牌号 如：A12345");
+          return;
+        }
+      }
+      else
+      {
+        alert("请输入正确车牌号 如：A12345");
+        return;
+      }
+
       var car_model_id= $("#car_model_id").val();
       var name_1= $("#car_brand_branch option:selected").text();
       var name_2= $("#car_set_branch option:selected").text();
       var name_3= $("#car_model_id option:selected").text();
-      var name_4= $("#textfield_plate_number").val();
+      var name_4= ($("#car_num").val()+$("#plate_number_").val()).toUpperCase();
 
       $(".input_text_1").text(name_1);
       $(".input_text_2").text(name_2);

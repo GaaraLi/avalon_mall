@@ -27,6 +27,10 @@
         %font{:style=>"margin-left:70px"}操作     
 
       - @orders.each do |order|
+        - if order.status == 1
+          - @my97_start_time = order.finish_time.strftime("%Y-%m-%d %H:%M:%S");
+          - @my97_end_time = (@my97_start_time.to_datetime + 30).strftime("%Y-%m-%d %H:%M:%S");
+
         %div{:class=>"order_list"}
           %table{:width=>"818px",:border=>"0px",:cellpadding=>"0px",:cellspacing=>"1px",:bgcolor=>"#EAEAEA"}
             %tr
@@ -41,8 +45,8 @@
                         %b 已支付 
                     - elsif order.status == 0
                       %td 
-                        %a{:href=>"#{to_alipay_good(order)}"}继续支付
-
+                        %a{:href=>"javascript:void(0)",:onclick=>"to_alipay(#{order.id})"}继续支付
+                    
             - @lines = get_order_lines(order.id.to_s,order.status);
             - @i = 0;
             - @lines.each do |line|
@@ -65,7 +69,11 @@
 
                 %td{:width=>"76px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}￥ #{line['price']/line['quantity']}
 
-                %td{:width=>"42px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}#{line['quantity']}件
+                %td{:width=>"42px",:height=>"50px",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}
+                  - if order.status == 0
+                    #{line['quantity']}件
+                  - else
+                    1件
 
                 - if @i == 0
                   %td{:width=>"89px",:rowspan=>"#{@lines.count}",:align=>"center",:valign=>"middle" ,:bgcolor=>"#FFFFFF"}
@@ -89,10 +97,10 @@
                             %font{:id=>"font_time_#{line['me_id']}"}#{line["order_time"]}
                             
                             - if line["order_time"].present?
-                              %a{:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改预约时间
+                              %a{:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),minDate:'#{@my97_start_time}',maxDate:'#{@my97_end_time}',onpicked:function(){update_order_time(#{line['me_id']})}})",:href=>"javascript:void(0);",:class=>"good_name_wz"}修改预约时间
                             - else
                               %a{:onclick=>"javascript:void(0);"}
-                                %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),onpicked:function(){update_order_time(#{line['me_id']})}})"}
+                                %img{:src=>asset_path("test/yuyue.jpg"),:width=>"86px",:height=>"23px",:onClick=>"WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',el:$dp.$('h_time_#{line['me_id']}'),minDate:'#{@my97_start_time}',maxDate:'#{@my97_end_time}',onpicked:function(){update_order_time(#{line['me_id']})}})"}
 
                           %input{:type=>"hidden",:id=>"h_time_#{line['me_id']}"}
                      
@@ -185,4 +193,31 @@
   {
     $("#time_div").hide();
     $("#time_input").hide();
+  }
+
+  function to_alipay(order_id)
+  {
+    $.ajax
+    ({
+      url:'to_alipay',type:'get',
+      data:"order_id="+order_id,
+      dataType:'text',
+      success:function(msg)
+      {
+        var json_msg = eval('(' + msg + ')');
+        if(json_msg.flag == "1")
+        {
+          window.location.href=json_msg.content;
+        }
+        else
+        {
+          alert(json_msg.content);
+        }
+      }
+      ,
+      error:function()
+      {
+        alert("继续支付异常");
+      }
+    });
   }

@@ -11,6 +11,7 @@ IxcMall::Application.routes.draw do
     get 'update_pwd' => 'customer#update_pwd'
     get 'contact_us'=>'customer#contact_us'
     get 'update_order_time'=>'customer#update_order_time'
+    get 'to_alipay'=>'customer#to_alipay'
   end
 
   namespace :topic do
@@ -47,6 +48,8 @@ IxcMall::Application.routes.draw do
   get "customers/carbrand"
   get 'customers/carset/:id'   => 'customers#carset'
   get "goods/set_sku_info"
+
+  get "customers/check_is_have_plate_number"
 
   get 'test' => 'home#test'
   get 'test1' => 'home#test1'

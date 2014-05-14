@@ -38,13 +38,15 @@
           %td(height="100" align="center" valign="middle" )
             .shopping_good_name(style="color:#0066FF")
               %a.good_name_wz{:href=>"/goods/#{l.mall_sku.mall_good.id}",:target=>"_blank"}
-                =l.mall_sku.mall_good.title+"-"+l.mall_sku.desc
+                =l.mall_sku.mall_good.title
+              %br
+              %font{:color=>"grey"}规格：#{l.mall_sku.desc}
           %td(height="100" align="center" valign="middle" )
             %a
               =l.mall_sku.mall_good.vendor.name if l.mall_sku.mall_good.vendor
           %td(height="100" align="center" valign="middle" )
             %p.unit_price
-              =current_customer.get_price( l.mall_sku)
+              =current_customer.get_price( l.mall_sku).to_s+" 元"
           %td(height="100" align="center" valign="middle" )
             %table( width="100%" border="0" cellspacing="3")
               %tr
@@ -59,9 +61,9 @@
             - if l.mall_sku.mall_inventory.inventory_qty<=0
               %p.Red 售磬
             -else
-              =l.mall_sku.mall_inventory.inventory_qty
+              =l.mall_sku.mall_inventory.inventory_qty.to_s+" 件"
           %td.good_total_wz14.good_price(height="100" align="center" valign="middle" )
-            =l.price
+            =l.price.to_s+" 元"
           %td( height="100" align="center" valign="middle" )
             %a.del_shopping_car{ :value=> l.id,:style=>"cursor:pointer"} 删除
       %input#hidden_for_ids{:type =>"hidden"}

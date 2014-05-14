@@ -269,7 +269,7 @@ class CustomersController < ApplicationController
 
   def new_exchange_code_line( lines,o)
     time= o.customer_order_times.split(",")
-    @i=1;
+    @i=0;
     lines.zip( time).each do |l,t|
       l.quantity.times do
         @code= create_exchange_code

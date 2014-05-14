@@ -123,9 +123,10 @@
     %table(width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF")
       %tr
         %td(height="30" colspan="2" align="center" bgcolor="#F7F7F7") 商品清单
-        %td(width="8%" height="30" align="center" bgcolor="#F7F7F7") 下单价
+        %td(width="9%" height="30" align="center" bgcolor="#F7F7F7" ) 规格
+        %td(width="8%" height="30" align="center" bgcolor="#F7F7F7") 单价
         %td(width="5%" height="30" align="center" bgcolor="#F7F7F7") 数量
-        %td(width="9%" height="30" align="center" bgcolor="#F7F7F7") 库存
+        %td(width="9%" height="30" align="center" bgcolor="#F7F7F7" style="display:none") 库存
         %td(width="7%" height="30" align="center" bgcolor="#F7F7F7") 金额
         %td(width="24%" align="center" bgcolor="#F7F7F7") 操作
       -count=0
@@ -139,14 +140,16 @@
               %a.good_name_wz{:href=>good_path(o.mall_sku.mall_good.id)}
                 =o.mall_sku.mall_good.title
           %td(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
-            =current_customer.get_price(o.mall_sku)
+            %font{:color=>"grey"}=o.mall_sku.desc
           %td(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
-            =o.quantity
+            =current_customer.get_price(o.mall_sku).to_s+" 元"
           %td(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
+            =o.quantity.to_s+" 件"
+          %td(height="90" align="center" valign="middle" bgcolor="#FFFFFF" style="display:none")
             =o.mall_sku.mall_inventory.inventory_qty
           %td.good_total_wz14(height="90" align="center" valign="middle" bgcolor="#FFFFFF")
             ￥
-            =o.price
+            =o.price.to_s+" 元"
           %td.order_time(align="center" style="display:none;")
             尚未预约
           %td.good_total_wz14(height="90" align="center" valign="middle" bgcolor="#FFFFFF")

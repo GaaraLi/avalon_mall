@@ -8,8 +8,6 @@ class CustomersController < ApplicationController
     @good_id= params[:good_id];
     @plate_number= URI.unescape(params[:plate_number]);
 
-    puts MallGoodsActivity.where("mall_good_id ="+@good_id.to_s).count
-    puts "-----"
     if MallGoodsActivity.where("mall_good_id ="+@good_id.to_s).count <= 0
       render :text => '{"flag":"1","content":"未找到"}'; 
       return;
@@ -271,8 +269,8 @@ class CustomersController < ApplicationController
 
   def new_exchange_code_line( lines,o)
     time= o.customer_order_times.split(",")
+    @i=1;
     lines.zip( time).each do |l,t|
-
       l.quantity.times do
         @code= create_exchange_code
         MallExchange.create( :exchange_code_number=> @code, :mall_order_line_id=> l.id, :order_time=>time[@i] )

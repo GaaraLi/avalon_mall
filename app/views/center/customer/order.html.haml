@@ -14,10 +14,9 @@
   %div{:class=>"my_center_right"}
     %div{:class=>"my_center_details"}
       %div{:class=>"my_center_title"}我的订单
-      / %div{:class=>"order_info_words"}
-      /   这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表这里是您在享车网的所有订单列表
-      / %div{:class=>"my_center_title2"}
-      /   全部订单
+      %div{:class=>"order_info_words",:style=>"height:40px"}
+        %font{:color=>"red",:style=>"font-size:16px"}购买成功后，请持电子兑换码至门店前台处核销，确认作业项目并开始施工即可！
+    
       %div{:class=>"order_info_title"}
         %font{:style=>"margin-left:100px"}订单信息
         %font{:style=>"margin-left:150px"}服务车行
@@ -62,7 +61,9 @@
                                 %img{:src=>"#{line['logo_url1']}",:alt=>"",:width=>"50px",:height=>"50px"}
                    
                       %td
-                        %a{:href=>"/goods/#{line['mg_id']}",:target=>"_blank",:class=>"good_name_wz"}=line['title']+"-"+line['desc']
+                        %a{:href=>"/goods/#{line['mg_id']}",:target=>"_blank",:class=>"good_name_wz"}=line['title']
+                        %br
+                        %font{:color=>"grey"}规格：#{line['desc']}
                    
                 %td{:align=>"center",:valign=>"middle",:bgcolor=>"#FFFFFF"}
                   %a{:href=>"/vendors/#{line['v_id']}",:target=>"_blank"}=line['v_name']

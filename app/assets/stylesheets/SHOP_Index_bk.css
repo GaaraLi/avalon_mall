@@ -3670,21 +3670,20 @@ a#user_menuma:hover {
 
 /*2014.4.17商城上线专题页面*/
 .zhuanti_products1 {
-	height: 600px;
-	
+	height: 610px;
 }
 .zhuanti_products2 {
-	height: 600px;
+	height: 610px;
 }
 .zhuanti_products3 {
-	height: 1000px;
+	height: 1040px;
 
 }
 .zhuanti_products4 {
-	height: 1000px;
+	height: 1040px;
 }
 .zhuanti_products5 {
-	height: 600px;
+	height: 610px;
 }
 .zhuanti_products1,.zhuanti_products2,.zhuanti_products3,.zhuanti_products4,.zhuanti_products5 {
 	width: 1055px;
@@ -3720,31 +3719,31 @@ a#user_menuma:hover {
 	background-position: right center;
 }
 .zhuanti_products_bg1 {
-	height: 520px;
+	height: 540px;
 	border-right-color: #DBACDB;
 	border-bottom-color: #DBACDB;
 	border-left-color: #DBACDB;
 }
 .zhuanti_products_bg2 {
-	height: 520px;
+	height: 540px;
 	border-right-color: #88D1F4;
 	border-bottom-color: #88D1F4;
 	border-left-color: #88D1F4;
 }
 .zhuanti_products_bg3 {
-	height: 930px;
+	height: 970px;
 	border-right-color: #FAC3B2;
 	border-bottom-color: #FAC3B2;
 	border-left-color: #FAC3B2;
 }
 .zhuanti_products_bg4 {
-	height: 930px;
+	height: 970px;
 	border-right-color: #CFE0B1;
 	border-bottom-color: #CFE0B1;
 	border-left-color: #CFE0B1;
 }
 .zhuanti_products_bg5 {
-	height: 520px;
+	height: 540px;
 	border-right-color: #FCBBC9;
 	border-bottom-color: #FCBBC9;
 	border-left-color: #FCBBC9;
@@ -3769,7 +3768,7 @@ a#user_menuma:hover {
 
 .zhuanti_product {
 	width: 225px;
-	height: 380px;
+	height: 405px;
 	border: 1px solid #CCCCCC;
 	float: right;
 	margin-top: 10px;
@@ -3778,7 +3777,7 @@ a#user_menuma:hover {
 }
 .zhuanti_product:link,.zhuanti_product:visited {
 	width: 225px;
-	height: 380px;
+	height: 405px;
 	border: 1px solid #CCCCCC;
 	float: right;
 	margin-top: 10px;
@@ -3787,7 +3786,7 @@ a#user_menuma:hover {
 }
 .zhuanti_product:hover {
 	width: 225px;
-	height: 380px;
+	height: 405px;
 	border: 1px solid #FF0000;
 	float: right;
 	margin-top: 10px;
@@ -3804,7 +3803,7 @@ a#user_menuma:hover {
 }
 
 .zhuanti_product_name {
-	height: 55px;
+	height: 80px;
 	width: 215px;
 	margin-top: 6px;
 	margin-right: auto;
@@ -4142,3 +4141,12 @@ table td{
 	margin-left: auto;
 	height: 240px;
 }
+.zhuanti_product_name h4 {
+	font-size: 12px;
+	color: #FFFFFF;
+	line-height: 22px;
+	width: 210px;
+	float: left;
+	margin-left: 2px;
+	margin-top: 8px;
+	background-color: #E60027;

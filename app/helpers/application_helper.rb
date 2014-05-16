@@ -43,4 +43,9 @@ module ApplicationHelper
     def get_rank_info
     	@good_sale_rank= MallSku.order("sale_count DESC").limit(5)
     end
+
+    def get_goods_qty (goods_id)
+      return @top1_goods_qty = MallInventory.select(" ifnull(sum(inventory_qty),0) as sum_qty").where("mall_sku_id in (select id from mall_skus where mall_good_id="+goods_id.to_s+")")[0].sum_qty;
+    end
+
 end

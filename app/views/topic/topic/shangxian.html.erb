@@ -25,220 +25,54 @@
   <a id="f0" name="f0"></a>
   <div class="zhuanti_head2"> 
     <img src="<%=asset_path('topic/zhuanti_toutu_r3_c1.jpg')%>"/>
-    <h1>享车网5月16日10:00开抢 补贴折扣区</h1>
+    <h1>
+      <%if @mall_today_info.present? %>   
+        <%=@mall_today_info.title%>
+      <%end%>
+    </h1>
   </div>
 
-<div class="butiecp" style="background-image: url(<%= asset_path ('topic/zhuanti_toutu_r4_c1.jpg') %>);">
+  <div class="butiecp" style="background-image: url(<%= asset_path ('topic/zhuanti_toutu_r4_c1.jpg') %>);">
     <!--good_1-->
-    <div class="bt_product">
-      <%if @top1_goods_qty[0].sum_qty <= 0%>
-        <a href="/goods/72" target="_blank">
-          <div class="bt_soldout">
-            <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
-          </div>
-        </a>
-      <%end%>
+    <% @mall_blocks.each do |block| %>
+      <div class="bt_product">
+        <%if get_goods_qty(block.text3.split(",")[0]) <= 0%>
+          <a href="/goods/<%=block.text5.split(',')[0]%>" target="_blank">
+            <div class="bt_soldout">
+              <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
+            </div>
+          </a>
+        <%end%>
       <div class="bt_pic">
-        <a href="/goods/72" target="_blank">
-          <img class="lazy" src="<%=asset_path('grey.gif')%>" data-original="<%=asset_path('topic/butie_lanying.jpg')%>" width="317" height="280" />
+        <a href="/goods/<%=block.text5.split(',')[0]%>" target="_blank">
+          <img class="lazy" src="<%=asset_path('grey.gif')%>" data-original="<%=block.img_url%>" width="317" height="280" />
         </a>
       </div>
       <div class="btcp_right">
         <h1><img src="<%=asset_path('topic/butiecp_r1_c4.jpg')%>" /></h1>
-        <h2>进口精工打蜡</h2>
-        <h2>高效洗车</h2>
-        <h2>免工时费</h2>
-        <h3>今日限前<strong>5</strong>名<br />
-        享车网补贴<strong>200</strong>元</h3>
-        <h4>区域：高新</h4>
-        <h4><strong><a href="/vendors/2" target="_blank" class="Orange">兰鹰汽修高新店</a></strong></h4>
+        <h2><%=block.text1.split(",")[0]%></h2>
+        <h2><%=block.text1.split(",")[1]%></h2>
+        <h2><%=block.text1.split(",")[2]%></h2>
+        <h3>今日限前<strong><%=block.text3.split(",")[0]%></strong>名<br />
+        享车网补贴<strong><%=block.text3.split(",")[1]%></strong>元</h3>
+        <h4>区域：<%=block.text5.split(",")[1]%></h4>
+        <h4><strong><a href="/vendors/<%=block.text5.split(",")[3]%>" target="_blank" class="Orange"><%=block.text5.split(",")[2]%></a></strong></h4>
       </div>
       <div class="bt_name" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c1.jpg') %>);">
-        <h1 class="shopping_totalwz20">美光水晶打蜡套餐</h1>
-        <h2>限<span class="zhuanti_16green">5</span>名  今日还剩：<span class="zhuanti_16green"><%=@top1_goods_qty[0].sum_qty%></span>名</h2>
+        <h1 class="shopping_totalwz20"><%=block.title%></h1>
+        <h2>限<span class="zhuanti_16green">5</span>名  今日还剩：<span class="zhuanti_16green"><%=get_goods_qty(block.text3.split(",")[0])%></span>名</h2>
       </div>
       <div class="btcp_price" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c2.jpg') %>);">
-      <h1>原价：  ￥100</h1>
-      <h2>补贴价 ￥<span class="zhuanti_35"><strong>30</strong></span><span class="zhuanti_20"><strong>.0</strong></span></h2>
+        <h1>原价：  ￥<%=block.text4.split(",")[0]%></h1>
+        <h2>补贴价 ￥<span class="zhuanti_35"><strong><%=block.text4.split(",")[1]%></strong></span><span class="zhuanti_20"><strong>.0</strong></span></h2>
+        </div>
       </div>
-    </div>
-
-
-    <!--good_2-->
-    <div class="bt_product">
-      <%if @top2_goods_qty[0].sum_qty <= 0%>
-        <a href="/goods/71" target="_blank">
-          <div class="bt_soldout">
-            <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
-          </div>
-        </a>
-      <%end%>
-      <div class="bt_pic">
-        <a href="/goods/71" target="_blank">
-          <img class="lazy" src="<%=asset_path('grey.gif')%>" data-original="<%=asset_path('topic/butie16_r22_c9.jpg')%>" width="317" height="280" />
-        </a>
-      </div>
-      <div class="btcp_right">
-        <h1><img src="<%=asset_path('topic/butiecp_r1_c4.jpg')%>" /></h1>
-        <h2>高效洗车</h2>
-        <h2>皮革护理</h2>
-        <h2>精工打蜡</h2>
-        <h3>今日限前<strong>5</strong>名<br />
-        享车网补贴<strong>182</strong>元</h3>
-        <h4>区域：城北</h4>
-        <h4><strong><a href="/vendors/4" target="_blank" class="Orange">车能靓汽车养护会所</a></strong></h4>
-      </div>
-      <div class="bt_name" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c1.jpg') %>);">
-        <h1 class="shopping_totalwz20">精洗打蜡套餐</h1>
-        <h2>限<span class="zhuanti_16green">5</span>名  今日还剩：<span class="zhuanti_16green"><%=@top2_goods_qty[0].sum_qty%></span>名</h2>
-      </div>
-      <div class="btcp_price" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c2.jpg') %>);">
-      <h1>原价： ￥ 230.00 </h1>
-      <h2>补贴价 ￥<span class="zhuanti_35"><strong>48</strong></span><span class="zhuanti_20"><strong>.0</strong></span></h2>
-      </div>
-    </div>
-
-    
-    <!--good_3-->
-    <div class="bt_product">
-      <%if @top3_goods_qty[0].sum_qty <= 0%>
-        <a href="/goods/68" target="_blank">
-          <div class="bt_soldout">
-            <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
-          </div>
-        </a>
-      <%end%>
-      <div class="bt_pic">
-        <a href="/goods/68" target="_blank">
-          <img class="lazy" src="<%=asset_path('grey.gif')%>" data-original="<%=asset_path('topic/butie_chenengl.jpg')%>" width="317" height="280" />
-        </a>
-      </div>
-      <div class="btcp_right">
-        <h1><img src="<%=asset_path('topic/butiecp_r1_c4.jpg')%>" /></h1>
-        <h2>开能车蜡</h2>
-        <h2>高效洗车</h2>
-        <h2>免工时费</h2>
-        <h3>今日限前<strong>5</strong>名<br />
-        享车网补贴<strong>250</strong>元</h3>
-        <h4>区域：城北</h4>
-        <h4><strong><a href="/vendors/4" target="_blank" class="Orange">车能靓汽车会所</a></strong></h4>
-      </div>
-      <div class="bt_name" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c1.jpg') %>);">
-        <h1 class="shopping_totalwz20">开能打蜡套餐</h1>
-        <h2>限<span class="zhuanti_16green">5</span>名  今日还剩：<span class="zhuanti_16green"><%=@top3_goods_qty[0].sum_qty%></span>名</h2>
-      </div>
-      <div class="btcp_price" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c2.jpg') %>);">
-      <h1>原价： ￥ 230.00 </h1>
-      <h2>补贴价 ￥<span class="zhuanti_35"><strong>38</strong></span><span class="zhuanti_20"><strong>.0</strong></span></h2>
-      </div>
-    </div>
-
-
-    <!--good_4-->
-    <div class="bt_product">
-      <%if @top4_goods_qty[0].sum_qty <= 0%>
-        <a href="/goods/61" target="_blank">
-          <div class="bt_soldout">
-            <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
-          </div>
-        </a>
-      <%end%>
-      <div class="bt_pic">
-        <a href="/goods/61" target="_blank">
-          <img class="lazy" src="<%=asset_path('grey.gif')%>" data-original="<%=asset_path('topic/butie16_r24_c1.jpg')%>" width="317" height="280" />
-        </a>
-      </div>
-      <div class="btcp_right">
-        <h1><img src="<%=asset_path('topic/butiecp_r1_c4.jpg')%>" /></h1>
-        <h2>金嘉护机油</h2>
-        <h2>曼牌机滤</h2>
-        <h2>高效洗车</h2>
-        <h3>今日限前<strong>1</strong>名<br />
-        享车网补贴<strong>225</strong>元</h3>
-        <h4>区域：浐灞</h4>
-        <h4><strong><a href="/vendors/6" target="_blank" class="Orange">星源汽修</a></strong></h4>
-      </div>
-      <div class="bt_name" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c1.jpg') %>);">
-        <h1 class="shopping_totalwz20">金嘉护保养套餐</h1>
-        <h2>限<span class="zhuanti_16green">1</span>名  今日还剩：<span class="zhuanti_16green"><%=@top4_goods_qty[0].sum_qty%></span>名</h2>
-      </div>
-      <div class="btcp_price" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c2.jpg') %>);">
-      <h1>原价： ￥ 390.00 </h1>
-      <h2>补贴价 ￥<span class="zhuanti_35"><strong>165</strong></span><span class="zhuanti_20"><strong>.0</strong></span></h2>
-      </div>
-    </div>
-
-
-    <!--good_5-->
-    <div class="bt_product">
-      <%if @top5_goods_qty[0].sum_qty <= 0%>
-        <a href="/goods/64" target="_blank">
-          <div class="bt_soldout">
-            <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
-          </div>
-        </a>
-      <%end%>
-      <div class="bt_pic">
-        <a href="/goods/64" target="_blank">
-          <img class="lazy" src="<%=asset_path('grey.gif')%>" data-original="<%=asset_path('topic/butie16_r1_c8.jpg')%>" width="317" height="280" />
-        </a>
-      </div>
-      <div class="btcp_right">
-        <h1><img src="<%=asset_path('topic/butiecp_r1_c4.jpg')%>" /></h1>
-        <h2>施工专业</h2>
-        <h2>细心周到</h2>
-        <h2>免工时费</h2>
-        <h3>今日限前<strong>5</strong>名<br />
-        享车网补贴<strong>13</strong>元</h3>
-        <h4>区域：高新</h4>
-        <h4><strong><a href="/vendors/15" target="_blank" class="Orange">盛和养车行</a></strong></h4>
-      </div>
-      <div class="bt_name" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c1.jpg') %>);">
-        <h1 class="shopping_totalwz20">动平衡调试</h1>
-        <h2>限<span class="zhuanti_16green">5</span>名  今日还剩：<span class="zhuanti_16green"><%=@top5_goods_qty[0].sum_qty%></span>名</h2>
-      </div>
-      <div class="btcp_price" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c2.jpg') %>);">
-      <h1>原价： ￥ 20.00 </h1>
-      <h2>补贴价 ￥<span class="zhuanti_35"><strong>7</strong></span><span class="zhuanti_20"><strong>.0</strong></span></h2>
-      </div>
-    </div>
-
-
-    <!--good_6-->
-    <div class="bt_product">
-      <%if @top6_goods_qty[0].sum_qty <= 0%>
-        <a href="/goods/74" target="_blank">
-          <div class="bt_soldout">
-            <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
-          </div>
-        </a>
-      <%end%>
-      <div class="bt_pic">
-        <a href="/goods/74" target="_blank">
-          <img class="lazy" src="<%=asset_path('grey.gif')%>" data-original="<%=asset_path('topic/butie16_r22_c2.jpg')%>" width="317" height="280" />
-        </a>
-      </div>
-      <div class="btcp_right">
-        <h1><img src="<%=asset_path('topic/butiecp_r1_c4.jpg')%>" /></h1>
-        <h2>去除铅块</h2>
-        <h2>防止跑偏</h2>
-        <h2>售后保证</h2>
-        <h3>今日限前<strong>5</strong>名<br />
-        享车网补贴<strong>20</strong>元</h3>
-        <h4>区域：城东</h4>
-        <h4><strong><a href="/vendors/22" target="_blank" class="Orange">极致动力汽车养护会所</a></strong></h4>
-      </div>
-      <div class="bt_name" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c1.jpg') %>);">
-        <h1 class="shopping_totalwz20">动平衡调试</h1>
-        <h2>限<span class="zhuanti_16green">5</span>名  今日还剩：<span class="zhuanti_16green"><%=@top6_goods_qty[0].sum_qty%></span>名</h2>
-      </div>
-      <div class="btcp_price" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c2.jpg') %>);">
-      <h1>原价： ￥ 25.00 </h1>
-      <h2>补贴价 ￥<span class="zhuanti_35"><strong>5</strong></span><span class="zhuanti_20"><strong>.0</strong></span></h2>
-      </div>
-    </div>
+    <% end %>
+  
   </div>
-  <div class="butie_yugao"><img src="<%=asset_path('topic/butie_yugao.jpg')%>" width="1048" height="240" /></div>
+  <div class="butie_yugao">
+    <img src="<%=@mall_today_info.img_url %>" width="1048" height="240" />
+  </div>
 <!-- 产品1 -->
 <a id="f1" name="f1"></a>
 <div class="zhuanti_products1" style="background-image: url(<%= asset_path ('topic/zhuanti14_04_r2_c2_r1_c1.jpg') %>)">

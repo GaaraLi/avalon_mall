@@ -17,7 +17,7 @@ class Topic::TopicController < ApplicationController
     @top5_goods_qty = MallInventory.select(" ifnull(sum(inventory_qty),0) as sum_qty").where("mall_sku_id in (80)");
 
     
-    @top6_goods_qty = MallInventory.select(" ifnull(sum(inventory_qty),0) as sum_qty").where("mall_sku_id in (89)");
+    @top6_goods_qty = MallInventory.select(" ifnull(sum(inventory_qty),0) as sum_qty").where("mall_sku_id in (95)");
 
   end
 end

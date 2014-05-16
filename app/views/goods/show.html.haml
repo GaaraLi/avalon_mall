@@ -47,7 +47,9 @@
           %strong.mall_good_price
             ￥
             =@good.mall_skus.first.customer_price
-          %span{:style=>"color:#999999; font-size:14px;"} (享车卡会员专享价格)
+          %span{:style=>"color:#999999; font-size:14px;"} (
+          %a{:href=>"/home/card" ,:target=>"_blank"}享车卡
+          会员专享价格)
         %h4
           %font{:style=>"float:left;"}
             规格：

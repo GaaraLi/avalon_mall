@@ -3970,14 +3970,7 @@ table td{
 .zhuanti_head1 {
 	background-repeat: no-repeat;
 }
-.zhuanti_head,.zhuanti_head1 {
-	height: 250px;
-	width: 1200px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-}
+
 .zhuanti_daohang {
 	line-height: 50px;
 	height: 40px;
@@ -4151,3 +4144,42 @@ table td{
 	margin-top: 8px;
 	background-color: #E60027;
 }
+
+.zhuanti_head2 {
+	background-repeat: no-repeat;
+}
+
+.zhuanti_head,.zhuanti_head1,.zhuanti_head2 {
+	height: 250px;
+	width: 1200px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+
+.zhuanti_head2 h1 {
+	margin-top: -35px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	font-size: 22px;
+	color: #FFFFFF;
+	font-weight: bold;
+	
+}
+
+
+.bt_soldout {
+	height: 280px;
+	width: 317px;
+	margin-top: 10px;
+	margin-left: 8px;
+	float: left;
+	-moz-opacity:0.8;
+	opacity: 0.8;
+	z-index:100;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+

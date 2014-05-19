@@ -45,7 +45,8 @@ module ApplicationHelper
     end
 
     def get_goods_qty (goods_id)
-      return @top1_goods_qty = MallInventory.select(" ifnull(sum(inventory_qty),0) as sum_qty").where("mall_sku_id in (select id from mall_skus where mall_good_id="+goods_id.to_s+")")[0].sum_qty;
+      @count = ActiveRecord::Base.connection.select("select  ifnull(sum(inventory_qty),0) as sum_qty from mall_inventories where mall_sku_id in (select id from mall_skus where mall_good_id="+goods_id.to_s+")")
+      return @count[0]["sum_qty"]
     end
 
 end

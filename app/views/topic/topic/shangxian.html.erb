@@ -60,7 +60,7 @@
       </div>
       <div class="bt_name" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c1.jpg') %>);">
         <h1 class="shopping_totalwz20"><%=block.title%></h1>
-        <h2>限<span class="zhuanti_16green">5</span>名  今日还剩：<span class="zhuanti_16green"><%=get_goods_qty(block.text5.split(",")[0])%></span>名</h2>
+        <h2>限<span class="zhuanti_16green"><%=block.text3.split(",")[0]%></span>名  今日还剩：<span class="zhuanti_16green"><%=get_goods_qty(block.text5.split(",")[0])%></span>名</h2>
       </div>
       <div class="btcp_price" style="background-image: url(<%= asset_path ('topic/butiecp_r4_c2.jpg') %>);">
         <h1>原价：  ￥<%=block.text4.split(",")[0]%></h1>

@@ -26,8 +26,8 @@
   <div class="zhuanti_head2"> 
     <img src="<%=asset_path('topic/zhuanti_toutu_r3_c1.jpg')%>"/>
     <h1>
-      <%if @mall_today_info.present? %>   
-        <%=@mall_today_info.title%>
+      <%if @mall_block_card.present? %>   
+        <%=@mall_block_card.title%>
       <%end%>
     </h1>
   </div>
@@ -45,7 +45,7 @@
         <h2>12次洗车</h2>
         <h2>消费返现</h2>
         <h2>两次体检</h2>
-        <h3>今日限前<strong>10</strong>名<br />
+        <h3>今日限前<strong><%=@mall_block_card.text3%></strong>名<br />
         享车网补贴<strong>30</strong>元</h3>
         <h4></h4>
         <h4><strong><a href="" target="_blank" class="Orange"></a></strong></h4>

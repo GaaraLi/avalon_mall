@@ -203,4 +203,8 @@ class HomeController < ApplicationController
       @nav_label_check= 3
   end
 
+  def card_168
+      @page_title="享车卡,特价168元"
+  end
+
 end

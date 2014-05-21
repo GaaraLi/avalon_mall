@@ -26,6 +26,7 @@ IxcMall::Application.routes.draw do
 
   get "home/search"
   get "home/card"
+  get "home/card_168"
   get "home/about_us"
   get "home/research_goods_by_category"
   root "home#index"

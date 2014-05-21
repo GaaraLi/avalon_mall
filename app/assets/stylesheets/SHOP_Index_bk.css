@@ -2876,21 +2876,94 @@ a#user_menuma:hover {
 	display: inline;
 }
 #card_pic_right{
-	float: left;
-	height: 949px;
-	width: 606px;
+	height: 900px;
+	width: 660px;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-bottom: 5px;
+	margin-left: auto;
 }
 #card_table_top{
 	float: left;
-	height: 158px;
-	width: 606px;
+	height: 143px;
+	width: 660px;
 }
 #card_table {
 	font-size: 14px;
 	font-weight: normal;
-	width: 606px;
+	width: 660px;
 	float: left;
-	height: 780px;
+	height: 770px;
+}
+
+/*汽车养护2014.05.20卡页面*/
+.yanghuka_box {
+	height: 3600px;
+	width: 100%;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-color: #FFFFFF;
+}
+.yanghukabj {
+	height: 430px;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-color: #2E99C7;
+}
+.yanghuka01 {
+	height: 450px;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-color: #FFFFFF;
+}
+.yanghuka02 {
+	height: 26px;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-color: #FFFFFF;
+}
+.yanghukabj h1 {
+	width: 1500px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	height: 26px;
+}
+.yanghukabj h2 {
+	width: 1500px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	height: auto;
+}
+.yanghuka03 {
+	width: 700px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 15px;
+	margin-left: auto;
+	height: 940px;
+	background-color: #F5EED6;
+	padding-top: 10px;
+}
+.yanghuka04 {
+	height: 300px;
+	background-color: #FFFFFF;
+	width: 100%;
+	margin-top: 20px;
 }
 /*2014-3-7新加样式 商城合作车行列表*/
 
@@ -4169,7 +4242,6 @@ table td{
 	
 }
 
-
 .bt_soldout {
 	height: 280px;
 	width: 317px;
@@ -4181,5 +4253,23 @@ table td{
 	z-index:100;
 	background-repeat: no-repeat;
 	position: absolute;
+}
+
+.bt_presell {
+	height: 280px;
+	width: 317px;
+	margin-top: 10px;
+	margin-left: 8px;
+	float: left;
+	-moz-opacity:0.5;
+	opacity: 0.9;
+	z-index:100;
+	background-image: url(../images/yushou.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	color: #FF3300;
+	line-height: 250px;
+	font-size: 25px;
+	font-weight: bold;
 }
 

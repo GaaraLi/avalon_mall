@@ -74,18 +74,19 @@
       <div class="bt_product">
         <%if block.text2.split(",")[1].present?%>
           <%if Time.parse(block.text2.split(",")[1]) > Time.now%>
-            <a href="/goods/<%=block.text5.split(',')[0]%>" target="_blank" style="background-image: url(<%= asset_path ('topic/yushou.png') %>);"> 
-             <div class="bt_presell" ><%=block.text2.split(',')[0]%></div>
+            <a href="/goods/<%=block.text5.split(',')[0]%>" target="_blank" > 
+             <div style="background-image: url(<%= asset_path ('topic/yushou.png') %>);" class="bt_presell" ><%=block.text2.split(',')[0]%></div>
             </a>
           <%end%>
         <%end%>
-
-        <%if get_goods_qty(block.text5.split(",")[0]) <= 0 && Time.parse(block.text2.split(",")[1]) <= Time.now %>
-          <a href="/goods/<%=block.text5.split(',')[0]%>" target="_blank">
-            <div class="bt_soldout">
-              <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
-            </div>
-          </a>
+        <%if block.text2.split(",")[1].present?%>
+          <%if get_goods_qty(block.text5.split(",")[0]) <= 0 && Time.parse(block.text2.split(",")[1]) <= Time.now %>
+            <a href="/goods/<%=block.text5.split(',')[0]%>" target="_blank">
+              <div class="bt_soldout">
+                <img src="<%= asset_path('topic/sold_out.png')%>"> </img>
+              </div>
+            </a>
+          <%end%>
         <%end%>
         
         <div class="bt_pic">

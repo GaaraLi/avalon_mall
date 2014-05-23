@@ -5,4 +5,8 @@ class Topic::TopicController < ApplicationController
     @mall_block_card = MallBlock.where("id = 86").first;
     @mall_today_info = MallBlock.where("id = 88").first;
   end
+
+  def tyx
+  	
+  end
 end

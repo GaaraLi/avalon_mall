@@ -6,7 +6,7 @@ class Topic::TopicController < ApplicationController
     @mall_today_info = MallBlock.where("id = 88").first;
   end
 
-  def tyx
+  def tcx
   	
   end
 end

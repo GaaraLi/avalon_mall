@@ -16,7 +16,7 @@ IxcMall::Application.routes.draw do
 
   namespace :topic do
     get 'shangxian' => 'topic#shangxian'
-    get 'tyx' => 'topic#tyx'
+    get 'tcx' => 'topic#tcx'
   end
 
   get "vendors/index"

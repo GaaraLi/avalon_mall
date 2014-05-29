@@ -455,5 +455,4 @@ class CustomersController < ApplicationController
       redirect_to customer_center_path
     end
   end
-
 end

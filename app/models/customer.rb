@@ -11,6 +11,7 @@ class Customer <ActiveRecord::Base
   has_many :transactions
   has_many :mall_shopping_cars
   has_many :extra_consumption_records
+  has_many :mall_score_records
 
   def get_price( g)
     if self.card.status=="actived" ||self.card.status=="paid"

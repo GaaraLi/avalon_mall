@@ -1,1 +1,8 @@
- =yield
+!!!
+%html
+  %head
+    = stylesheet_link_tag    "application"
+  %body
+    =yield
+    =render "home/partial/footer"
+    =render "home/partial/return_top"

@@ -143,6 +143,7 @@ class CustomersController < ApplicationController
         @mall_order_lines= @order.mall_order_lines if (@order!= nil)
         new_exchange_code_line( @mall_order_lines,@order)
         do_order_repaid(@current_customer, @order) if @current_customer.card
+        send_confirm_message(@order);
       end
       redirect_to "/center/order"
     else
@@ -160,6 +161,7 @@ class CustomersController < ApplicationController
         @mall_order_lines= @order.mall_order_lines if (@order!= nil)
         new_exchange_code_line( @mall_order_lines,@order)
         do_order_repaid(@current_customer, @order) if @current_customer.card
+        send_confirm_message(@order);
       end
       render :text=>'success'
     else
@@ -332,6 +334,7 @@ class CustomersController < ApplicationController
   end
 
   def add_in_shopping_car
+    puts "----------------------------------------------------"
     if !current_customer.present?
       render :json=>0
       return; 
@@ -453,6 +456,15 @@ class CustomersController < ApplicationController
     if @order.nil?
       flash[:error] = "找不到订单 #{params[:extra_common_param]}，请联系客服"
       redirect_to customer_center_path
+    end
+  end
+
+  def send_confirm_message(order)
+    @mecs = MallExchange.where("mall_order_line_id in ( select id from mall_order_lines where mall_order_id = '"+order.id.to_s+"')");
+    @mecs.each do |mec|
+      @goods_title = mec.mall_order_line.mall_sku.mall_good.title[0,20]; 
+      confirm_msg = "成功购买"+@goods_title+"，兑换码："+mec.exchange_code_number+"，请在预约时间或30日内到"+mec.mall_order_line.vendor.name+"进行服务";
+      Smser.send_message(order.input_phone, confirm_msg)
     end
   end
 end

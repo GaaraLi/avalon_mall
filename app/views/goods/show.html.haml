@@ -85,7 +85,7 @@
                     %input#input_hidden_sku{:type=>"hidden",:name=>"good_sku", :value=>"#{@good.mall_skus.first.id}"}
                     =submit_tag "",:style=>"background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; height:31px; cursor:pointer; float:left;", :title=>"立即购买",:id=>"goods_buymenu"
                   - if @is_limitation_buy <= 0
-                    %a#goods_buycart{:href=>"", :title=>"加入购物车",:style=>" background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:50px; float:left; "}
+                    %a#goods_buycart{:title=>"加入购物车",:style=>"cursor:pointer;background-image: url('"+asset_path("test/goods_bodyBG2.png")+"'); width:160px; margin-left:50px; float:left; "}
                
             %tr
               %td(colspan="5")
@@ -177,13 +177,12 @@
       }
       var quantity= $("#quantity_input").attr('value');
       var mall_sku_id=$("#input_hidden_sku").attr('value');
-      var RequestUrl= "/customers/add_in_shopping_car";
+  
       $.ajax({
-        url: RequestUrl,
-        contentType:"application/json; charset=utf-8",
-        dataType:"json",
+        url:'/customers/add_in_shopping_car',type:'get',
         data:"quantity="+quantity+"&mall_sku_id="+mall_sku_id,
-        success: function(json){
+        dataType:'text',
+        success:function(json){
           if(1==json){
             alert("成功保存到购物车！");
             return;
@@ -199,8 +198,8 @@
             return;
           }
         },
-        error: function(){
-          alert("保存到购物车失败,请先登录");
+        error:function(){
+          window.location.href="http://www.ixiangche.com/customers/login"
         }
       });
     });

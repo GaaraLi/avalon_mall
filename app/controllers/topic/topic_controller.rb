@@ -9,4 +9,8 @@ class Topic::TopicController < ApplicationController
   def tcx
   	
   end
+
+  def june_act
+  	render :layout => 'empty' 
+  end
 end

@@ -7,7 +7,6 @@ class Topic::TopicController < ApplicationController
   end
 
   def tcx
-  	
   end
 
   def june_act
